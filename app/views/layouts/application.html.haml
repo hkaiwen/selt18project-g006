@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %title Power Words
+    = csrf_meta_tags
+
+  %body
+    %h1.title Power Words
+    #main
+      - if flash[:notice]
+        #notice.flashMessage= flash[:notice]
+      - elsif flash[:warning]
+        #warning.flashMessage= flash[:warning]
+      = yield
