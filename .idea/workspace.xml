@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09b6a675-cd7c-4a8d-89d5-6a6161d7ad74" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/index.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/landing.html.haml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.haml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/selt18project-g006.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/selt18project-g006.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> parent of a9f8ca7... replace the layouts with haml file
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -110,6 +115,7 @@
           <entry key="Scratch" value="1" />
         </counts>
       </usages-collector>
+<<<<<<< HEAD
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="haml" value="29" />
@@ -122,6 +128,8 @@
           <entry key="Ruby" value="9" />
         </counts>
       </usages-collector>
+=======
+>>>>>>> parent of a9f8ca7... replace the layouts with haml file
     </session>
   </component>
   <component name="FileEditorManager">
@@ -136,12 +144,17 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
               <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
             </state>
           </provider>
+=======
+        <entry file="file://$PROJECT_DIR$/db/migrate/20181022222808_create_questions.rb">
+          <provider selected="true" editor-type-id="text-editor" />
+>>>>>>> parent of a9f8ca7... replace the layouts with haml file
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -158,9 +171,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Gemfile" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/db/migrate/20181022222808_create_questions.rb" />
         <option value="$PROJECT_DIR$/app/views/landing.html.haml" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.haml" />
+=======
+>>>>>>> parent of a9f8ca7... replace the layouts with haml file
       </list>
     </option>
   </component>
@@ -214,7 +230,6 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -246,17 +261,25 @@
       <option name="presentableId" value="Default" />
       <updated>1540240720129</updated>
       <workItem from="1540240721593" duration="1697000" />
+<<<<<<< HEAD
       <workItem from="1540247453685" duration="1752000" />
+=======
+      <workItem from="1540247453685" duration="480000" />
+>>>>>>> parent of a9f8ca7... replace the layouts with haml file
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="4130000" />
+=======
+    <option name="totallyTimeSpent" value="2858000" />
+>>>>>>> parent of a9f8ca7... replace the layouts with haml file
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Console" order="0" weight="0.3293124" />
@@ -276,7 +299,11 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+<<<<<<< HEAD
       <window_info anchor="right" id="Database" order="3" weight="0.3297568" />
+=======
+      <window_info anchor="right" id="Database" order="3" />
+>>>>>>> parent of a9f8ca7... replace the layouts with haml file
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,6 +344,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/views/landing.html.haml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -326,6 +354,10 @@
           <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
         </state>
       </provider>
+=======
+    <entry file="file://$PROJECT_DIR$/db/migrate/20181022222808_create_questions.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+>>>>>>> parent of a9f8ca7... replace the layouts with haml file
     </entry>
   </component>
 </project>
