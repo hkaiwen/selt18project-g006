@@ -10,4 +10,5 @@ end
 def new
   #empty method
 end
+
 end
