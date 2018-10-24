@@ -54,4 +54,5 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   root :to => "welcome#landing"
+  resources :questions, only: [:index]
 end
