@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :questions
-  root :to => redirect('/questions')
+  # resources :questions
+  # root :to => redirect('/questions')
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -56,5 +57,6 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   root :to => "welcome#landing"
-  resources :questions, only: [:index]
+  resources :questions
+  match '/verifyanswer', to: 'questions#submitAnswer', via: :post
 end
