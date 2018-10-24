@@ -52,5 +52,5 @@ questions = [
 ]
 
 questions.each do |question|
-  CreateQuestions.change!(question)
+  Question.create!(question)
 end
