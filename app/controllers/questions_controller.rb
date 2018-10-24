@@ -1,5 +1,9 @@
 class QuestionsController < ApplicationController
 
+  def index
+
+  end
+
   def getStarted
     @question_array = []
     @question = Question.select(:questions).first
