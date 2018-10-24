@@ -36,5 +36,3 @@ bower.json
 .byebug_history
  # Ignore node_modules
 node_modules/
-
-.idea/
