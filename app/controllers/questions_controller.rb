@@ -17,7 +17,7 @@ class QuestionsController < ApplicationController
     if @checking_array.all? {|a| a.nil?}
       flash[:notice] = 'Please select an answer'
     else
-      Question.verify_answer(@checking_array)
+      @reply_array = Question.verify_answer(@checking_array)
     end
     redirect_to questions_path
   end

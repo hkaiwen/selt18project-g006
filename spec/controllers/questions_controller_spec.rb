@@ -8,7 +8,13 @@ describe QuestionsController do
       expect(Question).to receive(:verify_answer).with(@checking_array)
       post :submit_answer, {:question => 'pragmatic means', :optradio => 'alterable' }
     end
-    it 'should call the appropriate model method to verify answer'
+    it 'should call the appropriate model method to verify answer' do
+      @checking_array = ['pragmatic means', 'alterable']
+      fake_results = ['correct', 'alterable', 'To describe a person or a solution that takes a realistic approach,
+  consider the adjective pragmatic.']
+      expect(Question).to receive(:verify_answer).with(@checking_array).and_return(fake_results)
+      post :submit_answer, { :question => 'pragmatic means', :optradio => 'alterable'}
+    end
     it 'should render index template' do
       post :submit_answer, { :question => 'pragmatic means', :optradio => 'alterable'}
       expect(response).to redirect_to('/questions')
