@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Question < ActiveRecord::Base
   def self.create_question!(question, answer, option2, option3, option4, explanation)
     @question = question

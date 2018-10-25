@@ -27,17 +27,6 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="development.sqlite3" type="feb32156:DbDataSourceImpl" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="development.sqlite3" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="development.sqlite3" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
-      </path>
     </expand>
     <select />
   </component>
@@ -45,6 +34,7 @@
     <session id="1915493473">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -52,14 +42,18 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="Gemfile" value="2" />
+          <entry key="generators" value="1" />
           <entry key="gitignore" value="1" />
+          <entry key="rakeTasks" value="1" />
           <entry key="rb" value="1" />
+          <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="PLAIN_TEXT" value="3" />
           <entry key="Ruby" value="3" />
+          <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -157,25 +151,25 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/questions_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/app/views/welcome/landing.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
               <caret line="12" selection-start-line="10" selection-start-column="4" selection-end-line="12" />
+=======
+
+>>>>>>> 65928447bf05364ebb85cf31a2b7d7f6950dfe1f
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/question.css">
           <provider selected="true" editor-type-id="text-editor">
@@ -217,6 +211,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="527">
               <caret line="47" selection-start-line="47" selection-end-line="47" />
+=======
+
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.idea/.generators">
+          <provider selected="true" editor-type-id="text-editor">
+
+>>>>>>> 65928447bf05364ebb85cf31a2b7d7f6950dfe1f
             </state>
           </provider>
         </entry>
@@ -257,11 +260,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="5" />
-    <option name="y" value="23" />
-    <option name="width" value="1280" />
-    <option name="height" value="777" />
+
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -346,6 +345,7 @@
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
       <updated>1540493056450</updated>
+<<<<<<< HEAD
     </task>
     <task id="LOCAL-00002" summary="add notice to layout">
       <created>1540494611329</created>
@@ -379,6 +379,14 @@
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24248926" />
+=======
+
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+
+>>>>>>> 65928447bf05364ebb85cf31a2b7d7f6950dfe1f
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -391,13 +399,17 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49757674" visible="true" weight="0.27141133" />
+=======
+
+>>>>>>> 65928447bf05364ebb85cf31a2b7d7f6950dfe1f
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5024233" side_tool="true" weight="0.32894737" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.32894737" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" weight="0.32956383" />
+      <window_info anchor="right" id="Database" order="3" weight="0.3291789" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -434,12 +446,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+
         </state>
       </provider>
     </entry>
     <entry file="das://a202ef3f-ce36-42c9-bc74-309e3bfc326c/schema/main/table/questions" />
     <entry file="file://$PROJECT_DIR$/.idea/selt18project-g006.iml">
       <provider selected="true" editor-type-id="text-editor">
+
         <state relative-caret-position="952">
           <caret line="113" selection-start-line="113" selection-end-line="113" />
         </state>
@@ -460,6 +474,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/question.rb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="195">
           <caret line="13" column="19" lean-forward="true" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
         </state>
@@ -469,6 +484,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="47" selection-start-line="47" selection-end-line="47" />
+=======
+        <state relative-caret-position="527">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/questions_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+
+        <state relative-caret-position="195">
+          <caret line="13" column="19" lean-forward="true" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+>>>>>>> 65928447bf05364ebb85cf31a2b7d7f6950dfe1f
         </state>
       </provider>
     </entry>
@@ -488,8 +516,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/welcome/landing.html.erb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="180">
           <caret line="12" selection-start-line="10" selection-start-column="4" selection-end-line="12" />
+=======
+<state>
+          <caret column="9" selection-start-column="9" selection-end-column="9" />
+>>>>>>> 65928447bf05364ebb85cf31a2b7d7f6950dfe1f
         </state>
       </provider>
     </entry>
@@ -502,6 +535,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="270">
           <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
         </state>
@@ -512,6 +546,11 @@
         <state relative-caret-position="195">
           <caret line="13" column="99" selection-start-line="13" selection-start-column="99" selection-end-line="13" selection-end-column="99" />
         </state>
+=======
+        <state relative-caret-position="210">
+          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+</state>
+>>>>>>> 65928447bf05364ebb85cf31a2b7d7f6950dfe1f
       </provider>
     </entry>
   </component>
