@@ -21,8 +21,7 @@ describe QuestionsController do
     end
     it 'should make the verified results to index template' do
       @checking_array = ['pragmatic means', 'alterable']
-      fake_results = ['correct', 'alterable', 'To describe a person or a solution that takes a realistic approach,
-  consider the adjective pragmatic.']
+      fake_results = [{:value => anything, :answer => anything, :description => anything}]
       expect(Question).to receive(:verify_answer).with(@checking_array).and_return(fake_results)
       post :submit_answer, { :question => 'pragmatic means', :optradio => 'alterable'}
       expect(assigns(:reply_array)).to eq(fake_results)
