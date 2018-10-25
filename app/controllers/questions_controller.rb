@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
   # method to call verify_answer model method with an array as parameter.
   # Array consists of question and the answer selected by the user.
   # Model method would in turm return if the answer is correct or wrong along with the right answer for both the
-  # cases and also 1/4th of the explanation to be displayed in an array or array of hashes
+  # cases and also 1/4th of the explanation to be displayed in an array  of hashes
   # PS: Am still working on the controller method(not yet fully implemented)
   def submit_answer
     @checking_array = []
