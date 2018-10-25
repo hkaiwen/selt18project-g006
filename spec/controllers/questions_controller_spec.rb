@@ -14,7 +14,7 @@ describe QuestionsController do
       expect(response).to redirect_to('/questions')
     end
     it 'should check for null values from view' do
-      post :submit_answer, { :question => '', :opt_radio => ''}
+      post :submit_answer, { :opt_radio => ''}
       expect(flash[:notice]).to be_present
       expect(response).to redirect_to('/questions')
     end
