@@ -18,7 +18,6 @@ class Question < ActiveRecord::Base
     else
       hash[:value] = 'incorrect'
     end
-
   end
-
 end
+
