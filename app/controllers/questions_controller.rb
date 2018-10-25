@@ -1,14 +1,18 @@
 class QuestionsController < ApplicationController
 def index
   @ques_opt  = []
-  @options   = Question.pluck(:answer,:option2,:option3,:option4).first.shuffle
-  @questions = Question.pluck(:questions).first
-  @ques_opt << @questions
+  @questions = Question.pluck(:questions,:answer,:option2,:option3,:option4).sample
+  @options = @questions.slice(1..4).shuffle
+  @ques_opt << @questions[0]
   @ques_opt << @options
+  @ques_opt.flatten!
 end
 
 def new
   #empty method
 end
 
+def show
+@explain = Question.where(questions: params).pluck('explanation')
+end
 end
