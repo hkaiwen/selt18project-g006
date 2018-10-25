@@ -1,13 +1,13 @@
 <div class="container">
   <div id="question">
-    <h1>Store</h1>
+    <h1><%= @ques_opt[0] %></h1>
   </div>
   <%= form_tag verifyanswer_path, :method => :post%>
   <ul>
-    <li><input type="radio" name="optradio">shop</li>
-    <li><input type="radio" name="optradio">car</li>
-    <li><input type="radio" name="optradio">pen</li>
-    <li><input type="radio" name="optradio">dog</li>
+    <li><input type="radio" name="optradio"><%= @ques_opt[1] %></li>
+    <li><input type="radio" name="optradio"><%= @ques_opt[2] %></li>
+    <li><input type="radio" name="optradio"><%= @ques_opt[3] %></li>
+    <li><input type="radio" name="optradio"><%= @ques_opt[4] %></li>
   </ul>
   <div id="button_bar">
     <%= submit_tag "Sumbit", class: "btn btn-outline-secondary btn-sm" %>

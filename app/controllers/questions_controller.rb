@@ -25,7 +25,7 @@ class QuestionsController < ApplicationController
   def submit_answer
     @checking_array = []
     @question = params[:question]
-    @answer = params[:optradio]gi
+    @answer = params[:optradio]
     @checking_array << @question << @answer
     if @checking_array.all? {|a| a.nil?}
       flash[:notice] = 'Please select an answer'
