@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
 
   end
 
-  # method to call verifyAnswer model method
+  # method to call verify_answer model method
   def submit_answer
     @checking_array = []
     @question = params[:question]
