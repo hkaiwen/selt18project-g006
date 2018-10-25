@@ -13,6 +13,7 @@ def new
 end
 
 def show
-@explain = Question.where(questions: params).pluck('explanation')
+  @explain = Question.where(questions: params[:question]).pluck('explanation')
+  @new_explain = @explain[0].scan(/\.(.*)/)
 end
 end
