@@ -1,0 +1,25 @@
+.container {
+  width: 50%;
+}
+#question {
+  background-color: #2980b9;
+}
+
+#question h1 {
+  color: white;
+  margin-left: 10px;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  background: #fff;
+  height: 40px;
+  line-height: 40px;
+  color: #666;
+}
+li:nth-child(2n) {
+  background: #f7f7f7;
+}
