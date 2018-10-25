@@ -8,8 +8,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+    <% if flash[:notice] %>
+      <%= flash[:notice]%>
+    <% elsif flash[:warning]%>>
+      <%= flash[:warning]%>>
+    <% end%>
+    <%= yield %>
 
 </body>
 </html>
