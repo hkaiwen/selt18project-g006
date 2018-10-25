@@ -17,6 +17,9 @@ describe QuestionsController do
         post :submit_answer, { :question => 'pragmatic means', :optradio => 'alterable'}
       end
       it 'should render index template' do
+        @checking_array = ['pragmatic means', 'alterable']
+        fake_results = [{:value => anything, :answer => anything, :description => anything}]
+        expect(Question).to receive(:verify_answer).with(@checking_array).and_return(fake_results)
         post :submit_answer, { :question => 'pragmatic means', :optradio => 'alterable'}
         expect(response).to redirect_to('/questions')
       end
