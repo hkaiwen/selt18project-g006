@@ -12,9 +12,13 @@ class QuestionsController < ApplicationController
   def submit_answer
     @checking_array = []
     @question = params[:question]
-    @answer = params[:answer]
+    @answer = params[:optradio]
     @checking_array << @question << @answer
-    Question.verify_answer(@checking_array)
+    if @checking_array.blank?
+      flash[:notice] = 'Please select an answer'
+    else
+      Question.verify_answer(@checking_array)
+    end
     redirect_to questions_path
   end
 
