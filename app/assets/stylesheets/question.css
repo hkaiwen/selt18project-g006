@@ -29,3 +29,6 @@ input {
 li:nth-child(2n) {
   background: #f7f7f7;
 }
+#button_bar {
+  margin-top: 10px;
+}
