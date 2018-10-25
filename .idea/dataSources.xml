@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="selt18project-g006" uuid="b7228cd6-dba9-48f6-a7d3-cfb814b9e97f">
+    <data-source source="LOCAL" name="development.sqlite3" uuid="a202ef3f-ce36-42c9-bc74-309e3bfc326c">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
@@ -11,4 +11,5 @@
       </driver-properties>
     </data-source>
   </component>
+>>>>>>> 98e0116b4f8301637a76a87e3c4a1493b5a9c4d5
 </project>

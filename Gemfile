@@ -41,6 +41,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'launchy'
   gem 'rspec', '~>3.5'
+  gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'simplecov', :require=>false
   gem 'sqlite3'
