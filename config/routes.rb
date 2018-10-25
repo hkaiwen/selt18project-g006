@@ -58,5 +58,5 @@ Rails.application.routes.draw do
   #   end
   root :to => "welcome#landing"
   resources :questions
-  match '/verifyanswer', to: 'questions#submitAnswer', via: :post
+  match '/verifyanswer', to: 'questions#submit_answer', via: :post
 end
