@@ -2,11 +2,17 @@
   <div id="question">
     <h1>Store</h1>
   </div>
-
+  <%= form_tag verifyanswer_path, :method => :post%>
   <ul>
     <li><input type="radio" name="optradio">shop</li>
     <li><input type="radio" name="optradio">car</li>
     <li><input type="radio" name="optradio">pen</li>
     <li><input type="radio" name="optradio">dog</li>
   </ul>
+  <div id="button_bar">
+    <%= submit_tag "Sumbit", class: "btn btn-outline-secondary btn-sm" %>
+    <%= button_to "Next", questions_path, :method => :get, class: "btn btn-outline-secondary btn-sm" %>
+  </div>
+
+
 </div>
