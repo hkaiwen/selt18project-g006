@@ -36,7 +36,7 @@ class QuestionsController < ApplicationController
         if @reply_array == 'correct'
           flash[:notice] = 'Great!Your answer is correct'
         else
-           flash[:notice] = 'Sorry.This is the correct answer'
+           flash[:notice] = 'Sorry.This is the incorrect answer'
         end
 
     end
