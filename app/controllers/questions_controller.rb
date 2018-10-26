@@ -10,7 +10,6 @@ class QuestionsController < ApplicationController
     @ques_opt.flatten!
     @@count += 1
     if @@count > 10
-      puts "count: #{@@count}"
       flash[:notice] = 'Please sign up'
       render '/users/signup'
     end
