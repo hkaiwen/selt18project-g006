@@ -1,11 +1,19 @@
 class QuestionsController < ApplicationController
  def index
-  @ques_opt  = []
-  @questions = Question.pluck(:questions,:answer,:option2,:option3,:option4).sample
-  @options = @questions.slice(1..4).shuffle
-  @ques_opt << @questions[0]
-  @ques_opt << @options
-  @ques_opt.flatten!
+   @ques_opt  = []
+   if !params[:explanation].nil?
+     @exp=params[:explanation]
+     @ques_opt=params[:question]
+   else
+     @questions = Question.pluck(:questions,:answer,:option2,:option3,:option4).sample
+     @options = @questions.slice(1..4).shuffle
+     @ques_opt << @questions[0]
+     @ques_opt << @options
+     @ques_opt.flatten!
+   end
+
+
+
  end
 
  def new
@@ -26,7 +34,7 @@ class QuestionsController < ApplicationController
     @checking_array = []
     @question = params[:question]
     @answer = params[:optradio]
-    @checking_array << @question << @answer
+    @checking_array << @question[0] << @answer
     if @checking_array.any? {|a| a.nil?}
       flash[:notice] = 'Please select an answer'
     else
@@ -34,12 +42,14 @@ class QuestionsController < ApplicationController
 
         if @reply_array[:value] == 'correct'
           flash[:notice] = 'Great!Your answer is correct'
+          redirect_to questions_path
         else
            flash[:notice] = 'Sorry.This is the incorrect answer'
+           redirect_to questions_path request.params.merge({explanation: "this is explanation"})
         end
 
     end
-    redirect_to questions_path
+
 
   end
 end
