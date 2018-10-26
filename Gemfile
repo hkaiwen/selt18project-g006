@@ -41,7 +41,6 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'rspec', '~>3.5'
-  gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'guard-rspec'
   gem 'simplecov', :require=>false
