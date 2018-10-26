@@ -35,17 +35,15 @@ class QuestionsController < ApplicationController
       flash[:notice] = 'Please select an answer'
     else
       @reply_array = Question.verify_answer(@checking_array)
+      flash[:explain] = "Explanation: #{@reply_array[:description]}"
 
-        flash[:explain] = "Explaination: #{@reply_array[:description]}"
-
-        if @reply_array[:value] == 'correct'
-          flash[:notice] = 'Great!Your answer is correct'
-        else
-           flash[:notice] = 'Sorry. This is the incorrect answer'
-           flash[:message] = "Correct answer is: #{@reply_array[:answer]}"
-
-        end
+      if @reply_array[:value] == 'correct'
+        flash[:notice] = 'Great!Your answer is correct'
+      else
+        flash[:notice] = 'Sorry. This is the incorrect answer'
+        flash[:message] = "Correct answer is: #{@reply_array[:answer]}"
+      end
     end
-      redirect_to :back
+      redirect_to questions_path
   end
 end
