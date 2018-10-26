@@ -3,9 +3,13 @@ class QuestionsController < ApplicationController
   def index
    @ques_opt  = []
    @questions = Question.pluck(:questions,:answer,:option2,:option3,:option4).sample
-   if @@tot_ques.include?(@question[0])
-     @questions = Question.pluck(:questions,:answer,:option2,:option3,:option4).sample
-   else 
+   if  @@tot_ques.empty?
+     @@tot_ques << @questions[0]
+   elsif @@tot_ques.include?(@questions[0])
+     @new_question = Question.where.not(:questions => @@tot_ques).pluck(:questions,:answer,:option2,:option3,:option4)
+     @@tot_ques << @new_question[0][0]
+     @questions = @new_question[0]
+   else
      @@tot_ques << @questions[0]
    end
    @options = @questions.slice(1..4).shuffle
@@ -45,7 +49,7 @@ class QuestionsController < ApplicationController
         end
 
     end
-    redirect_to questions_path
+     redirect_to questions_path
 
   end
 end
