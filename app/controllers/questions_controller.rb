@@ -10,18 +10,16 @@ class QuestionsController < ApplicationController
   # cases and also 1/4th of the explanation to be displayed in an array  of hashes
   # PS: Am still working on the controller method(not yet fully implemented)
   #
-  #added a visited variable to checking_array
-  # need to add a condition to check @visited = 0/1 before displaying question
+
   def submit_answer
-    @visited = 0
+
     @checking_array = []
     @question = params[:question]
     @answer = params[:optradio]
-    @checking_array << @question << @answer << @visited
+    @checking_array << @question << @answer
     if @checking_array.all? {|a| a.nil?}
       flash[:notice] = 'Please select an answer'
     else
-      @checking_array[2] = 1
       @reply_array = Question.verify_answer(@checking_array)
       @reply_array.each do |hash|
         if hash[:value] == 'correct'
