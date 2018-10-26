@@ -12,11 +12,6 @@ questions = [
    medicine brings about a specific result is its efficacy. You might not like to eat it, but you cant question the
    efficacy of broccoli as a health benefit.'},
 
-
-  {:questions => 'pragmatic means:', :answer => 'alterable', :option2 => 'realistic', :option3 => 'relaxing',
-   :option4 => 'domesticated', :explanation => 'To describe a person or a solution that takes a realistic approach,
-  consider the adjective pragmatic. The four-year-old who wants a unicorn for her birthday isnt being very pragmatic.'},
-
   {:questions => 'transgression means:', :answer => 'violation', :option2 => 'compression', :option3 => 'persuasion',
    :option4 => 'exemption', :explanation => 'A transgression is something that is against a command or law. Whether you
    are cheating on a test, or cheating on a spouse, you are committing transgressions that are not easily forgiven.'},
@@ -39,12 +34,12 @@ questions = [
    :explanation => 'If you adulterate something, you mess it up. You may not want to adulterate the beauty of freshly
   fallen snow by shoveling it, but how else are you going to get to work?'},
 
-  {:questions => 'gregarious means:', :answer => 'rustic', :option2 => 'solemn', :option3 => 'outgoing',
+  {:questions => 'gregarious means:', :answer => 'outgoing', :option2 => 'solemn', :option3 => 'rustic',
    :option4 => 'frequent', :explanation => 'If you know someone whos outgoing, sociable, and fond of the company of
     others, you might want to call her gregarious.'},
 
-  {:questions => 'mitigated means:', :answer => 'described in vivid detail', :option2 => 'enlarged or increased',
-   :option3 => 'made less severe or harsh', :option4 => 'caused to become widely known',
+  {:questions => 'mitigated means:', :answer => 'made less severe or harsh', :option2 => 'enlarged or increased',
+   :option3 => 'described in vivid detail', :option4 => 'caused to become widely known',
    :explanation => 'Choose the verb mitigate when something lessens the unpleasantness of a situation. You can mitigate
    your parents anger by telling them you were late to dinner because you were helping your elderly neighbor.'},
 
