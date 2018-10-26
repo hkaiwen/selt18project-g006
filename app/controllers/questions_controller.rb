@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+
+  @@count = 0
   def index
     @ques_opt  = []
     @questions = Question.pluck(:questions,:answer,:option2,:option3,:option4).sample
@@ -6,6 +8,12 @@ class QuestionsController < ApplicationController
     @ques_opt << @questions[0]
     @ques_opt << @options
     @ques_opt.flatten!
+    @@count += 1
+    if @@count > 10
+      puts "count: #{@@count}"
+      flash[:notice] = 'Please sign up'
+      render '/users/signup'
+    end
   end
 
   def new
@@ -26,7 +34,6 @@ class QuestionsController < ApplicationController
   #if @reply_array == 'correct'
 
   def submit_answer
-
     @checking_array = []
     @question = params[:question]
     @answer = params[:optradio]
