@@ -27,6 +27,5 @@ class QuestionsController < ApplicationController
       end
     end
     redirect_to questions_path
-
   end
 end
