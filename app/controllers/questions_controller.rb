@@ -26,15 +26,13 @@ class QuestionsController < ApplicationController
       flash[:notice] = 'Please select an answer'
     else
       @reply_array = Question.verify_answer(@checking_array)
-      @reply_array.each do |hash|
-        if hash.value == 'correct'
+        if @reply_array[:value] == 'correct'
           puts 'inside if'
           flash[:notice] = 'Great!Your answer is correct'
         else
           flash[:notice] = 'Sorry.This is the incorrect answer'
         end
-      end
     end
-    redirect_to questions_path
+      redirect_to :back
   end
 end
