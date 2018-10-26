@@ -31,7 +31,6 @@ class QuestionsController < ApplicationController
       flash[:notice] = 'Please select an answer'
     else
       @reply_array = Question.verify_answer(@checking_array)
-      puts @reply_array
 
         if @reply_array == 'correct'
           flash[:notice] = 'Great!Your answer is correct'
