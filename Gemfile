@@ -37,14 +37,13 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   #Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
   gem 'capybara'
+  gem 'guard-rspec'
   gem 'launchy'
   gem 'rspec', '~>3.5'
-  gem 'factory_bot_rails'
   gem 'rspec-rails'
-  gem 'guard-rspec'
   gem 'simplecov', :require=>false
+  gem 'sqlite3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
@@ -55,9 +54,9 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-expectations'
   gem 'cucumber-rails', :require=>false
   gem 'database_cleaner'
+  gem 'rspec-expectations'
 end
 
 group :production do
