@@ -6,7 +6,7 @@ class Question < ActiveRecord::Base
     @option3 = option3
     @option4 = option4
     @explanation = explanation
-    Question::create!(questions: question, option2: option2, option3: option3, option4: option4, explanation: explanation)
+    Question::create!(questions: question, answer: answer, option2: option2, option3: option3, option4: option4, explanation: explanation)
   end
 
   def self.verify_answer(checking_array)
