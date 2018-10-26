@@ -31,13 +31,14 @@ class QuestionsController < ApplicationController
       flash[:notice] = 'Please select an answer'
     else
       @reply_array = Question.verify_answer(@checking_array)
-      @reply_array.each do |hash|
-        if hash[:value] == 'correct'
+      puts @reply_array
+
+        if @reply_array == 'correct'
           flash[:notice] = 'Great!Your answer is correct'
         else
-           flash[:notice] = 'Sorry.This is the correct answer'
+           flash[:notice] = 'Sorry.This is the incorrect answer'
         end
-      end
+
     end
     redirect_to questions_path
 
