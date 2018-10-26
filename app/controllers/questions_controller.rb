@@ -17,7 +17,16 @@ class QuestionsController < ApplicationController
     @new_explain = @explain[0].scan(/\.(.*)/)
   end
 
+
+  # method to call verify_answer model method with an array as parameter.
+  # Array consists of question and the answer selected by the user.
+  # Model method would in turm return if the answer is correct or wrong along with the right answer for both the
+  # cases and also 1/4th of the explanation to be displayed in an array  of hashes
+  # PS: Am still working on the controller method(not yet fully implemented)
+  #if @reply_array == 'correct'
+
   def submit_answer
+
     @checking_array = []
     @question = params[:question]
     @answer = params[:optradio]
@@ -26,11 +35,15 @@ class QuestionsController < ApplicationController
       flash[:notice] = 'Please select an answer'
     else
       @reply_array = Question.verify_answer(@checking_array)
+
+        flash[:explain] = "Explaination: #{@reply_array[:description]}"
+
         if @reply_array[:value] == 'correct'
-          puts 'inside if'
           flash[:notice] = 'Great!Your answer is correct'
         else
-          flash[:notice] = 'Sorry.This is the incorrect answer'
+           flash[:notice] = 'Sorry. This is the incorrect answer'
+           flash[:message] = "Correct answer is: #{@reply_array[:answer]}"
+
         end
     end
       redirect_to :back
