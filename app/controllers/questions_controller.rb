@@ -27,12 +27,12 @@ class QuestionsController < ApplicationController
     @question = params[:question]
     @answer = params[:optradio]
     @checking_array << @question << @answer
-    if @checking_array.all? {|a| a.nil?}
+    if @checking_array.any? {|a| a.nil?}
       flash[:notice] = 'Please select an answer'
     else
       @reply_array = Question.verify_answer(@checking_array)
 
-        if @reply_array == 'correct'
+        if @reply_array[:value] == 'correct'
           flash[:notice] = 'Great!Your answer is correct'
         else
            flash[:notice] = 'Sorry.This is the incorrect answer'
