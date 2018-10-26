@@ -3,6 +3,7 @@
     <h1><%= @ques_opt[0] %></h1>
   </div>
   <%= form_tag verifyanswer_path, :method => :post%>
+  <%= hidden_field_tag "question", @ques_opt[0]%>
   <ul>
     <li><input type="radio" value="<%= @ques_opt[1] %>", name="optradio"><%= @ques_opt[1] %></li>
     <li><input type="radio" value="<%= @ques_opt[2] %>", name="optradio"><%= @ques_opt[2] %></li>
