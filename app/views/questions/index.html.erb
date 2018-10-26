@@ -1,18 +1,18 @@
 <div class="container">
   <div id="question">
-    <h1>Store</h1>
+    <h1><%= @ques_opt[0] %></h1>
   </div>
   <%= form_tag verifyanswer_path, :method => :post%>
+  <%= hidden_field_tag "question", @ques_opt[0]%>
   <ul>
-    <li><input type="radio" name="optradio">shop</li>
-    <li><input type="radio" name="optradio">car</li>
-    <li><input type="radio" name="optradio">pen</li>
-    <li><input type="radio" name="optradio">dog</li>
+    <li><input type="radio" value="<%= @ques_opt[1] %>", name="optradio"><%= @ques_opt[1] %></li>
+    <li><input type="radio" value="<%= @ques_opt[2] %>", name="optradio"><%= @ques_opt[2] %></li>
+    <li><input type="radio" value="<%= @ques_opt[3] %>", name="optradio"><%= @ques_opt[3] %></li>
+    <li><input type="radio" value="<%= @ques_opt[4] %>", name="optradio"><%= @ques_opt[4] %></li>
   </ul>
   <div id="button_bar">
     <%= submit_tag "Submit", class: "btn btn-outline-secondary btn-sm" %>
     <%= button_to "Next", questions_path, :method => :get, class: "btn btn-outline-secondary btn-sm" %>
   </div>
-
 
 </div>
