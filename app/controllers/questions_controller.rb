@@ -4,6 +4,7 @@ class QuestionsController < ApplicationController
   def index
     @ques_opt  = []
     @questions = Question.pluck(:questions,:answer,:option2,:option3,:option4).sample
+    puts "Questions: #{@questions}"
     @options = @questions.slice(1..4).shuffle
     @ques_opt << @questions[0]
     @ques_opt << @options
@@ -11,7 +12,7 @@ class QuestionsController < ApplicationController
     @@count += 1
     if @@count > 10
       flash[:notice] = 'Please sign up'
-      render '/users/signup'
+      render '/welcome/landing'
     end
   end
 

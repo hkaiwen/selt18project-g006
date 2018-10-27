@@ -2,6 +2,15 @@ require 'spec_helper'
 require 'rails_helper'
 
 describe QuestionsController do
+  describe 'GET index' do
+    it 'should alert for signup after count of 10 questions to display' do
+      @count = 10
+      @questions = ['efficacy means:', 'capacity or power to produce a desired result', 'the state of being restored to a former condition', 'good-natured tolerance of delay or incompetence', 'the act of concealing something from the public']
+      @options = @questions.slice(1..4)
+      get :index
+      expect(response).to redirect_to('/welcome/landing')
+    end
+  end
   describe 'verifying answer' do
     context 'valid entry' do
       before :each do
