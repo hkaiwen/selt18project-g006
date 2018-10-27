@@ -8,20 +8,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-    <% if flash[:message]%>
-      <div class="alert alert-success" role="alert">
-        <%= flash[:message]%>
-      </div>
-    <% end%>
-
-    <% if flash[:explain]%>
-       <div class="alert alert-light" role="alert">
-        <%= flash[:explain]%>
-       </div>
-    <% end%>
-
-
     <% if flash[:notice] %>
       <div class="alert alert-primary" role="alert">
         <%= flash[:notice]%>
