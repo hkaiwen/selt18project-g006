@@ -6,7 +6,8 @@ describe QuestionsController do
     it 'should alert for signup after count of 10 questions to display' do
       @count = 10
       @questions = ['efficacy means:', 'capacity or power to produce a desired result', 'the state of being restored to a former condition', 'good-natured tolerance of delay or incompetence', 'the act of concealing something from the public']
-      @options = @questions.slice(1..4)
+      expect(Question).to receive(:pluck).with(:questions, :answer, :option2, :option3, :option4).and_return(@questions)
+     # expect(Question).to receive(:sample).with(@questions)
       get :index
       expect(response).to redirect_to('/welcome/landing')
     end

@@ -5,13 +5,17 @@ class QuestionsController < ApplicationController
   def index
    @ques_opt  = []
    @questions = Question.pluck(:questions,:answer,:option2,:option3,:option4).sample
+   puts "Questions: #{@questions}"
    if  @@tot_ques.empty?
+     puts 'inside if'
      @@tot_ques << @questions[0]
    elsif @@tot_ques.include?(@questions[0])
+     puts'inside else if'
      @new_question = Question.where.not(:questions => @@tot_ques).pluck(:questions,:answer,:option2,:option3,:option4)
      @@tot_ques << @new_question[0][0]
      @questions = @new_question[0]
    else
+     puts 'inside else'
      @@tot_ques << @questions[0]
    end
    @options = @questions.slice(1..4).shuffle
@@ -19,6 +23,7 @@ class QuestionsController < ApplicationController
    @ques_opt << @options
    @ques_opt.flatten!
    @@count += 1
+   puts "count: #{@@count}"
    if @@count > 10
      flash[:notice] = 'Please sign up'
      render '/welcome/landing'
