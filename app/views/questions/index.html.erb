@@ -14,10 +14,12 @@
   </ul>
   <div id="button_bar">
     <%= submit_tag "Sumbit", class: "btn btn-outline-secondary btn-sm" %>
-    <%= button_to "Next", questions_path, :method => :get, class: "btn btn-outline-secondary btn-sm" %>
+    <%= button_to "Next", questions_path, :method => :get, class: "btn btn-outline-secondary btn-sm", :id => "next" %>
   </div>
-  <div>
-    <h3><%= @exp %> </h3>
-    <h3><%= @answer %> </h3>
+  <div class="explanation">
+    <strong>Explanation: </strong><%= @exp %>
+  </div>
+  <div class="answer">
+    <strong>Correct answer:</strong> <%= @answer %>
   </div>
 </div>
