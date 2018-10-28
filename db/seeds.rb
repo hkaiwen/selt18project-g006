@@ -43,6 +43,56 @@ questions = [
    :explanation => 'Choose the verb mitigate when something lessens the unpleasantness of a situation. You can mitigate
    your parents anger by telling them you were late to dinner because you were helping your elderly neighbor.'},
 
+  {:questions => 'celebration means:', :answer => 'a joyful occasion for festivities to mark some happy event',
+   :option2 => 'the business given to an establishment by its customers', :option3 => 'a venture off the beaten path',
+   :option4 => 'by a person in bringing about a result', :explanation => 'A celebration is a joyful diversion.
+  Your math class might have a celebration when you learn that the midterm has been postponed for a week.'},
+
+  {:questions => 'assemble means to:', :answer => 'get together', :option2 => 'keep out', :option3 => 'shut out',
+   :option4 => 'let off', :explanation => 'To assemble means to bring together, as in people or parts. The volunteers
+   assembled to assemble the bikes for the needy kids.'},
+
+  {:questions => 'The opposite of vanishing is:', :answer => 'appearance', :option2 => 'indirection', :option3 => 'traveling',
+   :option4 => 'banishment', :explanation => 'When something is there one minute and gone the next, you can describe its
+    disappearance as a vanishing.'},
+
+  {:questions => 'connect means to:', :answer => 'link', :option2 => 'submit', :option3 => 'assist',
+   :option4 => 'flood', :explanation => 'Connect means to join together. When a puzzle piece fits into another, they
+   connect. You might fly to Chicago and then connect to a flight to LA.'},
+
+  {:questions => 'energy means:', :answer => 'power', :option2 => 'medicine', :option3 => 'weaponry',
+   :option4 => 'experimentation', :explanation => 'The general meaning of energy is the ability to be active. If you
+   have a lot of energy, it means you like to be active.'},
+
+  {:questions => 'store means:', :answer => 'shop', :option2 => 'college', :option3 => 'habit',
+   :option4 => 'passage', :explanation => 'As the sentence "This store stores a large store of rubber ducks" will tell
+   you, store is a word with a lot of definitions.'},
+
+
+  {:questions => 'The opposite of false is:', :answer => 'true', :option2 => 'tame', :option3 => 'public',
+   :option4 => 'skillful', :explanation => 'Something thats false is wrong or untrue. If you spread false rumors about
+  a friend, youre telling lies.'},
+
+  {:questions => 'What would you most likely do in a gymnasium?', :answer => 'play basketball', :option2 => 'buy clothing',
+   :option3 => 'paint a picture', :option4 => 'cook a meal', :explanation => 'A gymnasium is a place people go to exercise
+    or participate in sports.'},
+
+  {:questions => 'delete means to:', :answer => 'remove or make invisible', :option2 => 'cause to move faster',
+   :option3 => 'provide with abilities or understanding', :option4 => 'give a statement representing something',
+   :explanation => 'The author looked at the computer screen in horror. With one keystroke she had deleted her entire
+    manuscript. Delete means to erase.'},
+
+  {:questions => 'simple means:', :answer => 'easy', :option2 => 'naive', :option3 => 'stupid',
+   :option4 => 'rare', :explanation => 'Simple refers to something thats easy and uncomplicated, without too many steps
+   to follow.'},
+
+  {:questions => 'wonderful means:', :answer => 'fantastic', :option2 => 'average', :option3 => 'direct',
+   :option4 => 'possible', :explanation => 'Wonderful is better than good — its even better than great, like your
+   wonderful luck — finding buried treasure on your very first diving expedition.'},
+
+  {:questions => 'The opposite of healthy is:', :answer => 'sick', :option2 => 'suitable', :option3 => 'modest',
+   :option4 => 'apt', :explanation => 'Healthy means having good health. Its the opposite of sick, but also can mean
+   "doing well" in a general sense. '}
 
 ]
 
