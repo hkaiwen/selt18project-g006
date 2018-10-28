@@ -12,6 +12,15 @@ describe QuestionsController do
       expect(response).to redirect_to('/welcome/landing')
     end
   end
+  describe 'GET show' do
+    it 'should give the detailed explanation' do
+      question = 'efficacy means:'
+      result = {:explanation => 'You might not like to eat it, but you cant question the
+   efficacy of broccoli as a health benefit.'}
+      expect(Question).to receive(:where).with(question).and_return(result)
+      get :show, {:question => 'efficacy means:'}
+    end
+  end
   describe 'verifying answer' do
     context 'valid entry' do
       before :each do
