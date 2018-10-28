@@ -35,8 +35,8 @@ class QuestionsController < ApplicationController
   end
 
   def show
-   @explain = Question.where(questions: params[:question]).pluck('explanation')
-   @new_explain = @explain[0].scan(/\.(.*)/)
+    @explain = Question.where(questions: params[:id]).pluck('explanation')
+    @new_explain = @explain[0].scan(/\.(.*)/)
   end
 
   # method to call verify_answer model method with an array as parameter.

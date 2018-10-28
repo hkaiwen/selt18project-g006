@@ -15,10 +15,11 @@ describe QuestionsController do
   describe 'GET show' do
     it 'should give the detailed explanation' do
       question = 'efficacy means:'
-      result = {:explanation => 'You might not like to eat it, but you cant question the
+      result = {:explanation => 'The degree to which a method or
+   medicine brings about a specific result is its efficacy. You might not like to eat it, but you cant question the
    efficacy of broccoli as a health benefit.'}
-      expect(Question).to receive(:where).with(question).and_return(result)
-      get :show, {:question => 'efficacy means:'}
+      expect(Question).to receive(:select).with(question).and_return(result)
+      get :show, {:id => 'efficacy means:'}
     end
   end
   describe 'verifying answer' do
