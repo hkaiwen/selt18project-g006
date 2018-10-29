@@ -35,7 +35,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @explain = Question.where(questions: params[:id]).pluck('explanation')
+    @explain = Question.where(id: params[:id]).pluck('explanation')
     @new_explain = @explain[0].scan(/\.(.*)/)
   end
 
