@@ -3,10 +3,12 @@ class QuestionsController < ApplicationController
   @@tot_ques = []
   def index
     @ques_opt  = []
-    if !params[:explanation].nil?
-      @exp=params[:explanation]
+    if params[:same]== 'yes'
       @ques_opt=params[:question]
-      @answer = params[:answer]
+      if !params[:explanation].nil?
+        @exp='Explanation: ' + params[:explanation]
+        @answer = 'Answer: '+ params[:answer]
+      end
     else
       @questions = Question.pluck(:questions,:answer,:option2,:option3,:option4).sample
       puts "Questions: #{@questions}"
@@ -56,17 +58,18 @@ class QuestionsController < ApplicationController
     @question = params[:question]
     @answer = params[:optradio]
     @checking_array << @question[0] << @answer
-    if @checking_array.all? {|a| a.nil?}
+    if @checking_array.any? {|a| a.nil?}
       flash[:notice] = 'Please select an answer'
+      redirect_to questions_path request.params.merge({same: 'yes'})
     else
       @reply_array = Question.verify_answer(@checking_array)
       if @reply_array[:value] == 'correct'
         flash[:notice] = 'Great!Your answer is correct'
-        redirect_to questions_path
       else
         flash[:notice] = 'Sorry.This is the incorrect answer'
-        redirect_to questions_path request.params.merge({explanation: @reply_array[:description], answer: @reply_array[:answer]})
+
       end
+      redirect_to questions_path request.params.merge({same: 'yes', explanation: @reply_array[:description], answer: @reply_array[:answer]})
     end
   end
 end
