@@ -3,10 +3,7 @@ class QuestionsController < ApplicationController
   @@tot_ques = []
   def index
     @ques_opt  = []
-    puts params[:id_name]
-    puts params[:commit]
     if params[:same]== 'yes' and params[:commit]== 'Submit'
-      puts "Hi same"
       @ques_opt=params[:question]
       if !params[:explanation].nil?
         @exp='Explanation: ' + params[:explanation]
@@ -32,14 +29,11 @@ class QuestionsController < ApplicationController
       @ques_opt << @options
       @ques_opt.flatten!
       @@count += 1
-      puts "count: #{@@count}"
       if @@count > 10
         flash[:notice] = 'Please sign up'
         render '/welcome/landing'
       end
     end
-    puts "end of index"
-    params[:id_name] = ""
   end
 
   def new
@@ -61,11 +55,10 @@ class QuestionsController < ApplicationController
 
   def submit_answer
     @checking_array = []
-    puts "Hi"
-    puts params[:question]
     @question = params[:question]
     @answer = params[:optradio]
     @checking_array << @question[1] << @answer
+    puts @checking_array
     if @checking_array.any? {|a| a.nil?}
       flash[:notice] = 'Please select an answer'
       redirect_to questions_path request.params.merge({same: 'yes'})
