@@ -2,7 +2,7 @@ Feature: Show whether answer is correct or incorrect when user submit
 
   Background: I am on question page
     Given the following questions have been added to Question:
-
+#   Add question to database here
     And I am on the question page
 
   Scenario: display question and answer correctly
