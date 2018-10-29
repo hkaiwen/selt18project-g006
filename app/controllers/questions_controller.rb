@@ -4,22 +4,23 @@ class QuestionsController < ApplicationController
   @@tot_ques = []
   def index
    @ques_opt  = []
-   @questions = Question.pluck(:questions,:answer,:option2,:option3,:option4).sample
+   @questions = Question.pluck(:id,:questions,:answer,:option2,:option3,:option4).sample
    puts "Questions: #{@questions}"
    if  @@tot_ques.empty?
      puts 'inside if'
-     @@tot_ques << @questions[0]
-   elsif @@tot_ques.include?(@questions[0])
+     @@tot_ques << @questions[1]
+   elsif @@tot_ques.include?(@questions[1])
      puts'inside else if'
-     @new_question = Question.where.not(:questions => @@tot_ques).pluck(:questions,:answer,:option2,:option3,:option4)
-     @@tot_ques << @new_question[0][0]
+     @new_question = Question.where.not(:questions => @@tot_ques).pluck(:id,:questions,:answer,:option2,:option3,:option4)
+     puts @new_question[0][1]
+     @@tot_ques << @new_question[0][1]
      @questions = @new_question[0]
    else
      puts 'inside else'
-     @@tot_ques << @questions[0]
+     @@tot_ques << @questions[1]
    end
-   @options = @questions.slice(1..4).shuffle
-   @ques_opt << @questions[0]
+   @options = @questions.slice(2..5).shuffle
+   @ques_opt << @questions[0] << @questions[1]
    @ques_opt << @options
    @ques_opt.flatten!
    @@count += 1
@@ -35,8 +36,9 @@ class QuestionsController < ApplicationController
   end
 
   def show
-   @explain = Question.where(questions: params[:question]).pluck('explanation')
+   @explain = Question.where(id: params[:id]).pluck('explanation')
    @new_explain = @explain[0].scan(/\.(.*)/)
+    redirect_to questions_path
   end
 
   # method to call verify_answer model method with an array as parameter.
