@@ -1,42 +1,49 @@
 class QuestionsController < ApplicationController
-
   @@count = 0
   @@tot_ques = []
   def index
-   @ques_opt  = []
-   @questions = Question.pluck(:questions,:answer,:option2,:option3,:option4).sample
-   puts "Questions: #{@questions}"
-   if  @@tot_ques.empty?
-     puts 'inside if'
-     @@tot_ques << @questions[0]
-   elsif @@tot_ques.include?(@questions[0])
-     puts'inside else if'
-     @new_question = Question.where.not(:questions => @@tot_ques).pluck(:questions,:answer,:option2,:option3,:option4)
-     @@tot_ques << @new_question[0][0]
-     @questions = @new_question[0]
-   else
-     puts 'inside else'
-     @@tot_ques << @questions[0]
-   end
-   @options = @questions.slice(1..4).shuffle
-   @ques_opt << @questions[0]
-   @ques_opt << @options
-   @ques_opt.flatten!
-   @@count += 1
-   puts "count: #{@@count}"
-   if @@count > 10
-     flash[:notice] = 'Please sign up'
-     render '/welcome/landing'
-   end
+    @ques_opt  = []
+    if params[:same]== 'yes'
+      @ques_opt=params[:question]
+      if !params[:explanation].nil?
+        @exp='Explanation: ' + params[:explanation]
+        @answer = 'Answer: '+ params[:answer]
+      end
+    else
+      @questions = Question.pluck(:questions,:answer,:option2,:option3,:option4).sample
+      puts "Questions: #{@questions}"
+      if  @@tot_ques.empty?
+        puts 'inside if'
+        @@tot_ques << @questions[0]
+      elsif @@tot_ques.include?(@questions[0])
+        puts'inside else if'
+        @new_question = Question.where.not(:questions => @@tot_ques).pluck(:questions,:answer,:option2,:option3,:option4)
+        @@tot_ques << @new_question[0][0]
+        @questions = @new_question[0]
+      else
+        puts 'inside else'
+        @@tot_ques << @questions[0]
+      end
+      @options = @questions.slice(1..4).shuffle
+      @ques_opt << @questions[0]
+      @ques_opt << @options
+      @ques_opt.flatten!
+      @@count += 1
+      puts "count: #{@@count}"
+      if @@count > 10
+        flash[:notice] = 'Please sign up'
+        render '/welcome/landing'
+      end
+    end
   end
 
   def new
-   #empty method
+    #empty method
   end
 
   def show
-   @explain = Question.where(questions: params[:question]).pluck('explanation')
-   @new_explain = @explain[0].scan(/\.(.*)/)
+    @explain = Question.where(questions: params[:question]).pluck('explanation')
+    @new_explain = @explain[0].scan(/\.(.*)/)
   end
 
   # method to call verify_answer model method with an array as parameter.
@@ -50,22 +57,19 @@ class QuestionsController < ApplicationController
     @checking_array = []
     @question = params[:question]
     @answer = params[:optradio]
-    @checking_array << @question << @answer
+    @checking_array << @question[0] << @answer
     if @checking_array.any? {|a| a.nil?}
       flash[:notice] = 'Please select an answer'
+      redirect_to questions_path request.params.merge({same: 'yes'})
     else
       @reply_array = Question.verify_answer(@checking_array)
-      flash[:explain] = "Explanation: #{@reply_array[:description]}"
-
       if @reply_array[:value] == 'correct'
         flash[:notice] = 'Great!Your answer is correct'
       else
-        flash[:notice] = 'Sorry. This is the incorrect answer'
-        flash[:message] = "Correct answer is: #{@reply_array[:answer]}"
+        flash[:notice] = 'Sorry.This is the incorrect answer'
+
       end
+      redirect_to questions_path request.params.merge({same: 'yes', explanation: @reply_array[:description], answer: @reply_array[:answer]})
     end
-
-      redirect_to questions_path
-
   end
 end
