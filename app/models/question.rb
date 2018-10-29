@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 class Question < ActiveRecord::Base
+  validates :questions, :presence => true, uniqueness: true
+  validates :answer, :presence => true
+  validates :option2, :presence => true
+  validates :option3, :presence => true
+  validates :option4, :presence => true
+  validates :explanation, :presence => true
+
   def self.create_question!(question, answer, option2, option3, option4, explanation)
     @question = question
     @answer = answer

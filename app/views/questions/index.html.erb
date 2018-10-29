@@ -14,7 +14,7 @@
   </ul>
   <div id="button_bar">
     <%= submit_tag "Submit", class: "btn btn-outline-secondary btn-sm" %>
-    <%= button_to "Next", questions_path, :method => :get, class: "btn btn-outline-secondary btn-sm", :id => "next"%>
+    <%= link_to "Next", questions_path, :method => :get, class: "btn btn-outline-secondary btn-sm", :id => "next"%>
   </div>
   <div class="explanation">
     <%= @exp%>

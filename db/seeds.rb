@@ -44,8 +44,10 @@ questions = [
    your parents anger by telling them you were late to dinner because you were helping your elderly neighbor.'},
 
   {:questions => 'celebration means:', :answer => 'a joyful occasion for festivities to mark some happy event',
+
    :option2 => 'the business given to an establishment by its customers', :option3 => 'a venture off the beaten path',
    :option4 => 'by a person in bringing about a result', :explanation => 'A celebration is a joyful diversion.
+
   Your math class might have a celebration when you learn that the midterm has been postponed for a week.'},
 
   {:questions => 'assemble means to:', :answer => 'get together', :option2 => 'keep out', :option3 => 'shut out',
@@ -92,7 +94,8 @@ questions = [
 
   {:questions => 'The opposite of healthy is:', :answer => 'sick', :option2 => 'suitable', :option3 => 'modest',
    :option4 => 'apt', :explanation => 'Healthy means having good health. Its the opposite of sick, but also can mean
-   "doing well" in a general sense. '}
+
+   "doing well" in a general sense. '},
 
 ]
 
