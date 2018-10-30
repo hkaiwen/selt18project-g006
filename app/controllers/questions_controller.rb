@@ -2,10 +2,8 @@ class QuestionsController < ApplicationController
   @@count = 0
   @@tot_ques = []
   def index
-
     @ques_opt  = []
     if params[:same]== 'yes' and params[:commit]== 'Submit'
-
       @ques_opt=params[:question]
       if !params[:explanation].nil?
         @exp ='Explanation: ' + params[:explanation]
