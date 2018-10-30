@@ -21,7 +21,7 @@ class Question < ActiveRecord::Base
   def self.verify_answer(checking_array)
     ques = Question.find_by_questions(checking_array[0])
     hash = Hash.new
-    hash[:description] = ques.explanation.split('.')[0]
+    hash[:description] = ques.explanation
     hash[:answer] = ques.answer
     if ques.answer == checking_array[1]
       hash[:value] = 'correct'

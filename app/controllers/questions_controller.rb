@@ -45,8 +45,7 @@ class QuestionsController < ApplicationController
     @checking_array = []
     @question = params[:question]
     @answer = params[:optradio]
-    @checking_array << @question[1] << @answer
-    puts @checking_array
+    @checking_array << @question << @answer
     if @checking_array.any? {|a| a.nil?}
       flash[:notice] = 'Please select an answer'
       redirect_to questions_path request.params.merge({same: 'yes'})
