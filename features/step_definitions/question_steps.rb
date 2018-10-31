@@ -30,3 +30,21 @@ Then /^I should see a question and 4 options$/ do
   end
   expect Question.find_by_questions(current_question) != nil
 end
+
+When /^I select the (.*?) answer$/ do |correct|
+  @ques = page.find('#question').text
+  @answer = Question.where(questions: @ques).pluck('answer')
+  @option = Question.where(questions: @ques).pluck('option2')
+  if correct == 'correct'
+    choose :option => @answer[0]
+  else
+    choose :option => @option[0]
+  end
+  click_button('Submit')
+end
+
+Then /^I should see '(.*?)' on falsh message$/ do |message|
+  expect message == page.find('.alert').text
+end
+
+
