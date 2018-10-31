@@ -11,7 +11,10 @@ Feature: Show whether answer is correct or incorrect when user submit
     Then I should see a question and 4 options
 
   Scenario: show answer is correct if submitted answer is correct
+    When I select the correct answer
+    Then I should see 'Great!Your answer is correct' on falsh message
 
   Scenario: show answer is incorrect if submitted answer is incorrect
-
+    When I select the incorrect answer
+    Then I should see 'Sorry.This is the incorrect answer' on falsh message
   Scenario: sign up prompt when reach 10 questions
