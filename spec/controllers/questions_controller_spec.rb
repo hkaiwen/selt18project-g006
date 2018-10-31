@@ -4,19 +4,21 @@ require 'rails_helper'
 describe QuestionsController do
   describe 'GET index' do
     before :each do
-      @questions = [['arduous means:', 'laborious', 'monstrous', 'ominous', 'perilous'],
-                    ['pragmatic means:', 'alterable','realistic','relaxing','domesticated'],
-                    ['gregarious means:', 'rustic', 'solemn','outgoing', 'frequent']]
+      @questions = [[33, 'arduous means:', 'laborious', 'monstrous', 'ominous', 'perilous'],
+                    [34, 'pragmatic means:', 'alterable', 'realistic', 'relaxing', 'domesticated'],
+                    [36, 'gregarious means:', 'rustic', 'solemn', 'outgoing', 'frequent']]
+      @new_question = [41, 'connect means to;', 'link', 'submit', 'assist', 'flood']
     end
     it 'should render index template ' do
-      expect(Question).to receive(:pluck).with(:questions, :answer, :option2, :option3, :option4).and_return(@questions)
+      expect(Question).to receive(:pluck).with(:id, :questions, :answer, :option2, :option3, :option4).and_return(@questions)
       expect(get(:index)).to render_template('index')
       #@controller = WelcomeController.new
       #post :landing
     end
     it 'should alert for signup after count of 10 questions to display' do
-       @@count = 11
-       allow(Question).to receive(:pluck).with(:id,:questions, :answer, :option2, :option3, :option4).and_return(@questions)
+       @@tot_ques = []
+       @@count = 10
+       allow(Question).to receive(:pluck).with(:id, :questions, :answer, :option2, :option3, :option4).and_return(@questions)
        expect(get(:index)).to render_template('welcome/landing')
     end
   end
@@ -39,7 +41,7 @@ describe QuestionsController do
         #@controller = {:controller => 'questions'}
         expect(Question).to receive(:verify_answer).with(@checking_array).and_return(@fake_results)
         post :submit_answer, { :question => 'pragmatic means', :optradio => 'alterable'}
-        expect(response).to redirect_to(/^http:\/\/test.host\/questions\?action=submit_answer.*/)
+        expect(response).to redirect_to(/^.*\/questions\?action=submit_answer.*/)
       end
       it 'should flash message according to right or wrong answer' do
         fake_results = { :value => 'correct', :answer => anything, :description => anything }
@@ -57,7 +59,7 @@ describe QuestionsController do
       it 'should check for null values from view' do
         post :submit_answer, { :opt_radio => ''}
         expect(flash[:notice]).to eq('Please select an answer')
-        expect(response).to redirect_to(/^http:\/\/test.host\/questions\?action=submit_answer.*/)
+        expect(response).to redirect_to(/^.*\/questions\?action=submit_answer.*/)
       end
     end
   end
