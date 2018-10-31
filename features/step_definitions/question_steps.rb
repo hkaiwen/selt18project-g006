@@ -1,7 +1,25 @@
+
 Given /the following questions have been added to Question:/ do |question_table|
   question_table.hashes.each do |question|
     Question.create(question)
   end
+  
+end
+
+Given /^I am on the question page$/ do
+  visit questions_path
+end
+
+When /^I click on 'Get Start' button$/ do
+  visit root_path
+  click_button("Get Start")
+end
+
+Then /^I should be able to the play the game$/ do
+  str = current_url
+  expect(str.include?("question")).to be_truthy
+end
+
 end
 
 Given /^I am on the question page$/ do
@@ -20,7 +38,6 @@ Then /^I should get a new question$/ do
       expect current_question != @previous_question
     end
   end
-
 
 Then /^I should see a question and 4 options$/ do
   current_question_text = page.find('#question').text
@@ -46,5 +63,4 @@ end
 Then /^I should see '(.*?)' on falsh message$/ do |message|
   expect message == page.find('.alert').text
 end
-
 
