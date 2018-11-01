@@ -6,7 +6,7 @@ Given /the following questions have been added to Question:/ do |question_table|
   
 end
 
-Given /^I am on the question page$/ do
+Given /^I am on the question page/ do
   visit questions_path
 end
 
@@ -20,16 +20,10 @@ Then /^I should be able to the play the game$/ do
   expect(str.include?("question")).to be_truthy
 end
 
-end
-
-Given /^I am on the question page$/ do
-  visit questions_path
-end
 
 When /^I click on 'Next' button/ do
-  @current_question
   @previous_question = page.find('#question').text
-  click_button('Next')
+  click_on('Next')
 end
 
 Then /^I should get a new question$/ do
@@ -60,7 +54,7 @@ When /^I select the (.*?) answer$/ do |correct|
   click_button('Submit')
 end
 
-Then /^I should see '(.*?)' on falsh message$/ do |message|
+Then /^I should see '(.*?)' on flash message$/ do |message|
   expect message == page.find('.alert').text
 end
 
