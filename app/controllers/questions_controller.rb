@@ -27,12 +27,9 @@ class QuestionsController < ApplicationController
       @@count += 1
       if @@count > 10
         flash[:notice] = 'Please sign up'
-        render '/welcome/landing'
+        render "/welcome/landing"
       end
     end
-
-    params[:id_name] = ""
-
   end
 
   def new
@@ -53,7 +50,6 @@ class QuestionsController < ApplicationController
         flash[:notice] = 'Great!Your answer is correct'
       else
         flash[:notice] = 'Sorry.This is the incorrect answer'
-
       end
       redirect_to questions_path request.params.merge({same: 'yes', explanation: @reply_array[:description], answer: @reply_array[:answer]})
     end
