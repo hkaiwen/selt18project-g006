@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
       end
     else
       @questions = Question.pluck(:id,:questions,:answer,:option2,:option3,:option4).sample
-      if  @@tot_ques.empty?
+      if @@tot_ques.empty?
         @@tot_ques << @questions[1]
       elsif @@tot_ques.include?(@questions[1])
         @new_question = Question.where.not(:questions => @@tot_ques).pluck(:id,:questions,:answer,:option2,:option3,:option4)
