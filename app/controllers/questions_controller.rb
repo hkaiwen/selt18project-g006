@@ -47,9 +47,9 @@ class QuestionsController < ApplicationController
     else
       @reply_array = Question.verify_answer(@checking_array)
       if @reply_array[:value] == 'correct'
-        flash[:notice] = 'Great!Your answer is correct'
+        flash[:correct] = 'Great! Your answer is correct'
       else
-        flash[:notice] = 'Sorry.This is the incorrect answer'
+        flash[:warning] = 'Sorry, This is the incorrect answer'
       end
       redirect_to questions_path request.params.merge({same: 'yes', explanation: @reply_array[:description], answer: @reply_array[:answer]})
     end
