@@ -16,7 +16,7 @@ ul {
   padding: 0;
 }
 
-li {
+#option {
   background: #fff;
   height: 40px;
   line-height: 40px;
@@ -39,3 +39,29 @@ li:nth-child(2n) {
   margin-top: 10px;
 }
 
+#nav_bar {
+  position: relative;
+  height: 5%;
+  background-color: #2980b9;
+  margin-bottom: 50px;
+}
+
+#user_log_in_button {
+  background: #2980b9;
+  padding-top: 10px;
+  border: none;
+  background: none;
+  position: absolute;
+  top:0;
+  right: 0;
+  font-size: 20px;
+  color: white;
+}
+
+#title {
+  padding-left: 5px;
+  font-size: 40px;
+  vertical-align: middle;
+  color: whitesmoke;
+
+}
