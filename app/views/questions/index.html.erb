@@ -1,7 +1,7 @@
 <div class="topnav", id="nav_bar">
   <ul>
     <li id="title">Word Power</li>
-    <li><input type="submit", value="Log in", id = "user_log_in_button"></li>
+      <li> <%= button_to "Log in", login_create_path, :method => :post, :id => 'user_log_in_button', class: "btn btn-lg btn-secondary"%></li>
   </ul>
 </div>
 
@@ -23,6 +23,12 @@
     <%= submit_tag "Submit", class: "btn btn-outline-secondary btn-sm" %>
     <%= link_to "Next", questions_path, :method => :get, class: "btn btn-outline-secondary btn-sm", :id => "next"%>
   </div>
+  <br>
+  <br>
+  <div id="add_question">
+    <%= link_to "Add question to the question bank"%>
+  </div>
+
   <div class="explanation">
     <%= @exp%>
   </div>
