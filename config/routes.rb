@@ -59,4 +59,6 @@ Rails.application.routes.draw do
   root :to => "welcome#landing"
   resources :questions
   match '/verifyanswer', to: 'questions#submit_answer', via: :post
+  resources :users
+  root :to => redirect('/users'), as: :users_root
 end
