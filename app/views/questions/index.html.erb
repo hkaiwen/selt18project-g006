@@ -1,3 +1,10 @@
+<div class="topnav", id="nav_bar">
+  <ul>
+    <li id="title">Word Power</li>
+    <li><input type="submit", value="Log in", id = "user_log_in_button"></li>
+  </ul>
+</div>
+
 <div class="container">
   <div id="question">
     <h1><%= @ques_opt[1] %></h1>
@@ -7,10 +14,10 @@
     <%= hidden_field_tag "question[]", e %>
   <% end %>
   <ul>
-    <li><input type="radio" value="<%= @ques_opt[2] %>", name="optradio"><%= @ques_opt[2] %></li>
-    <li><input type="radio" value="<%= @ques_opt[3] %>", name="optradio"><%= @ques_opt[3] %></li>
-    <li><input type="radio" value="<%= @ques_opt[4] %>", name="optradio"><%= @ques_opt[4] %></li>
-    <li><input type="radio" value="<%= @ques_opt[5] %>", name="optradio"><%= @ques_opt[5] %></li>
+    <li id="option"><input type="radio" value="<%= @ques_opt[2] %>", name="optradio"><%= @ques_opt[2] %></li>
+    <li id="option"><input type="radio" value="<%= @ques_opt[3] %>", name="optradio"><%= @ques_opt[3] %></li>
+    <li id="option"><input type="radio" value="<%= @ques_opt[4] %>", name="optradio"><%= @ques_opt[4] %></li>
+    <li id="option"><input type="radio" value="<%= @ques_opt[5] %>", name="optradio"><%= @ques_opt[5] %></li>
   </ul>
   <div id="button_bar">
     <%= submit_tag "Submit", class: "btn btn-outline-secondary btn-sm" %>
