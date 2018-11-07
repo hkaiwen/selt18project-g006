@@ -1,8 +1,12 @@
-class SessionsController < ApplicationController
+class SessionsController < Devise::SessionsController
+  def create
+    redirect_to qustions_path
+  end
 
   def new
 
   end
+
 
   def create
     user = User.find_by_email(params[:session][:email])
@@ -14,11 +18,11 @@ class SessionsController < ApplicationController
       flash.now[:warning] = 'Invalid email/password'
       redirect_to login_path
     end
+  end
 
     def destroy
     #destroy session
-
     end
 
-  end
+  
 end

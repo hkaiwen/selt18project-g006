@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
     redirect_to login_path unless @current_user
   end
 
+
+  def after_sign_in_path_for(resource)
+    "/questions"
+  end
 end

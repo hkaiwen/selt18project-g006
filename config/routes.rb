@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # resources :questions
   # root :to => redirect('/questions')
 
@@ -59,4 +60,8 @@ Rails.application.routes.draw do
   root :to => "welcome#landing"
   resources :questions
   match '/verifyanswer', to: 'questions#submit_answer', via: :post
+  resources :users
+  root :to => redirect('/users'), as: :users_root
+  match '/login_create', to: 'sessions#new', via: :post
+  match '/logout', to: 'sessions#destroy', via: :delete
 end
