@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag "application", "assets/stylesheets/user_sign_up.css" %>
 <div class="topnav", id="nav_bar">
   <ul>
-    <li id="title">Word Power</li>
+    <li> <%= button_to "Word Power", root_path, :method => :get, :id => 'title'%></li>
   </ul>
 </div>
 
@@ -10,15 +10,14 @@
   <%= form_tag login_create_path do%>
     <%= label :user, :username, 'Username' %>
     <br>
-    <%= text_field :user, 'username'%>
+    <%= text_field :user, 'username', id: 'log_in_text'%>
     <br>
     <%= label :user, :password, 'Password' %>
     <br>
-    <%= text_field :user, 'password'%>
+    <%= password_field :user, 'password', id: 'log_in_text'%>
     <br>
     <br>
     <%= submit_tag 'Login' %>
-    <br>
     <%= button_to 'Sign-up for an account', new_user_path %>
   <% end %>
 

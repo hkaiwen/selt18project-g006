@@ -31,4 +31,9 @@
   padding: 20px;
 }
 
-
+#sign_up_text {
+  width: 100%;
+}
+#log_in_text {
+  width: 100%;
+}

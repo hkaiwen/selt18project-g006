@@ -1,24 +1,32 @@
 <%= stylesheet_link_tag "application", "assets/stylesheets/user_sign_up.css" %>
 <div class="topnav", id="nav_bar">
   <ul>
-    <li id="title">Word Power</li>
+    <li> <%= button_to "Word Power", root_path, :method => :get, :id => 'title'%></li>
   </ul>
 </div>
 
 <div  class="container", id="sign_up_form">
 <h1 id="sign_up_title">Sign up</h1>
   <%= form_tag users_path do%>
+    <%= label :user, :first_name, 'First Name' %>
+    <br>
+    <%= text_field :user, 'firstname', id: 'sign_up_text'%>
+    <br>
+    <%= label :user, :last_name, 'Last Name' %>
+    <br>
+    <%= text_field :user, 'lastname',  id: 'sign_up_text'%>
+    <br>
     <%= label :user, :username, 'Username' %>
     <br>
-    <%= text_field :user, 'username'%>
+    <%= text_field :user, 'username',  id: 'sign_up_text'%>
     <br>
     <%= label :user, :email, 'E-Mail' %>
     <br>
-    <%= text_field :user, 'email'%>
+    <%= text_field :user, 'email', id: 'sign_up_text'%>
     <br>
     <%= label :user, :password, 'Password' %>
     <br>
-    <%= text_field :user, 'password'%>
+    <%= password_field :user, 'password', placeholder: 'Must be at least 6 characters',  id: 'sign_up_text'%>
     <br>
     <br>
     <%= submit_tag 'Create my account' %>
