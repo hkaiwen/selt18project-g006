@@ -59,7 +59,7 @@ li:nth-child(2n) {
 }
 
 #title {
-  height:  50px;
+  height:  1%;
   width: 300px;
   font-size: 5px;
   color: whitesmoke;
@@ -67,5 +67,4 @@ li:nth-child(2n) {
   background: none;
   position: absolute;
   padding-bottom: 90%;
-  outline:none;
 }
