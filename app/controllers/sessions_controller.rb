@@ -20,8 +20,10 @@ class SessionsController < Devise::SessionsController
   end
 
     def destroy
-    #destroy session
+      session[:session_token]=nil
+      @current_user=nil
+      flash[:notice]= 'Logged out of your account'
+      redirect_to questions_path
     end
-
   
 end
