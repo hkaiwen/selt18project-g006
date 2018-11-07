@@ -3,4 +3,12 @@ class SessionsController < Devise::SessionsController
     redirect_to qustions_path
   end
 
+  def new
+
+  end
+
+  def destroy
+    #destroy sessions
+
+  end
 end
