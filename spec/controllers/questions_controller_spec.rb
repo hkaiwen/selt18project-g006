@@ -40,8 +40,13 @@ describe QuestionsController do
       expect(Question).to receive(:create_question!).with(@question, @answer, @option1, @option2, @option3, @explanation)
       post :create, {:question => @question, :answer => @answer, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation}
     end
-    it 'should call the model method to add questions to database'
-    it 'should flash message according to added or not added in the database'
+    it 'should flash success message if question added to database' do
+      fake_result = true
+      expect(Question).to receive(:create_question!).with(@question, @answer, @option1, @option2, @option3, @explanation).and_return(fake_result)
+      post :create, {:question => @question, :answer => @answer, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation}
+      expect(flash[:notice]).to eq('Your question has been successfully added to the database')
+    end
+
     it 'should redirect to index page'
   end
   describe 'verifying answer' do
