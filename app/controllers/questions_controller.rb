@@ -42,7 +42,12 @@ class QuestionsController < ApplicationController
   end
 
   def create
-
+    @question = params[:question]
+    @answer = params[:answer]
+    @option2 = params[:option1]
+    @option3 = params[:option2]
+    @option4 = params[:option3]
+    @explanation = params[:explanation]
   end
 
   def submit_answer
