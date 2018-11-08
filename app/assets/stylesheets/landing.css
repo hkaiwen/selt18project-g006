@@ -25,13 +25,13 @@
 #get_start_button {
   position: absolute;
   top: 455px;
-  right: 340px;
+  right: 250px;
 }
 
 #sign_up_button {
   position: absolute;
   top: 455px;
-  right: 220px;
+  right: 120px;
 }
 
 #sign_out_button {

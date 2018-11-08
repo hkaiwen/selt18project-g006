@@ -1,35 +1,37 @@
-<%= stylesheet_link_tag "application", "assets/stylesheets/user_sign_up.css" %>
 <div class="topnav", id="nav_bar">
   <ul>
-    <li> <%= button_to "Word Power", root_path, :method => :get, :id => 'title'%></li>
+    <li id="title">Welcome to Wordpower</li>
+    <li><%= link_to 'Back to questions', questions_path, :method => :get, :id => 'back_to_questions'%></li>
+    <li><input type = "submit", value = "Log out", id = "user_log_out_button"></li> <%# To add action for logout %>
   </ul>
 </div>
-
-<div  class="container", id="sign_up_form">
-  <h1 id="sign_up_title">Sign up</h1>
-  <%= form_tag users_path do%>
-    <%= label :user, :first_name, 'First Name' %>
+<div  class="container", id="add_form">
+  <h1 id="add_title">Add a new question</h1>
+  <%= form_tag questions_path, method: :post do %>
+    <%= label :question, :question,'Question' %>
     <br>
-    <%= text_field :user, 'firstname', id: 'sign_up_text'%>
+    <%= text_area :question, 'question' %>
     <br>
-    <%= label :user, :last_name, 'Last Name' %>
+    <%= label :question, :option2, 'Option 1' %>
     <br>
-    <%= text_field :user, 'lastname',  id: 'sign_up_text'%>
+    <%= text_area :question, 'option2' %>
     <br>
-    <%= label :user, :username, 'Username' %>
+    <%= label :question, :option3, 'Option 2' %>
     <br>
-    <%= text_field :user, 'username',  id: 'sign_up_text'%>
+    <%= text_area :question, 'option3' %>
     <br>
-    <%= label :user, :email, 'E-Mail' %>
+    <%= label :question, :option4, 'Option 3' %>
     <br>
-    <%= text_field :user, 'email', id: 'sign_up_text'%>
+    <%= text_area :question, 'option4' %>
     <br>
-    <%= label :user, :password, 'Password' %>
+    <%= label :question, :answer, 'Answer' %>
     <br>
-    <%= password_field :user, 'password', placeholder: 'Must be at least 6 characters',  id: 'sign_up_text'%>
+    <%= text_area :question, 'answer' %>
     <br>
+    <%= label :question, :explanation, 'Explanation for question' %>
     <br>
-    <%= submit_tag 'Cre my account' %>
-  <% end %>
-
+    <%= text_area :question, 'explanation' %>
+    <br>
+    <%= submit_tag 'Add this question' %>
+  <%end %>
 </div>

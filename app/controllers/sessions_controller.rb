@@ -1,8 +1,4 @@
 class SessionsController < Devise::SessionsController
-  def create
-    redirect_to qustions_path
-  end
-
   def new
 
   end
@@ -27,3 +23,4 @@ class SessionsController < Devise::SessionsController
     end
   
 end
+
