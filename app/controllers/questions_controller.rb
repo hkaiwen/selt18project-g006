@@ -43,20 +43,7 @@ class QuestionsController < ApplicationController
 
   def create
     puts 'inside create method'
-    @question_array = []
-    @question = params[:question]
-    puts "Question: #{@question}"
-    @answer = params[:answer]
-    @option2 = params[:option2]
-    @option3 = params[:option3]
-    @option4 = params[:option4]
-    @explanation = params[:explanation]
-     value = Question.create_question!(@question, @answer, @option2, @option3, @option4, @explanation)
-    if value == 'true'
-      flash[:notice] = 'Your question has been successfully added to the database'
-      redirect_to questions_path
-    end
-    redirect_to questions_path
+
   end
 
   def submit_answer
