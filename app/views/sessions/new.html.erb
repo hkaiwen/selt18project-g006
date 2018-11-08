@@ -1,0 +1,25 @@
+<%= stylesheet_link_tag "application", "assets/stylesheets/user_sign_up.css" %>
+<div class="topnav", id="nav_bar">
+  <ul>
+    <li id="title">Word Power</li>
+  </ul>
+</div>
+
+<div  class="container", id="sign_up_form">
+  <h1 id="sign_up_title">Login</h1>
+  <%= form_tag login_create_path do%>
+    <%= label :user, :username, 'Username' %>
+    <br>
+    <%= text_field :user, 'username'%>
+    <br>
+    <%= label :user, :password, 'Password' %>
+    <br>
+    <%= text_field :user, 'password'%>
+    <br>
+    <br>
+    <%= submit_tag 'Login' %>
+    <br>
+    <%= button_to 'Sign-up for an account', new_user_path %>
+  <% end %>
+
+</div>
