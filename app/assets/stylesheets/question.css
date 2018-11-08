@@ -41,7 +41,7 @@ li:nth-child(2n) {
 
 #nav_bar {
   position: relative;
-  height: 5%;
+  height: 10%;
   background-color: #2980b9;
   margin-bottom: 50px;
 }
@@ -67,4 +67,28 @@ li:nth-child(2n) {
   background: none;
   position: absolute;
   padding-bottom: 90%;
+}
+
+#back_to_questions {
+  background: #2980b9;
+  padding-top: 10px;
+  border: none;
+  background: none;
+  position: absolute;
+  top:0;
+  right: 15%;
+  font-size: 20px;
+  color: white;
+}
+
+#user_log_out_button {
+  background: #2980b9;
+  padding-top: 10px;
+  border: none;
+  background: none;
+  position: absolute;
+  top:0;
+  right: 0;
+  font-size: 20px;
+  color: white;
 }
