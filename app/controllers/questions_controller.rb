@@ -52,6 +52,10 @@ class QuestionsController < ApplicationController
     @option4 = params[:option4]
     @explanation = params[:explanation]
     @question = Question.create_question!(@question, @answer, @option2, @option3, @option4, @explanation)
+    if @question.valid?
+      flash[:notice] = 'Your question has been successfully added to the database'
+      redirect_to questions_path
+    end
     redirect_to questions_path
   end
 
