@@ -8,6 +8,14 @@
   <br>
   <br>
   <%= form_tag questions_path, method: :post do %>
+    <%= label :question, :question,'Question' %>
+    <br>
+    <%= text_field :question, 'question' %>
+    <br>
+    <%= label :question, :option1, 'Option 1' %>
+    <br>
+    <%= text_field :question, 'option1' %>
+    <br>
   <%end %>
 
 </div>
