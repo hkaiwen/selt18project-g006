@@ -10,23 +10,23 @@
   <%= form_tag questions_path, method: :post do %>
     <%= label :question, :question,'Question' %>
     <br>
-    <%= text_field :question, 'question' %>
+    <%= text_area :question, 'question' %>
     <br>
     <%= label :question, :option2, 'Option 1' %>
     <br>
-    <%= text_field :question, 'option2' %>
+    <%= text_area :question, 'option2' %>
     <br>
     <%= label :question, :option3, 'Option 2' %>
     <br>
-    <%= text_field :question, 'option3' %>
+    <%= text_area :question, 'option3' %>
     <br>
     <%= label :question, :option4, 'Option 3' %>
     <br>
-    <%= text_field :question, 'option4' %>
+    <%= text_area :question, 'option4' %>
     <br>
     <%= label :question, :answer, 'Answer' %>
     <br>
-    <%= text_field :question, 'answer' %>
+    <%= text_area :question, 'answer' %>
     <br>
     <%= label :question, :explanation, 'Explanation for question' %>
     <br>
