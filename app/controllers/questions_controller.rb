@@ -26,11 +26,12 @@ class QuestionsController < ApplicationController
       @ques_opt.flatten!
       if !user_signed_in?
         @@count += 1
+        if @@count > 10
+          flash[:notice] = 'Please sign up'
+          render "/welcome/landing"
+        end
       end
-      if @@count > 10
-        flash[:notice] = 'Please sign up'
-        render "/welcome/landing"
-      end
+
     end
   end
 
