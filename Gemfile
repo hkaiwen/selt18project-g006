@@ -1,7 +1,7 @@
 ruby '2.4.4'
 source 'https://rubygems.org'
 
-
+gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.10'
 # Added haml file
@@ -14,6 +14,10 @@ gem 'uglifier', '>= 2.7.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+# Use devise for storing password and authentication
+gem 'devise'
+# Use bcrypt for password encryption
+gem 'bcrypt'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
