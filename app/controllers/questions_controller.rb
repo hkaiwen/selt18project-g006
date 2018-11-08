@@ -43,6 +43,7 @@ class QuestionsController < ApplicationController
 
   def create
     puts 'inside create method'
+    redirect_to questions_path
 
   end
 
