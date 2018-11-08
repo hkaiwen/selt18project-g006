@@ -51,6 +51,7 @@ class QuestionsController < ApplicationController
     @option3 = params[:option2]
     @option4 = params[:option3]
     @explanation = params[:explanation]
+    Question.create_question!(@question, @answer, @option2, @option3, @option4, @explanation)
     redirect_to questions_path
   end
 
