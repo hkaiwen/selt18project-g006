@@ -28,7 +28,16 @@ describe QuestionsController do
     end
   end
   describe 'Add new question' do
-    it 'should get the values from view'
+    @question = 'The opposite of expensive is:'
+    @answer = 'cheap'
+    @option1 = 'bare'
+    @option2 = 'torn'
+    @option3 = 'burnt'
+    @explanation = 'The adjective expensive means high in price. Its like the expensive basketball sneakers you had to work all summer to save up enough money to buy.'
+    it 'should get the values from view' do
+      Allow(Question).to receive(:create_question!).with(@question,@answer,@option1,@option2,@option3,@explanation)
+      post :create, {:question => @question, :answer => @answer, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation}
+    end
     it 'should call the model method to add questions to database'
     it 'should flash message according to added or not added in the database'
     it 'should redirect to index page'
