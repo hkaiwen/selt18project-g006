@@ -40,6 +40,12 @@ describe QuestionsController do
       expect(Question).to receive(:create_question!).with(@question, @answer, @option1, @option2, @option3, @explanation)
       post :create, {:question => @question, :answer => @answer, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation}
     end
+    it 'should accept a model object as a result of calling model method' do
+      fake_result = double('Question')
+      expect(Question).to receive(:create_question!).with(@question, @answer, @option1, @option2, @option3, @explanation).and_return(fake_result)
+      post :create, {:question => @question, :answer => @answer, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation}
+
+    end
     it 'should flash success message if question added to database' do
       fake_result = true
       expect(Question).to receive(:create_question!).with(@question, @answer, @option1, @option2, @option3, @explanation).and_return(fake_result)
