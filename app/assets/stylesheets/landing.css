@@ -25,19 +25,25 @@
 #get_start_button {
   position: absolute;
   top: 455px;
-  right: 250px;
+  right: 340px;
 }
 
 #sign_up_button {
   position: absolute;
   top: 455px;
-  right: 120px;
+  right: 220px;
+}
+
+#sign_out_button {
+  position: absolute;
+  top: 455px;
+  right: 100px;
 }
 
 #log_in_button {
   position: absolute;
   top: 455px;
-  right: 10px;
+  right: 0px;
 }
 
 .carousel-item {

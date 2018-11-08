@@ -1,14 +1,20 @@
-<h2>Log in</h2>
+<div class="topnav", id="nav_bar">
+  <ul>
+    <li id="title">Word Power</li>
+  </ul>
+</div>
+<div  class="container", id="sign_up_form">
+<h2 id="log_in_title">Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "log_in_text" %>
   </div>
 
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current-password" , id: "log_in_text"%>
   </div>
 
   <% if devise_mapping.rememberable? -%>
@@ -24,3 +30,4 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>

@@ -59,11 +59,14 @@ li:nth-child(2n) {
 }
 
 #title {
-  padding-left: 5px;
-  font-size: 40px;
-  vertical-align: middle;
+  height:  1%;
+  width: 300px;
+  font-size: 5px;
   color: whitesmoke;
-
+  border: none;
+  background: none;
+  position: absolute;
+  padding-bottom: 90%;
 }
 
 #back_to_questions {
