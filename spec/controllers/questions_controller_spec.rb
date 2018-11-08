@@ -22,6 +22,9 @@ describe QuestionsController do
       expect(get(:index)).to render_template('welcome/landing')
     end
   end
+  describe 'Add new question' do
+    it 'should render a new page'
+  end
   describe 'verifying answer' do
     context 'valid entry' do
       before :each do
