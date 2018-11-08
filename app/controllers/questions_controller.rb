@@ -42,6 +42,8 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    puts 'inside create method'
+    @question_array = []
     @question = params[:question]
     @answer = params[:answer]
     @option2 = params[:option1]
