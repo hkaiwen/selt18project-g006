@@ -22,10 +22,16 @@ describe QuestionsController do
       expect(get(:index)).to render_template('welcome/landing')
     end
   end
-  describe 'Add new question' do
+  describe 'render new question page' do
     it 'should render a new page' do
       expect(get(:new)).to render_template('new')
     end
+  end
+  describe 'Add new question' do
+    it 'should get the values from view'
+    it 'should call the model method to add questions to database'
+    it 'should flash message according to added or not added in the database'
+    it 'should redirect to index page'
   end
   describe 'verifying answer' do
     context 'valid entry' do
