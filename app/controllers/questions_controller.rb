@@ -2,12 +2,14 @@
 
 class QuestionsController < ApplicationController
 
+  before_filter :set_current_user
   @@count = 0
   @@tot_ques = []
-  session[:retrieved] = 0
 
   def index
-
+    if (session[:count].nil?)
+      session[:count] = 0
+    end
     @ques_opt = []
     if params[:same]== 'yes' and params[:commit]== 'Submit'
       @ques_opt=params[:question]
@@ -30,10 +32,12 @@ class QuestionsController < ApplicationController
       @ques_opt << @questions[0] << @questions[1]
       @ques_opt << @options
       @ques_opt.flatten!
-      session[:retrieved] += 1
+
+      session[:count] += 1
+      puts "Count: #{session[:count]}"
       #@@count += 1
       #if @@count > 10
-      if session[:retrieved] > 10
+      if session[:count] > 10
         flash[:notice] = 'Please sign up'
         render "/welcome/landing"
       end
