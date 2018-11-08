@@ -5,7 +5,9 @@ class QuestionsController < ApplicationController
   @@count = 0
   @@tot_ques = []
 
-
+  def question_params
+    params.require(:question).permit(:question, :option2, :option3, :option4, :answer)
+  end
   def index
     @ques_opt = []
     if params[:same]== 'yes' and params[:commit]== 'Submit'
