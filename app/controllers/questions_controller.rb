@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
 
   @@count = 0
   @@tot_ques = []
-  Session[:retrieved] = 0
+  session[:retrieved] = 0
 
   def index
 
@@ -30,10 +30,10 @@ class QuestionsController < ApplicationController
       @ques_opt << @questions[0] << @questions[1]
       @ques_opt << @options
       @ques_opt.flatten!
-      Session[:retrieved] += 1
+      session[:retrieved] += 1
       #@@count += 1
       #if @@count > 10
-      if Session[:retrieved] > 10
+      if session[:retrieved] > 10
         flash[:notice] = 'Please sign up'
         render "/welcome/landing"
       end
