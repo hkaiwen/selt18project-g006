@@ -1,7 +1,7 @@
 <div class="topnav", id="nav_bar">
   <ul>
-      <li> <%= button_to "Word Power", root_path, :method => :get, :id => 'title'%></li>
-      <li> <%= button_to "Log in", login_create_path, :method => :post, :id => 'user_log_in_button', class: "btn btn-lg btn-secondary"%></li>
+    <li id="title">Word Power</li>
+    <li> <%= button_to "Log in", new_user_session_path, :method => :post, :id => 'user_log_in_button', class: "btn btn-lg btn-secondary"%></li>
   </ul>
 </div>
 
@@ -26,7 +26,7 @@
   <br>
   <br>
   <div id="add_question">
-    <%= link_to "Add question to the question bank", new_question_path, :method => :get%>
+    <%= link_to "Add question to the question bank"%>
   </div>
 
   <div class="explanation">

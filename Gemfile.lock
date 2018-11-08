@@ -282,7 +282,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   cucumber-rails
   database_cleaner
-  devise (~> 4.5)
+  devise
   guard-rspec
   haml
   jbuilder (~> 2.0)
