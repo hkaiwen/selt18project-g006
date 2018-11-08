@@ -23,7 +23,9 @@ describe QuestionsController do
     end
   end
   describe 'Add new question' do
-    it 'should render a new page'
+    it 'should render a new page' do
+      expect(get(:new)).to render_template('new')
+    end
   end
   describe 'verifying answer' do
     context 'valid entry' do
@@ -50,7 +52,7 @@ describe QuestionsController do
         fake_results = { :value => 'correct', :answer => anything, :description => anything }
         expect(Question).to receive(:verify_answer).with(@checking_array).and_return(fake_results)
         post :submit_answer, { :question => 'pragmatic means', :optradio => 'alterable'}
-        expect(flash[:notice]).to eq('Great!Your answer is correct')
+        expect(flash[:correct]).to eq('Great! Your answer is correct')
       end
       it 'should make the verified results to index template' do
         expect(Question).to receive(:verify_answer).with(@checking_array).and_return(@fake_results)
