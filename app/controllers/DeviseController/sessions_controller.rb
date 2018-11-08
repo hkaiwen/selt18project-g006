@@ -20,6 +20,10 @@ class DeviseController::SessionsController < Devise::SessionsController
     flash[:notice]= 'Logged out of your account'
     redirect_to questions_path
   end
+
+  def keepCount
+
+  end
   
   # GET /resource/sign_in
   # def new
