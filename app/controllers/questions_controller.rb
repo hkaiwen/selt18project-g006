@@ -36,6 +36,10 @@ class QuestionsController < ApplicationController
     #empty method
   end
 
+  def create
+
+  end
+
   def submit_answer
     @checking_array = []
     @question = params[:question]

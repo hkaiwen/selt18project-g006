@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    if
       redirect_to questions_path
     else
       flash[:notice] = 'Login Failed.'
