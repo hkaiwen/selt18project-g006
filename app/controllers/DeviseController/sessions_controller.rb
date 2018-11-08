@@ -21,9 +21,6 @@ class DeviseController::SessionsController < Devise::SessionsController
     redirect_to questions_path
   end
 
-  def keepCount
-
-  end
   
   # GET /resource/sign_in
   # def new
