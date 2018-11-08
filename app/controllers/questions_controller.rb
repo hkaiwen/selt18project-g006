@@ -45,11 +45,13 @@ class QuestionsController < ApplicationController
     puts 'inside create method'
     @question_array = []
     @question = params[:question]
+    puts "Question: #{@question}"
     @answer = params[:answer]
     @option2 = params[:option1]
     @option3 = params[:option2]
     @option4 = params[:option3]
     @explanation = params[:explanation]
+    redirect_to questions_path
   end
 
   def submit_answer
