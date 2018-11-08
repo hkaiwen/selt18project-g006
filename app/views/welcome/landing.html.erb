@@ -1,4 +1,6 @@
-<div id="landing-header">
+
+<%= stylesheet_link_tag "application", "assets/stylesheets/landing.css" %>
+  <div id="landing-header">
   <h1>Welcome to Word Power</h1>
   <%= button_to "Get Started", questions_path, :method => :get, :id => 'get_start_button', class: "btn btn-lg btn-secondary" %>
   <%= button_to "Log in", new_user_session_path, :method => :post, :id => 'log_in_button', class: "btn btn-lg btn-secondary"%>
@@ -13,3 +15,4 @@
     </div>
  </div>
 </div>
+
