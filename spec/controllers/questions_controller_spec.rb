@@ -22,6 +22,39 @@ describe QuestionsController do
       expect(get(:index)).to render_template('welcome/landing')
     end
   end
+  describe 'render new question page' do
+    it 'should render a new page' do
+      expect(get(:new)).to render_template('new')
+    end
+  end
+  describe 'Add new question' do
+    before :each do
+      @question = 'The opposite of expensive is:'
+      @answer = 'cheap'
+      @option1 = 'bare'
+      @option2 = 'torn'
+      @option3 = 'burnt'
+      @explanation = 'The adjective expensive means high in price. Its like the expensive basketball sneakers you had to work all summer to save up enough money to buy.'
+    end
+    it 'should get the values from view' do
+      expect(Question).to receive(:create_question!).with(@question, @answer, @option1, @option2, @option3, @explanation)
+      post :create, {:question => @question, :answer => @answer, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation}
+    end
+    it 'should accept a boolean value as a result of calling model method' do
+      fake_result = true
+      expect(Question).to receive(:create_question!).with(@question, @answer, @option1, @option2, @option3, @explanation).and_return(fake_result)
+      post :create, {:question => @question, :answer => @answer, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation}
+
+    end
+    it 'should flash success message if question added to database' do
+      fake_result = true
+      expect(Question).to receive(:create_question!).with(@question, @answer, @option1, @option2, @option3, @explanation).and_return(fake_result)
+      post :create, {:question => @question, :answer => @answer, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation}
+      expect(flash[:notice]).to eq('Your question has been successfully added to the database')
+    end
+
+    it 'should redirect to index page'
+  end
   describe 'verifying answer' do
     context 'valid entry' do
       before :each do
@@ -47,7 +80,7 @@ describe QuestionsController do
         fake_results = { :value => 'correct', :answer => anything, :description => anything }
         expect(Question).to receive(:verify_answer).with(@checking_array).and_return(fake_results)
         post :submit_answer, { :question => 'pragmatic means', :optradio => 'alterable'}
-        expect(flash[:notice]).to eq('Great!Your answer is correct')
+        expect(flash[:correct]).to eq('Great! Your answer is correct')
       end
       it 'should make the verified results to index template' do
         expect(Question).to receive(:verify_answer).with(@checking_array).and_return(@fake_results)

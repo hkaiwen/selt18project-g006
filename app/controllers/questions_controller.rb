@@ -1,8 +1,13 @@
+# frozen_string_literal: true
+
 class QuestionsController < ApplicationController
+
   @@count = 0
   @@tot_ques = []
+
+
   def index
-    @ques_opt  = []
+    @ques_opt = []
     if params[:same]== 'yes' and params[:commit]== 'Submit'
       @ques_opt=params[:question]
       if !params[:explanation].nil?
@@ -37,6 +42,9 @@ class QuestionsController < ApplicationController
   end
 
   def create
+
+    puts 'inside create method'
+    redirect_to questions_path
 
   end
 

@@ -16,7 +16,8 @@ class SessionsController < Devise::SessionsController
       flash.now[:warning] = 'Invalid email/password'
       redirect_to login_path
     end
-  end
+    end
+
 
     def destroy
       session[:session_token]=nil
@@ -26,3 +27,4 @@ class SessionsController < Devise::SessionsController
     end
   
 end
+
