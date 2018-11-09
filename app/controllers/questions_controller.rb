@@ -20,8 +20,12 @@ class QuestionsController < ApplicationController
         @@tot_ques << @questions[1]
       elsif @@tot_ques.include?(@questions[1])
         @new_question = Question.where.not(:questions => @@tot_ques).pluck(:id,:questions,:answer,:option2,:option3,:option4)
-        @@tot_ques << @new_question[0][1]
-        @questions = @new_question[0]
+        if @new_question.empty?
+          flash[:notice] = 'No more questions in Database'
+        else
+          @@tot_ques << @new_question[0][1]
+          @questions = @new_question[0]
+        end
       else
         @@tot_ques << @questions[1]
       end

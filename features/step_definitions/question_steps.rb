@@ -25,7 +25,10 @@ end
 
 
 When /^I click on 'Next' button/ do
+  @@tot_ques = []
+  @@count = 1
   @previous_question = page.find('#question').text
+  @@tot_ques << @previous_question
   click_on('Next')
 end
 
@@ -46,7 +49,10 @@ Then /^I should see a question and 4 options$/ do
 end
 
 When /^I select the (.*?) answer$/ do |correct|
+  @@count = 1
+  @@tot_ques = []
   @ques = page.find('#question').text
+  @@tot_ques << @ques
   @answer = Question.where(questions: @ques).pluck('answer')
   @option = Question.where(questions: @ques).pluck('option2')
   if correct == 'correct'

@@ -11,6 +11,8 @@ def sign_up
   fill_in 'sign_up_text3', with: @user[:email]
   fill_in 'sign_up_text4', with: @user[:password]
   fill_in 'sign_up_text5', with: @user[:password_confirmation]
+  @@count = 0
+  @@tot_ques = []
   click_button 'Sign up'
 end
 
