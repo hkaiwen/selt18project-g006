@@ -45,9 +45,14 @@ class QuestionsController < ApplicationController
 
   def create
     @que = params[:question]
-    Question.create_question!(@que[:question], @que[:answer], @que[:option2], @que[:option3], @que[:option4], @que[:explanation])
-    flash[:notice] = 'Question successfully added to question bank'
-    redirect_to questions_path
+    begin
+      Question.create_question!(@que[:question], @que[:answer], @que[:option2], @que[:option3], @que[:option4], @que[:explanation])
+      flash[:notice] = 'Question successfully added to question bank'
+      redirect_to questions_path
+    rescue
+      flash[:warning] = 'All fields are required'
+      redirect_to new_question_path
+    end
 
   end
 
