@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
 
   before_filter :set_current_user
   #@@count = 0
-  @@tot_ques = []
+ # @@tot_ques = []
 
 
   def index
@@ -26,19 +26,24 @@ class QuestionsController < ApplicationController
         render "/welcome/landing"
       end
       @questions = Question.pluck(:id,:questions,:answer,:option2,:option3,:option4).sample
-      if @@tot_ques.empty?
-        @@tot_ques << @questions[1]
+      #if @@tot_ques.empty?
+      if session[:question].nil?
+        #@@tot_ques << @questions[1]
+        session[:question] << @questions[1]
       elsif @@tot_ques.include?(@questions[1])
         @new_question = Question.where.not(:questions => @@tot_ques).pluck(:id,:questions,:answer,:option2,:option3,:option4)
-        @@tot_ques << @new_question[0][1]
+       # @@tot_ques << @new_question[0][1]
+       session[:question] << @new_question[0][1]
         @questions = @new_question[0]
       else
-        @@tot_ques << @questions[1]
+        #@@tot_ques << @questions[1]
+        session[:question] << @questions[1]
       end
       @options = @questions.slice(2..5).shuffle
       @ques_opt << @questions[0] << @questions[1]
       @ques_opt << @options
       @ques_opt.flatten!
+      puts "Question: #{session[:question]}"
       #@@count += 1
       #if @@count > 10
 

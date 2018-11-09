@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def incrementCount
+    session[:question] ||= []
     session[:count] = nil
   end
 end
