@@ -2,18 +2,12 @@
 
 class QuestionsController < ApplicationController
 
-
-  before_filter :set_current_user
-  #@@count = 0
- # @@tot_ques = []
-
-
-
   def index
     if session[:count].nil?
       session[:count] = 0
     end
     @ques_opt = []
+   # @question_array = []
     if params[:same]== 'yes' and params[:commit]== 'Submit'
       @ques_opt=params[:question]
       if !params[:explanation].nil?
@@ -21,42 +15,40 @@ class QuestionsController < ApplicationController
         @answer = 'Answer: '+ params[:answer]
       end
     else
-      session[:count] += 1
-      puts "Count: #{session[:count]}"
-      if session[:count] > 10
-        flash[:notice] = 'Please sign up'
-        render "/welcome/landing"
+      if !user_signed_in?
+       session[:count] += 1
+       puts "count: #{session[:count]}"
+       if session[:count] > 10
+         flash[:notice] = 'Please sign up'
+         render "/welcome/landing"
+       end
       end
       @questions = Question.pluck(:id,:questions,:answer,:option2,:option3,:option4).sample
-      #if @@tot_ques.empty?
-      if session[:question].nil?
-        #@@tot_ques << @questions[1]
-        session[:question] = @questions[1]
-      #elsif @@tot_ques.include?(@questions[1])
+      if session[:question].blank?
+        #@question_array << @questions[1]
+        puts "Question from DB: #{@questions[1]}"
+        (session[:question] ||= []) << @questions[1]
       elsif session[:question].include?(@questions[1])
-        #@new_question = Question.where.not(:questions => @@tot_ques).pluck(:id,:questions,:answer,:option2,:option3,:option4)
         @new_question = Question.where.not(:questions => session[:question]).pluck(:id,:questions,:answer,:option2,:option3,:option4)
-        # @@tot_ques << @new_question[0][1]
-       session[:question] << @new_question[0][1]
-        @questions = @new_question[0]
+        if @new_question.empty?
+          flash[:notice] = 'No more questions in database'
+        else
+          #@question_array << @new_question[0][1]
+          session[:question] << @new_question[0][1]
+          @questions = @new_question[0]
+        end
       else
-        #@@tot_ques << @questions[1]
+        #@question_array << @questions[1]
         session[:question] << @questions[1]
       end
+      #puts "Question_array: #{@question_array}"
+      #session[:question] << @question_array
+      #session[:question].flatten!
+      puts "Questions: #{session[:question]}"
       @options = @questions.slice(2..5).shuffle
       @ques_opt << @questions[0] << @questions[1]
       @ques_opt << @options
       @ques_opt.flatten!
-      puts "Question: #{session[:question]}"
-      #@@count += 1
-      #if @@count > 10
-     # if !user_signed_in?
-       # @@count += 1
-        #"#{if @@count > 10
-         #flash[:notice] = 'Please sign up'
-          #render "/welcome/landing"
-        #end
-      #end
     end
   end
 

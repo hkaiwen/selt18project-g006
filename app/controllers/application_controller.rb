@@ -15,9 +15,9 @@ class ApplicationController < ActionController::Base
     "/questions"
   end
 
-  def incrementCount
+  def increment_count
     session[:question] ||= []
-    session[:count] = nil
+    session[:count] ||= nil
   end
 
   def configure_permitted_parameters
