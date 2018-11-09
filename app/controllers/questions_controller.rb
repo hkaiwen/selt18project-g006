@@ -7,7 +7,6 @@ class QuestionsController < ApplicationController
       session[:count] = 0
     end
     @ques_opt = []
-   # @question_array = []
     if params[:same]== 'yes' and params[:commit]== 'Submit'
       @ques_opt=params[:question]
       if !params[:explanation].nil?
@@ -17,7 +16,6 @@ class QuestionsController < ApplicationController
     else
       if !user_signed_in?
        session[:count] += 1
-       puts "count: #{session[:count]}"
        if session[:count] > 10
          flash[:notice] = 'Please sign up'
          render "/welcome/landing"
@@ -25,26 +23,18 @@ class QuestionsController < ApplicationController
       end
       @questions = Question.pluck(:id,:questions,:answer,:option2,:option3,:option4).sample
       if session[:question].blank?
-        #@question_array << @questions[1]
-        puts "Question from DB: #{@questions[1]}"
         (session[:question] ||= []) << @questions[1]
       elsif session[:question].include?(@questions[1])
         @new_question = Question.where.not(:questions => session[:question]).pluck(:id,:questions,:answer,:option2,:option3,:option4)
         if @new_question.empty?
           flash[:notice] = 'No more questions in database'
         else
-          #@question_array << @new_question[0][1]
           session[:question] << @new_question[0][1]
           @questions = @new_question[0]
         end
       else
-        #@question_array << @questions[1]
         session[:question] << @questions[1]
       end
-      #puts "Question_array: #{@question_array}"
-      #session[:question] << @question_array
-      #session[:question].flatten!
-      puts "Questions: #{session[:question]}"
       @options = @questions.slice(2..5).shuffle
       @ques_opt << @questions[0] << @questions[1]
       @ques_opt << @options
