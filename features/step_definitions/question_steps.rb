@@ -3,16 +3,19 @@ Given /the following questions have been added to Question:/ do |question_table|
   question_table.hashes.each do |question|
     Question.create(question)
   end
-  
 end
 
 Given /^I am on the question page/ do
   visit questions_path
 end
 
-When /^I click on 'Get Start' button$/ do
+#And /^I am on the WordPower page$/ do
+  #visit root_path
+#end
+
+When /^I click on 'Get Started' button$/ do
   visit root_path
-  click_button("Get Start")
+  click_button("Get Started")
 end
 
 Then /^I should be able to the play the game$/ do
@@ -58,3 +61,7 @@ Then /^I should see '(.*?)' on flash message$/ do |message|
   expect message == page.find('.alert').text
 end
 
+
+And(/^I am on the WordPower Page$/) do
+  visit root_path
+end
