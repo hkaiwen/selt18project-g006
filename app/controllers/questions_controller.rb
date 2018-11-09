@@ -2,9 +2,11 @@
 
 class QuestionsController < ApplicationController
 
+
   before_filter :set_current_user
   #@@count = 0
  # @@tot_ques = []
+
 
 
   def index
@@ -48,18 +50,33 @@ class QuestionsController < ApplicationController
       puts "Question: #{session[:question]}"
       #@@count += 1
       #if @@count > 10
-
+     # if !user_signed_in?
+       # @@count += 1
+        #"#{if @@count > 10
+         #flash[:notice] = 'Please sign up'
+          #render "/welcome/landing"
+        #end
+      #end
     end
   end
 
   def new
-    #empty method
+    if !user_signed_in?
+      flash[:warning] = 'You need login to do that'
+      redirect_to questions_path
+    end
   end
 
   def create
-    puts 'inside create method'
-    redirect_to questions_path
-
+    @que = params[:question]
+    begin
+      Question.create_question!(@que[:question], @que[:answer], @que[:option2], @que[:option3], @que[:option4], @que[:explanation])
+      flash[:notice] = 'Question successfully added to question bank'
+      redirect_to questions_path
+    rescue
+      flash[:warning] = 'All fields are required'
+      redirect_to new_question_path
+    end
   end
 
   def submit_answer
