@@ -53,7 +53,6 @@ class QuestionsController < ApplicationController
       flash[:warning] = 'All fields are required'
       redirect_to new_question_path
     end
-
   end
 
   def submit_answer
