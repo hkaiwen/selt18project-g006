@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
-  @@count = 0
-  @@tot_ques = []
 
   def index
+    if session[:count].nil?
+      session[:count] = 0
+    end
     @ques_opt = []
     if params[:same]== 'yes' and params[:commit]== 'Submit'
       @ques_opt=params[:question]
@@ -13,28 +14,31 @@ class QuestionsController < ApplicationController
         @answer = 'Answer: '+ params[:answer]
       end
     else
+      if !user_signed_in?
+       session[:count] += 1
+       if session[:count] > 10
+         flash[:notice] = 'Please sign up'
+         render "/welcome/landing"
+       end
+      end
       @questions = Question.pluck(:id,:questions,:answer,:option2,:option3,:option4).sample
-      if @@tot_ques.empty?
-        @@tot_ques << @questions[1]
-      elsif @@tot_ques.include?(@questions[1])
-        @new_question = Question.where.not(:questions => @@tot_ques).pluck(:id,:questions,:answer,:option2,:option3,:option4)
-        @@tot_ques << @new_question[0][1]
-        @questions = @new_question[0]
+      if session[:question].blank?
+        (session[:question] ||= []) << @questions[1]
+      elsif session[:question].include?(@questions[1])
+        @new_question = Question.where.not(:questions => session[:question]).pluck(:id,:questions,:answer,:option2,:option3,:option4)
+        if @new_question.empty?
+          flash[:notice] = 'No more questions in database'
+        else
+          session[:question] << @new_question[0][1]
+          @questions = @new_question[0]
+        end
       else
-        @@tot_ques << @questions[1]
+        session[:question] << @questions[1]
       end
       @options = @questions.slice(2..5).shuffle
       @ques_opt << @questions[0] << @questions[1]
       @ques_opt << @options
       @ques_opt.flatten!
-      if !user_signed_in?
-        @@count += 1
-        if @@count > 10
-          flash[:notice] = 'Please sign up'
-          render "/welcome/landing"
-        end
-      end
-
     end
   end
 

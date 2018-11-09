@@ -16,12 +16,13 @@ class DeviseController::SessionsController < Devise::SessionsController
 
   def destroy
     session[:session_token]=nil
+    session[:count] = 0
     @current_user=nil
     flash[:notice]= 'Logged out of your account'
     redirect_to questions_path
   end
 
-
+  
   # GET /resource/sign_in
   # def new
   #   super
