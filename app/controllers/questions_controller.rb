@@ -6,8 +6,9 @@ class QuestionsController < ApplicationController
   @@count = 0
   @@tot_ques = []
 
+
   def index
-    if (session[:count].nil?)
+    if session[:count].nil?
       session[:count] = 0
     end
     @ques_opt = []
