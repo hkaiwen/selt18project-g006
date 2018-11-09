@@ -3,7 +3,7 @@
 class QuestionsController < ApplicationController
 
   before_filter :set_current_user
-  @@count = 0
+  #@@count = 0
   @@tot_ques = []
 
 
@@ -19,6 +19,12 @@ class QuestionsController < ApplicationController
         @answer = 'Answer: '+ params[:answer]
       end
     else
+      session[:count] += 1
+      puts "Count: #{session[:count]}"
+      if session[:count] > 10
+        flash[:notice] = 'Please sign up'
+        render "/welcome/landing"
+      end
       @questions = Question.pluck(:id,:questions,:answer,:option2,:option3,:option4).sample
       if @@tot_ques.empty?
         @@tot_ques << @questions[1]
@@ -33,15 +39,9 @@ class QuestionsController < ApplicationController
       @ques_opt << @questions[0] << @questions[1]
       @ques_opt << @options
       @ques_opt.flatten!
-
-      session[:count] += 1
-      puts "Count: #{session[:count]}"
       #@@count += 1
       #if @@count > 10
-      if session[:count] > 10
-        flash[:notice] = 'Please sign up'
-        render "/welcome/landing"
-      end
+
     end
   end
 
