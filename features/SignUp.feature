@@ -13,6 +13,18 @@ Feature: Allow the User to sign up
       When I sign up with valid user details
       Then I should see a successful sign up message
 
-    Scenario: User signs up with invalid email
-      When I sign up with invalid email
-      Then I should see an invalid email message
+    Scenario: User signs up with blank email
+      When I sign up with blank email
+      Then I should see an blank email message
+
+    Scenario: User signs up with invalid password
+      When I sign up with invalid password
+      Then I should see an invalid password message
+
+    Scenario: User signs up without password
+      When I sign up with blank password
+      Then I should see a missing password message
+
+    Scenario: User signs up with mismatched password and confirmation
+      When I sign up with with mismatched password and confirmation
+      Then I should see an invalid password mismatch message

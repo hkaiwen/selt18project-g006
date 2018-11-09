@@ -27,12 +27,45 @@ Then /^I should see a successful sign up message$/ do
 end
 
 
-When(/^I sign up with invalid email$/) do
+When(/^I sign up with blank email$/) do
   create_user
-  @user = @user.merge(:email => 'wrongexample.com')
+  @user = @user.merge(:email => '')
   sign_up
 end
 
-Then(/^I should see an invalid email message$/) do
-  page.should have_content 'Email is invalid'
+Then(/^I should see an blank email message$/) do
+  page.should have_content "Email can't be blank"
 end
+
+
+When(/^I sign up with invalid password$/) do
+  create_user
+  @user = @user.merge(:password => 'mac')
+  sign_up
+end
+
+Then(/^I should see an invalid password message$/) do
+  page.should have_content 'Password is too short (minimum is 6 characters)'
+end
+
+
+When(/^I sign up with blank password$/) do
+  create_user
+  @user = @user.merge(:password => '')
+  sign_up
+end
+
+Then(/^I should see a missing password message$/) do
+  page.should have_content "Password can't be blank"
+end
+
+When(/^I sign up with with mismatched password and confirmation$/) do
+  create_user
+  @user = @user.merge(:password_confirmation => 'mac1234')
+  sign_up
+end
+
+Then(/^I should see an invalid password mismatch message$/) do
+  page.should have_content "Password confirmation doesn't match Password"
+end
+
