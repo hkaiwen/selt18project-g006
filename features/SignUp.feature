@@ -12,3 +12,7 @@ Feature: Allow the User to sign up
     Scenario: User signs up with valid details
       When I sign up with valid user details
       Then I should see a successful sign up message
+
+    Scenario: User signs up with invalid email
+      When I sign up with invalid email
+      Then I should see an invalid email message

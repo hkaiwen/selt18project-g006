@@ -9,10 +9,6 @@ Given /^I am on the question page/ do
   visit questions_path
 end
 
-#And /^I am on the WordPower page$/ do
-  #visit root_path
-#end
-
 When /^I click on 'Get Started' button$/ do
   visit root_path
   click_button("Get Started")

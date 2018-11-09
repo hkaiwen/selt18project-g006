@@ -25,3 +25,14 @@ end
 Then /^I should see a successful sign up message$/ do
   page.should have_content 'Welcome! You have signed up successfully.'
 end
+
+
+When(/^I sign up with invalid email$/) do
+  create_user
+  @user = @user.merge(:email => 'wrongexample.com')
+  sign_up
+end
+
+Then(/^I should see an invalid email message$/) do
+  page.should have_content 'Email is invalid'
+end
