@@ -5,9 +5,6 @@ class QuestionsController < ApplicationController
   @@count = 0
   @@tot_ques = []
 
-  def question_params
-    params.require(:question).permit(:question, :option2, :option3, :option4, :answer)
-  end
   def index
     @ques_opt = []
     if params[:same]== 'yes' and params[:commit]== 'Submit'
@@ -47,7 +44,9 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    puts 'inside create method'
+    @que = params[:question]
+    Question.create_question!(@que[:question], @que[:answer], @que[:option2], @que[:option3], @que[:option4], @que[:explanation])
+    flash[:notice] = 'Question successfully added to question bank'
     redirect_to questions_path
 
   end
