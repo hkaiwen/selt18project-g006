@@ -4,8 +4,8 @@ def create_user
 end
 
 def sign_up
-  #click_button 'Sign up'
-  visit '/users/sign_up'
+  click_button 'Sign up'
+  #visit '/users/sign_up'
   fill_in 'sign_up_text1', with: @user[:first_name]
   fill_in 'sign_up_text2', with: @user[:last_name]
   fill_in 'sign_up_text3', with: @user[:email]
@@ -69,3 +69,10 @@ Then(/^I should see an invalid password mismatch message$/) do
   page.should have_content "Password confirmation doesn't match Password"
 end
 
+
+When(/^I sign up with valid user credentials$/) do
+end
+
+Then(/^I should see a successful login up message$/) do
+  page.should have_content 'Signed in successfully.
+end
