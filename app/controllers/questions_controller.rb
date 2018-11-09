@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
-
   @@count = 0
   @@tot_ques = []
 
@@ -40,7 +39,10 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    #empty method
+    if !user_signed_in?
+      flash[:warning] = 'You need login to do that'
+      redirect_to questions_path
+    end
   end
 
   def create
