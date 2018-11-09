@@ -74,5 +74,5 @@ When(/^I sign up with valid user credentials$/) do
 end
 
 Then(/^I should see a successful login up message$/) do
-  page.should have_content 'Signed in successfully.
+  page.should have_content 'Signed in successfully.'
 end
