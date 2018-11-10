@@ -10,5 +10,17 @@ Feature: Allow the User to login
     And I am on the WordPower Page
 
   Scenario: User logs in with valid credentials
-    When I sign up with valid user credentials
-    Then I should see a successful login up message
+    When I log in with valid user credentials
+    Then I should see a successful login message
+
+  Scenario: User logs in with wrong email
+    When I log in with wrong email
+    Then I should see an invalid login message
+
+  Scenario: User logs in with wrong password
+    When I log in with wrong password
+    Then I should see an invalid login message
+
+  Scenario: User signs in on the login page
+    When I sign in on the login page using valid details
+    Then I should see a successful sign up message

@@ -5,11 +5,13 @@ class DeviseController::SessionsController < Devise::SessionsController
 
   def create
     user = User.find_by_email(params[:session][:email])
+    puts "in create session"
+    #super
     if user && user.authenticate(params[:session][:password])
       session[:session_token]= user.session_token
       redirect_to questions_path
     else
-      flash.now[:warning] = 'Invalid email/password'
+      flash[:warning] = 'Invalid email/password'
       redirect_to login_path
     end
   end
