@@ -18,10 +18,16 @@ class DeviseController::SessionsController < Devise::SessionsController
 
   def destroy
     session[:session_token]=nil
-    session[:count] = 0
     @current_user=nil
     flash[:notice]= 'Logged out of your account'
     redirect_to questions_path
+  end
+
+  def session_clear
+    session[:count] = 0
+    session[:question] = nil
+    session[:session_token] = nil
+    @current_user = nil
   end
 
   
