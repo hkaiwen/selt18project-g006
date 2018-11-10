@@ -3,16 +3,15 @@ Given /the following questions have been added to Question:/ do |question_table|
   question_table.hashes.each do |question|
     Question.create(question)
   end
-  
 end
 
 Given /^I am on the question page/ do
   visit questions_path
 end
 
-When /^I click on 'Get Start' button$/ do
+When /^I click on 'Get Started' button$/ do
   visit root_path
-  click_button("Get Start")
+  click_button("Get Started")
 end
 
 Then /^I should be able to the play the game$/ do
@@ -23,6 +22,7 @@ end
 
 When /^I click on 'Next' button/ do
   @previous_question = page.find('#question').text
+  #@@tot_ques << @previous_question
   click_on('Next')
 end
 
@@ -43,7 +43,10 @@ Then /^I should see a question and 4 options$/ do
 end
 
 When /^I select the (.*?) answer$/ do |correct|
+  #@@count = 1
+  #@@tot_ques = []
   @ques = page.find('#question').text
+  #@@tot_ques << @ques
   @answer = Question.where(questions: @ques).pluck('answer')
   @option = Question.where(questions: @ques).pluck('option2')
   if correct == 'correct'
@@ -58,3 +61,7 @@ Then /^I should see '(.*?)' on flash message$/ do |message|
   expect message == page.find('.alert').text
 end
 
+
+And(/^I am on the WordPower Page$/) do
+  visit root_path
+end

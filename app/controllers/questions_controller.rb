@@ -15,11 +15,11 @@ class QuestionsController < ApplicationController
       end
     else
       if !user_signed_in?
-       session[:count] += 1
-       if session[:count] > 10
-         flash[:notice] = 'Please sign up'
-         render "/welcome/landing"
-       end
+        session[:count] += 1
+        if session[:count] > 10
+          flash[:notice] = 'Please sign up'
+          render "/welcome/landing"
+        end
       end
       @questions = Question.pluck(:id,:questions,:answer,:option2,:option3,:option4).sample
       if session[:question].blank?

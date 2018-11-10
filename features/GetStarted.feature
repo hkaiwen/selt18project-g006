@@ -9,5 +9,5 @@ Feature: Allow guests to play game without logging in
     And I am on the question page
 
 Scenario: Playing game without logging in
-  When I click on 'Get Start' button
+  When I click on 'Get Started' button
   Then I should be able to the play the game
