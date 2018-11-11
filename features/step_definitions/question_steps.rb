@@ -65,3 +65,7 @@ end
 And(/^I am on the WordPower Page$/) do
   visit root_path
 end
+
+When /^I click on 'Add question to the question bank' button$/ do
+  click_on('Add question to the question bank')
+end
