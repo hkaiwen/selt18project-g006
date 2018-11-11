@@ -37,7 +37,7 @@ When /^I sign up with valid user details$/ do
 end
 
 Then /^I should see a successful sign up message$/ do
-  page.should have_content 'Welcome! You have signed up successfully.'
+  page.should have_content 'Welcome Lily! You have signed up successfully'
 end
 
 
@@ -91,7 +91,7 @@ When(/^I log in with valid user credentials$/) do
 end
 
 Then(/^I should see a successful login message$/) do
-  page.should have_content 'Signed in successfully.'
+  page.should have_content 'Welcome back Lily!'
 end
 
 
