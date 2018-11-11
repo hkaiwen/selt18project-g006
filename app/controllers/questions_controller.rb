@@ -16,6 +16,7 @@ class QuestionsController < ApplicationController
     else
       if !user_signed_in?
         session[:count] += 1
+        puts "Count: #{session[:count]}"
         if session[:count] > 10
           flash[:notice] = 'Please sign up'
           render "/welcome/landing"
@@ -35,6 +36,7 @@ class QuestionsController < ApplicationController
       else
         session[:question] << @questions[1]
       end
+      puts "Questions: #{session[:question]}"
       @options = @questions.slice(2..5).shuffle
       @ques_opt << @questions[0] << @questions[1]
       @ques_opt << @options
@@ -78,5 +80,13 @@ class QuestionsController < ApplicationController
       end
       redirect_to questions_path request.params.merge({same: 'yes', explanation: @reply_array[:description], answer: @reply_array[:answer]})
     end
+  end
+
+  def session_clear
+    puts 'inside session clear'
+    session[:count] = 0
+    session[:question] = nil
+    session[:session_token] = nil
+    @current_user = nil
   end
 end

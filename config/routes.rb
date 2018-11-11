@@ -64,5 +64,5 @@ Rails.application.routes.draw do
   root :to => redirect('/users'), as: :users_root
   match '/login_create', to: 'sessions#new', via: :post
   match '/logout', to: 'sessions#destroy', via: :delete
-  match '/session_clear', to: 'devise/sessions#session_clear', via: :delete
+  match '/session_clear', to: 'questions#session_clear', via: :post
 end

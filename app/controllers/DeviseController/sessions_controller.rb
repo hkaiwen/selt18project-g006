@@ -23,12 +23,7 @@ class DeviseController::SessionsController < Devise::SessionsController
     redirect_to questions_path
   end
 
-  def session_clear
-    session[:count] = 0
-    session[:question] = nil
-    session[:session_token] = nil
-    @current_user = nil
-  end
+
 
   
   # GET /resource/sign_in
