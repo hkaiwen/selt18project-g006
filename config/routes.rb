@@ -60,9 +60,10 @@ Rails.application.routes.draw do
   root :to => "welcome#landing"
   resources :questions
   match '/verifyanswer', to: 'questions#submit_answer', via: :post
+  match '/clearsession', to: 'questions#clearsession', via: :get
   resources :users
   root :to => redirect('/users'), as: :users_root
   match '/login_create', to: 'sessions#new', via: :post
   match '/logout', to: 'sessions#destroy', via: :delete
-  match '/session_clear', to: 'questions#session_clear', via: :post
+  #match '/session_clear', to: 'application#session_clear', via: :post
 end

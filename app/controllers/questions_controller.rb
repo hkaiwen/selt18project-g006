@@ -3,6 +3,8 @@
 class QuestionsController < ApplicationController
 
   def index
+    puts "Starting count: #{session[:count]}"
+    puts "Starting questions: #{session[:question]}"
     if session[:count].nil?
       session[:count] = 0
     end
@@ -84,11 +86,17 @@ class QuestionsController < ApplicationController
 
   def clearsession
     puts 'inside clear session'
-    session[:count] = 0
-    session[:question] = nil
-    session[:session_token] = nil
     if user_signed_in?
+      puts 'inside session clear if'
+    #session[:count] = 0
+      session[:question] = nil
+      session[:session_token] = nil
       redirect_to destroy_user_session_path
+    else
+      puts 'inside session clear else'
+      session[:count] = 0
+      session[:question] = nil
+      redirect_to '/'
     end
   end
 end

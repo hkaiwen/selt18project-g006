@@ -10,12 +10,7 @@ class ApplicationController < ActionController::Base
     redirect_to login_path unless @current_user
   end
 
-  def clearsession
-    session[:count] = 0
-    session[:question] = nil
-    session[:session_token] = nil
-    @current_user = nil
-  end
+
 
 
   def after_sign_in_path_for(resource)
