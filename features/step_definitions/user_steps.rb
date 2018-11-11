@@ -15,7 +15,6 @@ end
 
 def sign_up
   click_button 'Sign up'
-  #visit '/users/sign_up'
   fill_in 'sign_up_text1', with: @user[:first_name]
   fill_in 'sign_up_text2', with: @user[:last_name]
   fill_in 'sign_up_text3', with: @user[:email]
@@ -119,4 +118,22 @@ When(/^I sign in on the login page using valid details$/) do
   create_user
   click_button 'Log in'
   sign_up_login
+end
+
+
+And(/^I am logged in$/) do
+  create_user
+  @users = User.create(@user)
+  visit root_path
+  log_in
+end
+
+
+When(/^I click on log out$/) do
+  click_button 'Log out'
+end
+
+
+Then(/^I should see a sign out message$/) do
+  page.should have_content 'Signed out successfully.'
 end

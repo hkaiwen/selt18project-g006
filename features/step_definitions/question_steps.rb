@@ -1,5 +1,5 @@
 
-Given /the following questions have been added to Question:/ do |question_table|
+Given /the following questions have been added to Question Database:/ do |question_table|
   question_table.hashes.each do |question|
     Question.create(question)
   end
