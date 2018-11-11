@@ -82,11 +82,13 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def session_clear
-    puts 'inside session clear'
+  def clearsession
+    puts 'inside clear session'
     session[:count] = 0
     session[:question] = nil
     session[:session_token] = nil
-    @current_user = nil
+    if user_signed_in?
+      redirect_to destroy_user_session_path
+    end
   end
 end
