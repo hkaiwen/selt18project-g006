@@ -173,3 +173,28 @@ end
 Then(/^I should get a warning message$/) do
   page.should have_content 'All fields are required'
 end
+
+
+When(/^I click on back to question button on add question form$/) do
+  click_link 'Add question to the question bank'
+  click_link 'Back to questions'
+end
+
+
+Then(/^I should be redirected to the questions page$/) do
+  expect(current_path).to eq('/questions')
+end
+
+
+When(/^I skip one of the fields while adding a question$/) do
+  create_question
+  click_link 'Add question to the question bank'
+  @question = @question.merge(option2: '')
+  click_button 'Add this question'
+end
+
+
+When(/^I click on log out button on add question page$/) do
+  click_link 'Add question to the question bank'
+  click_button 'Log out'
+end

@@ -13,6 +13,18 @@ Feature: Allow user to add question
       When I click on add question with details
       Then I should get a successful message of adding a question
 
-    Scenario: User clicks on add question button without any details
+    Scenario: User clicks on add question button without entering any details
       When I click on add question button without entering any details
       Then I should get a warning message
+
+    Scenario: User wants to come back to the question page
+      When I click on back to question button on add question form
+      Then I should be redirected to the questions page
+
+    Scenario: User skips one of the fields while adding a question
+      When I skip one of the fields while adding a question
+      Then I should get a warning message
+
+    Scenario: User clicks on log out button on add question page
+      When I click on log out button on add question page
+      Then I should see a sign out message
