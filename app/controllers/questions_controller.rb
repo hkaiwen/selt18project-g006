@@ -91,16 +91,15 @@ class QuestionsController < ApplicationController
       #session[:count] = 0
       session[:question] = nil
       #session[:session_token] = nil
-      puts "before logout #{@current_user}"
+      #puts "before logout #{@current_user}"
       #sign_out @current_user
-      sign_out_all_scopes(lock = true)
-      puts "Current user #{@current_user}"
-      redirect_to '/'
+      #sign_out_all_scopes(lock = true)
+      #puts "Current user #{@current_user}"
     else
       puts 'inside session clear else'
       session[:count] = 0
       session[:question] = nil
-      redirect_to '/'
     end
+    redirect_to '/'
   end
 end
