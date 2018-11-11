@@ -88,10 +88,14 @@ class QuestionsController < ApplicationController
     puts 'inside clear session'
     if user_signed_in?
       puts 'inside session clear if'
-    #session[:count] = 0
+      #session[:count] = 0
       session[:question] = nil
-      session[:session_token] = nil
-      redirect_to destroy_user_session_path
+      #session[:session_token] = nil
+      puts "before logout #{@current_user}"
+      #sign_out @current_user
+      sign_out_all_scopes(lock = true)
+      puts "Current user #{@current_user}"
+      redirect_to '/'
     else
       puts 'inside session clear else'
       session[:count] = 0
