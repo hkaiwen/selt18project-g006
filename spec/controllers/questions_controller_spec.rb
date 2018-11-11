@@ -16,8 +16,9 @@ describe QuestionsController do
       #post :landing
     end
     it 'should alert for signup after count of 10 questions to display' do
-      @@tot_ques = []
-      @@count = 10
+      #@@tot_ques = []
+      #@@count = 10
+      session[:count] = 10
       allow(Question).to receive(:pluck).with(:id, :questions, :answer, :option2, :option3, :option4).and_return(@questions)
       expect(get(:index)).to render_template('welcome/landing')
     end
