@@ -1,6 +1,21 @@
 def create_user
-  @user||={first_name: 'Lily', last_name: 'Brown', email: 'lilybrown@gmail.com',
+  @user ||= {first_name: 'Lily', last_name: 'Brown', email: 'lilybrown@gmail.com',
            password: 'lily1234', password_confirmation: 'lily1234'}
+end
+
+def create_question
+ @question ||= {questions: 'Ubiquitous means', answer: 'Omnipresent', option2: 'Absent',
+              option3: 'Near', option4: 'escape', explanation: 'Present, appearing, or found everywhere'}
+end
+
+def add_question
+  fill_in 'question_question', with: @question[:questions]
+  fill_in 'question_option2', with: @question[:option2]
+  fill_in 'question_option3', with: @question[:option3]
+  fill_in 'question_option4', with: @question[:option4]
+  fill_in 'question_answer', with: @question[:answer]
+  fill_in 'question_explanation', with: @question[:explanation]
+  click_button 'Add this question'
 end
 
 def sign_up_login
@@ -136,4 +151,25 @@ end
 
 Then(/^I should see a sign out message$/) do
   page.should have_content 'Signed out successfully.'
+end
+
+
+When(/^I click on add question with details$/) do
+  create_question
+  click_link 'Add question to the question bank'
+  add_question
+end
+
+Then(/^I should get a successful message of adding a question$/) do
+  page.should have_content 'Question successfully added to question bank'
+end
+
+
+When(/^I click on add question button without entering any details$/) do
+  click_link 'Add question to the question bank'
+  click_button 'Add this question'
+end
+
+Then(/^I should get a warning message$/) do
+  page.should have_content 'All fields are required'
 end
