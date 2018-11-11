@@ -88,7 +88,7 @@ class QuestionsController < ApplicationController
     puts 'inside clear session'
     if user_signed_in?
       puts 'inside session clear if'
-      #session[:count] = 0
+      session[:count] = 0
       session[:question] = nil
       #session[:session_token] = nil
       #puts "before logout #{@current_user}"
