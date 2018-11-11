@@ -19,7 +19,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "sign_up_text3" %>
   </div>
 
@@ -36,8 +36,8 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password", id: "sign_up_text5" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="actions" >
+    <%= f.submit "Sign up", id: "submit_sign_up" %>
   </div>
 <% end %>
 
