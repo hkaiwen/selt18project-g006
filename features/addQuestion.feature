@@ -1,4 +1,4 @@
-Feature: Allow the User to sign up
+Feature: Allow user who logged in to add new question
 
   Background: I am on the Welcome to WordPower page
     Given the following questions have been added to Question:
@@ -8,3 +8,4 @@ Feature: Allow the User to sign up
       | plethora means                  | excess      | function  | happy      | already    | excess superfluity                                                                                                                                    |
 
     And I am on the WordPower Page
+
