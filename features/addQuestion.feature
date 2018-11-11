@@ -18,3 +18,9 @@ Feature: Allow user who logged in to add new question
       Then I click on 'Add question to the question bank' button
       Then I fill a new question with all field and submit
       Then I should see 'Question successfully added to question bank' on flash message
+
+  Scenario: User add new question missing explanation with logging in
+    When I log in with valid user credentials
+    Then I click on 'Add question to the question bank' button
+    Then I fill a new question without all field and submit
+    Then I should see 'Sorry, all fields are required' on flash message
