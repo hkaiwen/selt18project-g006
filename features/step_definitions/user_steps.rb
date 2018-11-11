@@ -3,21 +3,6 @@ def create_user
            password: 'lily1234', password_confirmation: 'lily1234'}
 end
 
-def create_question
- @question ||= {questions: 'Ubiquitous means', answer: 'Omnipresent', option2: 'Absent',
-              option3: 'Near', option4: 'escape', explanation: 'Present, appearing, or found everywhere'}
-end
-
-def add_question
-  fill_in 'question_question', with: @question[:questions]
-  fill_in 'question_option2', with: @question[:option2]
-  fill_in 'question_option3', with: @question[:option3]
-  fill_in 'question_option4', with: @question[:option4]
-  fill_in 'question_answer', with: @question[:answer]
-  fill_in 'question_explanation', with: @question[:explanation]
-  click_button 'Add this question'
-end
-
 def sign_up_login
   click_link 'Sign up'
   fill_in 'sign_up_text1', with: @user[:first_name]
@@ -153,30 +138,11 @@ Then(/^I should see a sign out message$/) do
   page.should have_content 'Signed out successfully.'
 end
 
-
-When(/^I click on add question with details$/) do
-  create_question
-  click_link 'Add question to the question bank'
-  add_question
-end
-
-Then(/^I should get a successful message of adding a question$/) do
-  page.should have_content 'Question successfully added to question bank'
-end
-
-
 When(/^I click on add question button without entering any details$/) do
-  click_link 'Add question to the question bank'
   click_button 'Add this question'
 end
 
-Then(/^I should get a warning message$/) do
-  page.should have_content 'All fields are required'
-end
-
-
 When(/^I click on back to question button on add question form$/) do
-  click_link 'Add question to the question bank'
   click_link 'Back to questions'
 end
 
@@ -186,15 +152,5 @@ Then(/^I should be redirected to the questions page$/) do
 end
 
 
-When(/^I skip one of the fields while adding a question$/) do
-  create_question
-  click_link 'Add question to the question bank'
-  @question = @question.merge(option2: '')
-  click_button 'Add this question'
-end
 
 
-When(/^I click on log out button on add question page$/) do
-  click_link 'Add question to the question bank'
-  click_button 'Log out'
-end
