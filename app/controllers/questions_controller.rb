@@ -22,12 +22,17 @@ class QuestionsController < ApplicationController
         end
       end
       @questions = Question.pluck(:id,:questions,:answer,:option2,:option3,:option4).sample
+      puts "Code question: #{@questions}"
       if session[:question].blank?
         (session[:question] ||= []) << @questions[1]
       elsif session[:question].include?(@questions[1])
+        puts 'inside else if'
         @new_question = Question.where.not(:questions => session[:question]).pluck(:id,:questions,:answer,:option2,:option3,:option4)
+        puts "Code new question: #{@new_question}"
         if @new_question.empty?
           flash[:notice] = 'No more questions in database'
+          #redirect_to '/'
+          render 'welcome/landing'
         else
           session[:question] << @new_question[0][1]
           @questions = @new_question[0]

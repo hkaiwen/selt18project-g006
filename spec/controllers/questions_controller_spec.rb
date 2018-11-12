@@ -20,6 +20,20 @@ describe QuestionsController do
       allow(Question).to receive(:pluck).with(:id, :questions, :answer, :option2, :option3, :option4).and_return(@questions)
       expect(get(:index)).to render_template('welcome/landing')
     end
+    it 'should render different question if the question is already been taken' do
+
+      expect(Question).to receive(:pluck).with(:id,:questions, :answer, :option2, :option3, :option4).and_return(@questions)
+      session[:question] = @questions.sample
+      puts "In spec question: #{session[:question]}"
+      expect(Question).to receive(:pluck).with(:id,:questions, :answer, :option2, :option3, :option4).and_return(@questions)
+      get :index
+      #expect(get(:index)).to render_template('index')
+      #if @questions.include?(session[:question])
+        #puts 'inside spec if'
+        expect(Question).to receive(:pluck).with(:id,:questions, :answer, :option2, :option3, :option4).and_return(question = @new_question)
+        puts "in spec else if question: #{question}"
+      #end
+    end
   end
   describe 'Add new question' do
     before :each do
