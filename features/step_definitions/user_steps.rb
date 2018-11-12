@@ -152,5 +152,12 @@ Then(/^I should be redirected to the questions page$/) do
 end
 
 
-
-
+When(/^I log in on the sign up page with valid user credentials$/) do
+  create_user
+  @users = User.create(@user)
+  click_button 'Sign up'
+  click_link 'Log in'
+  fill_in 'log_in_text1', with: @user[:email]
+  fill_in 'log_in_text2', with: @user[:password]
+  click_button 'Log in'
+end

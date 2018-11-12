@@ -3,17 +3,20 @@
 class DeviseController::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
-  def create
+  after_action :verify_email, only: :create
+  def verify_email
     user = User.find_by_email(params[:session][:email])
-    puts "in create session"
-    #super
-    if user && user.authenticate(params[:session][:password])
-      session[:session_token]= user.session_token
-      redirect_to questions_path
-    else
-      flash[:warning] = 'Invalid email/password'
-      redirect_to login_path
+    if user.nil?
+     puts "in create session"
+     flash[:warning] = 'Invalid email/password'
     end
+    #if user && user.authenticate(params[:session][:password])
+     # session[:session_token]= user.session_token
+      #redirect_to questions_path
+    #else
+     # flash[:warning] = 'Invalid email/password'
+     # redirect_to login_path
+    #end
   end
 
   def destroy

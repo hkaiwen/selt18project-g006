@@ -28,3 +28,7 @@ Feature: Allow the User to sign up
     Scenario: User signs up with mismatched password and confirmation
       When I sign up with with mismatched password and confirmation
       Then I should see an invalid password mismatch message
+
+    Scenario: User logs in on the sign up page
+      When I log in on the sign up page with valid user credentials
+      Then I should see a successful login message
