@@ -1,5 +1,5 @@
 
-Given /the following questions have been added to Question:/ do |question_table|
+Given /the following questions have been added to Question Database:/ do |question_table|
   question_table.hashes.each do |question|
     Question.create(question)
   end
@@ -22,7 +22,6 @@ end
 
 When /^I click on 'Next' button/ do
   @previous_question = page.find('#question').text
-  #@@tot_ques << @previous_question
   click_on('Next')
 end
 
@@ -43,10 +42,7 @@ Then /^I should see a question and 4 options$/ do
 end
 
 When /^I select the (.*?) answer$/ do |correct|
-  #@@count = 1
-  #@@tot_ques = []
   @ques = page.find('#question').text
-  #@@tot_ques << @ques
   @answer = Question.where(questions: @ques).pluck('answer')
   @option = Question.where(questions: @ques).pluck('option2')
   if correct == 'correct'
@@ -83,6 +79,4 @@ When /^I fill a new question (.*?) all field and submit$/ do |with|
     fill_in 'question_explanation', with: @ques[:explanation]
   end
   click_button 'Add this question'
-
-
 end
