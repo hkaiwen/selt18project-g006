@@ -2,7 +2,7 @@
   <ul>
     <li id="title">Welcome to Wordpower</li>
     <li><%= link_to 'Back to questions', questions_path, :method => :get, :id => 'back_to_questions'%></li>
-    <li><input type = "submit", value = "Log out", id = "user_log_out_button"></li> <%# To add action for logout %>
+    <li> <%= button_to "Log out", destroy_user_session_path, :method => :delete, :id => 'user_log_out_button', class: "btn btn-lg btn-secondary"%></li>
   </ul>
 </div>
 <div  class="container", id="add_form">

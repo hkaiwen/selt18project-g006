@@ -1,4 +1,4 @@
-Feature: Allow the User to sign up
+Feature: Allow the User to login
 
   Background: I am on the Welcome to WordPower page
     Given the following questions have been added to Question Database:
@@ -9,22 +9,18 @@ Feature: Allow the User to sign up
 
     And I am on the WordPower Page
 
-    Scenario: User signs up with valid details
-      When I sign up with valid user details
-      Then I should see a successful sign up message
+  Scenario: User logs in with valid credentials
+    When I log in with valid user credentials
+    Then I should see a successful login message
 
-    Scenario: User signs up with blank email
-      When I sign up with blank email
-      Then I should see an blank email message
+  Scenario: User logs in with wrong email
+    When I log in with wrong email
+    Then I should see an invalid login message
 
-    Scenario: User signs up with invalid password
-      When I sign up with invalid password
-      Then I should see an invalid password message
+  Scenario: User logs in with wrong password
+    When I log in with wrong password
+    Then I should see an invalid login message
 
-    Scenario: User signs up without password
-      When I sign up with blank password
-      Then I should see a missing password message
-
-    Scenario: User signs up with mismatched password and confirmation
-      When I sign up with with mismatched password and confirmation
-      Then I should see an invalid password mismatch message
+  Scenario: User signs in on the login page
+    When I sign in on the login page using valid details
+    Then I should see a successful sign up message
