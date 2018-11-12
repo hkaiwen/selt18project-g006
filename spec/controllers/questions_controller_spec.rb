@@ -22,11 +22,6 @@ describe QuestionsController do
       expect(get(:index)).to render_template('welcome/landing')
     end
   end
-  # describe 'render new question page' do
-  #   it 'should render a new page' do
-  #     expect(get(:new)).to render_template('questions')
-  #   end
-  # end
   describe 'Add new question' do
     before :each do
       @question = 'The opposite of expensive is:'
@@ -52,6 +47,13 @@ describe QuestionsController do
       post :create, {:question => {:question => @question, :answer => @answer, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation}}
       expect(flash[:notice]).to eq('Question successfully added to question bank')
       expect(response).to redirect_to(questions_path)
+    end
+    it 'should return error message when failed to add question to database and stay on the same page' do
+      question = Question.new(:questions => @question,:answer => @answer, :option2 => @option2, :option3 => @option3, :option4 => @option1, :explanation => 'The degree to which a method or medicine brings about a specific result is its efficacy. You might not like to eat it, but you cant question the efficacy of broccoli as a health benefit.')
+      allow(Question).to receive(:create_question!).with(@question, @answer, @option1, @option2, @option3, @explanation).and_raise(ActiveRecord::RecordInvalid)
+      post :create, {:question => {:question => @question, :answer => @answer, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation}}
+      expect(flash[:warning]).to eq('Sorry, all fields are required')
+      expect(response).to redirect_to(new_question_path)
     end
 
   end
@@ -95,6 +97,5 @@ describe QuestionsController do
         expect(response).to redirect_to(/^.*\/questions\?action=submit_answer.*/)
       end
     end
-
   end
 end
