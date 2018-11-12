@@ -43,10 +43,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    if !user_signed_in?
-      flash[:warning] = 'You need login to do that'
-      redirect_to questions_path
-    end
+    # render new question page
   end
 
   def create
