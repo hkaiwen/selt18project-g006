@@ -35,19 +35,19 @@
   padding: 20px;
 }
 
-#sign_up_text1, #sign_up_text2, #sign_up_text3, #sign_up_text4, #sign_up_text5  {
+#sign_up_text1, #sign_up_text2, #sign_up_text3, #sign_up_text4, #sign_up_text5, #email_text {
   width: 100%;
 }
 #log_in_text1, #log_in_text2 {
   width: 100%;
 }
 
-#submit_sign_up, #log_in_submit {
+#submit_sign_up, #log_in_submit,#reset_password_button {
   margin-top: 5px;
   padding:5px 15px;
   background:none;
   border-color: #6db1df;
-    cursor:pointer;
+  cursor:pointer;
   border-radius: 5px;
 }
 #submit_sign_up:hover {

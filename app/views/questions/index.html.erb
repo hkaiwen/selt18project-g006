@@ -2,6 +2,7 @@
   <ul>
     <li id="title">Word Power</li>
     <% if user_signed_in? %>
+      <li id="message"><%= "Login As  #{current_user.first_name}" %></li>
       <li> <%= button_to "Log out", destroy_user_session_path, :method => :delete, :id => 'user_log_out_button', class: "btn btn-lg btn-secondary"%></li>
     <% else %>
       <li> <%= button_to "Log in", new_user_session_path, :method => :post, :id => 'user_log_in_button', class: "btn btn-lg btn-secondary"%></li>
@@ -29,9 +30,11 @@
   </div>
   <br>
   <br>
-  <div id="add_question">
-    <%= link_to "Add question to the question bank", new_question_path, :method => :get, class: "btn btn-outline-secondary btn-sm"%>
-  </div>
+  <% if user_signed_in? %>
+     <div id="add_question">
+       <%= link_to "Add question to the question bank", new_question_path, :method => :get, class: "btn btn-outline-secondary btn-sm"%>
+     </div>
+  <% end %>
   <div class="explanation">
     <%= @exp%>
   </div>

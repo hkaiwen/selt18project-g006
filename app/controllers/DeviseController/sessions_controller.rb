@@ -3,31 +3,8 @@
 class DeviseController::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
-  after_action :verify_email, only: :create
-  def verify_email
-    user = User.find_by_email(params[:session][:email])
-    if user.nil?
-     puts "in create session"
-     flash[:warning] = 'Invalid email/password'
-    end
-    #if user && user.authenticate(params[:session][:password])
-     # session[:session_token]= user.session_token
-      #redirect_to questions_path
-    #else
-     # flash[:warning] = 'Invalid email/password'
-     # redirect_to login_path
-    #end
-  end
 
-  def destroy
-    session[:session_token]=nil
-    session[:count] = 0
-    @current_user=nil
-    flash[:notice]= 'Logged out of your account'
-    redirect_to questions_path
-  end
 
-  
   # GET /resource/sign_in
   # def new
   #   super
