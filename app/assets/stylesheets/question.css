@@ -57,7 +57,16 @@ li:nth-child(2n) {
   font-size: 20px;
   color: white;
 }
-
+#message {
+  top: 0;
+  border: none;
+  color: white;
+  position: absolute;
+  background: none;
+  left: 20%;
+  padding-top: 10px;
+  font-size: 20px;
+}
 #title {
   height:  1%;
   width: 300px;
