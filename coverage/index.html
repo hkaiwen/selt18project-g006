@@ -14,18 +14,18 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-11-11T12:25:47-06:00">2018-11-11T12:25:47-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-11-12T12:21:30-06:00">2018-11-12T12:21:30-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">36.63%</span></span>
+    (<span class="covered_percent"><span class="red">43.6%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.78
+         0.94
        </span>
     </span> hits/line)
   </h2>
@@ -33,8 +33,8 @@
   <div>
     <b>14</b> files in total.
     <b>172</b> relevant lines. 
-    <span class="green"><b>63</b> lines covered</span> and
-    <span class="red"><b>109</b> lines missed </span>
+    <span class="green"><b>75</b> lines covered</span> and
+    <span class="red"><b>97</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -122,12 +122,12 @@
       
       <tr>
         <td class="strong"><a href="#368a19639812def2d65f57eb38c00b55b6c84f65" class="src_link" title="app/controllers/questions_controller.rb">app/controllers/questions_controller.rb</a></td>
-        <td class="red strong">51.85 %</td>
+        <td class="red strong">74.07 %</td>
         <td>82</td>
         <td>54</td>
-        <td>28</td>
-        <td>26</td>
-        <td>1.7</td>
+        <td>40</td>
+        <td>14</td>
+        <td>2.2</td>
       </tr>
       
       <tr>
@@ -199,11 +199,11 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="red">24.83%</span></span>
+    (<span class="covered_percent"><span class="red">33.1%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.69
+         0.88
        </span>
     </span> hits/line)
   </h2>
@@ -211,8 +211,8 @@
   <div>
     <b>11</b> files in total.
     <b>145</b> relevant lines. 
-    <span class="green"><b>36</b> lines covered</span> and
-    <span class="red"><b>109</b> lines missed </span>
+    <span class="green"><b>48</b> lines covered</span> and
+    <span class="red"><b>97</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -300,12 +300,12 @@
       
       <tr>
         <td class="strong"><a href="#368a19639812def2d65f57eb38c00b55b6c84f65" class="src_link" title="app/controllers/questions_controller.rb">app/controllers/questions_controller.rb</a></td>
-        <td class="red strong">51.85 %</td>
+        <td class="red strong">74.07 %</td>
         <td>82</td>
         <td>54</td>
-        <td>28</td>
-        <td>26</td>
-        <td>1.7</td>
+        <td>40</td>
+        <td>14</td>
+        <td>2.2</td>
       </tr>
       
       <tr>
@@ -2306,11 +2306,11 @@
         <div class="source_table" id="368a19639812def2d65f57eb38c00b55b6c84f65">
   <div class="header">
     <h3>app/controllers/questions_controller.rb</h3>
-    <h4><span class="red">51.85 %</span> covered</h4>
+    <h4><span class="red">74.07 %</span> covered</h4>
     <div>
       <b>54</b> relevant lines. 
-      <span class="green"><b>28</b> lines covered</span> and
-      <span class="red"><b>26</b> lines missed.</span>
+      <span class="green"><b>40</b> lines covered</span> and
+      <span class="red"><b>14</b> lines missed.</span>
     </div>
   </div>
   
@@ -2353,8 +2353,8 @@
           <code class="ruby">    if session[:count].nil?</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="7">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
           
           <code class="ruby">      session[:count] = 0</code>
         </li>
@@ -2419,26 +2419,26 @@
           <code class="ruby">      if !user_signed_in?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="18">
-          
+        <li class="covered" data-hits="2" data-linenumber="18">
+          <span class="hits">2</span>
           
           <code class="ruby">        session[:count] += 1</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="19">
-          
+        <li class="covered" data-hits="2" data-linenumber="19">
+          <span class="hits">2</span>
           
           <code class="ruby">        if session[:count] &gt; 10</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="20">
-          
+        <li class="covered" data-hits="1" data-linenumber="20">
+          <span class="hits">1</span>
           
           <code class="ruby">          flash[:notice] = &#39;Please sign up&#39;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="21">
-          
+        <li class="covered" data-hits="1" data-linenumber="21">
+          <span class="hits">1</span>
           
           <code class="ruby">          render &quot;/welcome/landing&quot;</code>
         </li>
@@ -2455,20 +2455,20 @@
           <code class="ruby">      end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="24">
-          
+        <li class="covered" data-hits="2" data-linenumber="24">
+          <span class="hits">2</span>
           
           <code class="ruby">      @questions = Question.pluck(:id,:questions,:answer,:option2,:option3,:option4).sample</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="25">
-          
+        <li class="covered" data-hits="2" data-linenumber="25">
+          <span class="hits">2</span>
           
           <code class="ruby">      if session[:question].blank?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="26">
-          
+        <li class="covered" data-hits="2" data-linenumber="26">
+          <span class="hits">2</span>
           
           <code class="ruby">        (session[:question] ||= []) &lt;&lt; @questions[1]</code>
         </li>
@@ -2539,26 +2539,26 @@
           <code class="ruby">      end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="38">
-          
+        <li class="covered" data-hits="2" data-linenumber="38">
+          <span class="hits">2</span>
           
           <code class="ruby">      @options = @questions.slice(2..5).shuffle</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="39">
-          
+        <li class="covered" data-hits="2" data-linenumber="39">
+          <span class="hits">2</span>
           
           <code class="ruby">      @ques_opt &lt;&lt; @questions[0] &lt;&lt; @questions[1]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="40">
-          
+        <li class="covered" data-hits="2" data-linenumber="40">
+          <span class="hits">2</span>
           
           <code class="ruby">      @ques_opt &lt;&lt; @options</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="41">
-          
+        <li class="covered" data-hits="2" data-linenumber="41">
+          <span class="hits">2</span>
           
           <code class="ruby">      @ques_opt.flatten!</code>
         </li>
@@ -2587,8 +2587,8 @@
           <code class="ruby">  def new</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="46">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="46">
+          
           
           <code class="ruby">    if !user_signed_in?</code>
         </li>
@@ -2629,32 +2629,32 @@
           <code class="ruby">  def create</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="53">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="53">
+          <span class="hits">4</span>
           
           <code class="ruby">    @que = params[:question]</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="54">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="54">
+          <span class="hits">4</span>
           
           <code class="ruby">    begin</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="55">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="55">
+          <span class="hits">4</span>
           
           <code class="ruby">      Question.create_question!(@que[:question], @que[:answer], @que[:option2], @que[:option3], @que[:option4], @que[:explanation])</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="56">
-          
+        <li class="covered" data-hits="3" data-linenumber="56">
+          <span class="hits">3</span>
           
           <code class="ruby">      flash[:notice] = &#39;Question successfully added to question bank&#39;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="57">
-          
+        <li class="covered" data-hits="3" data-linenumber="57">
+          <span class="hits">3</span>
           
           <code class="ruby">      redirect_to questions_path</code>
         </li>
@@ -2665,14 +2665,14 @@
           <code class="ruby">    rescue</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="59">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="1" data-linenumber="59">
+          <span class="hits">1</span>
           
-          <code class="ruby">      flash[:warning] = &#39;All fields are required&#39;</code>
+          <code class="ruby">      flash[:warning] = &#39;Sorry, all fields are required&#39;</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="60">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="1" data-linenumber="60">
+          <span class="hits">1</span>
           
           <code class="ruby">      redirect_to new_question_path</code>
         </li>
