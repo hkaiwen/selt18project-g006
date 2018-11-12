@@ -3,8 +3,6 @@
 class QuestionsController < ApplicationController
 
   def index
-    puts "Starting count: #{session[:count]}"
-    puts "Starting questions: #{session[:question]}"
     if session[:count].nil?
       session[:count] = 0
     end
@@ -18,7 +16,6 @@ class QuestionsController < ApplicationController
     else
       if !user_signed_in?
         session[:count] += 1
-        puts "Count: #{session[:count]}"
         if session[:count] > 10
           flash[:notice] = 'Please sign up'
           render "/welcome/landing"
@@ -38,7 +35,6 @@ class QuestionsController < ApplicationController
       else
         session[:question] << @questions[1]
       end
-      puts "Questions: #{session[:question]}"
       @options = @questions.slice(2..5).shuffle
       @ques_opt << @questions[0] << @questions[1]
       @ques_opt << @options
@@ -84,8 +80,7 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def clearsession
-    puts 'inside clear session'
+  def clear_session
     session[:count] = 0
     session[:question] = nil
     redirect_to '/'
