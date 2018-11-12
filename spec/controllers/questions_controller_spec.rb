@@ -29,6 +29,7 @@ describe QuestionsController do
     end
   end
   describe 'Add new question' do
+    pending
     before :each do
       @question = 'The opposite of expensive is:'
       @answer = 'cheap'
@@ -95,6 +96,16 @@ describe QuestionsController do
         expect(flash[:notice]).to eq('Please select an answer')
         expect(response).to redirect_to(/^.*\/questions\?action=submit_answer.*/)
       end
+    end
+  end
+  describe 'clear the session' do
+    it 'should clear the session of counts and question on start' do
+      session[:count] = 3
+      session[:question] = ['celebration means:', 'The opposite of true is:']
+      expect(session[:count]).to eq(0)
+      expect(session[:question]).to eq(nil)
+      #expect(get(:clearsession_path))
+      get :clearsession_path
     end
   end
 end
