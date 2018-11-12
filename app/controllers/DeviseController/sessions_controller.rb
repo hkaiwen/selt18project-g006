@@ -5,7 +5,6 @@ class DeviseController::SessionsController < Devise::SessionsController
 
 
 
-
   
   # GET /resource/sign_in
   # def new
