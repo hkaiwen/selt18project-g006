@@ -1,5 +1,5 @@
 
-Given /the following questions have been added to Question:/ do |question_table|
+Given /the following questions have been added to Question Database:/ do |question_table|
   question_table.hashes.each do |question|
     Question.create(question)
   end
@@ -22,7 +22,6 @@ end
 
 When /^I click on 'Next' button/ do
   @previous_question = page.find('#question').text
-  #@@tot_ques << @previous_question
   click_on('Next')
 end
 
@@ -43,10 +42,7 @@ Then /^I should see a question and 4 options$/ do
 end
 
 When /^I select the (.*?) answer$/ do |correct|
-  #@@count = 1
-  #@@tot_ques = []
   @ques = page.find('#question').text
-  #@@tot_ques << @ques
   @answer = Question.where(questions: @ques).pluck('answer')
   @option = Question.where(questions: @ques).pluck('option2')
   if correct == 'correct'
@@ -58,10 +54,29 @@ When /^I select the (.*?) answer$/ do |correct|
 end
 
 Then /^I should see '(.*?)' on flash message$/ do |message|
-  expect message == page.find('.alert').text
+  puts page.find('.alert').text
+  expect(message == page.find('.alert').text).to be_truthy
 end
 
 
 And(/^I am on the WordPower Page$/) do
   visit root_path
+end
+
+When /^I click on 'Add question to the question bank' button$/ do
+  click_on('Add question to the question bank')
+end
+
+When /^I fill a new question (.*?) all field and submit$/ do |with|
+  @ques||={question: 'soluble means:', o1: 'single person', o2: 'happy to receive',
+           o3: 'solar system', answer: 'dissolvable', explanation: 'be able to solve in water'}
+  fill_in 'question_question', with: @ques[:question]
+  fill_in 'question_option2', with: @ques[:o1]
+  fill_in 'question_option3', with: @ques[:o2]
+  fill_in 'question_option4', with: @ques[:o3]
+  fill_in 'question_answer', with: @ques[:answer]
+  if with == 'with'
+    fill_in 'question_explanation', with: @ques[:explanation]
+  end
+  click_button 'Add this question'
 end

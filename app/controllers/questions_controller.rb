@@ -60,7 +60,7 @@ class QuestionsController < ApplicationController
       flash[:notice] = 'Question successfully added to question bank'
       redirect_to questions_path
     rescue
-      flash[:warning] = 'All fields are required'
+      flash[:warning] = 'Sorry, all fields are required'
       redirect_to new_question_path
     end
   end

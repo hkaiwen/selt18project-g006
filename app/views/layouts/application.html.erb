@@ -9,7 +9,17 @@
 <body>
     <% if flash[:notice] %>
       <div class="alert alert-primary" role="alert">
-        <%= flash[:notice]%>
+        <% if user_signed_in?  %>
+            <% if flash[:notice]=='Welcome! You have signed up successfully.'%>
+                <%= "Welcome #{current_user.first_name}! You have signed up successfully"%>
+            <%elsif flash[:notice] == 'Signed in successfully.'%>
+                <%= "Welcome back #{current_user.first_name}!" %>
+            <% else %>
+                <%= flash[:notice] %>
+            <% end %>
+          <% else %>
+            <%= flash[:notice ] %>
+        <% end %>
       </div>
 
 
