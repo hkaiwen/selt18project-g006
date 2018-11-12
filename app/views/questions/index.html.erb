@@ -29,9 +29,11 @@
   </div>
   <br>
   <br>
-  <div id="add_question">
-    <%= link_to "Add question to the question bank", new_question_path, :method => :get, class: "btn btn-outline-secondary btn-sm"%>
-  </div>
+  <% if user_signed_in? %>
+     <div id="add_question">
+       <%= link_to "Add question to the question bank", new_question_path, :method => :get, class: "btn btn-outline-secondary btn-sm"%>
+     </div>
+  <% end %>
   <div class="explanation">
     <%= @exp%>
   </div>

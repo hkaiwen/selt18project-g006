@@ -16,7 +16,6 @@ describe QuestionsController do
       #post :landing
     end
     it 'should alert for signup after count of 10 questions to display' do
-      @@tot_ques = []
       session[:count] = 10
       allow(Question).to receive(:pluck).with(:id, :questions, :answer, :option2, :option3, :option4).and_return(@questions)
       expect(get(:index)).to render_template('welcome/landing')
@@ -96,6 +95,15 @@ describe QuestionsController do
         expect(flash[:notice]).to eq('Please select an answer')
         expect(response).to redirect_to(/^.*\/questions\?action=submit_answer.*/)
       end
+    end
+  end
+  describe 'clear the session' do
+    it 'should clear the session of counts and question on start' do
+      session[:count] = 3
+      session[:question] = ['celebration means:', 'The opposite of true is:']
+      get :clear_session
+      expect(session[:count]).to eq(0)
+      expect(session[:question]).to eq(nil)
     end
   end
 end

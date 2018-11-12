@@ -43,10 +43,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    if !user_signed_in?
-      flash[:warning] = 'You need login to do that'
-      redirect_to questions_path
-    end
+    # render new question page
   end
 
   def create
@@ -78,5 +75,11 @@ class QuestionsController < ApplicationController
       end
       redirect_to questions_path request.params.merge({same: 'yes', explanation: @reply_array[:description], answer: @reply_array[:answer]})
     end
+  end
+
+  def clear_session
+    session[:count] = 0
+    session[:question] = nil
+    redirect_to '/'
   end
 end
