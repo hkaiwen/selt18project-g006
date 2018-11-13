@@ -9,8 +9,22 @@
 <body>
     <% if flash[:notice] %>
       <div class="alert alert-primary" role="alert">
-            <%= flash[:notice ] %>
+        <% if user_signed_in?  %>
+            <% if flash[:notice]=='Welcome! You have signed up successfully.'%>
+                <%= "Welcome #{current_user.first_name}! You have signed up successfully"%>
+            <%elsif flash[:notice] == 'Signed in successfully.'%>
+                <%= "Welcome back #{current_user.first_name}!" %>
+            <% else %>
+                <%= flash[:notice] %>
+            <% end %>
+          <% else %>
+
+          <%= flash[:notice ] %>
+
+        <% end %>
       </div>
+
+>>>>>>> aa94197d501f4d82505ad8a5c94ca7abf5552044
     <% elsif flash[:correct]%>
       <div class="alert alert-success" role="alert">
         <%= flash[:correct]%>
@@ -19,9 +33,10 @@
       <div class="alert alert-danger" role="alert">
         <%= flash[:warning]%>
       </div>
-    <% end%>
-    <%= yield %>
 
+    <% end%>
+
+    <%= yield %>
 
 </body>
 </html>
