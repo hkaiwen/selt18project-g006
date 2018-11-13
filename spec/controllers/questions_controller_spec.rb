@@ -15,7 +15,7 @@ describe QuestionsController do
       expect(Question).to receive(:pluck).with(:id, :questions, :answer, :option2, :option3, :option4).and_return(@questions)
       expect(get(:index)).to render_template('index')
     end
-    it 'should alert for signup after count of 10 questions to display' do
+    it 'should alert for sign up after count of 10 questions' do
       session[:count] = 10
       allow(Question).to receive(:pluck).with(:id, :questions, :answer, :option2, :option3, :option4).and_return(@questions)
       expect(get(:index)).to render_template('welcome/landing')
