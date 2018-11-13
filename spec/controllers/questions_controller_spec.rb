@@ -14,8 +14,6 @@ describe QuestionsController do
     it 'should render index template ' do
       expect(Question).to receive(:pluck).with(:id, :questions, :answer, :option2, :option3, :option4).and_return(@questions)
       expect(get(:index)).to render_template('index')
-      #@controller = WelcomeController.new
-      #post :landing
     end
     it 'should alert for signup after count of 10 questions to display' do
       session[:count] = 10
@@ -27,8 +25,8 @@ describe QuestionsController do
       expect(Question).to receive(:pluck).with(:id,:questions, :answer, :option2, :option3, :option4).and_return(@questions)
       get :index
       #Question.stub_chain(:where, :not, :pluck).with(session[:question], :id, :questions, :answer, :option2, :option3, :option4).and_return(@new_question)
-      expect(Question.where.not(:questions => session[:question])).to have(@new_question).record
-      puts "In spec question: #{session[:question]}"
+      expect(Question.where.not(:questions => session[:question])).to receive(:pluck).
+        with(:id, :questions, :answer, :option2, :option3, :option4).and_return(@new_question)
     end
     it 'should add the question to session if is not already present' do
       session[:question] = ['pragmatic means:', 'arduous means:']
@@ -88,8 +86,6 @@ describe QuestionsController do
         post :submit_answer, { :question => 'pragmatic means', :optradio => 'alterable'}
       end
       it 'should render index template' do
-        @post = {action: :submit_answer, controller: :questions}
-        #@controller = {:controller => 'questions'}
         expect(Question).to receive(:verify_answer).with(@checking_array).and_return(@fake_results)
         post :submit_answer, { :question => 'pragmatic means', :optradio => 'alterable'}
         expect(response).to redirect_to(/^.*\/questions\?action=submit_answer.*/)
