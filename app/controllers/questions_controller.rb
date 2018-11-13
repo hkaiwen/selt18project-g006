@@ -52,8 +52,10 @@ class QuestionsController < ApplicationController
       Question.create_question!(@que[:question], @que[:answer], @que[:option2], @que[:option3], @que[:option4], @que[:explanation])
       flash[:notice] = 'Question successfully added to question bank'
       redirect_to questions_path
-    rescue
-      flash[:warning] = 'Sorry, all fields are required'
+    rescue ActiveRecord::RecordInvalid => e
+      @message = ""
+      e.record.errors.each { |key, value| @message = @message + key.to_s + ' ' + value.to_s + ',' }
+      flash[:warning] = @message
       redirect_to new_question_path
     end
   end
