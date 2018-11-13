@@ -22,16 +22,22 @@ describe QuestionsController do
     end
     it 'should render different question if the question is already been taken' do
 
-      expect(Question).to receive(:pluck).with(:id,:questions, :answer, :option2, :option3, :option4).and_return(@questions)
-      session[:question] = @questions.sample
-      puts "In spec question: #{session[:question]}"
+      session[:question] = ['arduous means', 'pragmatic means', 'gregarious means']
       expect(Question).to receive(:pluck).with(:id,:questions, :answer, :option2, :option3, :option4).and_return(@questions)
       get :index
+      if session[:question].include?(@questions[1])
+        puts 'inside spec if'
+        expect(Question).to receive(:pluck).with(:id,:questions, :answer, :option2, :option3, :option4).and_return(question = @new_question)
+      end
+
+      #session[:question] = @questions.sample
+      puts "In spec question: #{session[:question]}"
+      #expect(Question).to receive(:pluck).with(:id,:questions, :answer, :option2, :option3, :option4).and_return(@questions)
       #expect(get(:index)).to render_template('index')
       #if @questions.include?(session[:question])
         #puts 'inside spec if'
-        expect(Question).to receive(:pluck).with(:id,:questions, :answer, :option2, :option3, :option4).and_return(question = @new_question)
-        puts "in spec else if question: #{question}"
+        #expect(Question).to receive(:pluck).with(:id,:questions, :answer, :option2, :option3, :option4).and_return(question = @new_question)
+        #puts "in spec else if question: #{question}"
       #end
     end
   end

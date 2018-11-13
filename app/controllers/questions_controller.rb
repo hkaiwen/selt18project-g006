@@ -21,9 +21,11 @@ class QuestionsController < ApplicationController
           render "/welcome/landing"
         end
       end
+      puts "session from spec: #{session[:question]}"
       @questions = Question.pluck(:id,:questions,:answer,:option2,:option3,:option4).sample
-      puts "Code question: #{@questions}"
+      puts "Code question: #{@questions[1]}"
       if session[:question].blank?
+        puts 'inside if'
         (session[:question] ||= []) << @questions[1]
       elsif session[:question].include?(@questions[1])
         puts 'inside else if'
@@ -34,10 +36,12 @@ class QuestionsController < ApplicationController
           #redirect_to '/'
           render 'welcome/landing'
         else
+          puts 'inside else'
           session[:question] << @new_question[0][1]
           @questions = @new_question[0]
         end
       else
+        puts 'inside out else'
         session[:question] << @questions[1]
       end
       @options = @questions.slice(2..5).shuffle
