@@ -6,12 +6,11 @@
 <div  class="container", id="sign_up_form">
 <h2 id="log_in_title">Log in</h2>
   <% if flash[:alert]%>
-    <% if t('devise.failure.not_found_in_database').present? %>
-      <div class="alert alert-danger" role="alert">
-        <%= flash[:alert]%>
-      </div>
-    <%end%>
-  <% end%>
+    <div class="alert alert-danger" role="alert">
+      <%= flash[:alert]%>
+    </div>
+  <%end%>
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
