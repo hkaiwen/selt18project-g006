@@ -18,10 +18,11 @@
                 <%= flash[:notice] %>
             <% end %>
           <% else %>
-            <%= flash[:notice ] %>
+
+          <%= flash[:notice ] %>
+
         <% end %>
       </div>
-
 
     <% elsif flash[:correct]%>
       <div class="alert alert-success" role="alert">
@@ -32,9 +33,10 @@
       <div class="alert alert-danger" role="alert">
         <%= flash[:warning]%>
       </div>
-    <% end%>
-    <%= yield %>
 
+    <% end%>
+
+    <%= yield %>
 
 </body>
 </html>
