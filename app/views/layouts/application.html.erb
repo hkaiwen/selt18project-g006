@@ -24,7 +24,6 @@
         <% end %>
       </div>
 
-
     <% elsif flash[:correct]%>
       <div class="alert alert-success" role="alert">
         <%= flash[:correct]%>
@@ -34,9 +33,10 @@
       <div class="alert alert-danger" role="alert">
         <%= flash[:warning]%>
       </div>
-    <% end%>
-    <%= yield %>
 
+    <% end%>
+
+    <%= yield %>
 
 </body>
 </html>
