@@ -26,21 +26,9 @@ describe QuestionsController do
       session[:question] = ['arduous means:', 'pragmatic means:', 'gregarious means:']
       expect(Question).to receive(:pluck).with(:id,:questions, :answer, :option2, :option3, :option4).and_return(@questions)
       get :index
-      #if session[:question].include?(@questions[1])
-        #puts 'inside spec if'
-        #expect(Question).to receive(:pluck).with(:id,:questions, :answer, :option2, :option3, :option4).and_return(question = @new_question)
-      #end
-      expect(Question).to stub_chain(:not, :select).with(session[:question]).and_return(@new_question)
-
-      #session[:question] = @questions.sample
+      #Question.stub_chain(:where, :not, :pluck).with(session[:question], :id, :questions, :answer, :option2, :option3, :option4).and_return(@new_question)
+      expect(Question.where.not(:questions => session[:question])).to have(@new_question).record
       puts "In spec question: #{session[:question]}"
-      #expect(Question).to receive(:pluck).with(:id,:questions, :answer, :option2, :option3, :option4).and_return(@questions)
-      #expect(get(:index)).to render_template('index')
-      #if @questions.include?(session[:question])
-        #puts 'inside spec if'
-        #expect(Question).to receive(:pluck).with(:id,:questions, :answer, :option2, :option3, :option4).and_return(question = @new_question)
-        #puts "in spec else if question: #{question}"
-      #end
     end
     it 'should add the question to session if is not already present' do
       session[:question] = ['pragmatic means:', 'arduous means:']
