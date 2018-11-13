@@ -7,7 +7,9 @@ describe QuestionsController do
       @questions = [[33, 'arduous means:', 'laborious', 'monstrous', 'ominous', 'perilous'],
                     [34, 'pragmatic means:', 'alterable', 'realistic', 'relaxing', 'domesticated'],
                     [36, 'gregarious means:', 'rustic', 'solemn', 'outgoing', 'frequent']]
-      @new_question = [41, 'connect means to;', 'link', 'submit', 'assist', 'flood']
+      @new_question = [[41, 'connect means to:', 'link', 'submit', 'assist', 'flood'],
+                       [13, 'energy means:', 'power', 'medicine', 'weaponry', 'experimentation']]
+
     end
     it 'should render index template ' do
       expect(Question).to receive(:pluck).with(:id, :questions, :answer, :option2, :option3, :option4).and_return(@questions)
@@ -21,14 +23,14 @@ describe QuestionsController do
       expect(get(:index)).to render_template('welcome/landing')
     end
     it 'should render different question if the question is already been taken' do
-
-      session[:question] = ['arduous means', 'pragmatic means', 'gregarious means']
+      session[:question] = ['arduous means:', 'pragmatic means:', 'gregarious means:']
       expect(Question).to receive(:pluck).with(:id,:questions, :answer, :option2, :option3, :option4).and_return(@questions)
       get :index
-      if session[:question].include?(@questions[1])
-        puts 'inside spec if'
-        expect(Question).to receive(:pluck).with(:id,:questions, :answer, :option2, :option3, :option4).and_return(question = @new_question)
-      end
+      #if session[:question].include?(@questions[1])
+        #puts 'inside spec if'
+        #expect(Question).to receive(:pluck).with(:id,:questions, :answer, :option2, :option3, :option4).and_return(question = @new_question)
+      #end
+      expect(Question).to stub_chain(:not, :select).with(session[:question]).and_return(@new_question)
 
       #session[:question] = @questions.sample
       puts "In spec question: #{session[:question]}"
@@ -39,6 +41,13 @@ describe QuestionsController do
         #expect(Question).to receive(:pluck).with(:id,:questions, :answer, :option2, :option3, :option4).and_return(question = @new_question)
         #puts "in spec else if question: #{question}"
       #end
+    end
+    it 'should add the question to session if is not already present' do
+      session[:question] = ['pragmatic means:', 'arduous means:']
+      expect(Question).to receive(:pluck).with(:id, :questions, :answer, :option2, :option3, :option4).and_return(@new_question)
+      get :index
+      question = [@new_question[0][1], @new_question[1][1]]
+      expect((session[:question] & question).empty?).to be(false)
     end
   end
   describe 'Add new question' do

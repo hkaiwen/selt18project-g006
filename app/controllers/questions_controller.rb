@@ -44,6 +44,7 @@ class QuestionsController < ApplicationController
         puts 'inside out else'
         session[:question] << @questions[1]
       end
+      puts "sesssion after spec: #{session[:question]}"
       @options = @questions.slice(2..5).shuffle
       @ques_opt << @questions[0] << @questions[1]
       @ques_opt << @options
