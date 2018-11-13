@@ -94,8 +94,151 @@ questions = [
 
   {:questions => 'The opposite of healthy is:', :answer => 'sick', :option2 => 'suitable', :option3 => 'modest',
    :option4 => 'apt', :explanation => 'Healthy means having good health. Its the opposite of sick, but also can mean
+    "doing well" in a general sense. '},
 
-   "doing well" in a general sense. '},
+  {:questions => 'The opposite of leader is:', :answer => 'follower', :option2 => 'avatar', :option3 => 'mourner',
+   :option4 => 'agent', :explanation => 'A leader is the one in the charge, the person who convinces other people to
+    follow. A great leader inspires confidence in other people and moves them to action.'},
+
+  {:questions => 'Which of the following is most likely a characteristic of a lizard?', :answer => 'a long tail',
+   :option2 => 'a pointy beak', :option3 => 'bushy fur', :option4 => 'tapered fins', :explanation => 'A lizard is a type
+   of reptile that has scales for skin, a long body, a pointy tail, and usually four legs. And they breathe fire. Okay,
+    maybe not that last part, but that would be awesome.'},
+
+  {:questions => 'vote means:', :answer => 'election', :option2 => 'instruction', :option3 => 'conclusion',
+   :option4 => 'reflection', :explanation => 'Your vote is your official choice on some specific question. You might feel
+  that your vote hardly counts in a Presidential election, though your vote for student council treasurer might feel like
+   it has a lot more importance.'},
+
+  {:questions => 'zealot means:', :answer => 'fanatic', :option2 => 'pauper', :option3 => 'narrator',
+   :option4 => 'traveler', :explanation => 'The hamburger zealot was so fanatical about his burgers that he camped
+    outside his favorite fast-food joint for hours every morning, waiting for it to open. And he would never put mustard
+    on them, only ketchup.'},
+
+  {:questions => 'digression means:', :answer => 'detour', :option2 => 'delight', :option3 => 'debate',
+   :option4 => 'demand', :explanation => 'A leader is the one in the charge, the person who convinces other people to
+    follow. A great leader inspires confidence in other people and moves them to action.'},
+
+  {:questions => 'The opposite of leader is:', :answer => 'follower', :option2 => 'avatar', :option3 => 'mourner',
+   :option4 => 'agent', :explanation => 'When your essay about French cooking starts describing a childhood trip to
+    Disneyland, its taken a digression — its strayed from the main topic'},
+
+  {:questions => 'Which of the following would be considered the most anthropoid?', :answer => 'a chimpanzee',
+   :option2 => 'a dragonfly', :option3 => 'a wolf', :option4 => 'a birch tree', :explanation => 'Next time you are in
+   need of a subtle insult that will completely go over your oafish brother’s head, accuse him of being just barely
+   anthropoid, or somewhat resembling a human.'},
+
+  {:questions => 'repudiate means to: ', :answer => 'disown', :option2 => 'educate', :option3 => 'detain',
+  :option4 => 'employ', :explanation => 'To repudiate something is to reject it, or to refuse to accept or support it.
+  If you grow up religious, but repudiate all organized religion as an adult, you might start spending holidays at the
+  movies, or just going to work.'},
+
+
+  {:questions => 'Which of the following might ward off birds?', :answer => 'a scarecrow', :option2 => 'feathers',
+   :option3 => 'bird seed', :option4 => 'a birdhouse', :explanation => 'A ward is a group of rooms or a section in a
+  hospital or prison; in a hospital, different wards deal with different needs, like the psychiatric ward or maternity
+  ward.'},
+
+  {:questions => 'insipid means:', :answer => 'uninteresting', :option2 => 'scurvy', :option3 => 'glib',
+  :option4 => 'vernacular', :explanation => 'Something insipid is lacking in flavor or interest. You will probably find
+   the generic poems inside of greeting cards insipid.'},
+
+  {:questions => 'derivative means:', :answer => 'not original, secondary', :option2 => 'limited to a particular area',
+   :option3 => 'not capable of being understood', :option4 => 'suitable to your needs', :explanation => 'Alert: shifting
+   parts of speech! As a noun, a derivative is kind of financial agreement or deal. As an adjective, though, derivative
+   describes something that borrows heavily from something else that came before it.'},
+
+  {:questions => 'loquacious means:', :answer => 'chatty', :option2 => 'felicitous', :option3 => 'statutory',
+  :option4 => 'gusty', :explanation => 'A loquacious person talks a lot, often about stuff that only they think is
+  interesting. You can also call them chatty or gabby, but either way, theyre loquacious.'},
+
+  {:questions => 'precarious means:', :answer => 'not secure', :option2 => 'incapable of physical sensation',
+   :option3 => 'practicing great self-denial', :option4 => 'located beneath or below', :explanation => 'Grab for the
+  adjective precarious when something is unstable, dangerous or difficult and likely to get worse. Are you totally broke
+   and the people you owe money to keep calling? Youre in a precarious financial situation!'},
+
+  {:questions => 'dogmatic means:', :answer => 'characterized by assertion of unproved principles',
+   :option2 => 'characterized by very careful or fastidious choice', :option3 => 'filled with or evoking sadness',
+    :option4 => 'suffering severe physical strain', :explanation => 'To be dogmatic is to follow a set of rules no
+    matter what. The rules might be religious, philosophical, or made-up, but dogmatic people would never waver in their
+   beliefs so don’t even think of trying to change their minds.'},
+
+  {:questions => 'neophyte means:', :answer => 'beginner', :option2 => 'instructor', :option3 => 'researcher',
+  :option4 => 'benefactor', :explanation => 'A neophyte is someone whos brand new at something. Youre a neophyte the
+  first time you pick up a guitar and start learning to play.'},
+
+  {:questions => 'indolent means:', :answer => 'lazy', :option2 => 'incidental', :option3 => 'consecutive',
+  :option4 => 'lurid', :explanation => 'Indolent is an adjective meaning slow or lazy. It can take an indolent teenager
+  hours to get out of bed on a weekend morning. Often its noon before he finally comes shuffling down to breakfast in
+  his pajamas.'},
+
+  {:questions => 'benevolent means:', :answer => 'kind', :option2 => 'careful', :option3 => 'personal',
+  :option4 => 'unbelievable', :explanation => 'Choose the adjective benevolent for someone who does good deeds or shows
+  goodwill. If your teacher collects homework with a benevolent smile, shes hoping that youve done a good job.'},
+
+
+  {:questions => 'benignant means:', :answer => 'kindly', :option2 => 'careful', :option3 => 'uncertain',
+  :option4 => 'sensible', :explanation => 'Someone whos benignant is goodhearted and kind. Your favorite teacher in
+   elementary school was probably the most benignant of them all.'},
+
+  {:questions => 'eleemosynary means:', :answer => 'philanthropic', :option2 => 'illegible', :option3 => 'soluble',
+  :option4 => 'migratory', :explanation => 'Eleemosynary is an adjective that describes things that are related to
+  charitable giving, especially when youre talking about assistance to the poor. Monetary donations to eleemosynary
+  institutions are usually tax deductible'},
+
+  {:questions => 'gracious means:', :answer => 'characterized by kindness and warm courtesy', :option2 => 'involving
+  intelligence rather than emotions or instinct', :option3 => 'derived from direct participation in events or activities',
+  :option4 => 'marked by care and effort', :explanation => 'Gracious means "kind, courteous, and compassionate," like
+  your gracious reply to a rude question like, "So, did you ever learn to hit a softball?"'},
+
+  {:questions => 'considerate means:', :answer => 'unselfish', :option2 => 'unlucky', :option3 => 'unafraid',
+  :option4 => 'unashamed', :explanation => 'Being considerate is being polite and caring. People like it when youre
+  considerate of their feelings.'},
+
+
+  {:questions => 'beneficent means:', :answer => 'generous in assistance to the poor', :option2 => 'named',
+   :option3 => 'working or spreading in a hidden and usually injurious way', :option4 => 'of the most contemptible kind',
+   :explanation => 'Beneficent is the type of act that helps others. If youre a beneficent person, you probably spend a
+  lot of your time volunteering at soup kitchens or homeless shelters, helping people who are less fortunate than you are.'},
+
+  {:questions => 'lurid means:', :answer => 'shining with an unnatural red glow', :option2 => 'slow to heal or develop
+ and usually painless', :option3 => 'successive', :option4 => 'serving during an intermediate interval of time',
+   :explanation => 'When people are lured into looking at something, they may be drawn to it because its a shocking,
+  graphic, or horrible scene, something lurid and very vivid that pulls them in. Your mother might complain that she
+  hates lurid TV shows — ones that are overly sensationalized and meant to shock.'},
+
+
+  {:questions => 'profusion means:', :answer => 'abundance', :option2 => 'tranquility', :option3 => 'mobility',
+  :option4 => 'independence', :explanation => 'If theres an abundance of something, you can say that theres a profusion
+  of it. Hilarious and bizarre YouTube videos certainly exist in profusion.'},
+
+
+  {:questions => 'rage means:', :answer => 'a state of extreme anger', :option2 => 'the second of two or the second
+  mentioned of two', :option3 => 'an unstated doubt that prevents you from accepting something', :option4 => 'a level of
+ existence or development', :explanation => 'Rage is a really intense anger. Some frustrated drivers let their emotions
+  boil over into road rage when another car cuts them off, for example.'},
+
+  {:questions => 'coarse means:', :answer => 'unrefined', :option2 => 'unpopular', :option3 => 'unavoidable',
+  :option4 => 'undaunted', :explanation => 'Coarse can mean rough to the touch or vulgar. Its good to have coarse sand
+  paper, but not good to have coarse manners.'},
+
+  {:questions => 'mocking means:', :answer => 'playfully vexing, especially by ridicule', :option2 => 'aroused to
+impatience or anger', :option3 => 'devoted to a cause or ideal or purpose', :option4 => 'barely credible',
+   :explanation => 'When you talk to or about someone in a mocking tone, youre making fun of them in a nasty, mean way.'},
+
+  {:questions => 'courteous means:', :answer => 'gracious', :option2 => 'secure', :option3 => 'conscientious',
+  :option4 => 'conventional', :explanation => 'If you are courteous, your good manners show friendliness and concern for
+   others, like your courteous habit of holding the door for people entering a building with you.'},
+
+  {:questions => 'imperious means:', :answer => 'overbearing', :option2 => 'ascetic', :option3 => 'dubious',
+  :option4 => 'sordid', :explanation => 'Someone who is imperious gives orders in a way that shows they feel superior or
+   more important than other people. You might want the smartest kid in the class as your lab partner, but not if they
+  have an imperious attitude and boss you around.'},
+
+  {:questions => 'harsh means:', :answer => 'unpleasantly stern', :option2 => 'difficult to find', :option3 => 'large in
+   spatial extent or range or scope or quantity', :option4 => 'deserving or inciting pity', :explanation => 'Harsh means
+   severe or strict, particularly when referring to punishment. It would be a harsh punishment if you got grounded for
+    two weeks just for coming home a little late for dinner.'},
 
 ]
 
