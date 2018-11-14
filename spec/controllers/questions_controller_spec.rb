@@ -24,11 +24,6 @@ describe QuestionsController do
       session[:question] = ['arduous means:', 'pragmatic means:', 'gregarious means:']
       expect(Question).to receive(:pluck).with(:id,:questions, :answer, :option2, :option3, :option4).and_return(@questions)
       get :index
-      #expect(Question.where.not(:questions => session[:question])).to receive(:pluck).
-        #with(:id, :questions, :answer, :option2, :option3, :option4).and_return(@new_question)
-      #Question.stub_chain(:where, :not, :pluck).with(session[:question], :id, :questions, :answer, :option2, :option3, :option4).and_return(@new_question)
-
-      #expect(Question.where.not(:questions => session[:question])).and_return(@new_question)
     end
     it 'should add the question to session if is not already present' do
       session[:question] = ['pragmatic means:', 'arduous means:']
