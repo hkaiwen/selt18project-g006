@@ -9,9 +9,7 @@
         null,
         1,
         null,
-        null,
-        null,
-        null,
+        1,
         null
       ],
       "/Users/hemalatharamachandran/SELT_REPOS/selt18project-g006/app/helpers/application_helper.rb": [
@@ -44,13 +42,8 @@
         null,
         4,
         4,
-        4,
-        4,
         2,
         2,
-        2,
-        1,
-        1,
         1,
         1,
         1,
@@ -59,13 +52,10 @@
         null,
         0,
         0,
-        0,
         null,
         null,
         1,
-        1,
         null,
-        4,
         4,
         4,
         4,
@@ -83,9 +73,11 @@
         4,
         3,
         3,
-        null,
         1,
-        1,
+        0,
+        0,
+        0,
+        0,
         null,
         null,
         null,
@@ -289,7 +281,6 @@
         null,
         null,
         null,
-        null,
         0
       ],
       "/Users/hemalatharamachandran/SELT_REPOS/selt18project-g006/app/controllers/DeviseController/unlocks_controller.rb": [
@@ -425,6 +416,6 @@
         0
       ]
     },
-    "timestamp": 1542130344
+    "timestamp": 1542208787
   }
 }
