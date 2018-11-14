@@ -103,6 +103,7 @@ end
 
 Then(/^I should see an invalid login message$/) do
   expect(page).to have_current_path('/users/sign_in')
+  page.should have_content 'Invalid Email or Password'
 end
 
 

@@ -56,10 +56,16 @@ class QuestionsController < ApplicationController
       redirect_to questions_path
     rescue ActiveRecord::RecordInvalid => e
       @message = ""
-      e.record.errors.each { |key, value| @message = @message + key.to_s + ' ' + value.to_s + ',' }
+      if e.record.errors.size == 1
+        e.record.errors.each { |key, value| @message = @message + key.to_s + ' ' + value.to_s }
+      elsif e.record.errors[:questions] == ['has already been taken']
+        @message = 'questions has already been taken'
+      else
+        @message = 'Sorry, All fields are required'
+      end
       flash[:warning] = @message
       redirect_to new_question_path
-    end
+      end
   end
 
   def submit_answer

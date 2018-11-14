@@ -9,10 +9,6 @@ Feature: Allow user who logged in to add  a new question
 
     And I am on the question page
 
-    Scenario: User add new question without logging in
-      When I click on 'Add question to the question bank' button
-      Then I should see 'You need login to do that' on flash message
-
     Scenario: User add new question with logging in
       When I log in with valid user credentials
       Then I click on 'Add question to the question bank' button
