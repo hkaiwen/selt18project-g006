@@ -7,9 +7,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <%if user_signed_in? %>
-       <%= "Welcome #{current_user.first_name} to WordPower" %>
-    <% end %>
     <% if flash[:notice] %>
       <div class="alert alert-primary" role="alert">
         <% if user_signed_in?  %>
@@ -21,23 +18,23 @@
                 <%= flash[:notice] %>
             <% end %>
           <% else %>
-            <%= flash[:notice ] %>
+
+          <%= flash[:notice ] %>
+
         <% end %>
       </div>
-
-
     <% elsif flash[:correct]%>
       <div class="alert alert-success" role="alert">
         <%= flash[:correct]%>
       </div>
-
     <% elsif flash[:warning]%>
       <div class="alert alert-danger" role="alert">
         <%= flash[:warning]%>
       </div>
-    <% end%>
-    <%= yield %>
 
+    <% end%>
+
+    <%= yield %>
 
 </body>
 </html>
