@@ -80,3 +80,8 @@ When /^I fill a new question (.*?) all field and submit$/ do |with|
   end
   click_button 'Add this question'
 end
+
+
+Then(/^I should not see add question button$/) do
+  expect(page).not_to have_button('Add question to the question bank')
+end
