@@ -119,9 +119,6 @@ questions = [
    :option4 => 'demand', :explanation => 'A leader is the one in the charge, the person who convinces other people to
     follow. A great leader inspires confidence in other people and moves them to action.'},
 
-  {:questions => 'The opposite of leader is:', :answer => 'follower', :option2 => 'avatar', :option3 => 'mourner',
-   :option4 => 'agent', :explanation => 'When your essay about French cooking starts describing a childhood trip to
-    Disneyland, its taken a digression — its strayed from the main topic'},
 
   {:questions => 'Which of the following would be considered the most anthropoid?', :answer => 'a chimpanzee',
    :option2 => 'a dragonfly', :option3 => 'a wolf', :option4 => 'a birch tree', :explanation => 'Next time you are in
