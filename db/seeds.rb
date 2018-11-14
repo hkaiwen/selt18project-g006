@@ -44,11 +44,9 @@ questions = [
    your parents anger by telling them you were late to dinner because you were helping your elderly neighbor.'},
 
   {:questions => 'celebration means:', :answer => 'a joyful occasion for festivities to mark some happy event',
-
    :option2 => 'the business given to an establishment by its customers', :option3 => 'a venture off the beaten path',
-   :option4 => 'by a person in bringing about a result', :explanation => 'A celebration is a joyful diversion.
-
-  Your math class might have a celebration when you learn that the midterm has been postponed for a week.'},
+   :option4 => 'by a person in bringing about a result', :explanation => 'A celebration is a joyful diversion.Your math
+  class might have a celebration when you learn that the midterm has been postponed for a week.'},
 
   {:questions => 'assemble means to:', :answer => 'get together', :option2 => 'keep out', :option3 => 'shut out',
    :option4 => 'let off', :explanation => 'To assemble means to bring together, as in people or parts. The volunteers
@@ -69,7 +67,6 @@ questions = [
   {:questions => 'store means:', :answer => 'shop', :option2 => 'college', :option3 => 'habit',
    :option4 => 'passage', :explanation => 'As the sentence "This store stores a large store of rubber ducks" will tell
    you, store is a word with a lot of definitions.'},
-
 
   {:questions => 'The opposite of false is:', :answer => 'true', :option2 => 'tame', :option3 => 'public',
    :option4 => 'skillful', :explanation => 'Something thats false is wrong or untrue. If you spread false rumors about
@@ -116,8 +113,7 @@ questions = [
     on them, only ketchup.'},
 
   {:questions => 'digression means:', :answer => 'detour', :option2 => 'delight', :option3 => 'debate',
-   :option4 => 'demand', :explanation => 'A leader is the one in the charge, the person who convinces other people to
-    follow. A great leader inspires confidence in other people and moves them to action.'},
+   :option4 => 'demand', :explanation => 'Digression means detour.'},
 
 
   {:questions => 'Which of the following would be considered the most anthropoid?', :answer => 'a chimpanzee',
@@ -129,7 +125,6 @@ questions = [
   :option4 => 'employ', :explanation => 'To repudiate something is to reject it, or to refuse to accept or support it.
   If you grow up religious, but repudiate all organized religion as an adult, you might start spending holidays at the
   movies, or just going to work.'},
-
 
   {:questions => 'Which of the following might ward off birds?', :answer => 'a scarecrow', :option2 => 'feathers',
    :option3 => 'bird seed', :option4 => 'a birdhouse', :explanation => 'A ward is a group of rooms or a section in a
@@ -192,14 +187,13 @@ questions = [
   :option4 => 'unashamed', :explanation => 'Being considerate is being polite and caring. People like it when youre
   considerate of their feelings.'},
 
-
   {:questions => 'beneficent means:', :answer => 'generous in assistance to the poor', :option2 => 'named',
    :option3 => 'working or spreading in a hidden and usually injurious way', :option4 => 'of the most contemptible kind',
    :explanation => 'Beneficent is the type of act that helps others. If youre a beneficent person, you probably spend a
   lot of your time volunteering at soup kitchens or homeless shelters, helping people who are less fortunate than you are.'},
 
   {:questions => 'lurid means:', :answer => 'shining with an unnatural red glow', :option2 => 'slow to heal or develop
- and usually painless', :option3 => 'successive', :option4 => 'serving during an intermediate interval of time',
+  and usually painless', :option3 => 'successive', :option4 => 'serving during an intermediate interval of time',
    :explanation => 'When people are lured into looking at something, they may be drawn to it because its a shocking,
   graphic, or horrible scene, something lurid and very vivid that pulls them in. Your mother might complain that she
   hates lurid TV shows — ones that are overly sensationalized and meant to shock.'},
@@ -235,7 +229,7 @@ impatience or anger', :option3 => 'devoted to a cause or ideal or purpose', :opt
   {:questions => 'harsh means:', :answer => 'unpleasantly stern', :option2 => 'difficult to find', :option3 => 'large in
    spatial extent or range or scope or quantity', :option4 => 'deserving or inciting pity', :explanation => 'Harsh means
    severe or strict, particularly when referring to punishment. It would be a harsh punishment if you got grounded for
-    two weeks just for coming home a little late for dinner.'},
+    two weeks just for coming home a little late for dinner.'}
 
 ]
 
