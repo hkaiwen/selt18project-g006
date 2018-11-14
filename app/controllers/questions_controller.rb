@@ -28,6 +28,8 @@ class QuestionsController < ApplicationController
         @new_question = Question.where.not(:questions => session[:question]).pluck(:id,:questions,:answer,:option2,:option3,:option4)
         if @new_question.empty?
           flash[:notice] = 'No more questions in database'
+          #redirect_to '/'
+          render 'welcome/landing'
         else
           session[:question] << @new_question[0][1]
           @questions = @new_question[0]

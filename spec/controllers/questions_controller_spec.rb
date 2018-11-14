@@ -7,18 +7,30 @@ describe QuestionsController do
       @questions = [[33, 'arduous means:', 'laborious', 'monstrous', 'ominous', 'perilous'],
                     [34, 'pragmatic means:', 'alterable', 'realistic', 'relaxing', 'domesticated'],
                     [36, 'gregarious means:', 'rustic', 'solemn', 'outgoing', 'frequent']]
-      @new_question = [41, 'connect means to;', 'link', 'submit', 'assist', 'flood']
+      @new_question = [[41, 'connect means to:', 'link', 'submit', 'assist', 'flood'],
+                       [13, 'energy means:', 'power', 'medicine', 'weaponry', 'experimentation']]
+
     end
     it 'should render index template ' do
       expect(Question).to receive(:pluck).with(:id, :questions, :answer, :option2, :option3, :option4).and_return(@questions)
       expect(get(:index)).to render_template('index')
-      #@controller = WelcomeController.new
-      #post :landing
     end
-    it 'should alert for signup after count of 10 questions to display' do
+    it 'should alert for sign up after count of 10 questions' do
       session[:count] = 10
       allow(Question).to receive(:pluck).with(:id, :questions, :answer, :option2, :option3, :option4).and_return(@questions)
       expect(get(:index)).to render_template('welcome/landing')
+    end
+    it 'should render different question if the question is already been taken' do
+      session[:question] = ['arduous means:', 'pragmatic means:', 'gregarious means:']
+      expect(Question).to receive(:pluck).with(:id,:questions, :answer, :option2, :option3, :option4).and_return(@questions)
+      get :index
+    end
+    it 'should add the question to session if is not already present' do
+      session[:question] = ['pragmatic means:', 'arduous means:']
+      expect(Question).to receive(:pluck).with(:id, :questions, :answer, :option2, :option3, :option4).and_return(@new_question)
+      get :index
+      question = [@new_question[0][1], @new_question[1][1]]
+      expect((session[:question] & question).empty?).to be(false)
     end
   end
   describe 'Add new question' do
@@ -71,8 +83,6 @@ describe QuestionsController do
         post :submit_answer, { :question => 'pragmatic means', :optradio => 'alterable'}
       end
       it 'should render index template' do
-        @post = {action: :submit_answer, controller: :questions}
-        #@controller = {:controller => 'questions'}
         expect(Question).to receive(:verify_answer).with(@checking_array).and_return(@fake_results)
         post :submit_answer, { :question => 'pragmatic means', :optradio => 'alterable'}
         expect(response).to redirect_to(/^.*\/questions\?action=submit_answer.*/)
