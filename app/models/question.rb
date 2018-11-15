@@ -8,6 +8,7 @@ class Question < ActiveRecord::Base
   validates :option4, :presence => true
   validates :explanation, :presence => true
 
+
   def self.create_question!(question, answer, option2, option3, option4, explanation)
     @question = question
     @answer = answer
@@ -17,6 +18,8 @@ class Question < ActiveRecord::Base
     @explanation = explanation
     Question::create!(questions: question, answer: answer, option2: option2, option3: option3, option4: option4, explanation: explanation)
   end
+
+
 
   def self.verify_answer(checking_array)
     ques = Question.find_by_questions(checking_array[0])
