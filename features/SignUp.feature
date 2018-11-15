@@ -17,7 +17,7 @@ Feature: Allow the User to sign up
       When I sign up with blank first name
       Then I should see a blank first name error message
 
-    Scenario: User signs up with blank first name
+    Scenario: User signs up with blank last name
       When I sign up with blank last name
       Then I should see a blank last name error message
 

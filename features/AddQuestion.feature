@@ -21,25 +21,31 @@ Feature: Allow user who logged in to add  a new question
      Then I fill in all the fields except question and submit
      Then I should see 'question can't be blank' on flash message
 
-    Scenario: User tries to add a new question without option1 with logging in
+   Scenario: User tries to add a new question without answer with logging in
+     When I log in with valid user credentials
+     Then I click on 'Add question to the question bank' button
+     Then I fill in all the fields except answer and submit
+     Then I should see 'answer can't be blank' on flash message
+
+  Scenario: User tries to add a new question without option2 with logging in
       When I log in with valid user credentials
       Then I click on 'Add question to the question bank' button
       Then I fill in all the fields except option2 and submit
       Then I should see 'option2 can't be blank' on flash message
 
-   Scenario: User tries to add a new question without option1 with logging in
+   Scenario: User tries to add a new question without option3 with logging in
      When I log in with valid user credentials
      Then I click on 'Add question to the question bank' button
      Then I fill in all the fields except option3 and submit
      Then I should see 'option3 can't be blank' on flash message
 
-  Scenario: User tries to add a new question without option1 with logging in
+  Scenario: User tries to add a new question without option4 with logging in
     When I log in with valid user credentials
     Then I click on 'Add question to the question bank' button
     Then I fill in all the fields except option4 and submit
     Then I should see 'option4 can't be blank' on flash message
 
-  Scenario: User tries to add a new question without option1 with logging in
+  Scenario: User tries to add a new question without explanation with logging in
     When I log in with valid user credentials
     Then I click on 'Add question to the question bank' button
     Then I fill in all the fields except explanation and submit

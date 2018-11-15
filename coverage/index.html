@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-11-15T16:41:48-06:00">2018-11-15T16:41:48-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-11-15T17:25:49-06:00">2018-11-15T17:25:49-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         6.55
+         6.84
        </span>
     </span> hits/line)
   </h2>
@@ -117,7 +117,7 @@
         <td>14</td>
         <td>10</td>
         <td>4</td>
-        <td>5.6</td>
+        <td>5.8</td>
       </tr>
       
       <tr>
@@ -127,7 +127,7 @@
         <td>68</td>
         <td>61</td>
         <td>7</td>
-        <td>10.7</td>
+        <td>11.2</td>
       </tr>
       
       <tr>
@@ -183,7 +183,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         8.16
+         8.53
        </span>
     </span> hits/line)
   </h2>
@@ -275,7 +275,7 @@
         <td>14</td>
         <td>10</td>
         <td>4</td>
-        <td>5.6</td>
+        <td>5.8</td>
       </tr>
       
       <tr>
@@ -285,7 +285,7 @@
         <td>68</td>
         <td>61</td>
         <td>7</td>
-        <td>10.7</td>
+        <td>11.2</td>
       </tr>
       
       <tr>
@@ -2072,8 +2072,8 @@
           <code class="ruby">  def after_sign_in_path_for(resource)</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="17">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="17" data-linenumber="17">
+          <span class="hits">17</span>
           
           <code class="ruby">    &quot;/questions&quot;</code>
         </li>
@@ -2126,8 +2126,8 @@
           <code class="ruby">  def configure_permitted_parameters</code>
         </li>
       
-        <li class="covered" data-hits="54" data-linenumber="26">
-          <span class="hits">54</span>
+        <li class="covered" data-hits="56" data-linenumber="26">
+          <span class="hits">56</span>
           
           <code class="ruby">    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name,:last_name])</code>
         </li>
@@ -2211,14 +2211,14 @@
           <code class="ruby">  def index</code>
         </li>
       
-        <li class="covered" data-hits="42" data-linenumber="6">
-          <span class="hits">42</span>
+        <li class="covered" data-hits="44" data-linenumber="6">
+          <span class="hits">44</span>
           
           <code class="ruby">    if session[:count].nil?</code>
         </li>
       
-        <li class="covered" data-hits="23" data-linenumber="7">
-          <span class="hits">23</span>
+        <li class="covered" data-hits="24" data-linenumber="7">
+          <span class="hits">24</span>
           
           <code class="ruby">      session[:count] = 0</code>
         </li>
@@ -2229,14 +2229,14 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="42" data-linenumber="9">
-          <span class="hits">42</span>
+        <li class="covered" data-hits="44" data-linenumber="9">
+          <span class="hits">44</span>
           
           <code class="ruby">    @ques_opt = []</code>
         </li>
       
-        <li class="covered" data-hits="42" data-linenumber="10">
-          <span class="hits">42</span>
+        <li class="covered" data-hits="44" data-linenumber="10">
+          <span class="hits">44</span>
           
           <code class="ruby">    if params[:same]== &#39;yes&#39; and params[:commit]== &#39;Submit&#39;</code>
         </li>
@@ -2277,20 +2277,20 @@
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="39" data-linenumber="17">
-          <span class="hits">39</span>
+        <li class="covered" data-hits="41" data-linenumber="17">
+          <span class="hits">41</span>
           
           <code class="ruby">      if !user_signed_in?</code>
         </li>
       
-        <li class="covered" data-hits="21" data-linenumber="18">
-          <span class="hits">21</span>
+        <li class="covered" data-hits="22" data-linenumber="18">
+          <span class="hits">22</span>
           
           <code class="ruby">        session[:count] += 1</code>
         </li>
       
-        <li class="covered" data-hits="21" data-linenumber="19">
-          <span class="hits">21</span>
+        <li class="covered" data-hits="22" data-linenumber="19">
+          <span class="hits">22</span>
           
           <code class="ruby">        if session[:count] &gt; 10</code>
         </li>
@@ -2319,38 +2319,38 @@
           <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="39" data-linenumber="24">
-          <span class="hits">39</span>
+        <li class="covered" data-hits="41" data-linenumber="24">
+          <span class="hits">41</span>
           
           <code class="ruby">      @questions = Question.pluck(:id,:questions,:answer,:option2,:option3,:option4).sample</code>
         </li>
       
-        <li class="covered" data-hits="39" data-linenumber="25">
-          <span class="hits">39</span>
+        <li class="covered" data-hits="41" data-linenumber="25">
+          <span class="hits">41</span>
           
           <code class="ruby">      if session[:question].blank?</code>
         </li>
       
-        <li class="covered" data-hits="23" data-linenumber="26">
-          <span class="hits">23</span>
+        <li class="covered" data-hits="24" data-linenumber="26">
+          <span class="hits">24</span>
           
           <code class="ruby">        (session[:question] ||= []) &lt;&lt; @questions[1]</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="27">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="17" data-linenumber="27">
+          <span class="hits">17</span>
           
           <code class="ruby">      elsif session[:question].include?(@questions[1])</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="28">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="5" data-linenumber="28">
+          <span class="hits">5</span>
           
           <code class="ruby">        @new_question = Question.where.not(:questions =&gt; session[:question]).pluck(:id,:questions,:answer,:option2,:option3,:option4)</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="29">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="5" data-linenumber="29">
+          <span class="hits">5</span>
           
           <code class="ruby">        if @new_question.empty?</code>
         </li>
@@ -2379,14 +2379,14 @@
           <code class="ruby">        else</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="34">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="5" data-linenumber="34">
+          <span class="hits">5</span>
           
           <code class="ruby">          session[:question] &lt;&lt; @new_question[0][1]</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="35">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="5" data-linenumber="35">
+          <span class="hits">5</span>
           
           <code class="ruby">          @questions = @new_question[0]</code>
         </li>
@@ -2403,8 +2403,8 @@
           <code class="ruby">      else</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="38">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="12" data-linenumber="38">
+          <span class="hits">12</span>
           
           <code class="ruby">        session[:question] &lt;&lt; @questions[1]</code>
         </li>
@@ -2415,26 +2415,26 @@
           <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="39" data-linenumber="40">
-          <span class="hits">39</span>
+        <li class="covered" data-hits="41" data-linenumber="40">
+          <span class="hits">41</span>
           
           <code class="ruby">      @options = @questions.slice(2..5).shuffle</code>
         </li>
       
-        <li class="covered" data-hits="39" data-linenumber="41">
-          <span class="hits">39</span>
+        <li class="covered" data-hits="41" data-linenumber="41">
+          <span class="hits">41</span>
           
           <code class="ruby">      @ques_opt &lt;&lt; @questions[0] &lt;&lt; @questions[1]</code>
         </li>
       
-        <li class="covered" data-hits="39" data-linenumber="42">
-          <span class="hits">39</span>
+        <li class="covered" data-hits="41" data-linenumber="42">
+          <span class="hits">41</span>
           
           <code class="ruby">      @ques_opt &lt;&lt; @options</code>
         </li>
       
-        <li class="covered" data-hits="39" data-linenumber="43">
-          <span class="hits">39</span>
+        <li class="covered" data-hits="41" data-linenumber="43">
+          <span class="hits">41</span>
           
           <code class="ruby">      @ques_opt.flatten!</code>
         </li>
@@ -2487,44 +2487,44 @@
           <code class="ruby">  def create</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="52">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="10" data-linenumber="52">
+          <span class="hits">10</span>
           
           <code class="ruby">    empty_param_hash = {}</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="53">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="10" data-linenumber="53">
+          <span class="hits">10</span>
           
           <code class="ruby">    @message = &quot;&quot;</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="54">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="10" data-linenumber="54">
+          <span class="hits">10</span>
           
           <code class="ruby">    @que = params[:question]</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="55">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="10" data-linenumber="55">
+          <span class="hits">10</span>
           
           <code class="ruby">    if @que.values.any?(&amp;:blank?)</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="56">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="8" data-linenumber="56">
+          <span class="hits">8</span>
           
           <code class="ruby">      @que.each do |key, value|</code>
         </li>
       
-        <li class="covered" data-hits="42" data-linenumber="57">
-          <span class="hits">42</span>
+        <li class="covered" data-hits="48" data-linenumber="57">
+          <span class="hits">48</span>
           
           <code class="ruby">        if @que[key].blank?</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="58">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="17" data-linenumber="58">
+          <span class="hits">17</span>
           
           <code class="ruby">          empty_param_hash[key] = value</code>
         </li>
@@ -2541,8 +2541,8 @@
           <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="61">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="8" data-linenumber="61">
+          <span class="hits">8</span>
           
           <code class="ruby">      if empty_param_hash.length &gt; 1</code>
         </li>
@@ -2559,8 +2559,8 @@
           <code class="ruby">      else</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="64">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="64">
+          <span class="hits">6</span>
           
           <code class="ruby">        @message = &quot;#{empty_param_hash.keys.join} can&#39;t be blank&quot;</code>
         </li>
@@ -2571,8 +2571,8 @@
           <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="66">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="8" data-linenumber="66">
+          <span class="hits">8</span>
           
           <code class="ruby">      redirect_to new_question_path</code>
         </li>
@@ -2649,8 +2649,8 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="79">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="10" data-linenumber="79">
+          <span class="hits">10</span>
           
           <code class="ruby">    flash[:warning] = @message</code>
         </li>
