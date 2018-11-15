@@ -32,7 +32,7 @@ class Question < ActiveRecord::Base
     @present_question = Question.where('questions LIKE :questions', {:questions => "%#{question}%"})
     puts "present ques: #{@present_question.first.questions}"
     if @present_question.exists?
-      return
+      raise ActiveRecord::RecordInvalid('has already been taken')
        #@present_question.error.add(:questions,'has already been taken')
       #@present_question.errors.add(:question, 'has already been taken')
     else
