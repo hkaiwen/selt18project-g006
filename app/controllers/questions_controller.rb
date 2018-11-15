@@ -51,13 +51,9 @@ class QuestionsController < ApplicationController
   def create
     @que = params[:question]
     begin
-      value = Question.create_question!(@que[:question], @que[:answer], @que[:option2], @que[:option3], @que[:option4], @que[:explanation])
-      puts "controller value: #{value}"
-      if value == 'false'
-        puts 'inside controller create false if'
-        flash[:notice] = 'already exists'
-        redirect_to questions_path
-      else
+      @question = Question.create_question!(@que[:question], @que[:answer], @que[:option2], @que[:option3], @que[:option4], @que[:explanation])
+      if @question.present?
+        puts 'inside success'
         flash[:notice] = 'Question successfully added to question bank'
         redirect_to questions_path
       end
@@ -72,7 +68,7 @@ class QuestionsController < ApplicationController
       end
       flash[:warning] = @message
       redirect_to new_question_path
-      end
+    end
   end
 
   def submit_answer
