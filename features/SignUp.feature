@@ -13,6 +13,14 @@ Feature: Allow the User to sign up
       When I sign up with valid user details
       Then I should see a successful sign up message
 
+    Scenario: User signs up with blank first name
+      When I sign up with blank first name
+      Then I should see a blank first name message
+
+    Scenario: User signs up with blank first name
+      When I sign up with blank last name
+      Then I should see a blank last name message
+
     Scenario: User signs up with blank email
       When I sign up with blank email
       Then I should see an blank email message
