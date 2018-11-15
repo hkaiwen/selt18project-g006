@@ -18,3 +18,7 @@ Feature: Show whether answer is correct or incorrect when user submit
   Scenario: show answer is incorrect if submitted answer is incorrect
     When I select the incorrect answer
     Then I should see 'Sorry, This is the incorrect answer' on flash message
+
+  Scenario: User clicks submit button without selecting any option
+    When I do not select any option and click submit
+    Then I should see 'Please select an answer' on flash message
