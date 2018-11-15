@@ -51,9 +51,16 @@ class QuestionsController < ApplicationController
   def create
     @que = params[:question]
     begin
-      Question.create_question!(@que[:question], @que[:answer], @que[:option2], @que[:option3], @que[:option4], @que[:explanation])
-      flash[:notice] = 'Question successfully added to question bank'
-      redirect_to questions_path
+      value = Question.create_question!(@que[:question], @que[:answer], @que[:option2], @que[:option3], @que[:option4], @que[:explanation])
+      puts "controller value: #{value}"
+      if value == 'false'
+        puts 'inside controller create false if'
+        flash[:notice] = 'already exists'
+        redirect_to questions_path
+      else
+        flash[:notice] = 'Question successfully added to question bank'
+        redirect_to questions_path
+      end
     rescue ActiveRecord::RecordInvalid => e
       @message = ""
       e.record.errors.each { |key, value| @message = @message + key.to_s + ' ' + value.to_s + ',' }
