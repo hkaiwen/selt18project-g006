@@ -49,25 +49,33 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    empty_param_hash = {}
     @que = params[:question]
+    if @que.values.any?(&:blank?)
+      @que.each do |key,value|
+        if @que[key].empty?
+          empty_param_hash[key] = value
+        end
+      end
+        if empty_param_hash.length > 1
+          flash[:notice] = 'Sorry, All fields are required'
+        else
+          flash[:notice] = "#{empty_param_hash.keys.join} can't be blank"
+        end
+      redirect_to new_question_path
+    else
     begin
-      @question = Question.create_question!(@que[:question], @que[:answer], @que[:option2], @que[:option3], @que[:option4], @que[:explanation])
-      if @question.present?
-        puts 'inside success'
+       Question.create_question!(@que[:question], @que[:answer], @que[:option2], @que[:option3], @que[:option4], @que[:explanation])
         flash[:notice] = 'Question successfully added to question bank'
         redirect_to questions_path
-      end
     rescue ActiveRecord::RecordInvalid => e
       @message = ""
-      if e.record.errors.size == 1
-        e.record.errors.each { |key, value| @message = @message + key.to_s + ' ' + value.to_s }
-      elsif e.record.errors[:questions] == ['has already been taken']
-        @message = 'questions has already been taken'
-      else
-        @message = 'Sorry, All fields are required'
+      if e.record.errors[:questions] == ['has already been taken']
+        @message = 'Question has already been taken'
       end
       flash[:warning] = @message
       redirect_to new_question_path
+    end
     end
   end
 
