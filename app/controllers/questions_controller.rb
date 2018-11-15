@@ -50,17 +50,18 @@ class QuestionsController < ApplicationController
 
   def create
     empty_param_hash = {}
+    @message = ""
     @que = params[:question]
     if @que.values.any?(&:blank?)
-      @que.each do |key,value|
-        if @que[key].empty?
+      @que.each do |key, value|
+        if @que[key].blank?
           empty_param_hash[key] = value
         end
       end
       if empty_param_hash.length > 1
-        flash[:notice] = 'Sorry, All fields are required'
+        @message = 'Sorry, All fields are required'
       else
-        flash[:notice] = "#{empty_param_hash.keys.join} can't be blank"
+        @message = "#{empty_param_hash.keys.join} can't be blank"
       end
       redirect_to new_question_path
     else
@@ -69,14 +70,13 @@ class QuestionsController < ApplicationController
         flash[:notice] = 'Question successfully added to question bank'
         redirect_to questions_path
       rescue ActiveRecord::RecordInvalid => e
-        @message = ""
         if e.record.errors[:questions] == ['has already been taken']
           @message = 'Question has already been taken'
         end
-        flash[:warning] = @message
         redirect_to new_question_path
       end
     end
+    flash[:warning] = @message
   end
 
   def submit_answer
