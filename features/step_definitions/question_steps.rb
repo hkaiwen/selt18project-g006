@@ -1,14 +1,14 @@
 
 def create_question
-  @question ||= {question: 'soluble means:', o2: 'single person', o3: 'happy to receive',
-           o4: 'solar system', answer: 'dissolvable', explanation: 'be able to solve in water'}
+  @question ||= {questions: 'soluble means:', option2: 'single person', option3: 'happy to receive',
+           option4: 'solar system', answer: 'dissolvable', explanation: 'be able to solve in water'}
 end
 
 def add_question
-  fill_in 'question_question', with: @question[:question]
-  fill_in 'question_option2', with: @question[:o2]
-  fill_in 'question_option3', with: @question[:o3]
-  fill_in 'question_option4', with: @question[:o4]
+  fill_in 'question_question', with: @question[:questions]
+  fill_in 'question_option2', with: @question[:option2]
+  fill_in 'question_option3', with: @question[:option3]
+  fill_in 'question_option4', with: @question[:option4]
   fill_in 'question_answer', with: @question[:answer]
   fill_in 'question_explanation', with: @question[:explanation]
   click_button 'Add this question'
@@ -96,13 +96,13 @@ Then(/^I fill in all the fields except (.*?) and submit$/) do |field|
   create_question
   case field
   when 'question'
-    @question = @question.merge(question: '')
+    @question = @question.merge(questions: '')
   when 'option2'
-    @question = @question.merge(o2: '')
+    @question = @question.merge(option2: '')
   when 'option3'
-    @question = @question.merge(o3: '')
+    @question = @question.merge(option3: '')
   when 'option4'
-    @question = @question.merge(o4: '')
+    @question = @question.merge(option4: '')
   when 'answer'
     @question = @question.merge(answer: '')
   when 'explanation'
@@ -111,4 +111,33 @@ Then(/^I fill in all the fields except (.*?) and submit$/) do |field|
     'No more fields to fill in'
   end
   add_question
+end
+
+
+Then(/^I enter duplicate question without entering other fields$/) do
+  create_question
+  Question.create(@question)
+  @question = @question.merge(option2: '')
+  @question = @question.merge(option3: '')
+  @question = @question.merge(option4: '')
+  @question = @question.merge(answer: '')
+  @question = @question.merge(explanation: '')
+  add_question
+end
+
+
+Then(/^I enter duplicate question along with other fields$/) do
+  create_question
+  Question.create(@question)
+  @question = @question.merge(option2: 'Water')
+  @question = @question.merge(option3: 'Liquid')
+  @question = @question.merge(option4: 'Solid')
+  @question = @question.merge(answer: 'Solubility')
+  @question = @question.merge(explanation: 'able to be dissolved, especially in water')
+  add_question
+end
+
+
+When(/^I do not select any option and click submit$/) do
+  click_button 'Submit'
 end

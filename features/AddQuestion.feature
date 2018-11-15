@@ -19,7 +19,7 @@ Feature: Allow user who logged in to add  a new question
      When I log in with valid user credentials
      Then I click on 'Add question to the question bank' button
      Then I fill in all the fields except question and submit
-     Then I should see 'questions can't be blank' on flash message
+     Then I should see 'question can't be blank' on flash message
 
     Scenario: User tries to add a new question without option1 with logging in
       When I log in with valid user credentials
@@ -62,3 +62,16 @@ Feature: Allow user who logged in to add  a new question
       Then I click on 'Add question to the question bank' button
       Then I click on add question button without entering any details
       Then I should see 'Sorry, All fields are required' on flash message
+
+    Scenario: User enters only duplicate question without entering other fields
+      When I log in with valid user credentials
+      Then I click on 'Add question to the question bank' button
+      Then I enter duplicate question without entering other fields
+      Then I should see 'Sorry, All fields are required' on flash message
+
+    Scenario: User enters duplicate question along with other fields
+      When I log in with valid user credentials
+      Then I click on 'Add question to the question bank' button
+      Then I enter duplicate question along with other fields
+      Then I should see 'Question has already been taken' on flash message
+

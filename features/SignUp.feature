@@ -15,15 +15,15 @@ Feature: Allow the User to sign up
 
     Scenario: User signs up with blank first name
       When I sign up with blank first name
-      Then I should see a blank first name message
+      Then I should see a blank first name error message
 
     Scenario: User signs up with blank first name
       When I sign up with blank last name
-      Then I should see a blank last name message
+      Then I should see a blank last name error message
 
     Scenario: User signs up with blank email
       When I sign up with blank email
-      Then I should see an blank email message
+      Then I should see a blank email error message
 
     Scenario: User signs up with invalid password
       When I sign up with invalid password
@@ -31,7 +31,7 @@ Feature: Allow the User to sign up
 
     Scenario: User signs up without password
       When I sign up with blank password
-      Then I should see a missing password message
+      Then I should see a blank password error message
 
     Scenario: User signs up with mismatched password and confirmation
       When I sign up with with mismatched password and confirmation
