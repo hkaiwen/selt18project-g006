@@ -22,5 +22,14 @@ module Selt18projectG006
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    ActionMailer::Base.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      domain: "gmail",
+      authentication: "plain",
+      enable_starttls_auto: true,
+      user_name: ENV['SENDMAIL_USERNAME'],
+      password: ENV['SENDMAIL_PASSWORD']
+    }
   end
 end
