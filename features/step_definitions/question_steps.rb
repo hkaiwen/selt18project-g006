@@ -1,4 +1,18 @@
 
+def create_question
+  @question ||= {question: 'soluble means:', o2: 'single person', o3: 'happy to receive',
+           o4: 'solar system', answer: 'dissolvable', explanation: 'be able to solve in water'}
+end
+
+def add_question
+  fill_in 'question_question', with: @question[:question]
+  fill_in 'question_option2', with: @question[:o2]
+  fill_in 'question_option3', with: @question[:o3]
+  fill_in 'question_option4', with: @question[:o4]
+  fill_in 'question_answer', with: @question[:answer]
+  fill_in 'question_explanation', with: @question[:explanation]
+  click_button 'Add this question'
+end
 Given /the following questions have been added to Question Database:/ do |question_table|
   question_table.hashes.each do |question|
     Question.create(question)
@@ -67,21 +81,34 @@ When /^I click on 'Add question to the question bank' button$/ do
   click_on('Add question to the question bank')
 end
 
-When /^I fill a new question (.*?) all field and submit$/ do |with|
-  @ques||={question: 'soluble means:', o1: 'single person', o2: 'happy to receive',
-           o3: 'solar system', answer: 'dissolvable', explanation: 'be able to solve in water'}
-  fill_in 'question_question', with: @ques[:question]
-  fill_in 'question_option2', with: @ques[:o1]
-  fill_in 'question_option3', with: @ques[:o2]
-  fill_in 'question_option4', with: @ques[:o3]
-  fill_in 'question_answer', with: @ques[:answer]
-  if with == 'with'
-    fill_in 'question_explanation', with: @ques[:explanation]
-  end
-  click_button 'Add this question'
+When /^I fill in all the fields and submit$/ do
+  create_question
+  add_question
 end
 
 
 Then(/^I should not see add question button$/) do
   expect(page).not_to have_button('Add question to the question bank')
+end
+
+
+Then(/^I fill in all the fields except (.*?) and submit$/) do |field|
+  create_question
+  case field
+  when 'question'
+    @question = @question.merge(question: '')
+  when 'option2'
+    @question = @question.merge(o2: '')
+  when 'option3'
+    @question = @question.merge(o3: '')
+  when 'option4'
+    @question = @question.merge(o4: '')
+  when 'answer'
+    @question = @question.merge(answer: '')
+  when 'explanation'
+    @question = @question.merge(explanation: '')
+  else
+    'No more fields to fill in'
+  end
+  add_question
 end

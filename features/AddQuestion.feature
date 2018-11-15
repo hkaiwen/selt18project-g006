@@ -12,16 +12,40 @@ Feature: Allow user who logged in to add  a new question
     Scenario: User add new question with logging in
       When I log in with valid user credentials
       Then I click on 'Add question to the question bank' button
-      Then I fill a new question with all field and submit
+      Then I fill in all the fields and submit
       Then I should see 'Question successfully added to question bank' on flash message
 
-    Scenario: User tries to add a new question without explanation with logging in
+    Scenario: User tries to add a new question without question with logging in
+     When I log in with valid user credentials
+     Then I click on 'Add question to the question bank' button
+     Then I fill in all the fields except question and submit
+     Then I should see 'questions can't be blank' on flash message
+
+    Scenario: User tries to add a new question without option1 with logging in
       When I log in with valid user credentials
       Then I click on 'Add question to the question bank' button
-      Then I fill a new question without all field and submit
-      Then I should see 'Sorry, all fields are required' on flash message
+      Then I fill in all the fields except option2 and submit
+      Then I should see 'option2 can't be blank' on flash message
 
-    Scenario: User wants to come back to the question page
+   Scenario: User tries to add a new question without option1 with logging in
+     When I log in with valid user credentials
+     Then I click on 'Add question to the question bank' button
+     Then I fill in all the fields except option3 and submit
+     Then I should see 'option3 can't be blank' on flash message
+
+  Scenario: User tries to add a new question without option1 with logging in
+    When I log in with valid user credentials
+    Then I click on 'Add question to the question bank' button
+    Then I fill in all the fields except option4 and submit
+    Then I should see 'option4 can't be blank' on flash message
+
+  Scenario: User tries to add a new question without option1 with logging in
+    When I log in with valid user credentials
+    Then I click on 'Add question to the question bank' button
+    Then I fill in all the fields except explanation and submit
+    Then I should see 'explanation can't be blank' on flash message
+
+  Scenario: User wants to come back to the question page
       When I log in with valid user credentials
       Then I click on 'Add question to the question bank' button
       Then I click on back to question button on add question form
@@ -37,4 +61,4 @@ Feature: Allow user who logged in to add  a new question
       When I log in with valid user credentials
       Then I click on 'Add question to the question bank' button
       Then I click on add question button without entering any details
-      Then I should see 'Sorry, all fields are required' on flash message
+      Then I should see 'Sorry, All fields are required' on flash message
