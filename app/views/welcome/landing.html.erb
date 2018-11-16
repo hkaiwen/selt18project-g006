@@ -8,7 +8,7 @@
     </script>
   <h1>Welcome to Word Power</h1>
     <% if user_signed_in? %>
-      <span id="landing_message"><%= "Login As  #{current_user.first_name}"%></span>
+      <span id="landing_message"><%= "Logged in as  #{current_user.first_name}"%></span>
     <% end %>
 
   <%= button_to "Get Started", questions_path, :method => :get, :id => 'get_start_button', class: "btn btn-lg btn-secondary" %>
