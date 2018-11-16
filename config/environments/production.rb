@@ -76,6 +76,6 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  config.action_mailer.default_url_options = { :host => 'vast-waters-52068.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'https://selt18project-g006-sprint2.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
 end
