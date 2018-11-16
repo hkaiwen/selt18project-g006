@@ -28,6 +28,8 @@ class QuestionsController < ApplicationController
         @new_question = Question.where.not(:questions => session[:question]).pluck(:id,:questions,:answer,:option2,:option3,:option4)
         if @new_question.empty?
           flash[:notice] = 'No more questions in database'
+          #redirect_to '/'
+          render 'welcome/landing'
         else
           session[:question] << @new_question[0][1]
           @questions = @new_question[0]
@@ -47,15 +49,34 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    empty_param_hash = {}
+    @message = ""
     @que = params[:question]
-    begin
-      Question.create_question!(@que[:question], @que[:answer], @que[:option2], @que[:option3], @que[:option4], @que[:explanation])
-      flash[:notice] = 'Question successfully added to question bank'
-      redirect_to questions_path
-    rescue
-      flash[:warning] = 'Sorry, all fields are required'
+    if @que.values.any?(&:blank?)
+      @que.each do |key, value|
+        if @que[key].blank?
+          empty_param_hash[key] = value
+        end
+      end
+      if empty_param_hash.length > 1
+        @message = 'Sorry, All fields are required'
+      else
+        @message = "#{empty_param_hash.keys.join} can't be blank"
+      end
       redirect_to new_question_path
+    else
+      begin
+        Question.create_question!(@que[:question], @que[:answer], @que[:option2], @que[:option3], @que[:option4], @que[:explanation])
+        flash[:notice] = 'Question successfully added to question bank'
+        redirect_to questions_path
+      rescue ActiveRecord::RecordInvalid => e
+        if e.record.errors[:questions] == ['has already been taken']
+          @message = 'Question has already been taken'
+        end
+        redirect_to new_question_path
+      end
     end
+    flash[:warning] = @message
   end
 
   def submit_answer

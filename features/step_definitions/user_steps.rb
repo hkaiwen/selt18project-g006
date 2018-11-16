@@ -40,12 +40,6 @@ Then /^I should see a successful sign up message$/ do
 end
 
 
-When(/^I sign up with blank email$/) do
-  create_user
-  @user = @user.merge(email: '')
-  sign_up
-end
-
 Then(/^I should see an blank email message$/) do
   page.should have_content "Email can't be blank"
 end
@@ -61,16 +55,6 @@ Then(/^I should see an invalid password message$/) do
   page.should have_content 'Password is too short (minimum is 6 characters)'
 end
 
-
-When(/^I sign up with blank password$/) do
-  create_user
-  @user = @user.merge(password: '')
-  sign_up
-end
-
-Then(/^I should see a missing password message$/) do
-  page.should have_content "Password can't be blank"
-end
 
 When(/^I sign up with with mismatched password and confirmation$/) do
   create_user
@@ -103,6 +87,7 @@ end
 
 Then(/^I should see an invalid login message$/) do
   expect(page).to have_current_path('/users/sign_in')
+  page.should have_content 'Invalid Email or Password'
 end
 
 
@@ -161,3 +146,34 @@ When(/^I log in on the sign up page with valid user credentials$/) do
   fill_in 'log_in_text2', with: @user[:password]
   click_button 'Log in'
 end
+
+
+When(/^I sign up with blank (.*?)$/) do |field|
+  create_user
+  case field
+  when 'first name'
+    @user = @user.merge(first_name: '')
+  when 'last name'
+    @user = @user.merge(last_name: '')
+  when 'password'
+    @user = @user.merge(password: '')
+  when 'email'
+    @user = @user.merge(email: '')
+  end
+  sign_up
+end
+
+Then(/^I should see a blank (.*?) error message$/) do |field|
+  case field
+  when 'first name'
+    page.should have_content "First name can't be blank"
+  when 'last name'
+    page.should have_content "Last name can't be blank"
+  when 'email'
+    page.should have_content "Email can't be blank"
+  when 'password'
+    page.should have_content "Password can't be blank"
+  end
+end
+
+
