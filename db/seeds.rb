@@ -93,6 +93,7 @@ questions = [
    :option4 => 'apt', :explanation => 'Healthy means having good health. Its the opposite of sick, but also can mean
     "doing well" in a general sense. '},
 
+
   {:questions => 'The opposite of leader is:', :answer => 'follower', :option2 => 'avatar', :option3 => 'mourner',
    :option4 => 'agent', :explanation => 'A leader is the one in the charge, the person who convinces other people to
     follow. A great leader inspires confidence in other people and moves them to action.'},
@@ -126,13 +127,16 @@ questions = [
   If you grow up religious, but repudiate all organized religion as an adult, you might start spending holidays at the
   movies, or just going to work.'},
 
+
   {:questions => 'Which of the following might ward off birds?', :answer => 'a scarecrow', :option2 => 'feathers',
    :option3 => 'bird seed', :option4 => 'a birdhouse', :explanation => 'A ward is a group of rooms or a section in a
   hospital or prison; in a hospital, different wards deal with different needs, like the psychiatric ward or maternity
   ward.'},
 
   {:questions => 'insipid means:', :answer => 'uninteresting', :option2 => 'scurvy', :option3 => 'glib',
+
    :option4 => 'vernacular', :explanation => 'Something insipid is lacking in flavor or interest. You will probably find
+
    the generic poems inside of greeting cards insipid.'},
 
   {:questions => 'derivative means:', :answer => 'not original, secondary', :option2 => 'limited to a particular area',
@@ -165,11 +169,13 @@ questions = [
   his pajamas.'},
 
   {:questions => 'benevolent means:', :answer => 'kind', :option2 => 'careful', :option3 => 'personal',
+
    :option4 => 'unbelievable', :explanation => 'Choose the adjective benevolent for someone who does good deeds or shows
   goodwill. If your teacher collects homework with a benevolent smile, shes hoping that youve done a good job.'},
 
 
   {:questions => 'benignant means:', :answer => 'kindly', :option2 => 'careful', :option3 => 'uncertain',
+
    :option4 => 'sensible', :explanation => 'Someone whos benignant is goodhearted and kind. Your favorite teacher in
    elementary school was probably the most benignant of them all.'},
 
@@ -180,6 +186,7 @@ questions = [
 
   {:questions => 'gracious means:', :answer => 'characterized by kindness and warm courtesy', :option2 => 'involving
   intelligence rather than emotions or instinct', :option3 => 'derived from direct participation in events or activities',
+
    :option4 => 'marked by care and effort', :explanation => 'Gracious means "kind, courteous, and compassionate," like
   your gracious reply to a rude question like, "So, did you ever learn to hit a softball?"'},
 
@@ -200,7 +207,9 @@ questions = [
 
 
   {:questions => 'profusion means:', :answer => 'abundance', :option2 => 'tranquility', :option3 => 'mobility',
+
    :option4 => 'independence', :explanation => 'If theres an abundance of something, you can say that theres a profusion
+
   of it. Hilarious and bizarre YouTube videos certainly exist in profusion.'},
 
 
@@ -210,7 +219,9 @@ questions = [
   boil over into road rage when another car cuts them off, for example.'},
 
   {:questions => 'coarse means:', :answer => 'unrefined', :option2 => 'unpopular', :option3 => 'unavoidable',
+
    :option4 => 'undaunted', :explanation => 'Coarse can mean rough to the touch or vulgar. Its good to have coarse sand
+
   paper, but not good to have coarse manners.'},
 
   {:questions => 'mocking means:', :answer => 'playfully vexing, especially by ridicule', :option2 => 'aroused to
@@ -229,7 +240,9 @@ impatience or anger', :option3 => 'devoted to a cause or ideal or purpose', :opt
   {:questions => 'harsh means:', :answer => 'unpleasantly stern', :option2 => 'difficult to find', :option3 => 'large in
    spatial extent or range or scope or quantity', :option4 => 'deserving or inciting pity', :explanation => 'Harsh means
    severe or strict, particularly when referring to punishment. It would be a harsh punishment if you got grounded for
+
     two weeks just for coming home a little late for dinner.'}
+
 
 ]
 
