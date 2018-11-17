@@ -2,8 +2,12 @@
 <%= stylesheet_link_tag "application" %>
   <div id="landing-header">
     <script>
-      window.onload = function(){
-        $.ajax("/clearsession")
+      window.onload = function() {
+        if (sessionStorage.getItem("hasCodeRunBefore") === null) {
+          $(".alert").hide();
+          $.ajax("/clearsession");
+          sessionStorage.setItem("hasCodeRunBefore", true);
+        }
       }
     </script>
   <h1>Welcome to Word Power</h1>
