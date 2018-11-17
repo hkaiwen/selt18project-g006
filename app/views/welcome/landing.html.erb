@@ -17,6 +17,11 @@
 
   <%= button_to "Get Started", questions_path, :method => :get, :id => 'get_start_button', class: "btn btn-lg btn-secondary" %>
     <% if user_signed_in? %>
+      <script>
+        window.onload = function() {
+          $.ajax("/clearsession");
+        }
+      </script>
       <%= button_to "Sign out", destroy_user_session_path, :method => :delete, :id => 'sign_out_button', class: "btn btn-secondary"%>
     <% else %>
       <%= button_to "Log in", new_user_session_path, :method => :get, :id => 'log_in_button', class: "btn btn-secondary"%>
