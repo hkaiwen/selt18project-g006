@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 class Question < ActiveRecord::Base
-  validates :questions, :presence => true, uniqueness: true
+  validates :questions, :presence => true, uniqueness: {case_sensitive: false}
   validates :answer, :presence => true
   validates :option2, :presence => true
   validates :option3, :presence => true
   validates :option4, :presence => true
   validates :explanation, :presence => true
 
-
+=begin
   def self.create_question!(question, answer, option2, option3, option4, explanation)
     @question = question
     @answer = answer
@@ -18,7 +18,7 @@ class Question < ActiveRecord::Base
     @explanation = explanation
     Question::create!(questions: question, answer: answer, option2: option2, option3: option3, option4: option4, explanation: explanation)
   end
-
+=end
 
 
   def self.verify_answer(checking_array)
@@ -32,6 +32,22 @@ class Question < ActiveRecord::Base
       hash[:value] = 'incorrect'
     end
     return hash
+  end
+
+  def self.create_question!(question, answer, option2, option3, option4, explanation)
+    @question = question
+    @answer = answer
+    @option2 = option2
+    @option3 = option3
+    @option4 = option4
+    @explanation = explanation
+    question = Question.where('questions LIKE ?', "%#{@question}%").pluck(:questions)
+    puts "Question: #{question}"
+    if question.present?
+      return
+    else
+      Question::create!(questions: @question, answer: answer, option2: option2, option3: option3, option4: option4, explanation: explanation)
+    end
   end
 end
 
