@@ -65,8 +65,8 @@ class QuestionsController < ApplicationController
       end
       redirect_to new_question_path
     else
-        @question = Question.create_question!(@que[:question], @que[:answer], @que[:option2], @que[:option3], @que[:option4], @que[:explanation])
-        if @question.present?
+        result = Question.create_question!(@que[:question], @que[:answer], @que[:option2], @que[:option3], @que[:option4], @que[:explanation])
+        if result == true
           flash[:notice] = 'Question successfully added to question bank'
           redirect_to questions_path
         else

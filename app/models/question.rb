@@ -44,9 +44,10 @@ class Question < ActiveRecord::Base
     question = Question.where('questions LIKE ?', "%#{@question}%").pluck(:questions)
     puts "Question: #{question}"
     if question.present?
-      return
+      return false
     else
       Question::create!(questions: @question, answer: answer, option2: option2, option3: option3, option4: option4, explanation: explanation)
+      return true
     end
   end
 end
