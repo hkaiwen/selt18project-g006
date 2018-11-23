@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  get '/dashboard' => "dashboard#index", :as => :dashboard
   devise_for :users
   # resources :questions
   # root :to => redirect('/questions')
