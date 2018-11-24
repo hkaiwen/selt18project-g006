@@ -41,14 +41,16 @@ class Question < ActiveRecord::Base
     @option3 = option3
     @option4 = option4
     @explanation = explanation
-    question = Question.where('questions LIKE ?', "%#{@question}%").pluck(:questions)
-    puts "Question: #{question}"
-    if question.present?
-      raise ActiveRecord::RecordInvalid(question)
-    else
-      Question::create!(questions: @question, answer: answer, option2: option2, option3: option3, option4: option4, explanation: explanation)
-      return true
+    begin
+      question = Question.where('questions LIKE ?', "%#{@question}%")
+      puts "Question: #{question}"
+      if question.exists?
+        raise ActiveRecord::RecordNotUnique
+      else
+        Question::create!(questions: @question, answer: answer, option2: option2, option3: option3, option4: option4, explanation: explanation)
+      end
     end
   end
 end
+
 
