@@ -65,19 +65,18 @@ class QuestionsController < ApplicationController
       end
       redirect_to new_question_path
     else
-      begin
-        Question.create_question!(@que[:question], @que[:answer], @que[:option2], @que[:option3], @que[:option4], @que[:explanation])
-        flash[:notice] = 'Question successfully added to question bank'
-        redirect_to questions_path
-      rescue ActiveRecord::RecordInvalid => e
-        if e.record.error[:questions] == ['has already been taken']
+        @question = Question.create_question(params[:question])
+        if @question.save
+          flash[:notice] = 'Question successfully added to question bank'
+          redirect_to questions_path
+        else
           @message = 'Question has already been taken'
+          redirect_to new_question_path
         end
-        redirect_to new_question_path
-      end
     end
     flash[:warning] = @message
   end
+
 =begin
   def create
     empty_param_hash = {}
