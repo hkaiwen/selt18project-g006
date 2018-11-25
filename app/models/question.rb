@@ -7,15 +7,18 @@ class Question < ActiveRecord::Base
   validates :option3, :presence => true
   validates :option4, :presence => true
   validates :explanation, :presence => true
+  validates :level, :presence => true
 
 
-  def self.create_question!(question, answer, option2, option3, option4, explanation)
+
+  def self.create_question!(question, answer, option2, option3, option4, explanation, level)
     @question = question
     @answer = answer
     @option2 = option2
     @option3 = option3
     @option4 = option4
     @explanation = explanation
+    @level = level
     Question::create!(questions: question, answer: answer, option2: option2, option3: option3, option4: option4, explanation: explanation)
   end
 

@@ -134,9 +134,7 @@ questions = [
   ward.'},
 
   {:questions => 'insipid means:', :answer => 'uninteresting', :option2 => 'scurvy', :option3 => 'glib',
-
    :option4 => 'vernacular', :explanation => 'Something insipid is lacking in flavor or interest. You will probably find
-
    the generic poems inside of greeting cards insipid.'},
 
   {:questions => 'derivative means:', :answer => 'not original, secondary', :option2 => 'limited to a particular area',
