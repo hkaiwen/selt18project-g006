@@ -9,6 +9,7 @@ class Question < ActiveRecord::Base
   validates :explanation, :presence => true
   validates :level, :presence => true
   validate :duplicate_question, on: :create
+
 =begin
   def self.create_question!(question, answer, option2, option3, option4, explanation, level)
     @question = question
@@ -17,7 +18,7 @@ class Question < ActiveRecord::Base
     @option3 = option3
     @option4 = option4
     @explanation = explanation
-
+    @level = level
     Question::create!(questions: question, answer: answer, option2: option2, option3: option3, option4: option4, explanation: explanation, level: level)
   end
 =end
@@ -44,28 +45,35 @@ class Question < ActiveRecord::Base
     @option3 = params[:option3]
     @option4 = params[:option4]
     @explanation = params[:explanation]
-    @level = level
+    @level = params[:level]
     @question = Question::create(questions: @questions, answer: @answer, option2: @option2, option3: @option3, option4: @option4, explanation: @explanation)
 
   end
 
   def duplicate_question
+    @message = 'Question has already been taken'
     @answer_array = []
     puts 'inside validate model'
     question_array = self.questions.split(' ')
     if question_array.length == 1
       @question = Question.where('questions LIKE ?', "%#{self.questions}%")
-      errors.add(:questions, 'Question has already been taken') if @question.exists?
+      errors.add(:questions, @message) if @question.exists?
     else
       puts 'inside validate else'
       ids = Question.where('questions LIKE ?', "%#{question_array[0]}%").pluck(:id)
+      puts "IDs: #{ids}"
       if ids.length > 1
+        puts 'inside if id'
         ids.each do |id|
           question = Question.where('id = ?', id).pluck(:questions)
+          errors.add(:questions, @message) if question.length >= question_array.length
         end
+      else
+        puts 'inside ids else'
+        question = Question.where('id = ?', ids).pluck(:questions)
+        puts "Questions : #{question}"
+        errors.add(:questions, @message) if question.length <= question_array.length
       end
-      puts "Answer array: #{@answer_array}"
-      errors.add(:questions, 'Question has already been taken') if @answer_array.length == question_array.length
     end
   end
 end
