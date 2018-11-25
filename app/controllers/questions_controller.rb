@@ -42,7 +42,7 @@ class QuestionsController < ApplicationController
       @options = @questions.slice(2..5).shuffle
       @ques_opt << @questions[0] << @questions[1]
       @ques_opt << @options
-      @lev << 'Difficulty: ' + @questions[6]
+      @ques_opt << 'Difficulty: ' + @questions[6]
       @ques_opt.flatten!
     end
   end
