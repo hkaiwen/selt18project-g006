@@ -234,8 +234,6 @@ impatience or anger', :option3 => 'devoted to a cause or ideal or purpose', :opt
    spatial extent or range or scope or quantity', :option4 => 'deserving or inciting pity', :explanation => 'Harsh means
    severe or strict, particularly when referring to punishment. It would be a harsh punishment if you got grounded for
     two weeks just for coming home a little late for dinner.',:level => 'easy'}
-
-
 ]
 
 questions.each do |question|

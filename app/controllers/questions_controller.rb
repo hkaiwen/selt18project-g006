@@ -7,11 +7,13 @@ class QuestionsController < ApplicationController
       session[:count] = 0
     end
     @ques_opt = []
+    @lev =[]
     if params[:same]== 'yes' and params[:commit]== 'Submit'
       @ques_opt=params[:question]
       if !params[:explanation].nil?
         @exp ='Explanation: ' + params[:explanation]
         @answer = 'Answer: '+ params[:answer]
+        #@lev = 'Difficulty: ' + params[:level]
       end
     else
       if !user_signed_in?
@@ -21,11 +23,11 @@ class QuestionsController < ApplicationController
           render "/welcome/landing"
         end
       end
-      @questions = Question.pluck(:id,:questions,:answer,:option2,:option3,:option4).sample
+      @questions = Question.pluck(:id,:questions,:answer,:option2,:option3,:option4,:level).sample
       if session[:question].blank?
         (session[:question] ||= []) << @questions[1]
       elsif session[:question].include?(@questions[1])
-        @new_question = Question.where.not(:questions => session[:question]).pluck(:id,:questions,:answer,:option2,:option3,:option4)
+        @new_question = Question.where.not(:questions => session[:question]).pluck(:id,:questions,:answer,:option2,:option3,:option4,:level)
         if @new_question.empty?
           flash[:notice] = 'No more questions in database'
           #redirect_to '/'
@@ -40,6 +42,7 @@ class QuestionsController < ApplicationController
       @options = @questions.slice(2..5).shuffle
       @ques_opt << @questions[0] << @questions[1]
       @ques_opt << @options
+      @lev << 'Difficulty: ' + @questions[6]
       @ques_opt.flatten!
     end
   end
