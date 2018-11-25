@@ -19,7 +19,7 @@ class Question < ActiveRecord::Base
     @option4 = option4
     @explanation = explanation
     @level = level
-    Question::create!(questions: question, answer: answer, option2: option2, option3: option3, option4: option4, explanation: explanation)
+    Question::create!(questions: question, answer: answer, option2: option2, option3: option3, option4: option4, explanation: explanation, level: level)
   end
 
 
