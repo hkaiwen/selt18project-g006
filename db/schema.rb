@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20181121043355) do
     t.string   "option3"
     t.string   "option4"
     t.string   "explanation"
+    t.string   "level"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
