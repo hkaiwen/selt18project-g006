@@ -7,16 +7,18 @@ class Question < ActiveRecord::Base
   validates :option3, :presence => true
   validates :option4, :presence => true
   validates :explanation, :presence => true
+  validates :level, :presence => true
   validate :duplicate_question, on: :create
 =begin
-  def self.create_question!(question, answer, option2, option3, option4, explanation)
+  def self.create_question!(question, answer, option2, option3, option4, explanation, level)
     @question = question
     @answer = answer
     @option2 = option2
     @option3 = option3
     @option4 = option4
     @explanation = explanation
-    Question::create!(questions: question, answer: answer, option2: option2, option3: option3, option4: option4, explanation: explanation)
+
+    Question::create!(questions: question, answer: answer, option2: option2, option3: option3, option4: option4, explanation: explanation, level: level)
   end
 =end
 
@@ -42,6 +44,7 @@ class Question < ActiveRecord::Base
     @option3 = params[:option3]
     @option4 = params[:option4]
     @explanation = params[:explanation]
+    @level = level
     @question = Question::create(questions: @questions, answer: @answer, option2: @option2, option3: @option3, option4: @option4, explanation: @explanation)
 
   end

@@ -5,8 +5,21 @@
   background-color: #2980b9;
 }
 
-#question h1 {
+h2{
   color: white;
+  border-radius: 50px;
+  background: #ffb513;
+  padding: 10px;
+  width: 180px;
+  height: 45px;
+  font-size: 20px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  text-align: center;
+
+}
+
+#question h1 {
+  color: #fbfff9;
   margin-left: 10px;
 }
 
