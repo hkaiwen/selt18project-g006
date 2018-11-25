@@ -12,6 +12,7 @@ class QuestionsController < ApplicationController
       if !params[:explanation].nil?
         @exp ='Explanation: ' + params[:explanation]
         @answer = 'Answer: '+ params[:answer]
+        @cal_score = params[:score]
       end
     else
       if !user_signed_in?
@@ -37,6 +38,8 @@ class QuestionsController < ApplicationController
       else
         session[:question] << @questions[1]
       end
+      @score = User.where(:id => current_user.id).pluck(:score)
+      @cal_score = @score[0]
       @options = @questions.slice(2..5).shuffle
       @ques_opt << @questions[0] << @questions[1]
       @ques_opt << @options
@@ -90,11 +93,13 @@ class QuestionsController < ApplicationController
     else
       @reply_array = Question.verify_answer(@checking_array)
       if @reply_array[:value] == 'correct'
+        @cal_score = Question.calculate_scores(current_user.id)
+        User.find(current_user.id).update_column(:score, @cal_score)
         flash[:correct] = 'Great! Your answer is correct'
       else
         flash[:warning] = 'Sorry, This is the incorrect answer'
       end
-      redirect_to questions_path request.params.merge({same: 'yes', explanation: @reply_array[:description], answer: @reply_array[:answer]})
+      redirect_to questions_path request.params.merge({same: 'yes', explanation: @reply_array[:description], answer: @reply_array[:answer], score: @cal_score})
     end
   end
 

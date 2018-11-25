@@ -28,6 +28,11 @@
     <%= submit_tag "Submit", class: "btn btn-outline-secondary btn-sm" %>
     <%= link_to "Next", questions_path, :method => :get, class: "btn btn-outline-secondary btn-sm", :id => "next"%>
   </div>
+  <div id="score">
+    <% if user_signed_in? %>
+     <%= "Score: #{@cal_score}"%>
+    <%end %>
+  </div>
   <br>
   <br>
   <% if user_signed_in? %>
