@@ -22,7 +22,7 @@ describe  Question do
   end
   describe 'create question method' do
     it 'should create new database object' do
-      expect { Question.create_question!("question", "answer", "option2", "option3", "option4",  "explanation") }.to change { Question.count }
+      expect { Question.create_question("question", "answer", "option2", "option3", "option4",  "explanation") }.to change { Question.count }
     end
   end
 end

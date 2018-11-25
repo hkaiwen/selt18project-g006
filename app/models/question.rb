@@ -47,13 +47,26 @@ class Question < ActiveRecord::Base
   end
 
   def duplicate_question
+    @answer_array = []
     puts 'inside validate model'
-    question = Question.where('questions LIKE ?', "%#{self.questions}%")
-    if question.exists?
-      errors.add(:questions, 'Question has already been taken')
+    question_array = self.questions.split(' ')
+    if question_array.length == 1
+      @question = Question.where('questions LIKE ?', "%#{self.questions}%")
+      errors.add(:questions, 'Question has already been taken') if @question.exists?
+    else
+      puts 'inside validate else'
+      ids = Question.where('questions LIKE ?', "%#{question_array[0]}%").pluck(:id)
+      if ids.length > 1
+        ids.each do |id|
+          question = Question.where('id = ?', id).pluck(:questions)
+        end
+      end
+      puts "Answer array: #{@answer_array}"
+      errors.add(:questions, 'Question has already been taken') if @answer_array.length == question_array.length
     end
   end
 end
+
 
 
 

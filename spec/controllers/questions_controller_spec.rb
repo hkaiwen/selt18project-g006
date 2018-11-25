@@ -35,6 +35,7 @@ describe QuestionsController do
   end
   describe 'Add new question' do
     before :each do
+      @question_array = []
       @question = 'The opposite of expensive is:'
       @answer = 'cheap'
       @option1 = 'bear'
@@ -43,18 +44,21 @@ describe QuestionsController do
       @explanation = 'The adjective expensive means high in price. Its like the expensive basketball sneakers you had to work all summer to save up enough money to buy.'
     end
     it 'should get the values from view' do
-      expect(Question).to receive(:create_question!).with(@question, @answer, @option1, @option2, @option3, @explanation)
+      @question_array << @question << @answer << @option2 << @option3 << @option4 << @explanation
+      expect(Question).to receive(:create_question).with(@question_array)
       post :create, {:question => {:question => @question, :answer => @answer, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation}}
     end
     it 'should accept a boolean value as a result of calling model method' do
+      @question_array << @question << @answer << @option2 << @option3 << @option4 << @explanation
       fake_result = true
-      expect(Question).to receive(:create_question!).with(@question, @answer, @option1, @option2, @option3, @explanation).and_return(fake_result)
+      expect(Question).to receive(:create_question).with(@question_array).and_return(fake_result)
       post :create, {:question => {:question => @question, :answer => @answer, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation}}
 
     end
     it 'should flash success message if question added to database and redirect to index page' do
+      @question_array << @question << @answer << @option2 << @option3 << @option4 << @explanation
       question = Question.new(:questions => @question,:answer => @answer, :option2 => @option2, :option3 => @option3, :option4 => @option1, :explanation => 'The degree to which a method or medicine brings about a specific result is its efficacy. You might not like to eat it, but you cant question the efficacy of broccoli as a health benefit.')
-      allow(Question).to receive(:create_question!).with(@question, @answer, @option1, @option2, @option3, @explanation).and_return(question)
+      allow(Question).to receive(:create_question).with(@question_array).and_return(question)
       post :create, {:question => {:question => @question, :answer => @answer, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation}}
       expect(flash[:notice]).to eq('Question successfully added to question bank')
       expect(response).to redirect_to(questions_path)
