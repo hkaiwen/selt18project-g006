@@ -7,7 +7,6 @@ class CreateQuestions < ActiveRecord::Migration
       t.string 'option3'
       t.string 'option4'
       t.string 'explanation'
-      t.string 'level'
       t.timestamps
     end
   end
