@@ -37,8 +37,7 @@ class Question < ActiveRecord::Base
     return hash
   end
 
-  def self.create_question(params)
-    puts 'inside create question model'
+  def self.create_question!(params)
     @questions = params[:question]
     @answer = params[:answer]
     @option2 = params[:option2]
@@ -46,10 +45,10 @@ class Question < ActiveRecord::Base
     @option4 = params[:option4]
     @explanation = params[:explanation]
     @level = params[:level]
-    @question = Question::create(questions: @questions, answer: @answer, option2: @option2, option3: @option3, option4: @option4, explanation: @explanation)
-
+    @question = Question::create(questions: @questions, answer: @answer, option2: @option2, option3: @option3, option4: @option4, explanation: @explanation, level: @level)
   end
 
+=begin
   def duplicate_question
     @message = 'Question has already been taken'
     @answer_array = []
@@ -75,6 +74,15 @@ class Question < ActiveRecord::Base
         errors.add(:questions, @message) if question.length <= question_array.length
       end
     end
+  end
+=end
+
+  def duplicate_question
+    puts 'inside validate model'
+    @question = Question.where('questions LIKE ?', "%#{self.questions}%").pluck(:id,:questions)
+    puts "Questions: #{@question}"
+    errors.add(:questions, @message) if @question.any?
+    #errors.add(:questions, @message) if @question
   end
 end
 

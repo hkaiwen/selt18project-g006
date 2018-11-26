@@ -68,7 +68,7 @@ class QuestionsController < ApplicationController
       end
       redirect_to new_question_path
     else
-        @question = Question.create_question(params[:question])
+        @question = Question.create_question!(params[:question])
         if @question.save
           flash[:notice] = 'Question successfully added to question bank'
           redirect_to questions_path

@@ -22,7 +22,8 @@ describe  Question do
   end
   describe 'create question method' do
     it 'should create new database object' do
-      expect { Question.create_question("question", "answer", "option2", "option3", "option4",  "explanation") }.to change { Question.count }
+      question = {:question => 'efficacy means:', :answer => 'capacity or power to produce a desired result', :option2 => 'the state of being restored to a former condition', :option3 => 'good-natured tolerance of delay or incompetence', :option4 => 'the act of concealing something from the public', :explanation => 'The degree to which a method or medicine brings about a specific result is its efficacy. You might not like to eat it, but you cant question the efficacy of broccoli as a health benefit.', :level => 'easy'}
+      expect { Question.create_question!(question) }.to change { Question.count }
     end
   end
 end
