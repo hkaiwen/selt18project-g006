@@ -13,7 +13,6 @@ class QuestionsController < ApplicationController
       if !params[:explanation].nil?
         @exp ='Explanation: ' + params[:explanation]
         @answer = 'Answer: '+ params[:answer]
-        #@lev = 'Difficulty: ' + params[:level]
       end
     else
       if !user_signed_in?
@@ -99,7 +98,7 @@ class QuestionsController < ApplicationController
       redirect_to new_question_path
     else
       begin
-        Question.create_question!(@que[:question], @que[:answer], @que[:option2], @que[:option3], @que[:option4], @que[:explanation])
+        Question.create_question!(@que[:question], @que[:answer], @que[:option2], @que[:option3], @que[:option4], @que[:explanation], @que[:level])
         flash[:notice] = 'Question successfully added to question bank'
         redirect_to questions_path
       rescue ActiveRecord::RecordInvalid => e
