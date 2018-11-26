@@ -3,7 +3,7 @@ class WelcomeController < ApplicationController
 
   end
   def landing
-    if current_user.first_name.to_s == 'admin'
+    if !current_user.nil? && current_user.first_name.to_s == 'admin'
       redirect_to rails_admin_path
     end
   end
