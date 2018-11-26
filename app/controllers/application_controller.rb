@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    puts User.find_by_session_token(session[:session_token]).first_name.to_s == 'admin'
     if User.find_by_session_token(session[:session_token]).first_name.to_s == 'admin'
       "/admin"
     else
