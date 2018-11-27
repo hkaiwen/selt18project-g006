@@ -37,14 +37,14 @@ class Question < ActiveRecord::Base
     return hash
   end
 
-  def self.create_question!(params)
-    @questions = params[:question]
-    @answer = params[:answer]
-    @option2 = params[:option2]
-    @option3 = params[:option3]
-    @option4 = params[:option4]
-    @explanation = params[:explanation]
-    @level = params[:level]
+  def self.create_question!(question, answer, option2, option3, option4, explanation, level)
+    @questions = question
+    @answer = answer
+    @option2 = option2
+    @option3 = option3
+    @option4 = option4
+    @explanation = explanation
+    @level = level
     @question = Question::create(questions: @questions, answer: @answer, option2: @option2, option3: @option3, option4: @option4, explanation: @explanation, level: @level)
   end
 
