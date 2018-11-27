@@ -1,4 +1,4 @@
-class RemoveSessionTokenFromUsers < ActiveRecord::Migration
+class RemoveSessionTokenToUsers < ActiveRecord::Migration
   def change
     remove_column :users, :session_token, :string
   end

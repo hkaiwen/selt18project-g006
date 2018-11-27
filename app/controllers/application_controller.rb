@@ -10,11 +10,12 @@ class ApplicationController < ActionController::Base
     redirect_to login_path unless @current_user
   end
 
-
-
-
   def after_sign_in_path_for(resource)
-    "/questions"
+    if current_user.first_name.to_s == 'admin'
+      "/admin"
+    else
+      "/questions"
+    end
   end
 
   def increment_count
@@ -25,7 +26,6 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name,:last_name])
   end
-
 
 
 end
