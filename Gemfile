@@ -18,6 +18,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
 # Use bcrypt for password encryption
 gem 'bcrypt'
+gem 'rails_admin'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
