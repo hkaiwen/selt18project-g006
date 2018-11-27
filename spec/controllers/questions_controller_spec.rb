@@ -74,6 +74,12 @@ describe QuestionsController do
       expect(flash[:warning]).to eq("option2 can't be blank")
     end
 
+    it 'should return error message when a radio button is not selected and stay on the same page' do
+      post :create, {:question => {:question => @question, :question_option => nil, :answer => @answer, :option2 => @option2, :option3 => @option2, :option4 => @option3, :explanation => @explanation, :level => @level}}
+      expect(response).to redirect_to(new_question_path)
+      expect(flash[:warning]).to eq('Please select if its means or opposite of the word')
+    end
+
     it 'should return error message if missing explaination while adding question and stay on the same page' do
       post :create, {:question => {:question => @question, :question_option => @question_option, :answer => @answer, :option2 => @option1, :option3 => @option3, :option4 => @option3, :explanation => nil, :level => @level}}
       expect(response).to redirect_to(new_question_path)

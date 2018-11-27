@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-11-27T15:29:47-06:00">2018-11-27T15:29:47-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-11-27T15:44:24-06:00">2018-11-27T15:44:24-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.43
+         2.57
        </span>
     </span> hits/line)
   </h2>
@@ -127,7 +127,7 @@
         <td>73</td>
         <td>65</td>
         <td>8</td>
-        <td>4.2</td>
+        <td>4.5</td>
       </tr>
       
       <tr>
@@ -183,7 +183,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.78
+         2.98
        </span>
     </span> hits/line)
   </h2>
@@ -285,7 +285,7 @@
         <td>73</td>
         <td>65</td>
         <td>8</td>
-        <td>4.2</td>
+        <td>4.5</td>
       </tr>
       
       <tr>
@@ -2499,56 +2499,56 @@
           <code class="ruby">  def create</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="54">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="10" data-linenumber="54">
+          <span class="hits">10</span>
           
           <code class="ruby">    empty_param_hash = {}</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="55">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="10" data-linenumber="55">
+          <span class="hits">10</span>
           
           <code class="ruby">    @message = &quot;&quot;</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="56">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="10" data-linenumber="56">
+          <span class="hits">10</span>
           
           <code class="ruby">    @que = params[:question]</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="57">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="10" data-linenumber="57">
+          <span class="hits">10</span>
           
           <code class="ruby">    @question_option = params[:question][:question_option]</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="58">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="10" data-linenumber="58">
+          <span class="hits">10</span>
           
           <code class="ruby">    @que[:question_option] = @question_option</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="59">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="10" data-linenumber="59">
+          <span class="hits">10</span>
           
           <code class="ruby">    if @que.values.any?(&amp;:blank?)</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="60">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="60">
+          <span class="hits">7</span>
           
           <code class="ruby">      @que.each do |key, value|</code>
         </li>
       
-        <li class="covered" data-hits="48" data-linenumber="61">
-          <span class="hits">48</span>
+        <li class="covered" data-hits="56" data-linenumber="61">
+          <span class="hits">56</span>
           
           <code class="ruby">        if @que[key].blank?</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="62">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="8" data-linenumber="62">
+          <span class="hits">8</span>
           
           <code class="ruby">          empty_param_hash[key] = value</code>
         </li>
@@ -2565,8 +2565,8 @@
           <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="65">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="65">
+          <span class="hits">7</span>
           
           <code class="ruby">      if empty_param_hash.length &gt; 1</code>
         </li>
@@ -2583,14 +2583,14 @@
           <code class="ruby">      else</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="68">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="68">
+          <span class="hits">6</span>
           
           <code class="ruby">        @message = &quot;#{empty_param_hash.keys.join} can&#39;t be blank&quot; unless empty_param_hash.keys.join == &#39;question_option&#39;</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="69">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="69">
+          <span class="hits">6</span>
           
           <code class="ruby">        @message = &#39;Please select if its means or opposite of the word&#39; if empty_param_hash.keys.join == &#39;question_option&#39;</code>
         </li>
@@ -2601,8 +2601,8 @@
           <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="71">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="71">
+          <span class="hits">7</span>
           
           <code class="ruby">      redirect_to new_question_path</code>
         </li>
@@ -2673,8 +2673,8 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="83">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="10" data-linenumber="83">
+          <span class="hits">10</span>
           
           <code class="ruby">    flash[:warning] = @message</code>
         </li>
