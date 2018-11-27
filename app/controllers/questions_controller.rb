@@ -65,8 +65,8 @@ class QuestionsController < ApplicationController
       if empty_param_hash.length > 1
         @message = 'Sorry, All fields are required'
       else
-        @message = "#{empty_param_hash.keys.join} can't be blank" unless empty_param_hash.keys == 'question_option'
-        @message = 'Please select if its means or opposite of the word' if empty_param_hash.keys == 'question_option'
+        @message = "#{empty_param_hash.keys.join} can't be blank" unless empty_param_hash.keys.join == 'question_option'
+        @message = 'Please select if its means or opposite of the word' if empty_param_hash.keys.join == 'question_option'
       end
       redirect_to new_question_path
     else
