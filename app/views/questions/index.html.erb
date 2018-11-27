@@ -7,6 +7,9 @@
     <% else %>
       <li> <%= button_to "Log in", new_user_session_path, :method => :get, :id => 'user_log_in_button', class: "btn btn-lg btn-secondary"%></li>
     <% end %>
+    <% if admin? %>
+      <%= button_to "Admin Site", rails_admin_path, :method => :get, :id => 'admin_button', class: "btn btn-secondary" %>
+    <% end %>
   </ul>
 </div>
 
