@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-11-27T09:54:10-06:00">2018-11-27T09:54:10-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-11-27T15:29:47-06:00">2018-11-27T15:29:47-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -2057,7 +2057,7 @@
         <li class="missed" data-hits="0" data-linenumber="14">
           
           
-          <code class="ruby">    if User.find_by_session_token(session[:session_token]).first_name.to_s == &#39;admin&#39;</code>
+          <code class="ruby">    if current_user.first_name.to_s == &#39;admin&#39;</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="15">
@@ -2442,7 +2442,7 @@
         <li class="covered" data-hits="4" data-linenumber="44">
           <span class="hits">4</span>
           
-          <code class="ruby">      @ques_opt &lt;&lt; &#39;Difficulty: &#39; + @questions[6]</code>
+          <code class="ruby">      @ques_opt &lt;&lt; @questions[6]</code>
         </li>
       
         <li class="covered" data-hits="4" data-linenumber="45">
