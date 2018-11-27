@@ -37,9 +37,15 @@ class Question < ActiveRecord::Base
     return hash
   end
 
-  def self.calculate_scores(user_id)
+  def self.calculate_scores(user_id, level)
     @score = User.where(:id => user_id).pluck(:score)
-    cal_score = @score[0] + 1
+    if level == 'Easy'
+       cal_score = @score[0] + 1
+    elsif level == 'Medium'
+       cal_score = @score[0] + 2
+    else
+       cal_score = @score[0] + 3
+    end
   end
 end
 

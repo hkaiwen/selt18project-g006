@@ -41,12 +41,14 @@ class QuestionsController < ApplicationController
       else
         session[:question] << @questions[1]
       end
-      @score = User.where(:id => current_user.id).pluck(:score)
-      @cal_score = @score[0]
+      if current_user
+        @score = User.where(:id => current_user.id).pluck(:score)
+        @cal_score = @score[0]
+      end
       @options = @questions.slice(2..5).shuffle
       @ques_opt << @questions[0] << @questions[1]
       @ques_opt << @options
-      @ques_opt << 'Difficulty: ' + @questions[6]
+      @ques_opt << @questions[6]
       @ques_opt.flatten!
     end
   end
@@ -91,16 +93,19 @@ class QuestionsController < ApplicationController
     @question = params[:question]
     @answer = params[:optradio]
     @checking_array << @question << @answer
+    puts "level #{@question[6]}"
     if @checking_array.any? {|a| a.nil?}
       flash[:notice] = 'Please select an answer'
       redirect_to questions_path request.params.merge({same: 'yes'})
     else
       @reply_array = Question.verify_answer(@checking_array)
       if @reply_array[:value] == 'correct'
-        @cal_score = Question.calculate_scores(current_user.id)
+        @cal_score = Question.calculate_scores(current_user.id, @question[6])
         User.find(current_user.id).update_column(:score, @cal_score)
         flash[:correct] = 'Great! Your answer is correct'
       else
+        @score = User.where(:id => current_user.id).pluck(:score)
+        @cal_score = @score[0]
         flash[:warning] = 'Sorry, This is the incorrect answer'
       end
       redirect_to questions_path request.params.merge({same: 'yes', explanation: @reply_array[:description], answer: @reply_array[:answer], score: @cal_score})
