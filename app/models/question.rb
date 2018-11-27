@@ -1,28 +1,25 @@
 # frozen_string_literal: true
 
 class Question < ActiveRecord::Base
-  validates :questions, :presence => true, uniqueness: true
+  validates :questions, :presence => true
   validates :answer, :presence => true
   validates :option2, :presence => true
   validates :option3, :presence => true
   validates :option4, :presence => true
   validates :explanation, :presence => true
   validates :level, :presence => true
-
-
+  validate :duplicate_question, on: :create
 
   def self.create_question!(question, answer, option2, option3, option4, explanation, level)
-    @question = question
+    @questions = question
     @answer = answer
     @option2 = option2
     @option3 = option3
     @option4 = option4
     @explanation = explanation
     @level = level
-    Question::create!(questions: question, answer: answer, option2: option2, option3: option3, option4: option4, explanation: explanation, level: level)
+    @question = Question::create(questions: @questions, answer: @answer, option2: @option2, option3: @option3, option4: @option4, explanation: @explanation, level: @level)
   end
-
-
 
   def self.verify_answer(checking_array)
     ques = Question.find_by_questions(checking_array[0])
@@ -46,6 +43,14 @@ class Question < ActiveRecord::Base
     else
        cal_score = @score[0] + 3
     end
+   end
+
+  def duplicate_question
+    @question = Question.where('questions LIKE ?', "%#{self.questions}%").pluck(:id, :questions)
+    errors.add(:questions, @message) if @question.any?
   end
 end
+
+
+
 
