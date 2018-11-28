@@ -1,7 +1,7 @@
 
 def create_question
   @question ||= {questions: 'soluble means:', option2: 'single person', option3: 'happy to receive',
-           option4: 'solar system', answer: 'dissolvable', explanation: 'be able to solve in water'}
+           option4: 'solar system', answer: 'dissolvable', explanation: 'be able to solve in water', level: 'easy'}
 end
 
 def add_question
@@ -11,6 +11,7 @@ def add_question
   fill_in 'question_option4', with: @question[:option4]
   fill_in 'question_answer', with: @question[:answer]
   fill_in 'question_explanation', with: @question[:explanation]
+  fill_in 'question_level', with: @question[:level]
   click_button 'Add this question'
 end
 Given /the following questions have been added to Question Database:/ do |question_table|
@@ -107,6 +108,8 @@ Then(/^I fill in all the fields except (.*?) and submit$/) do |field|
     @question = @question.merge(answer: '')
   when 'explanation'
     @question = @question.merge(explanation: '')
+  when 'level'
+    @question = @question.merge(level: '')
   else
     'No more fields to fill in'
   end
@@ -122,6 +125,7 @@ Then(/^I enter duplicate question without entering other fields$/) do
   @question = @question.merge(option4: '')
   @question = @question.merge(answer: '')
   @question = @question.merge(explanation: '')
+  @question = @question.merge(level: '')
   add_question
 end
 
@@ -132,8 +136,8 @@ Then(/^I enter duplicate question along with other fields$/) do
   @question = @question.merge(option2: 'Water')
   @question = @question.merge(option3: 'Liquid')
   @question = @question.merge(option4: 'Solid')
-  @question = @question.merge(answer: 'Solubility')
   @question = @question.merge(explanation: 'able to be dissolved, especially in water')
+  @question = @question.merge(level: 'medium')
   add_question
 end
 

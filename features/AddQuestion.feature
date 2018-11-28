@@ -2,10 +2,10 @@ Feature: Allow user who logged in to add  a new question
 
   Background: I am on the question page
     Given the following questions have been added to Question Database:
-      | questions                       | answer      | option2   | option3    | option4    | explanation |
-      | The opposite of healthy is:     |  sick       | suitable  | modest     | apt        | Healthy means having good health. Its the opposite of sick, but also can mean "doing well" in a general sense |
-      | wonderful means                 |  fantastic  | average   | direct     | possible   | Wonderful is better than good — its even better than great, like your wonderful luck — finding buried treasure on your very first diving expedition. |
-      | plethora means                  | excess      | function  | happy      | already    | excess superfluity                                                                                                                                    |
+      | questions                       | answer      | option2   | option3    | option4    | explanation |                                                                                                                                           level   |
+      | The opposite of healthy is:     |  sick       | suitable  | modest     | apt        | Healthy means having good health. Its the opposite of sick, but also can mean "doing well" in a general sense |                                          easy   |
+      | wonderful means                 |  fantastic  | average   | direct     | possible   | Wonderful is better than good — its even better than great, like your wonderful luck — finding buried treasure on your very first diving expedition. |   medium |
+      | plethora means                  | excess      | function  | happy      | already    | excess superfluity                                                                                                                                    |  hard   |
 
     And I am on the question page
 
@@ -50,6 +50,12 @@ Feature: Allow user who logged in to add  a new question
     Then I click on 'Add question to the question bank' button
     Then I fill in all the fields except explanation and submit
     Then I should see 'explanation can't be blank' on flash message
+
+  Scenario: User tries to add a new question without level with logging in
+    When I log in with valid user credentials
+    Then I click on 'Add question to the question bank' button
+    Then I fill in all the fields except level and submit
+    Then I should see 'level can't be blank' on flash message
 
   Scenario: User wants to come back to the question page
       When I log in with valid user credentials
