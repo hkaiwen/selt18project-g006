@@ -3,7 +3,7 @@ require 'rails_helper'
 
 describe QuestionsController do
   describe 'GET index' do
-    before :each do
+      before :each do
       @questions = [[33, 'arduous means:', 'laborious', 'monstrous', 'ominous', 'perilous', 'easy'],
                     [34, 'pragmatic means:', 'alterable', 'realistic', 'relaxing', 'domesticated', 'medium'],
                     [36, 'gregarious means:', 'rustic', 'solemn', 'outgoing', 'frequent', 'easy']]

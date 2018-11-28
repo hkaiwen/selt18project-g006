@@ -50,6 +50,36 @@ ul {
   line-height: 40px;
   color: #666;
 }
+
+#option1 {
+  background: #fff;
+  position: absolute;
+  left: 200px;
+  line-height: 20px;
+  color: #666;
+}
+#option2 {
+  background: #fff;
+  position: absolute;
+  left: 300px;
+  line-height: 20px;
+  color: #666;
+}
+#option3 {
+  background: #fff;
+  position: absolute;
+  left: 400px;
+  line-height: 20px;
+  color: #666;
+}
+
+#select {
+  background: #fff;
+  position: absolute;
+  left: 450px;
+  line-height: 30px;
+  color: #666;
+}
 input {
   margin-left: 5px;
   margin-right: 10px;

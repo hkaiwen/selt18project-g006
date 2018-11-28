@@ -14,6 +14,16 @@
 </div>
 
 <div class="container">
+   <%= form_tag questions_path, :method => :get do%>
+      <div id="select">
+        <ul>
+          <li id="option1"><input type="radio" value="<%= "Easy" %>", name="optradio1"><%= "Easy"%></li>
+          <li id="option2"><input type="radio" value="<%= "Medium" %>", name="optradio1"><%="Medium"%></li>
+          <li id="option3"><input type="radio" value="<%= "Hard" %>", name="optradio1"><%="Hard"%></li>
+        </ul>
+        <%= submit_tag "Select", :id => "select"%>
+      </div>
+   <% end %>
   <div id="difficulty">
     <h2><%= 'Difficulty: ' + @ques_opt[6] %></h2>
   </div>
@@ -21,19 +31,19 @@
     <h1><%= @ques_opt[1] %></h1>
   </div>
   <%= form_tag verifyanswer_path, :method => :post%>
-  <% @ques_opt.each do |e| %>
-    <%= hidden_field_tag "question[]", e %>
-  <% end %>
-  <ul>
-    <li id="option"><input type="radio" value="<%= @ques_opt[2] %>", name="optradio"><%= @ques_opt[2] %></li>
-    <li id="option"><input type="radio" value="<%= @ques_opt[3] %>", name="optradio"><%= @ques_opt[3] %></li>
-    <li id="option"><input type="radio" value="<%= @ques_opt[4] %>", name="optradio"><%= @ques_opt[4] %></li>
-    <li id="option"><input type="radio" value="<%= @ques_opt[5] %>", name="optradio"><%= @ques_opt[5] %></li>
-  </ul>
+    <% @ques_opt.each do |e| %>
+       <%= hidden_field_tag "question[]", e %>
+    <% end %>
+    <ul>
+      <li id="option"><input type="radio" value="<%= @ques_opt[2] %>", name="optradio"><%= @ques_opt[2] %></li>
+      <li id="option"><input type="radio" value="<%= @ques_opt[3] %>", name="optradio"><%= @ques_opt[3] %></li>
+      <li id="option"><input type="radio" value="<%= @ques_opt[4] %>", name="optradio"><%= @ques_opt[4] %></li>
+      <li id="option"><input type="radio" value="<%= @ques_opt[5] %>", name="optradio"><%= @ques_opt[5] %></li>
+    </ul>
     <div id="button_bar">
-    <%= submit_tag "Submit", class: "btn btn-outline-secondary btn-sm" %>
-    <%= link_to "Next", questions_path, :method => :get, class: "btn btn-outline-secondary btn-sm", :id => "next"%>
-  </div>
+      <%= submit_tag "Submit", class: "btn btn-outline-secondary btn-sm" %>
+      <%= link_to "Next", questions_path, :method => :get, class: "btn btn-outline-secondary btn-sm", :id => "next"%>
+    </div>
   <div id="score">
     <% if user_signed_in? %>
      <h3><%= "Score: #{@cal_score}"%></h3>

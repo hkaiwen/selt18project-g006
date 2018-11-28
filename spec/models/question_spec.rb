@@ -25,4 +25,14 @@ describe  Question do
       expect { Question.create_question!("question", "answer", "option2", "option3", "option4",  "explanation", "level") }.to change { Question.count }
     end
   end
+  describe 'calculate score method' do
+    before :each do
+      @score = [2]
+    end
+    it 'should add the scores based on levels' do
+      Question.calculate_scores(3,'Medium')
+      allow(User.where).to receive(:id).with(3).and_return(@score = [2])
+      expect(Question.calculate_scores(3,'Medium')).to eq(5)
+    end
+  end
 end
