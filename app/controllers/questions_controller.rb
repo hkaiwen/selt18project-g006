@@ -54,8 +54,6 @@ class QuestionsController < ApplicationController
     empty_param_hash = {}
     @message = ""
     @que = params[:question]
-    @question_option = params[:question][:question_option]
-    @que[:question_option] = @question_option
     if @que.values.any?(&:blank?)
       @que.each do |key, value|
         if @que[key].blank?
@@ -65,13 +63,11 @@ class QuestionsController < ApplicationController
       if empty_param_hash.length > 1
         @message = 'Sorry, All fields are required'
       else
-        @message = "#{empty_param_hash.keys.join} can't be blank" unless empty_param_hash.keys.join == 'question_option'
-        @message = 'Please select if its means or opposite of the word' if empty_param_hash.keys.join == 'question_option'
+        @message = "#{empty_param_hash.keys.join} can't be blank"
       end
       redirect_to new_question_path
     else
-      question = @que[:question] + ' ' + @que[:question_option]
-      @question = Question.create_question!(question, @que[:answer], @que[:option2], @que[:option3], @que[:option4], @que[:explanation], @que[:level])
+      @question = Question.create_question!(@que[:question], @que[:answer], @que[:option2], @que[:option3], @que[:option4], @que[:explanation], @que[:level])
       if @question.save
         flash[:notice] = 'Question successfully added to question bank'
         redirect_to questions_path
