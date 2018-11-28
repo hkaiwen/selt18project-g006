@@ -11,13 +11,26 @@
 </div>
 
 <div class="container">
+
   <div id="difficulty">
     <h2><%= 'Difficulty: ' + @ques_opt[6] %></h2>
+
+
+    <%= form_tag verifyanswer_path, :method => :post%>
+    <%= form_tag questions_path, :method => :get %>
+    <ul>
+      <li id="rdlevel"><input type="radio" value="<%= 'Easy' %>", name="rdlevel"><%= 'Easy' %></li>
+      <li id="rdlevel"><input type="radio" value="<%= 'Medium' %>", name="rdlevel"><%= 'Medium' %></li>
+      <li id="rdlevel"><input type="radio" value="<%= 'Hard' %>", name="rdlevel"><%= 'Hard' %></li>
+    </ul>
+
   </div>
+
   <div id="question">
     <h1><%= @ques_opt[1] %></h1>
   </div>
-  <%= form_tag verifyanswer_path, :method => :post%>
+
+
   <% @ques_opt.each do |e| %>
     <%= hidden_field_tag "question[]", e %>
   <% end %>
