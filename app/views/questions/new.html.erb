@@ -35,7 +35,8 @@
     <br>
     <%= label :question, :level, 'Level of question' %>
     <br>
-    <%= text_area :question, 'level' %>
+    <%= select_tag "question[level]", "<option>Easy</option><option>Medium</option><option>Hard</option>", prompt: "Select Level"%>
+    <br>
     <br>
     <%= submit_tag 'Add this question' %>
   <%end %>
