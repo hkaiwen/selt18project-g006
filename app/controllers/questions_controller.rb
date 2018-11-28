@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
       if !user_signed_in?
         session[:count] += 1
         if session[:count] > 10
-          flash[:notice] = 'Please sign up'
+          flash.now[:notice] = 'Please sign up'
           render "/welcome/landing"
         end
       end

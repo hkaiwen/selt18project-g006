@@ -2,8 +2,12 @@
 <%= stylesheet_link_tag "application" %>
   <div id="landing-header">
     <script>
-      window.onload = function(){
-        $.ajax("/clearsession")
+      window.onload = function() {
+        if (sessionStorage.getItem("hasCodeRunBefore") === null) {
+          $(".alert").hide();
+          $.ajax("/clearsession");
+          sessionStorage.setItem("hasCodeRunBefore", true);
+        }
       }
     </script>
   <h1>Welcome to Word Power</h1>
@@ -13,11 +17,17 @@
 
   <%= button_to "Get Started", questions_path, :method => :get, :id => 'get_start_button', class: "btn btn-lg btn-secondary" %>
     <% if user_signed_in? %>
+      <script>
+        window.onload = function() {
+          $.ajax("/clearsession");
+        }
+      </script>
       <%= button_to "Sign out", destroy_user_session_path, :method => :delete, :id => 'sign_out_button', class: "btn btn-secondary"%>
     <% else %>
       <%= button_to "Log in", new_user_session_path, :method => :get, :id => 'log_in_button', class: "btn btn-secondary"%>
       <%= button_to "Sign up", new_user_registration_path, :method => :get, :id => 'sign_up_button', class: "btn btn-secondary"%>
     <% end %>
+
 </div>
 
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
