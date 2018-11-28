@@ -3,8 +3,8 @@
 class QuestionsController < ApplicationController
 
   def index
-    if params[:optradio1] != nil
-    session[:selected] = params[:optradio1]
+    if params[:rdlevel] != nil
+    session[:selected] = params[:rdlevel]
     end
     puts "optradio #{session[:selected]}"
     if session[:count].nil?
