@@ -11,7 +11,8 @@ def add_question
   fill_in 'question_option4', with: @question[:option4]
   fill_in 'question_answer', with: @question[:answer]
   fill_in 'question_explanation', with: @question[:explanation]
-  fill_in 'question_level', with: @question[:level]
+  find('#question_level').find(:option, "#{@question[:level]}").select_option
+
   click_button 'Add this question'
 end
 Given /the following questions have been added to Question Database:/ do |question_table|
@@ -109,7 +110,7 @@ Then(/^I fill in all the fields except (.*?) and submit$/) do |field|
   when 'explanation'
     @question = @question.merge(explanation: '')
   when 'level'
-    @question = @question.merge(level: '')
+    page.unselect(from: 'question_level')
   else
     'No more fields to fill in'
   end
@@ -125,7 +126,7 @@ Then(/^I enter duplicate question without entering other fields$/) do
   @question = @question.merge(option4: '')
   @question = @question.merge(answer: '')
   @question = @question.merge(explanation: '')
-  @question = @question.merge(level: '')
+  page.unselect('easy', from: 'question_level')
   add_question
 end
 
