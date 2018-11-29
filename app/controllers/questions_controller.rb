@@ -63,7 +63,8 @@ class QuestionsController < ApplicationController
       if empty_param_hash.length > 1
         @message = 'Sorry, All fields are required'
       else
-        @message = "#{empty_param_hash.keys.join} can't be blank"
+        @message = "#{empty_param_hash.keys.join} can't be blank" unless empty_param_hash.keys.join == 'level'
+        @message = 'Please select a level' if empty_param_hash.keys.join == 'level'
       end
       redirect_to new_question_path
     else

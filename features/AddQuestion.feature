@@ -55,7 +55,7 @@ Feature: Allow user who logged in to add  a new question
     When I log in with valid user credentials
     Then I click on 'Add question to the question bank' button
     Then I fill in all the fields except level and submit
-    Then I should see 'level can't be blank' on flash message
+    Then I should see 'Please select a level' on flash message
 
   Scenario: User wants to come back to the question page
       When I log in with valid user credentials
