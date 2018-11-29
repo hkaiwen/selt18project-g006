@@ -5,7 +5,7 @@
   background-color: #2980b9;
 }
 
- h2{
+ #difficulty h2{
   color: white;
   border-radius: 50px;
   background: #ffb513;
@@ -52,33 +52,42 @@ ul {
 }
 
 #option1 {
+  position: relative;
+  text-align: center;
   background: #fff;
   position: absolute;
   left: 200px;
-  line-height: 20px;
-  color: #666;
-}
-#option2 {
-  background: #fff;
-  position: absolute;
-  left: 300px;
-  line-height: 20px;
-  color: #666;
-}
-#option3 {
-  background: #fff;
-  position: absolute;
-  left: 400px;
+  top: 60px;
   line-height: 20px;
   color: #666;
 }
 
+#option2 {
+  position: relative;
+  text-align: center;
+  background: #fff;
+  left: 300px;
+  line-height: 20px;
+  color: #666;
+  top: 60px;
+}
+
+#option3 {
+  position: relative;
+  text-align: center;
+  background: #fff;
+  left: 400px;
+  line-height: 20px;
+  color: #666;
+  top: 60px;
+}
+
 #select {
   background: #fff;
-  position: absolute;
   left: 450px;
   line-height: 30px;
   color: #666;
+  top: 60px;
 }
 input {
   margin-left: 5px;

@@ -36,6 +36,7 @@ class Question < ActiveRecord::Base
 
   def self.calculate_scores(user_id, level)
     @score = User.where(:id => user_id).pluck(:score)
+    puts "score#{@score[0]}"
     if level == 'Easy'
        cal_score = @score[0] + 1
     elsif level == 'Medium'
