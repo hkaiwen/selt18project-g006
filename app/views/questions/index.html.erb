@@ -14,8 +14,30 @@
 </div>
 
 <div class="container">
-  <div id="difficulty">
-    <h2><%= 'Difficulty: ' + @ques_opt[6] %></h2>
+  <div class="form-inline" id="question_options">
+    <div class ='form-group'>
+      <h2 id="difficulty_text"><%= 'Difficulty: ' + @ques_opt[6] %></h2>
+    </div>
+    <%if user_signed_in? %>
+      <%= form_tag questions_path, :method => :get do%>
+        <div id="select", class="form-group">
+          <ul>
+            <li id="option1"><input type="radio" value="<%= "Easy" %>", name="rdlevel"><%= "Easy"%></li>
+            <li id="option2"><input type="radio" value="<%= "Medium" %>", name="rdlevel"><%="Medium"%></li>
+            <li id="option3"><input type="radio" value="<%= "Hard" %>", name="rdlevel"><%="Hard"%></li>
+          </ul>
+        </div>
+        <div class="form-group">
+          <%= submit_tag "Select",class: "btn btn-outline-secondary btn-sm",:id => "select_level"%>
+        </div>
+      <% end %>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <div id="score" class="form-group">
+        <h3 id="score_text"><%= "Score: #{@cal_score}"%></h3>
+      </div>
+    <%end %>
   </div>
   <div id="question">
     <h1><%= @ques_opt[1] %></h1>
@@ -31,15 +53,15 @@
     <li id="option"><input type="radio" value="<%= @ques_opt[5] %>", name="optradio"><%= @ques_opt[5] %></li>
   </ul>
   <div id="button_bar">
-    <%= submit_tag "Submit", class: "btn btn-outline-secondary btn-sm" %>
+    <%= submit_tag "Submit", class: "btn btn-outline-secondary btn-sm"%>
     <%= link_to "Next", questions_path, :method => :get, class: "btn btn-outline-secondary btn-sm", :id => "next"%>
   </div>
   <br>
   <br>
   <% if user_signed_in? %>
-     <div id="add_question">
-       <%= link_to "Add question to the question bank", new_question_path, :method => :get, class: "btn btn-outline-secondary btn-sm"%>
-     </div>
+    <div id="add_question">
+      <%= link_to "Add question to the question bank", new_question_path, :method => :get, class: "btn btn-outline-secondary btn-sm"%>
+    </div>
   <% end %>
   <div class="explanation">
     <%= @exp%>

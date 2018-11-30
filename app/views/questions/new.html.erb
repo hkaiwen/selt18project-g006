@@ -33,6 +33,11 @@
     <br>
     <%= text_area :question, 'explanation' %>
     <br>
+    <%= label :question, :level, 'Level of question' %>
+    <br>
+    <%= select_tag "question[level]", "<option value='easy'>easy</option><option value='medium'>medium</option><option value='hard'>hard</option>", prompt: 'Select Level'%>
+    <br>
+    <br>
     <%= submit_tag 'Add this question' %>
   <%end %>
 </div>
