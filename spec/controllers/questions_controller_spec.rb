@@ -20,11 +20,12 @@ describe QuestionsController do
       allow(Question).to receive(:pluck).with(:id, :questions, :answer, :option2, :option3, :option4, :level).and_return(@questions)
       expect(get(:index)).to render_template('welcome/landing')
     end
-    it 'should render different question if the question is already been taken' do
+    it 'should render flash message  if no more questions in the database' do
       session[:question] = ['arduous means:', 'pragmatic means:', 'gregarious means:']
       expect(Question).to receive(:pluck).with(:id,:questions, :answer, :option2, :option3, :option4, :level).and_return(@questions)
       get :index
     end
+
     it 'should add the question to session if is not already present' do
       session[:question] = ['pragmatic means:', 'arduous means:']
       expect(Question).to receive(:pluck).with(:id, :questions, :answer, :option2, :option3, :option4, :level).and_return(@new_question)
