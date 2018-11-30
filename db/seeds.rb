@@ -236,8 +236,6 @@ impatience or anger', :option3 => 'devoted to a cause or ideal or purpose', :opt
     two weeks just for coming home a little late for dinner.',:level => 'Easy'}
   ]
 
-]
-
 users = [{:first_name => 'admin', :last_name => 'admin', :email => 'admin@account.com', :admin => true, :password => '123456'}]
 questions.each do |question|
   Question.create!(question)

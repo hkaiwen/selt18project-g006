@@ -35,7 +35,7 @@ class Question < ActiveRecord::Base
   end
 
   def duplicate_question
-    @question = Question.where('answer LIKE ?', "%#{self.answer}%").pluck(:questions)
+    @question = Question.where('answer = ? ', "#{self.answer}").pluck(:questions)
     if @question.present?
         @question.each do |que|
           distance = Levenshtein.distance(que.inspect, self.questions)

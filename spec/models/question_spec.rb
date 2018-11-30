@@ -24,5 +24,11 @@ describe  Question do
     it 'should create new database object' do
       expect { Question.create_question!("question", "answer", "option2", "option3", "option4",  "explanation", "level") }.to change { Question.count }
     end
+
+    it 'should add error if question already exists' do
+      question = Question.new(:questions => "efficacy means:", :answer => 'capacity or power to produce a desired result', :option2 => 'the state of being restored to a former condition', :option3 => 'good-natured tolerance of delay or incompetence', :option4 => 'the act of concealing something from the public', :explanation => 'The degree to which a method or medicine brings about a specific result is its efficacy. You might not like to eat it, but you cant question the efficacy of broccoli as a health benefit.', :level => 'easy')
+      question.save
+      expect{Question.create_question!("meaning of efficacy",  'capacity or power to produce a desired result', 'the state of being restored to a former condition',  'good-natured tolerance of delay or incompetence',  'the act of concealing something from the public',  'The degree to which a method or medicine brings about a specific result is its efficacy. You might not like to eat it, but you cant question the efficacy of broccoli as a health benefit.', 'easy') }.to_not change {Question.count}
+    end
   end
 end
