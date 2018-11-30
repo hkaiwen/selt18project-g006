@@ -57,7 +57,6 @@ class QuestionsController < ApplicationController
         @score = User.where(:id => current_user.id).pluck(:score)
         @cal_score = @score[0]
       end
-      puts "reply#{@reply_array}"
       @options = @questions.slice(2..5).shuffle
       @ques_opt << @questions[0] << @questions[1]
       @ques_opt << @options
@@ -112,7 +111,6 @@ class QuestionsController < ApplicationController
     else
       @reply_array = Question.verify_answer(@checking_array)
       if @reply_array[:value] == 'correct'
-        puts "reply1#{@reply_array}"
         if current_user
           @cal_score = Question.calculate_scores(current_user.id, @question[6])
           User.find(current_user.id).update_column(:score, @cal_score)
