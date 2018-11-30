@@ -60,6 +60,14 @@ describe QuestionsController do
       expect(response).to redirect_to(questions_path)
     end
 
+    it 'should flash error message if question is not been added to the database' do
+      allow(Question).to receive(:create_question!).with(@question, @answer, @option1, @option2, @option3, @explanation, @level).and_return(@questions)
+      expect(@questions).to receive(:save).and_return(false)
+      post :create, {:question => {:question => @question, :answer => @answer, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation, :level => @level}}
+      expect(flash[:warning]).to eq('Question has already been taken')
+      expect(response).to redirect_to(new_question_path)
+    end
+
     it 'should return error message failed to add question to database and stay on the same page when missing multiple fields' do
       post :create, {:question => {:question => @question, :answer => @answer, :option2 => nil, :option3 => nil, :option4 => @option3, :explanation => @explanation, :level => @level}}
       expect(response).to redirect_to(new_question_path)
