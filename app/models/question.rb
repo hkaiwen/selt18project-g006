@@ -34,17 +34,31 @@ class Question < ActiveRecord::Base
     return hash
   end
 
+
+  def self.verify_answer(checking_array)
+    ques = Question.find_by_questions(checking_array[0])
+    hash = Hash.new
+    hash[:description] = ques.explanation
+    hash[:answer] = ques.answer
+    if ques.answer == checking_array[1]
+      hash[:value] = 'correct'
+    else
+      hash[:value] = 'incorrect'
+    end
+    return hash
+  end
+
   def self.calculate_scores(user_id, level)
     @score = User.where(:id => user_id).pluck(:score)
     puts "score#{@score[0]}"
     if level == 'Easy'
-       cal_score = @score[0] + 1
+      cal_score = @score[0] + 1
     elsif level == 'Medium'
-       cal_score = @score[0] + 2
+      cal_score = @score[0] + 2
     else
-       cal_score = @score[0] + 3
+      cal_score = @score[0] + 3
     end
-   end
+  end
 
   def duplicate_question
     @question = Question.where('questions LIKE ?', "%#{self.questions}%").pluck(:id, :questions)
