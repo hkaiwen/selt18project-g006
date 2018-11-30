@@ -3,33 +3,46 @@
 class QuestionsController < ApplicationController
 
   def index
+    if params[:commit] == 'Select' && params[:rdlevel] == nil
+      flash.now[:notice] = 'Please select the level'
+    end
+    if params[:rdlevel] != nil
+      session[:selected] = params[:rdlevel]
+    end
     if session[:count].nil?
       session[:count] = 0
     end
     @ques_opt = []
-    @lev =[]
     if params[:same]== 'yes' and params[:commit]== 'Submit'
       @ques_opt=params[:question]
       if !params[:explanation].nil?
         @exp ='Explanation: ' + params[:explanation]
         @answer = 'Answer: '+ params[:answer]
+        @cal_score = params[:score]
       end
     else
       if !user_signed_in?
         session[:count] += 1
         if session[:count] > 10
           flash.now[:notice] = 'Please sign up'
-          render "/welcome/landing"
+           render "/welcome/landing"
         end
       end
-      @questions = Question.pluck(:id,:questions,:answer,:option2,:option3,:option4,:level).sample
+      if session[:selected] == nil
+         @questions = Question.pluck(:id,:questions,:answer,:option2,:option3,:option4,:level).sample
+      else
+         @questions = Question.where(:level => session[:selected]).pluck(:id,:questions,:answer,:option2,:option3,:option4,:level).sample
+      end
       if session[:question].blank?
         (session[:question] ||= []) << @questions[1]
       elsif session[:question].include?(@questions[1])
-        @new_question = Question.where.not(:questions => session[:question]).pluck(:id,:questions,:answer,:option2,:option3,:option4,:level)
+        if session[:selected] == nil
+           @new_question = Question.where.not(:questions => session[:question]).pluck(:id,:questions,:answer,:option2,:option3,:option4,:level)
+        else
+          @new_question = Question.where('questions NOT IN (?) AND level IN (?)', session[:question], session[:selected]).pluck(:id,:questions,:answer,:option2,:option3,:option4,:level)
+        end
         if @new_question.empty?
           flash[:notice] = 'No more questions in database'
-          #redirect_to '/'
           render 'welcome/landing'
         else
           session[:question] << @new_question[0][1]
@@ -37,6 +50,10 @@ class QuestionsController < ApplicationController
         end
       else
         session[:question] << @questions[1]
+      end
+      if current_user
+        @score = User.where(:id => current_user.id).pluck(:score)
+        @cal_score = @score[0]
       end
       @options = @questions.slice(2..5).shuffle
       @ques_opt << @questions[0] << @questions[1]
@@ -91,17 +108,26 @@ class QuestionsController < ApplicationController
     else
       @reply_array = Question.verify_answer(@checking_array)
       if @reply_array[:value] == 'correct'
+        if current_user
+          @cal_score = Question.calculate_scores(current_user.id, @question[6])
+          User.find(current_user.id).update_column(:score, @cal_score)
+        end
         flash[:correct] = 'Great! Your answer is correct'
       else
+        if current_user
+          @score = User.where(:id => current_user.id).pluck(:score)
+          @cal_score = @score[0]
+        end
         flash[:warning] = 'Sorry, This is the incorrect answer'
       end
-      redirect_to questions_path request.params.merge({same: 'yes', explanation: @reply_array[:description], answer: @reply_array[:answer]})
+       redirect_to questions_path request.params.merge({same: 'yes', explanation: @reply_array[:description], answer: @reply_array[:answer], score: @cal_score})
     end
   end
 
   def clear_session
     session[:count] = 0
     session[:question] = nil
+    session[:selected] = nil
     redirect_to '/'
   end
 end
