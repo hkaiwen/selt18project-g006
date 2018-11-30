@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
       #return
     end
     if params[:rdlevel] != nil
-    session[:selected] = params[:rdlevel]
+      session[:selected] = params[:rdlevel]
     end
     if session[:count].nil?
       session[:count] = 0
