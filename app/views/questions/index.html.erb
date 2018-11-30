@@ -1,6 +1,6 @@
 
 
-
+<body onload="f()">
 <div class="topnav", id="nav_bar">
   <ul>
     <li id="title">Word Power</li>
@@ -17,7 +17,6 @@
 </div>
 
 <div class="container">
-  <div> <%= submit_tag "hide", :onclick => "return f();" %></div>
 
   <div id="difficulty">
     <h2><%= 'Difficulty: ' + @ques_opt[6] %> </h2>
@@ -72,7 +71,8 @@
       </script>
 
 
-      <%= submit_tag "Submit", :onclick => "return f();" , class: "btn btn-outline-secondary btn-sm", id:"sub" %>
+      <%= submit_tag "Submit", class: "btn btn-outline-secondary btn-sm", id:"sub" %>
+
       <%= link_to "Next", questions_path, :method => :get, class: "btn btn-outline-secondary btn-sm", :id => "next"%>
 
     </div>
