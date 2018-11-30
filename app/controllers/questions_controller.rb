@@ -5,8 +5,6 @@ class QuestionsController < ApplicationController
   def index
     if params[:commit] == 'Select' && params[:rdlevel] == nil
       flash.now[:notice] = 'Please select the level'
-      #redirect_to questions_path request.params.merge({same: 'yes'})
-      #return
     end
     if params[:rdlevel] != nil
       session[:selected] = params[:rdlevel]

@@ -33,11 +33,11 @@
       <% end %>
     <% end %>
 
-    <div id="score" class="form-group">
-      <% if user_signed_in? %>
+    <% if user_signed_in? %>
+      <div id="score" class="form-group">
         <h3 id="score_text"><%= "Score: #{@cal_score}"%></h3>
-      <%end %>
-    </div>
+      </div>
+    <%end %>
   </div>
   <div id="question">
     <h1><%= @ques_opt[1] %></h1>
