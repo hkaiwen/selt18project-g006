@@ -1,7 +1,7 @@
 
 def create_question
   @question ||= {questions: 'soluble means:', option2: 'single person', option3: 'happy to receive',
-           option4: 'solar system', answer: 'dissolvable', explanation: 'be able to solve in water', level: 'easy'}
+           option4: 'solar system', answer: 'dissolvable', explanation: 'be able to solve in water', level: 'Easy'}
 end
 
 def add_question
@@ -148,7 +148,7 @@ Then(/^I enter duplicate question along with other fields$/) do
   @question = @question.merge(option3: 'Liquid')
   @question = @question.merge(option4: 'Solid')
   @question = @question.merge(explanation: 'able to be dissolved, especially in water')
-  @question = @question.merge(level: 'medium')
+  @question = @question.merge(level: 'Medium')
   add_question
 end
 
