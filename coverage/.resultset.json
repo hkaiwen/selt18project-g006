@@ -20,15 +20,45 @@
         null,
         null
       ],
+      "/Users/hemalatharamachandran/SELT_REPOS/selt18project-g006/app/controllers/leaderboard_controller.rb": [
+        null,
+        null,
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null
+      ],
+      "/Users/hemalatharamachandran/SELT_REPOS/selt18project-g006/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
       "/Users/hemalatharamachandran/SELT_REPOS/selt18project-g006/app/controllers/questions_controller.rb": [
         null,
         null,
         1,
         null,
         1,
-        4,
-        0,
-        null,
         4,
         0,
         null,
@@ -155,28 +185,6 @@
         null,
         null
       ],
-      "/Users/hemalatharamachandran/SELT_REPOS/selt18project-g006/app/controllers/application_controller.rb": [
-        1,
-        1,
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        0,
-        null,
-        null,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null
-      ],
       "/Users/hemalatharamachandran/SELT_REPOS/selt18project-g006/app/models/leaderboard.rb": [
         null,
         null,
@@ -187,9 +195,11 @@
         2,
         2,
         2,
+        4,
+        4,
+        4,
+        null,
         2,
-        null,
-        null,
         null,
         null
       ],
@@ -266,17 +276,6 @@
         null,
         null,
         null
-      ],
-      "/Users/hemalatharamachandran/SELT_REPOS/selt18project-g006/app/controllers/leaderboard_controller.rb": [
-        null,
-        null,
-        0,
-        null,
-        0,
-        0,
-        null,
-        0,
-        0
       ],
       "/Users/hemalatharamachandran/SELT_REPOS/selt18project-g006/app/controllers/welcome_controller.rb": [
         0,
@@ -427,6 +426,6 @@
         0
       ]
     },
-    "timestamp": 1543628919
+    "timestamp": 1543672605
   }
 }
