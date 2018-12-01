@@ -147,6 +147,16 @@ When(/^I log in on the sign up page with valid user credentials$/) do
   click_button 'Log in'
 end
 
+When(/^I log in as an admin$/) do
+  @user ||= {first_name: 'admin', last_name: 'admin', email: 'admin@account.com',
+             password: '123456', password_confirmation: '123456', admin: true}
+  @users = User.create(@user)
+  click_button 'Log in'
+  fill_in 'log_in_text1', with: @user[:email]
+  fill_in 'log_in_text2', with: @user[:password]
+  click_button 'Log in'
+end
+
 
 When(/^I sign up with blank (.*?)$/) do |field|
   create_user
@@ -176,4 +186,23 @@ Then(/^I should see a blank (.*?) error message$/) do |field|
   end
 end
 
+Then(/^I should be directed to the admin site$/) do
+  expect(current_path).to eq('/admin')
+end
 
+
+Then(/^I can see all the question in the database$/) do
+  find('tr', text: 'Questions').click_link 'Questions'
+  Question.all.each do |question|
+    page.should have_content question.questions
+  end
+end
+
+Then(/^I can delete any question from the database$/) do
+  find('tr', text: 'Questions').click_link 'Questions'
+  find('tr', text: 'wonderful means').click_link 'Delete'
+  click_button "Yes, I'm sure"
+  Question.all.each do |question|
+    question.questions.should_not eql('wonderful means')
+  end
+end
