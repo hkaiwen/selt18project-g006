@@ -3,7 +3,7 @@
 class LeaderboardController < ApplicationController
 
   def index
-    Leader.get_users
+    @top_score = Leaderboard.get_users
 
   end
 end

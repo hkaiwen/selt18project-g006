@@ -62,6 +62,9 @@
     <div id="add_question">
       <%= link_to "Add question to the question bank", new_question_path, :method => :get, class: "btn btn-outline-secondary btn-sm"%>
     </div>
+    <div>
+      <%= link_to "Leaderboard", leaderboard_path, :method=> :get %>
+    </div>
   <% end %>
   <div class="explanation">
     <%= @exp%>
