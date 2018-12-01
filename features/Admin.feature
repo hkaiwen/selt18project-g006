@@ -17,7 +17,6 @@ Feature: Admin can delete question
     When I log in as an admin
     Then I can see all the question in the database
 
-
   Scenario: Admin can delete any question
     When I log in as an admin
     Then I can delete any question from the database
