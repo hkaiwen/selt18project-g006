@@ -3,9 +3,6 @@
 class QuestionsController < ApplicationController
 
   def index
-    if params[:commit] == 'Select' && params[:rdlevel] == nil
-      flash.now[:notice] = 'Please select the level'
-    end
     if params[:rdlevel] != nil
       session[:selected] = params[:rdlevel]
     end
