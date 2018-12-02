@@ -253,3 +253,29 @@ Then(/^I can add another question and edit it if they click on save and edit$/) 
   expect (find_field('Option3').value == @question[:option3])
   expect (find_field('Option4').value == @question[:option4])
 end
+
+And(/^I fill in filter for question$/) do
+  find('tr', text: 'Questions').click_link 'Questions'
+  fill_in 'Filter', with: 'plethora'
+  click_button 'Refresh'
+end
+
+Then(/^I only see questions that contain the word I searched for$/) do
+  page.all('tbody tr').each do |tr|
+    expect tr.to_s.include?('plethora') == true
+  end
+end
+
+When (/^I fill in filter for question and click reset$/) do
+  find('tr', text: 'Questions').click_link 'Questions'
+  fill_in 'Filter', with: 'plethora'
+  click_button 'Refresh'
+  fill_in 'Filter', with: ''
+  click_button 'Reset filters'
+end
+
+Then(/^I can see all the questions$/) do
+  Question.all.each do |question|
+    page.should have_content question.questions
+  end
+end

@@ -7,6 +7,10 @@ Feature: Admin can add/edit/delete question and user
       | wonderful means                 |  fantastic  | average   | direct     | possible   | Wonderful is better than good — its even better than great, like your wonderful luck — finding buried treasure on your very first diving expedition. |  Medium |
       | plethora means                  | excess      | function  | happy      | already    | excess superfluity                                                                                                                                    | Hard   |
 
+    And the following users have been added to User Database:
+      |first_name       | last_name       | password    | email |
+      | Linh            | Pham            | linh        | linh@gmail.com |
+      | Lily            | John            | lily        | lily@gmail.com |
     And I am on the WordPower Page
 
   Scenario: Admin logs in with valid credentials
@@ -45,5 +49,28 @@ Feature: Admin can add/edit/delete question and user
     When I log in as an admin
     Then I can add another question and edit it if they click on save and edit
 
+  Scenario: Admin can filter question
+    When I log in as an admin
+    And I fill in filter for question
+    Then I only see questions that contain the word I searched for
+
+  Scenario: Admin can reset filter and see all questions again
+    When I log in as an admin
+    And I fill in filter for question and click reset
+    Then I can see all the questions
+
+  Scenario: Admin can go to dashboard if click on dashboard button
+    When I log in as an admin
+    And I click on Dashboard link
+    Then  I should be directed to the admin site
+
+  Scenario: Admin can play game if the go to home
+    When I log in as an admin
+    And I click on Home link
+    Then I should be able to the play the game
+
+  Scenario: Admin can see all users in the database
+    When I log in as an admin
+    Then I can see all the user in the database
 
 
