@@ -9,7 +9,7 @@ describe LeaderboardController do
       @score = [['Robin', 'Hood', 20], ['Calvin', 'Klein', 10]]
     end
     it 'should call the model method to get the list of higher scores' do
-      expect(Leaderboard).to receive(:get_users).and_return(@score)
+      expect(Leaderboard).to receive(:get_users).and_return(@top_score)
       get :index
     end
     it 'should make the values available to the view' do
