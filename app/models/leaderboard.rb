@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Leaderboard < ActiveRecord::Base
+class Leaderboard
 
   def self.get_users
     @final_names = []
