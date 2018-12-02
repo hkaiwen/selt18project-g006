@@ -34,20 +34,6 @@ class Question < ActiveRecord::Base
     return hash
   end
 
-
-  def self.verify_answer(checking_array)
-    ques = Question.find_by_questions(checking_array[0])
-    hash = Hash.new
-    hash[:description] = ques.explanation
-    hash[:answer] = ques.answer
-    if ques.answer == checking_array[1]
-      hash[:value] = 'correct'
-    else
-      hash[:value] = 'incorrect'
-    end
-    return hash
-  end
-
   def self.calculate_scores(user_id, level)
     @score = User.where(:id => user_id).pluck(:score)
     if level == 'Easy'
@@ -60,13 +46,23 @@ class Question < ActiveRecord::Base
   end
 
   def duplicate_question
-    @question = Question.where('answer = ? ', "#{self.answer}").pluck(:questions)
+    @question = Question.where('answer LIKE ?', "%#{self.answer}%").pluck(:questions)
     if @question.present?
-        @question.each do |que|
-          distance = Levenshtein.distance(que.inspect, self.questions)
-          errors.add(:questions, @message) if distance <= 20
-        end
+      @question.each do |que|
+        formatted_que = que.inspect.tr('"', '')
+        distance = Levenshtein.distance(formatted_que, self.questions)
+        percentage_word_similar = compute_similarity(formatted_que, self.questions)
+        errors.add(:questions, @message) if distance < 5 || percentage_word_similar > 90
+      end
     end
+  end
+
+  def compute_similarity(str1, str2)
+    str1_split = str1.split(' ')
+    str2_split = str2.split(' ')
+    intersection = str1_split & str2_split
+    min_length_string = (str1_split.length < str2_split.length) ? str1_split : str2_split
+    (intersection.length.to_f / min_length_string.length) * 100
   end
 end
 
