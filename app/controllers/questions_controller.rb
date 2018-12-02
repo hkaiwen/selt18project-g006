@@ -3,13 +3,8 @@
 class QuestionsController < ApplicationController
 
   def index
-    if params[:commit] == 'Select' && params[:rdlevel] == nil
-      flash.now[:notice] = 'Please select the level'
-      #redirect_to questions_path request.params.merge({same: 'yes'})
-      #return
-    end
     if params[:rdlevel] != nil
-    session[:selected] = params[:rdlevel]
+      session[:selected] = params[:rdlevel]
     end
     if session[:count].nil?
       session[:count] = 0
@@ -57,7 +52,6 @@ class QuestionsController < ApplicationController
         @score = User.where(:id => current_user.id).pluck(:score)
         @cal_score = @score[0]
       end
-      puts "reply#{@reply_array}"
       @options = @questions.slice(2..5).shuffle
       @ques_opt << @questions[0] << @questions[1]
       @ques_opt << @options
@@ -74,8 +68,6 @@ class QuestionsController < ApplicationController
     empty_param_hash = {}
     @message = ""
     @que = params[:question]
-    @question_option = params[:question][:question_option]
-    @que[:question_option] = @question_option
     if @que.values.any?(&:blank?)
       @que.each do |key, value|
         if @que[key].blank?
@@ -85,13 +77,11 @@ class QuestionsController < ApplicationController
       if empty_param_hash.length > 1
         @message = 'Sorry, All fields are required'
       else
-        @message = "#{empty_param_hash.keys.join} can't be blank" unless empty_param_hash.keys.join == 'question_option'
-        @message = 'Please select if its means or opposite of the word' if empty_param_hash.keys.join == 'question_option'
+        @message = empty_param_hash.keys.join == 'level' ? 'Please select a level' : "#{empty_param_hash.keys.join} can't be blank"
       end
       redirect_to new_question_path
     else
-      question = @que[:question] + ' ' + @que[:question_option]
-      @question = Question.create_question!(question, @que[:answer], @que[:option2], @que[:option3], @que[:option4], @que[:explanation], @que[:level])
+      @question = Question.create_question!(@que[:question], @que[:answer], @que[:option2], @que[:option3], @que[:option4], @que[:explanation], @que[:level])
       if @question.save
         flash[:notice] = 'Question successfully added to question bank'
         redirect_to questions_path
@@ -115,7 +105,6 @@ class QuestionsController < ApplicationController
     else
       @reply_array = Question.verify_answer(@checking_array)
       if @reply_array[:value] == 'correct'
-        puts "reply1#{@reply_array}"
         if current_user
           @cal_score = Question.calculate_scores(current_user.id, @question[6])
           User.find(current_user.id).update_column(:score, @cal_score)

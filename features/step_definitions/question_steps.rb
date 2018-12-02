@@ -1,7 +1,7 @@
 
 def create_question
   @question ||= {questions: 'soluble means:', option2: 'single person', option3: 'happy to receive',
-           option4: 'solar system', answer: 'dissolvable', explanation: 'be able to solve in water'}
+           option4: 'solar system', answer: 'dissolvable', explanation: 'be able to solve in water', level: 'Easy'}
 end
 
 def add_question
@@ -11,8 +11,10 @@ def add_question
   fill_in 'question_option4', with: @question[:option4]
   fill_in 'question_answer', with: @question[:answer]
   fill_in 'question_explanation', with: @question[:explanation]
+  find('#question_level').find(:option, "#{@question[:level]}").select_option
   click_button 'Add this question'
 end
+
 Given /the following questions have been added to Question Database:/ do |question_table|
   question_table.hashes.each do |question|
     Question.create(question)
@@ -97,22 +99,34 @@ Then(/^I fill in all the fields except (.*?) and submit$/) do |field|
   case field
   when 'question'
     @question = @question.merge(questions: '')
+    add_question
   when 'option2'
     @question = @question.merge(option2: '')
+    add_question
   when 'option3'
     @question = @question.merge(option3: '')
+    add_question
   when 'option4'
     @question = @question.merge(option4: '')
+    add_question
   when 'answer'
     @question = @question.merge(answer: '')
+    add_question
   when 'explanation'
     @question = @question.merge(explanation: '')
+    add_question
+  when 'level'
+    fill_in 'question_question', with: @question[:questions]
+    fill_in 'question_option2', with: @question[:option2]
+    fill_in 'question_option3', with: @question[:option3]
+    fill_in 'question_option4', with: @question[:option4]
+    fill_in 'question_answer', with: @question[:answer]
+    fill_in 'question_explanation', with: @question[:explanation]
+    click_button 'Add this question'
   else
     'No more fields to fill in'
   end
-  add_question
 end
-
 
 Then(/^I enter duplicate question without entering other fields$/) do
   create_question
@@ -129,11 +143,12 @@ end
 Then(/^I enter duplicate question along with other fields$/) do
   create_question
   Question.create(@question)
+  @question = @question.merge(answer: 'dissolvable')
   @question = @question.merge(option2: 'Water')
   @question = @question.merge(option3: 'Liquid')
   @question = @question.merge(option4: 'Solid')
-  @question = @question.merge(answer: 'Solubility')
   @question = @question.merge(explanation: 'able to be dissolved, especially in water')
+  @question = @question.merge(level: 'Medium')
   add_question
 end
 

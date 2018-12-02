@@ -35,68 +35,60 @@ describe QuestionsController do
   end
   describe 'Add new question' do
     before :each do
-      @question = 'expensive'
-      @question_option = 'opposite'
+      @question = 'The opposite of expensive is'
       @answer = 'cheap'
       @option1 = 'bear'
       @option2 = 'torn'
       @option3 = 'burnt'
       @explanation = 'The adjective expensive means high in price. Its like the expensive basketball sneakers you had to work all summer to save up enough money to buy.'
       @level = 'easy'
-      @questions = Question.new(:questions => @question + ' ' + @question_option,:answer => @answer, :option2 => @option2, :option3 => @option3, :option4 => @option1, :explanation => @explanation, :level => @level)
-      @full_question = @question + ' ' + @question_option
+      @questions = Question.new(:questions => @question ,:answer => @answer, :option2 => @option2, :option3 => @option3, :option4 => @option1, :explanation => @explanation, :level => @level)
     end
     it 'should get the values from view' do
-      expect(Question).to receive(:create_question!).with(@full_question, @answer, @option1, @option2, @option3, @explanation, @level).and_return(@questions)
-      post :create, {:question => {:question => @question, :question_option => @question_option, :answer => @answer, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation, :level => @level}}
+      expect(Question).to receive(:create_question!).with(@question, @answer, @option1, @option2, @option3, @explanation, @level).and_return(@questions)
+      post :create, {:question => {:question => @question, :answer => @answer, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation, :level => @level}}
     end
     it 'should accept a boolean value as a result of calling model method' do
-      expect(Question).to receive(:create_question!).with(@full_question, @answer, @option1, @option2, @option3, @explanation, @level).and_return(@questions)
-      post :create, {:question => {:question => @question, :question_option => @question_option, :answer => @answer, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation, :level => @level}}
+      expect(Question).to receive(:create_question!).with(@question, @answer, @option1, @option2, @option3, @explanation, @level).and_return(@questions)
+      post :create, {:question => {:question => @question, :answer => @answer, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation, :level => @level}}
 
     end
     it 'should flash success message if question added to database and redirect to index page' do
-      allow(Question).to receive(:create_question!).with(@full_question, @answer, @option1, @option2, @option3, @explanation, @level).and_return(@questions)
-      post :create, {:question => {:question => @question, :question_option => @question_option, :answer => @answer, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation, :level => @level}}
+      allow(Question).to receive(:create_question!).with(@question, @answer, @option1, @option2, @option3, @explanation, @level).and_return(@questions)
+      post :create, {:question => {:question => @question, :answer => @answer, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation, :level => @level}}
       expect(flash[:notice]).to eq('Question successfully added to question bank')
       expect(response).to redirect_to(questions_path)
     end
 
     it 'should return error message failed to add question to database and stay on the same page when missing multiple fields' do
-      post :create, {:question => {:question => @question, :question_option => @question_option, :answer => @answer, :option2 => nil, :option3 => nil, :option4 => @option3, :explanation => @explanation, :level => @level}}
+      post :create, {:question => {:question => @question, :answer => @answer, :option2 => nil, :option3 => nil, :option4 => @option3, :explanation => @explanation, :level => @level}}
       expect(response).to redirect_to(new_question_path)
       expect(flash[:warning]).to eq('Sorry, All fields are required')
     end
 
     it 'should return error message when missing option2 failed to add question to database and stay on the same page' do
-      post :create, {:question => {:question => @question, :question_option => @question_option, :answer => @answer, :option2 => nil, :option3 => @option2, :option4 => @option3, :explanation => @explanation, :level => @level}}
+      post :create, {:question => {:question => @question, :answer => @answer, :option2 => nil, :option3 => @option2, :option4 => @option3, :explanation => @explanation, :level => @level}}
       expect(response).to redirect_to(new_question_path)
       expect(flash[:warning]).to eq("option2 can't be blank")
     end
 
-    it 'should return error message when a radio button is not selected and stay on the same page' do
-      post :create, {:question => {:question => @question, :question_option => nil, :answer => @answer, :option2 => @option2, :option3 => @option2, :option4 => @option3, :explanation => @explanation, :level => @level}}
-      expect(response).to redirect_to(new_question_path)
-      expect(flash[:warning]).to eq('Please select if its means or opposite of the word')
-    end
-
     it 'should return error message if missing explaination while adding question and stay on the same page' do
-      post :create, {:question => {:question => @question, :question_option => @question_option, :answer => @answer, :option2 => @option1, :option3 => @option3, :option4 => @option3, :explanation => nil, :level => @level}}
+      post :create, {:question => {:question => @question, :answer => @answer, :option2 => @option1, :option3 => @option3, :option4 => @option3, :explanation => nil, :level => @level}}
       expect(response).to redirect_to(new_question_path)
       expect(flash[:warning]).to eq("explanation can't be blank")
     end
     it 'should return error message if missing option4 while adding question and stay on the same page' do
-      post :create, {:question => {:question => @question, :question_option => @question_option, :answer => @answer, :option2 => @option1, :option3 => @option3, :option4 => nil, :explanation => @explanation, :level => @level}}
+      post :create, {:question => {:question => @question, :answer => @answer, :option2 => @option1, :option3 => @option3, :option4 => nil, :explanation => @explanation, :level => @level}}
       expect(response).to redirect_to(new_question_path)
       expect(flash[:warning]).to eq("option4 can't be blank")
     end
     it 'should return error message if missing option3 while adding question and stay on the same page' do
-      post :create, {:question => {:question => @question, :question_option => @question_option, :answer => @answer, :option2 => @option1, :option3 => nil, :option4 => @option3, :explanation => @explanation, :level => @level}}
+      post :create, {:question => {:question => @question, :answer => @answer, :option2 => @option1, :option3 => nil, :option4 => @option3, :explanation => @explanation, :level => @level}}
       expect(response).to redirect_to(new_question_path)
       expect(flash[:warning]).to eq("option3 can't be blank")
     end
     it 'should return error message if missing answer while adding question and stay on the same page' do
-      post :create, {:question => {:question => @question, :question_option => @question_option, :answer => nil, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation, :level => @level}}
+      post :create, {:question => {:question => @question, :answer => nil, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation, :level => @level}}
       expect(response).to redirect_to(new_question_path)
       expect(flash[:warning]).to eq("answer can't be blank")
     end

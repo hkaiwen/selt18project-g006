@@ -1,2 +1,0 @@
-      invoke  active_record
-      create    db/migrate/20181121035145_change_column_score.rb

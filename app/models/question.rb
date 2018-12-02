@@ -36,19 +36,23 @@ class Question < ActiveRecord::Base
 
   def self.calculate_scores(user_id, level)
     @score = User.where(:id => user_id).pluck(:score)
-    puts "score#{@score[0]}"
     if level == 'Easy'
-       cal_score = @score[0] + 1
+      cal_score = @score[0] + 1
     elsif level == 'Medium'
-       cal_score = @score[0] + 2
+      cal_score = @score[0] + 2
     else
-       cal_score = @score[0] + 3
+      cal_score = @score[0] + 3
     end
-   end
+  end
 
   def duplicate_question
-    @question = Question.where('questions LIKE ?', "%#{self.questions}%").pluck(:id, :questions)
-    errors.add(:questions, @message) if @question.any?
+    @question = Question.where('answer = ? ', "#{self.answer}").pluck(:questions)
+    if @question.present?
+        @question.each do |que|
+          distance = Levenshtein.distance(que.inspect, self.questions)
+          errors.add(:questions, @message) if distance <= 20
+        end
+    end
   end
 end
 
