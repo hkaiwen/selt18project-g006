@@ -156,3 +156,17 @@ end
 When(/^I do not select any option and click submit$/) do
   click_button 'Submit'
 end
+
+Then(/^I can add a question$/) do
+  create_question
+  find('tr', text: 'Questions').click_link 'Questions'
+  click_link 'Add new'
+  fill_in 'Questions', with: @question[:questions]
+  fill_in 'Answer', with: @question[:answer]
+  fill_in 'Option2', with: @question[:option3]
+  fill_in 'Option3', with: @question[:option4]
+  fill_in 'Option4', with: @question[:option4]
+  fill_in 'Explanation', with: @question[:explanation]
+  fill_in 'Level', with: @question[:level]
+  expect Question.where(questions: 'soluble means').exists? == true
+end

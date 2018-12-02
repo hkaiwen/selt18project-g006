@@ -20,3 +20,12 @@ Feature: Admin can delete question
   Scenario: Admin can delete any question
     When I log in as an admin
     Then I can delete any question from the database
+
+  Scenario: Admin can edit any question
+    When I log in as an admin
+    Then I can edit any question from the database
+
+
+  Scenario: Admin can add a question
+    When I log in as an admin
+    Then I can add a question

@@ -206,3 +206,15 @@ Then(/^I can delete any question from the database$/) do
     question.questions.should_not eql('wonderful means')
   end
 end
+
+Then(/^I can edit any question from the database$/) do
+  find('tr', text: 'Questions').click_link 'Questions'
+  find('tr', text: 'wonderful means').click_link 'Edit'
+  fill_in 'Questions', with: 'The meaning of wonderful'
+  click_button 'Save'
+  expect Question.where(questions: 'The meaning of wonderful').exists? == true
+  expect Question.where(questions: 'wonderful means').exists? == false
+end
+
+
+
