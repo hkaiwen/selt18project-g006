@@ -60,9 +60,9 @@ Feature: Admin can add/edit/delete question and user
     And I remove the filter
     Then I can see all the questions
 
-  Scenario: Admin can go to dashboard if click on dashboard button
+  Scenario: Admin can go to dashboard if click on admin site button
     When I log in as an admin
-    And I click on Dashboard link
+    And I click on Admin site link
     Then  I should be directed to the admin site
 
   Scenario: Admin can play game if the go to home

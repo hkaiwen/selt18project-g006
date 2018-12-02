@@ -224,7 +224,12 @@ Then(/^I can edit any question from the database$/) do
 end
 
 When(/^I click on (.*?) link$/) do |field|
-  find('nav ul li', text: field).click_link field
+  if field == 'Admin site'
+    find('nav ul li', text: 'Home').click_link 'Home'
+    click_button 'Admin Site'
+  else
+    find('nav ul li', text: field).click_link field
+  end
 end
 
 And(/^the following users have been added to User Database:$/) do |user_table|
