@@ -56,7 +56,8 @@ Feature: Admin can add/edit/delete question and user
 
   Scenario: Admin can reset filter and see all questions again
     When I log in as an admin
-    And I fill in filter for question and click reset
+    And I fill in filter for question
+    And I remove the filter
     Then I can see all the questions
 
   Scenario: Admin can go to dashboard if click on dashboard button
@@ -73,4 +74,7 @@ Feature: Admin can add/edit/delete question and user
     When I log in as an admin
     Then I can see all the user in the database
 
-
+  Scenario: Admin can filter user
+    When I log in as an admin
+    And I fill in filter for user
+    Then I only see users that contain the word I searched for

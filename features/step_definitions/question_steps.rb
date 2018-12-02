@@ -254,15 +254,27 @@ Then(/^I can add another question and edit it if they click on save and edit$/) 
   expect (find_field('Option4').value == @question[:option4])
 end
 
-And(/^I fill in filter for question$/) do
-  find('tr', text: 'Questions').click_link 'Questions'
-  fill_in 'Filter', with: 'plethora'
-  click_button 'Refresh'
+And(/^I fill in filter for (.*?)$/) do |field|
+  if field == "question"
+    find('tr', text: 'Questions').click_link 'Questions'
+    fill_in 'Filter', with: 'plethora'
+    click_button 'Refresh'
+  elsif field == 'user'
+    find('tr', text: 'Users').click_link 'Users'
+    fill_in 'Filter', with: 'Linh'
+    click_button 'Refresh'
+  end
 end
 
-Then(/^I only see questions that contain the word I searched for$/) do
-  page.all('tbody tr').each do |tr|
-    expect tr.to_s.include?('plethora') == true
+Then(/^I only see (.*?) that contain the word I searched for$/) do |field|
+  if field == 'questions'
+    page.all('tbody tr').each do |tr|
+      expect tr.to_s.include?('plethora') == true
+    end
+  elsif field == 'users'
+    page.all('tbody tr').each do |tr|
+      expect tr.to_s.include?('Linh') == true
+    end
   end
 end
 
@@ -270,6 +282,11 @@ When (/^I fill in filter for question and click reset$/) do
   find('tr', text: 'Questions').click_link 'Questions'
   fill_in 'Filter', with: 'plethora'
   click_button 'Refresh'
+  fill_in 'Filter', with: ''
+  click_button 'Reset filters'
+end
+
+And(/^I remove the filter$/) do
   fill_in 'Filter', with: ''
   click_button 'Reset filters'
 end
