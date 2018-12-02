@@ -16,5 +16,9 @@ Feature: Display top 10 players along with their scores
     And I am on the question page
 
    Scenario: User clicks on leaderboard
-     When i click on leaderboard
-     Then i should see a display of top 10 players
+     When I click on leaderboard
+     Then I should see a display of top 10 players
+
+   Scenario: User click go back button
+     When I am on leaderboard page and click on back button
+     Then I am on the question page
