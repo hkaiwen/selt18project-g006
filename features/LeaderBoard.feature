@@ -11,7 +11,8 @@ Feature: Display top 10 players along with their scores
       | id  | first_name  | last_name  | email  | encrypted_password  | admin  | score |
       |  1  | Robin       | Hood       | xxx@gmail.com | 123456       |   f    |  10   |
       |  2  | Thomas      | Edison     | yyy@gmail.com | 234567       |   f    |  20   |
-      |  3  |
+      |  3  | Frank       | Robert     | temp@gmail.com | 345678      |   f    |  15   |
+
     And I am on the question page
 
    Scenario: User clicks on leaderboard
