@@ -52,6 +52,13 @@ Feature: Allow user to select the levels when the user is logged in
     Then I select the correct answer
     Then I should see Score: 2 based on level
 
+  Scenario: User selects Hard level when logged in and get the scores based on level
+    When I log in with valid user credentials
+    Then I select Hard level
+    Then I select the correct answer
+    Then I should see Score: 3 based on level
+
+
 
 
 
