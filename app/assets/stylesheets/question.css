@@ -5,7 +5,7 @@
   background-color: #2980b9;
 }
 
-h2{
+ #difficulty_text{
   color: white;
   border-radius: 50px;
   background: #ffb513;
@@ -15,7 +15,6 @@ h2{
   font-size: 20px;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   text-align: center;
-
 }
 
 #question h1 {
@@ -34,6 +33,63 @@ ul {
   height: 40px;
   line-height: 40px;
   color: #666;
+}
+
+#option1 {
+  text-align: center;
+  background: #fff;
+  position: absolute;
+  left: 200px;
+  line-height: 20px;
+  color: #666;
+}
+
+#option2 {
+  position: absolute;
+  text-align: center;
+  background: #fff;
+  left: 300px;
+  line-height: 20px;
+  color: #666;
+}
+
+#option3 {
+  position: absolute;
+  text-align: center;
+  background: #fff;
+  left: 400px;
+  line-height: 20px;
+  color: #666;
+}
+
+#select_level {
+  position: absolute;
+  background: #fff;
+  left: 500px;
+  line-height: 20px;
+  color: #666;
+  top: 14px;
+}
+
+#question_options {
+  position: relative;
+}
+
+#score {
+  color: white;
+  border-radius: 50px;
+  background: #ffb513;
+  position: absolute;
+  right: 0px;
+  width: 120px;
+  height: 50px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+#score_text {
+  font-size: 20px;
+  text-align: center;
+  padding-left: 20px;
 }
 input {
   margin-left: 5px;
@@ -72,13 +128,14 @@ li:nth-child(2n) {
   font-size: 20px;
   color: white;
 }
+
 #message {
   top: 0;
   border: none;
   color: white;
   position: absolute;
   background: none;
-  right:25%;
+  right:10%;
   padding-top: 10px;
   font-size: 20px;
 }

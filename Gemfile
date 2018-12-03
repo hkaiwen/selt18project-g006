@@ -19,7 +19,8 @@ gem 'devise'
 # Use bcrypt for password encryption
 gem 'bcrypt'
 gem 'rails_admin'
-
+# Use levenshtein to calculate string similarity percentage
+gem 'levenshtein'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
