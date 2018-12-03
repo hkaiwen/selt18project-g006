@@ -34,12 +34,18 @@ RailsAdmin.config do |config|
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
-    new
+    new do
+      except ['User']
+    end
     export
     bulk_delete
     show
-    edit
-    delete
+    edit do
+      except ['User']
+    end
+    delete do
+      except ['User']
+    end
 
     ## With an audit adapter, you can add:
     # history_index
