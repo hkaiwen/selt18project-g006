@@ -65,7 +65,7 @@ Feature: Admin can add/edit/delete question and user
     And I click on Admin site link
     Then  I should be directed to the admin site
 
-  Scenario: Admin can play game if the go to home
+  Scenario: Admin can play game if he/she goes to home
     When I log in as an admin
     And I click on Home link
     Then I should be able to the play the game
@@ -78,3 +78,10 @@ Feature: Admin can add/edit/delete question and user
     When I log in as an admin
     And I fill in filter for user
     Then I only see users that contain the word I searched for
+
+  Scenario: Admin can logout of their account
+    When I log in as an admin
+    And I click on Log out link
+    Then I should see a sign out message
+
+
