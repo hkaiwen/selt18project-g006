@@ -185,3 +185,15 @@ li:nth-child(2n) {
   font-size: 20px;
   color: white;
 }
+
+#feedback_button {
+  background: #2980b9;
+  padding-top: 10px;
+  border: none;
+  background: none;
+  position: absolute;
+  top:0;
+  right: 150px;
+  font-size: 20px;
+  color: white;
+}
