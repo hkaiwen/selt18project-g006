@@ -4,6 +4,7 @@ class CreateFeedbacks < ActiveRecord::Migration
       t.text :feedback_text
       t.references :user
       t.timestamps
+      t.integer :rating
     end
   end
 end

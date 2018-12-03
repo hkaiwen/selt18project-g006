@@ -8,7 +8,7 @@ class Question < ActiveRecord::Base
   validates :option4, :presence => true
   validates :explanation, :presence => true
   validates :level, :presence => true
-  # validate :duplicate_question, on: :create
+  validate :duplicate_question, on: :create
 
   def self.create_question!(question, answer, option2, option3, option4, explanation, level)
     @questions = question

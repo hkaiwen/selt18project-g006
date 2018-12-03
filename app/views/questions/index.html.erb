@@ -7,7 +7,7 @@
     <% if user_signed_in? %>
       <li id="message"><%= "Logged In as  #{current_user.first_name}" %></li>
       <li> <%= button_to "Log out", destroy_user_session_path, :method => :delete, :id => 'user_log_out_button', class: "btn btn-lg btn-secondary"%></li>
-      <%= button_to "Feedback",  feedback_path, :method => :get, :id => 'feedback_button', class: "btn btn-secondary" %>
+      <%= button_to "Submit Feedback",  feedback_path, :method => :get, :id => 'feedback_button', class: "btn btn-secondary" %>
     <% else %>
       <li> <%= button_to "Log in", new_user_session_path, :method => :get, :id => 'user_log_in_button', class: "btn btn-lg btn-secondary"%></li>
     <% end %>

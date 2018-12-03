@@ -7,12 +7,29 @@
   </ul>
 </div>
 <div  class="container", id="add_form">
-  <h1 id="add_title">Give us your feedback</h1>
+  <h1 id="add_title"><b>Give us your feedback</b></h1> <br><br>
   <%= form_tag submit_feedback_path, method: :post do %>
-    <%= label :feedback, :feedback,'Feedback' %>
+    <h3>How is your experience with our site?</h3>
+    <div class="rate">
+      <input type="radio" id="star5" name="rate" value="5" />
+      <label for="star5" title="text">5 stars</label>
+      <input type="radio" id="star4" name="rate" value="4" />
+      <label for="star4" title="text">4 stars</label>
+      <input type="radio" id="star3" name="rate" value="3" />
+      <label for="star3" title="text">3 stars</label>
+      <input type="radio" id="star2" name="rate" value="2" />
+      <label for="star2" title="text">2 stars</label>
+      <input type="radio" id="star1" name="rate" value="1" />
+      <label for="star1" title="text">1 star</label>
+    </div>
     <br>
-    <%= text_area :feedback, 'feedback' %>
     <br>
+    <h3>Additional comment</h3>
+    <br>
+    <%= text_area :feedback, 'feedback', id: "feedback_text"  %>
+    <br>
+    <br>
+
     <%= submit_tag 'Submit' %>
   <%end %>
 </div>
