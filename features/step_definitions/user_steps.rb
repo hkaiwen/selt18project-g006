@@ -1,6 +1,6 @@
 def create_user
   @user ||= {first_name: 'Lily', last_name: 'Brown', email: 'lilybrown@gmail.com',
-           password: 'lily1234', password_confirmation: 'lily1234'}
+           password: 'lily1234', password_confirmation: 'lily1234', score: 0}
 end
 
 def sign_up_login

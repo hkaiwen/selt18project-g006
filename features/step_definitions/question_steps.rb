@@ -203,3 +203,8 @@ Then(/^I should get a question based on (.*?) level$/) do |level|
    #empty
  end
 end
+
+
+Then(/^I should see (.*?) based on level$/) do |score|
+  expect(page).to have_content(score)
+end

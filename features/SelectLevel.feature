@@ -40,6 +40,18 @@ Feature: Allow user to select the levels when the user is logged in
     Then I select Hard level
     Then I should get a question based on Hard level
 
+  Scenario: User selects Easy level when logged in and get the scores based on level
+    When I log in with valid user credentials
+    Then I select Easy level
+    Then I select the correct answer
+    Then I should see Score: 1 based on level
+
+  Scenario: User selects Medium level when logged in and get the scores based on level
+    When I log in with valid user credentials
+    Then I select Medium level
+    Then I select the correct answer
+    Then I should see Score: 2 based on level
+
 
 
 
