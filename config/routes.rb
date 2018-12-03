@@ -69,5 +69,6 @@ Rails.application.routes.draw do
   match '/logout', to: 'sessions#destroy', via: :delete
   match  '/feedback', to: 'feedback#index', via: :get
   match '/submit_feedback', to: 'feedback#create', via: :post
+  match  '/leaderboard', to: 'leaderboard#index', via: :get
   #match '/session_clear', to: 'application#session_clear', via: :post
 end
