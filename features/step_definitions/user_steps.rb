@@ -206,3 +206,6 @@ Then(/^I can delete any question from the database$/) do
     question.questions.should_not eql('wonderful means')
   end
 end
+
+
+

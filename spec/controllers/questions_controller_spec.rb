@@ -33,7 +33,16 @@ describe QuestionsController do
       question = [@new_question[0][1], @new_question[1][1]]
       expect((session[:question] & question).empty?).to be(false)
     end
-  end
+      it 'should get the scores for the current user' do
+        expect(Question).to receive(:pluck).with(:id, :questions, :answer, :option2, :option3, :option4, :level).and_return(@new_question)
+        user = User.new(id: 3, first_name: 'Avanti',last_name: 'Deshmukh',email: 'avanti532@gmail.com', password: '1234567', score: 2)
+        user.save
+        score = 2
+        allow(User.where(id: user.id)).to receive(:pluck).with(:score).and_return(score)
+        controller.stub(:current_user).and_return(user)
+        get :index
+      end
+      end
   describe 'Add new question' do
     before :each do
       @question = 'The opposite of expensive is'
@@ -133,8 +142,8 @@ describe QuestionsController do
         user.save
         score = 2
         expect(Question).to receive(:verify_answer).and_return(fake_results)
-        expect(User.where(id: user.id)).to receive(:pluck).with(:score).and_return(score)
-        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+        allow(User.where(id: user.id)).to receive(:pluck).with(:score).and_return(score)
+        controller.stub(:current_user).and_return(user)
         post :submit_answer, { :question => ['Store means:','shop', 'theatre', 'market', 'house', 'Medium'], :optradio => 'theatre'}
       end
       it 'should render index template' do

@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20181130214803) do
 
   create_table "questions", force: :cascade do |t|
@@ -36,8 +35,8 @@ ActiveRecord::Schema.define(version: 20181130214803) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.boolean  "admin",                  default: false
     t.integer  "score",                  default: 0
+    t.boolean  "admin",                  default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

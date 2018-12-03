@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 def create_question
   @question ||= {questions: 'soluble means:', option2: 'single person', option3: 'happy to receive',
@@ -11,7 +12,7 @@ def add_question
   fill_in 'question_option4', with: @question[:option4]
   fill_in 'question_answer', with: @question[:answer]
   fill_in 'question_explanation', with: @question[:explanation]
-  find('#question_level').find(:option, "#{@question[:level]}").select_option
+  find('#question_level').find(:option, (@question[:level]).to_s).select_option
   click_button 'Add this question'
 end
 
@@ -27,12 +28,12 @@ end
 
 When /^I click on 'Get Started' button$/ do
   visit root_path
-  click_button("Get Started")
+  click_button('Get Started')
 end
 
 Then /^I should be able to the play the game$/ do
   str = current_url
-  expect(str.include?("question")).to be_truthy
+  expect(str.include?('question')).to be_truthy
 end
 
 
@@ -43,7 +44,7 @@ end
 
 Then /^I should get a new question$/ do
   current_question = page.find('#question').text
-    if Question.find_by_questions(current_question) != nil
+    unless Question.find_by_questions(current_question).nil?
       expect current_question != @previous_question
     end
   end
@@ -54,7 +55,7 @@ Then /^I should see a question and 4 options$/ do
   page.all('ul li').each do |option|
   expect (option == current_question.answer) || (option == current_question.option2) || (option == current_question.option3) || (option == current_question.option4)
   end
-  expect Question.find_by_questions(current_question) != nil
+  expect !Question.find_by_questions(current_question).nil?
 end
 
 When /^I select the (.*?) answer$/ do |correct|
@@ -62,9 +63,9 @@ When /^I select the (.*?) answer$/ do |correct|
   @answer = Question.where(questions: @ques).pluck('answer')
   @option = Question.where(questions: @ques).pluck('option2')
   if correct == 'correct'
-    choose :option => @answer[0]
+    choose option: @answer[0]
   else
-    choose :option => @option[0]
+    choose option: @option[0]
   end
   click_button('Submit')
 end
@@ -155,4 +156,42 @@ end
 
 When(/^I do not select any option and click submit$/) do
   click_button 'Submit'
+end
+
+
+Then(/^I should not see Select button on questions page$/) do
+  expect(page).not_to have_selector('#select')
+
+end
+
+
+Then(/^I should not see Scores on questions page$/) do
+  expect(page).not_to have_selector('#score')
+end
+
+
+Then(/^I should not see levels on questions page$/) do
+  expect(page).not_to have_selector('#option1')
+  expect(page).not_to have_selector('#option2')
+  expect(page).not_to have_selector('#option3')
+end
+
+Then(/^I select (.*?) level$/) do |level|
+case level
+when 'Easy'
+  choose(option: 'Easy')
+else
+  #empty
+end
+find('#select').click
+end
+
+
+Then(/^I should get a question based on (.*?) level$/) do |level|
+ case level
+ when 'Easy'
+   expect(page).should have_content('Score')
+ else
+   #empty
+ end
 end
