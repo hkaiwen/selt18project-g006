@@ -1,5 +1,3 @@
-
-
 <body onload="f()">
 <div class="topnav", id="nav_bar">
   <ul>
@@ -16,28 +14,7 @@
   </ul>
 </div>
 
-<div class="container">
-
-  <div id="difficulty">
-    <h2><%= 'Difficulty: ' + @ques_opt[6] %> </h2>
-
-    <%if user_signed_in? %>
-      <%= form_tag questions_path, :method => :get do%>
-        <div id="select", class="form-group">
-          <ul>
-            <li id="option1"><input type="radio" value="<%= "Easy" %>", name="rdlevel"><%= "Easy"%></li>
-            <li id="option2"><input type="radio" value="<%= "Medium" %>", name="rdlevel"><%="Medium"%></li>
-            <li id="option3"><input type="radio" value="<%= "Hard" %>", name="rdlevel"><%="Hard"%></li>
-          </ul>
-        </div>
-        <div class="form-group">
-          <%= submit_tag "Select",class: "btn btn-outline-secondary btn-sm",:id => "select_level"%>
-        </div>
-      <% end %>
-    <% end %>
-
   </div>
-
   <div id="question">
     <h1><%= @ques_opt[1] %></h1>
   </div>
@@ -53,8 +30,7 @@
     <li id="option"><input type="radio" value="<%= @ques_opt[5] %>", name="optradio"><%= @ques_opt[5] %></li>
   </ul>
 
-    <div id="button_bar">
-
+  
       <script>
         function f() {
           var x = document.getElementById("sub");
@@ -65,17 +41,14 @@
             x.style.display = "none";
           }
           else{
-          }
-
+            }
         }
       </script>
 
-
+      <div id="button_bar">
       <%= submit_tag "Submit", class: "btn btn-outline-secondary btn-sm", id:"sub" %>
-
       <%= link_to "Next", questions_path, :method => :get, class: "btn btn-outline-secondary btn-sm", :id => "next"%>
-
-    </div>
+      </div>
 
 
   <br>
