@@ -10,7 +10,8 @@
 
   Then /I should see a display of top 10 players/ do
     expect(page).to have_content("Leaderboard")
-    page.all('tr').count.should <= 10
+    page.all('tr').count.should == 4
+    expect(page).to have_content("Robin")
   end
 
   When /I am on leaderboard page and click on back button/ do
