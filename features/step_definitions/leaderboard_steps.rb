@@ -18,3 +18,7 @@
     visit leaderboard_path
     click_on("Back")
   end
+
+  When /I am logged in and on Leaderboard page/ do
+
+  end

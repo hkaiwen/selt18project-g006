@@ -23,9 +23,13 @@ Feature: Display top 10 players along with their scores
      When I am on leaderboard page and click on back button
      Then I am on the question page
 
-   Scenario: Login/Logout function on Leaderboard page
+   Scenario: Login function on Leaderboard page
      When I click on leaderboard
      Then I log in with valid user credentials
      Then I should see a successful login message
+
+   Scenario: Logout function works on Leaderboard page
+     When I log in with valid user credentials
+     And I click on leaderboard
      Then I click on log out
      Then I should see a sign out message
