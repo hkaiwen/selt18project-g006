@@ -187,14 +187,21 @@ Then(/^I should see a blank (.*?) error message$/) do |field|
 end
 
 Then(/^I should be directed to the admin site$/) do
-  expect(current_path).to eq('/admin')
+  expect(current_path =='/admin' || current_path == '/admin/')
 end
 
 
-Then(/^I can see all the question in the database$/) do
-  find('tr', text: 'Questions').click_link 'Questions'
-  Question.all.each do |question|
-    page.should have_content question.questions
+Then(/^I can see all the (.*?) in the database$/) do |field|
+  if field == "question"
+    find('tr', text: 'Questions').click_link 'Questions'
+    Question.all.each do |question|
+      page.should have_content question.questions
+    end
+  elsif field == 'user'
+    find('tr', text: 'Users').click_link 'Users'
+    User.all.each do |user|
+      page.should have_content user.first_name
+    end
   end
 end
 
@@ -204,5 +211,29 @@ Then(/^I can delete any question from the database$/) do
   click_button "Yes, I'm sure"
   Question.all.each do |question|
     question.questions.should_not eql('wonderful means')
+  end
+end
+
+Then(/^I can edit any question from the database$/) do
+  find('tr', text: 'Questions').click_link 'Questions'
+  find('tr', text: 'wonderful means').click_link 'Edit'
+  fill_in 'Questions', with: 'The meaning of wonderful'
+  click_button 'Save'
+  expect Question.where(questions: 'The meaning of wonderful').exists? == true
+  expect Question.where(questions: 'wonderful means').exists? == false
+end
+
+When(/^I click on (.*?) link$/) do |field|
+  if field == 'Admin site'
+    find('nav ul li', text: 'Home').click_link 'Home'
+    click_button 'Admin Site'
+  else
+    find('nav ul li', text: field).click_link field
+  end
+end
+
+And(/^the following users have been added to User Database:$/) do |user_table|
+  user_table.hashes.each do |user|
+    User.create(user)
   end
 end

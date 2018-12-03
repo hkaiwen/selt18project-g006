@@ -20,11 +20,12 @@ describe QuestionsController do
       allow(Question).to receive(:pluck).with(:id, :questions, :answer, :option2, :option3, :option4, :level).and_return(@questions)
       expect(get(:index)).to render_template('welcome/landing')
     end
-    it 'should render different question if the question is already been taken' do
+    it 'should render flash message  if no more questions in the database' do
       session[:question] = ['arduous means:', 'pragmatic means:', 'gregarious means:']
       expect(Question).to receive(:pluck).with(:id,:questions, :answer, :option2, :option3, :option4, :level).and_return(@questions)
       get :index
     end
+
     it 'should add the question to session if is not already present' do
       session[:question] = ['pragmatic means:', 'arduous means:']
       expect(Question).to receive(:pluck).with(:id, :questions, :answer, :option2, :option3, :option4, :level).and_return(@new_question)
@@ -58,6 +59,14 @@ describe QuestionsController do
       post :create, {:question => {:question => @question, :answer => @answer, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation, :level => @level}}
       expect(flash[:notice]).to eq('Question successfully added to question bank')
       expect(response).to redirect_to(questions_path)
+    end
+
+    it 'should flash error message if question is not been added to the database' do
+      allow(Question).to receive(:create_question!).with(@question, @answer, @option1, @option2, @option3, @explanation, @level).and_return(@questions)
+      expect(@questions).to receive(:save).and_return(false)
+      post :create, {:question => {:question => @question, :answer => @answer, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation, :level => @level}}
+      expect(flash[:warning]).to eq('Question has already been taken')
+      expect(response).to redirect_to(new_question_path)
     end
 
     it 'should return error message failed to add question to database and stay on the same page when missing multiple fields' do
