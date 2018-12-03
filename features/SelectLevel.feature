@@ -6,6 +6,9 @@ Feature: Allow user to select the levels when the user is logged in
       | The opposite of healthy is:     |  sick       | suitable  | modest     | apt        | Healthy means having good health. Its the opposite of sick, but also can mean "doing well" in a general sense |                                          Easy   |
       | wonderful means                 |  fantastic  | average   | direct     | possible   | Wonderful is better than good — its even better than great, like your wonderful luck — finding buried treasure on your very first diving expedition. |   Medium |
       | plethora means                  | excess      | function  | happy      | already    | excess superfluity                                                                                                                                   |Hard      |
+      | Store means                     | shop        | house     | building   | office     | a retail establishment selling items to the public                                                                                                   |Easy     |
+      | latent means:                   | not presently active    | perfect and complete    | many and varied  | sudden and strong    |    Latent is an adjective that you use to describe something that is capable of becoming active or at hand, though it is not currently so |Medium   |
+      | transgression means:            | violation       | compression   | persuasion   |  exemption                                 |A transgression is something that is against a command or law. Whether you are cheating on a test, or cheating on a spouse, you are committing transgressions that are not easily forgiven |Hard    |
 
     And I am on the WordPower Page
 
@@ -26,4 +29,10 @@ Feature: Allow user to select the levels when the user is logged in
     When I log in with valid user credentials
     Then I select Easy level
     Then I should get a question based on Easy level
+
+  Scenario: User selects Medium level when logged in and plays the game
+    When I log in with valid user credentials
+    Then I select Medium level
+    Then I should get a question based on Medium level
+
 
