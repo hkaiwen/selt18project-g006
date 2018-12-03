@@ -1,3 +1,4 @@
+<body onload="f()">
 <div class="topnav", id="nav_bar">
   <ul>
     <li id="title">Word Power</li>
@@ -39,10 +40,12 @@
         <h3 id="score_text"><%= "Score: #{@cal_score}"%></h3>
       </div>
     <%end %>
+
   </div>
   <div id="question">
     <h1><%= @ques_opt[1] %></h1>
   </div>
+
   <%= form_tag verifyanswer_path, :method => :post%>
   <% @ques_opt.each do |e| %>
     <%= hidden_field_tag "question[]", e %>
@@ -53,10 +56,35 @@
     <li id="option"><input type="radio" value="<%= @ques_opt[4] %>", name="optradio"><%= @ques_opt[4] %></li>
     <li id="option"><input type="radio" value="<%= @ques_opt[5] %>", name="optradio"><%= @ques_opt[5] %></li>
   </ul>
+
   <div id="button_bar">
     <%= submit_tag "Submit", class: "btn btn-outline-secondary btn-sm"%>
     <%= link_to "Next", questions_path, :method => :get, class: "btn btn-outline-secondary btn-sm", :id => "next"%>
   </div>
+
+
+  
+      <script>
+        function f() {
+          var x = document.getElementById("sub");
+
+          console.log( )
+          if((document.documentElement.textContent && document.documentElement.innerText
+          ).indexOf('Explanation:') > -1){
+            x.style.display = "none";
+          }
+          else{
+            }
+        }
+      </script>
+
+      <div id="button_bar">
+      <%= submit_tag "Submit", class: "btn btn-outline-secondary btn-sm", id:"sub" %>
+      <%= link_to "Next", questions_path, :method => :get, class: "btn btn-outline-secondary btn-sm", :id => "next"%>
+      </div>
+
+
+
   <br>
   <br>
   <% if user_signed_in? %>
@@ -64,10 +92,14 @@
       <%= link_to "Add question to the question bank", new_question_path, :method => :get, class: "btn btn-outline-secondary btn-sm"%>
     </div>
   <% end %>
-  <div class="explanation">
+
+
+  <div class="explanation" id="explain">
     <%= @exp%>
   </div>
-  <div class="answer">
+
+
+  <div class="answer", id="ans">
     <%= @answer %>
   </div>
 </div>
