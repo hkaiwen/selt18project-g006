@@ -179,12 +179,14 @@ end
 Then(/^I select (.*?) level$/) do |level|
 case level
 when 'Easy'
-  #find_by_id('option1').click
   page.choose(option: 'Easy')
+when 'Medium'
+  page.choose(option: 'Medium')
+when 'Hard'
+  page.choose(option: 'Hard')
 else
   #empty
 end
- #find_by_id('select').click
  find_by_id('select_level').click
 end
 
@@ -193,6 +195,10 @@ Then(/^I should get a question based on (.*?) level$/) do |level|
  case level
  when 'Easy'
    expect(page).to have_content('Difficulty: Easy')
+ when 'Medium'
+   expect(page).to have_content('Difficulty: Medium')
+ when 'Hard'
+   expect(page).to have_content('Difficulty: Hard')
  else
    #empty
  end

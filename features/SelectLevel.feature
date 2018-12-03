@@ -35,4 +35,11 @@ Feature: Allow user to select the levels when the user is logged in
     Then I select Medium level
     Then I should get a question based on Medium level
 
+  Scenario: User selects Hard level when logged in and plays the game
+    When I log in with valid user credentials
+    Then I select Hard level
+    Then I should get a question based on Hard level
+
+
+
 
