@@ -7,12 +7,13 @@ class FeedbackController < ApplicationController
     @rating = params[:rate]
     puts 'here'
     puts @rating
-    if  params[:rate].present?
+    if  @rating.nil?
       flash[:notice] = 'You need to give us the rating'
       redirect_to feedback_path
+    else
+      current_user.feedbacks.create(feedback_text: @feedback, rating: @rating)
+      flash[:notice] = 'Your feedback has been recorded!'
+      redirect_to questions_path
     end
-    current_user.feedbacks.create(feedback_text: @feedback, rating: @rating)
-    flash[:notice] = 'Your feedback has been recorded!'
-    redirect_to questions_path
   end
 end
