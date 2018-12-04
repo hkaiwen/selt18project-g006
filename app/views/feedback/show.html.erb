@@ -1,0 +1,50 @@
+<div class="topnav", id="nav_bar">
+  <ul>
+    <li id="title">Word Power</li>
+    <li><%= link_to 'Back to questions', questions_path, :method => :get, :id => 'back_to_questions'%></li>
+    <% if user_signed_in? %>
+      <li id="message"><%= "Logged In as  #{current_user.first_name}" %></li>
+      <li> <%= button_to "Log out", destroy_user_session_path, :method => :delete, :id => 'user_log_out_button', class: "btn btn-lg btn-secondary"%></li>
+    <% else %>
+      <li> <%= button_to "Log in", new_user_session_path, :method => :get, :id => 'user_log_in_button', class: "btn btn-lg btn-secondary"%></li>
+    <% end %>
+    <% if admin? %>
+      <%= button_to "Admin Site", rails_admin_path, :method => :get, :id => 'admin_button', class: "btn btn-secondary" %>
+    <% end %>
+  </ul>
+</div>
+<h1>Feedback</h1>
+<div class="container">
+  <table class="table table-light">
+    <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Name</th>
+      <th scope="col">Comment</th>
+      <th scope="col">Rate</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>How about this table</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>How about this table</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>How about this table ow about this tableow about this tableow about this tableow about this tableow about this tabled</td>
+      <td>@twitter</td>
+    </tr>
+    </tbody>
+  </table>
+  <%= link_to "Back", :back, class: "btn btn-outline-secondary btn-sm"%>
+</div>
+
