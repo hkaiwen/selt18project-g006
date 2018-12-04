@@ -8,7 +8,8 @@ Feature: Display top 10 players along with their scores
       | plethora means                  | excess      | function  | happy      | already    | excess superfluity                                                                                                                                    |  hard   |
 
     Given the following users have been added to the User database:
-      | id  | first_name  | last_name  | email  |       password  | admin  | score |
+
+      | id  | first_name  | last_name  | email  | password  | admin  | score |
       |  1  | Robin       | Hood       | xxx@gmail.com | 123456       |   f    |  10   |
       |  2  | Thomas      | Edison     | yyy@gmail.com | 234567       |   f    |  20   |
       |  3  | Frank       | Robert     | temp@gmail.com | 345678      |   f    |  15   |
@@ -18,3 +19,21 @@ Feature: Display top 10 players along with their scores
    Scenario: User clicks on leaderboard
      When I click on leaderboard
      Then I should see a display of top 10 players
+<<<<<<< HEAD
+=======
+
+   Scenario: User click go back button
+     When I am on leaderboard page and click on back button
+     Then I am on the question page
+
+   Scenario: Login function on Leaderboard page
+     When I click on leaderboard
+     Then I log in with valid user credentials
+     Then I should see a successful login message
+
+   Scenario: Logout function works on Leaderboard page
+     When I log in with valid user credentials
+     And I click on leaderboard
+     Then I click on log out
+     Then I should see a sign out message
+>>>>>>> 29c585e057b16325e362ea4f487d990b4125824a
