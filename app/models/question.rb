@@ -10,6 +10,7 @@ class Question < ActiveRecord::Base
   validates :level, :presence => true
   validate :duplicate_question, on: :create
 
+
   def self.create_question!(question, answer, option2, option3, option4, explanation, level)
     @questions = question
     @answer = answer
@@ -33,6 +34,7 @@ class Question < ActiveRecord::Base
     end
     return hash
   end
+
 
   def self.calculate_scores(user_id, level)
     @score = User.where(:id => user_id).pluck(:score)
