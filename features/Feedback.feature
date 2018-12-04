@@ -31,4 +31,22 @@ Feature: User can create feedback and rate the website
     And I click on Submit feedback
     Then the page should give error message if I don't give the rating
 
+  Scenario: Log out when user on feedback page
+    When I log in with valid user credentials
+    And I click on Submit feedback
+    And I click on log out
+    Then I should see a sign out message
+
+  Scenario: User wants to come back to the question page
+    When I log in with valid user credentials
+    And I click on Submit feedback
+    Then I click on back to question button on feedback form
+    Then I should be redirected to the questions page
+
+
+  Scenario: Feedback is stored even when users only give rating
+    When I log in with valid user credentials
+    And I click on Submit feedback
+    And I give a rating without a comment
+    Then my feedback should be saved in the database
 

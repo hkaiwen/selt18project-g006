@@ -89,7 +89,6 @@ ul {
   font-size: 20px;
   text-align: center;
   padding-left: 20px;
-
 }
 input {
   margin-left: 5px;
@@ -135,7 +134,7 @@ li:nth-child(2n) {
   color: white;
   position: absolute;
   background: none;
-  right:12%;
+  right:13%;
   padding-top: 10px;
   font-size: 20px;
 }
@@ -193,7 +192,7 @@ li:nth-child(2n) {
   background: none;
   position: absolute;
   top:0;
-  right: 420px;
+  right: 400px;
   font-size: 20px;
   color: white;
 }
