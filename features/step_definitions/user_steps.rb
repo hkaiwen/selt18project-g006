@@ -202,6 +202,12 @@ Then(/^I can see all the (.*?) in the database$/) do |field|
     User.all.each do |user|
       page.should have_content user.first_name
     end
+  elsif  field == 'feedback'
+    User.find_by_id(1).feedbacks.create(rating: 4, feedback_text: 'This is good')
+    find('tr', text: 'Feedbacks').click_link 'Feedbacks'
+    Feedback.all.each do |feedback|
+      page.should have_content feedback.feedback_text
+    end
   end
 end
 
