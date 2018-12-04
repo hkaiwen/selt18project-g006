@@ -8,7 +8,7 @@ Feature: Display top 10 players along with their scores
       | plethora means                  | excess      | function  | happy      | already    | excess superfluity                                                                                                                                    |  hard   |
 
     Given the following users have been added to the User database:
-      | id  | first_name  | last_name  | email  | encrypted_password  | admin  | score |
+      | id  | first_name  | last_name  | email  |       password  | admin  | score |
       |  1  | Robin       | Hood       | xxx@gmail.com | 123456       |   f    |  10   |
       |  2  | Thomas      | Edison     | yyy@gmail.com | 234567       |   f    |  20   |
       |  3  | Frank       | Robert     | temp@gmail.com | 345678      |   f    |  15   |
@@ -16,5 +16,5 @@ Feature: Display top 10 players along with their scores
     And I am on the question page
 
    Scenario: User clicks on leaderboard
-     When i click on leaderboard
-     Then i should see a display of top 10 players
+     When I click on leaderboard
+     Then I should see a display of top 10 players
