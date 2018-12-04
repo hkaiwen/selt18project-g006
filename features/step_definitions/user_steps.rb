@@ -241,3 +241,21 @@ end
 Then(/^I should be redirected to a feedback page$/) do
   expect(page).to have_current_path('/feedback')
 end
+
+And(/^I click on Submit feedback$/) do
+  click_button 'Submit Feedback'
+end
+
+And(/^I fill in my feedback$/) do
+  find('#star3').click
+  click_button 'Submit'
+end
+
+Then(/^my feedback should be saved in the database$/) do
+  expect Feedback.count == 1
+end
+
+Then(/^the page should give error message if I don't give the rating$/) do
+  click_button 'Submit'
+  page.should have_content 'You need to give us the rating'
+end

@@ -5,8 +5,6 @@ class FeedbackController < ApplicationController
   def create
     @feedback = params[:feedback]['feedback']
     @rating = params[:rate]
-    puts 'here'
-    puts @rating
     if  @rating.nil?
       flash[:notice] = 'You need to give us the rating'
       redirect_to feedback_path
