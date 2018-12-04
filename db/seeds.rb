@@ -245,8 +245,8 @@ questions = [
    :level => 'Hard'},
 
   {:questions => 'putrefy means to:', :answer => 'decay with an offensive smell', :option2 => 'cause to be frightened',
-   :option3 => 'divide into two branches', :option4 => 'When eggs rot, they putrefy or start to smell really, really bad.
-   Putrefy is to begin stinking, usually when rotting or decomposing.',
+   :option3 => 'divide into two branches', :option4 =>'get cleansed', :explanation => 'When eggs rot, they putrefy or
+  start to smell really, really bad. Putrefy is to begin stinking, usually when rotting or decomposing.',
    :level => 'Hard'},
 
   {:questions => 'unkempt means:', :answer => 'untidy', :option2 => 'adaptable', :option3 => 'voracious',
