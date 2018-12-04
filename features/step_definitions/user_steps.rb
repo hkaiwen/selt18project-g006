@@ -255,6 +255,7 @@ end
 
 And(/^I fill in my feedback$/) do
   find('#star3').click
+  fill_in 'feedback_text', with: 'This is a test comment'
   click_button 'Submit'
 end
 
@@ -265,4 +266,14 @@ end
 Then(/^the page should give error message if I don't give the rating$/) do
   click_button 'Submit'
   page.should have_content 'You need to give us the rating'
+end
+
+
+Then(/^I click on back to question button on feedback form$/) do
+  click_link 'Back to questions'
+end
+
+And(/^I give a rating without a comment$/) do
+  find('#star3').click
+  click_button 'Submit'
 end
