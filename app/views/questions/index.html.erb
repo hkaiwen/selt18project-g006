@@ -76,11 +76,13 @@
   </div>
   <br>
   <br>
-  <% if user_signed_in? %>
-    <div id="add_question">
-      <%= link_to "Add question to the question bank", new_question_path, :method => :get, class: "btn btn-outline-secondary btn-sm"%>
-    </div>
-  <% end %>
+  <div>
+    <% if user_signed_in? %>
+      <%= link_to "Add question to the question bank", new_question_path, :method => :get, class: "btn btn-outline-secondary btn-sm", :id=> "add_question"%>
+    <% end %>
+    <%= link_to "Show Feedback", show_feedback_path, :method => :get, class: "btn btn-outline-secondary btn-sm", :id => "showfeedback"%>
+  </div>
+
   <div class="explanation" id="explain">
     <%= @exp%>
   </div>

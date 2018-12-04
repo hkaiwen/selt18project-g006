@@ -103,6 +103,9 @@ li:nth-child(2n) {
 #button_bar #next {
   float: right;
 }
+#showfeedback {
+  float: right;
+}
 .answer {
   margin-top: 10px;
 }
