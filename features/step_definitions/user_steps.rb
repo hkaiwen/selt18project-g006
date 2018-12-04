@@ -237,3 +237,7 @@ And(/^the following users have been added to User Database:$/) do |user_table|
     User.create(user)
   end
 end
+
+Then(/^I should be redirected to a feedback page$/) do
+  expect(page).to have_current_path('/feedback')
+end
