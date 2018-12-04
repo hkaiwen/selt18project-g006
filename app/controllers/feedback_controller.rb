@@ -14,4 +14,8 @@ class FeedbackController < ApplicationController
       redirect_to questions_path
     end
   end
+
+  def show
+
+  end
 end
