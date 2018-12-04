@@ -97,7 +97,6 @@ class QuestionsController < ApplicationController
   def submit_answer
     @checking_array = []
     @question = params[:question]
-    puts "question: #{@question}"
     @answer = params[:optradio]
     @checking_array << @question << @answer
     if @checking_array.any? {|a| a.nil?}

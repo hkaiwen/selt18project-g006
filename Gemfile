@@ -1,7 +1,6 @@
 ruby '2.4.4'
 source 'https://rubygems.org'
 
-gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.10'
 # Added haml file
@@ -20,7 +19,7 @@ gem 'devise'
 gem 'bcrypt'
 gem 'rails_admin'
 # Use levenshtein to calculate string similarity percentage
-gem 'levenshtein'
+gem 'levenshtein', '~> 0.2.1'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
