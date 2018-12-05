@@ -25,24 +25,14 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>How about this table</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>How about this table</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>How about this table ow about this tableow about this tableow about this tableow about this tableow about this tabled</td>
-      <td>@twitter</td>
-    </tr>
+      <% @feedback_data.each do |e| %>
+        <tr>
+          <td><%= e[2] %></td>
+          <td><%= e[1]%></td>
+          <td><%= e[0] %></td>
+          <td><%= e[3] %></td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
   <%= link_to "Back", :back, class: "btn btn-outline-secondary btn-sm"%>
