@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20181204105742) do
 
   create_table "activity_logs", force: :cascade do |t|
@@ -20,9 +19,8 @@ ActiveRecord::Schema.define(version: 20181204105742) do
     t.string   "act_action"
     t.string   "updated_by"
     t.text     "activity"
-    t.datetime "act_tstamp"
+    t.datetime "act_tstamp", default: '2018-12-05 00:43:10'
   end
-
 
   create_table "questions", force: :cascade do |t|
     t.string   "questions"
