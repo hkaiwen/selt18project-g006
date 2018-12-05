@@ -26,10 +26,11 @@
     <br>
     <h3>Additional comment</h3>
     <br>
-    <%= text_area :feedback, 'feedback', id: "feedback_text" %>
+    <%= text_area :feedback, 'feedback', id: "feedback_text", :placeholder => 'Optional' %>
     <br>
     <br>
 
     <%= submit_tag 'Submit', class: "btn btn-outline-secondary btn-md" %>
+    <%= link_to "Show Feedback", show_feedback_path, :method => :get, class: "btn btn-outline-secondary btn-sm", :id => "showfeedback"%>
   <%end %>
 </div>
