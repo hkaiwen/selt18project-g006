@@ -277,3 +277,23 @@ And(/^I give a rating without a comment$/) do
   find('#star3').click
   click_button 'Submit'
 end
+
+Given /the following feedbacks have been added to the Feedback database:/ do |feedback_table|
+  feedback_table.hashes.each do |feedback|
+    Feedback.create(feedback)
+  end
+end
+
+And /I go to submit feedback page/ do
+  visit feedback_path
+end
+
+When /I click on show feedback button/ do
+  click_link "Show Feedback"
+end
+
+Then /I should see 3 feedbacks on show feedback page/ do
+  expect(page).to have_content("Feedback", "This app helps me al lot!")
+  expect(page).to have_content("It lacks of instructions", "I hope I can see my own rank")
+  page.all('tr').count.should == 4
+end
