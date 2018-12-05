@@ -19,8 +19,7 @@ Feature: Display top 10 players along with their scores
    Scenario: User clicks on leaderboard
      When I click on leaderboard
      Then I should see a display of top 10 players
-<<<<<<< HEAD
-=======
+
 
    Scenario: User click go back button
      When I am on leaderboard page and click on back button
@@ -36,4 +35,4 @@ Feature: Display top 10 players along with their scores
      And I click on leaderboard
      Then I click on log out
      Then I should see a sign out message
->>>>>>> 29c585e057b16325e362ea4f487d990b4125824a
+
