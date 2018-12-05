@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 20181204105742) do
     t.datetime "act_tstamp", default: '2018-12-05 00:43:10'
   end
 
+  create_table "feedbacks", force: :cascade do |t|
+    t.text     "feedback_text"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "rating"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.string   "questions"
     t.string   "answer"

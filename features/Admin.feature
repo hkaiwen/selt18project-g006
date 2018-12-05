@@ -84,4 +84,7 @@ Feature: Admin can add/edit/delete question and user
     And I click on Log out link
     Then I should see a sign out message
 
+  Scenario: Admin can see all feedbacks in the database
+    When I log in as an admin
+    Then I can see all the feedback in the database
 

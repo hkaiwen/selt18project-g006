@@ -7,12 +7,14 @@
     <% if user_signed_in? %>
       <li id="message"><%= "Logged In as  #{current_user.first_name}" %></li>
       <li> <%= button_to "Log out", destroy_user_session_path, :method => :delete, :id => 'user_log_out_button', class: "btn btn-lg btn-secondary"%></li>
+      <%= button_to "Submit Feedback",  feedback_path, :method => :get, :id => 'feedback_button', class: "btn btn-secondary" %>
     <% else %>
       <li> <%= button_to "Log in", new_user_session_path, :method => :get, :id => 'user_log_in_button', class: "btn btn-lg btn-secondary"%></li>
     <% end %>
     <% if admin? %>
       <%= button_to "Admin Site", rails_admin_path, :method => :get, :id => 'admin_button', class: "btn btn-secondary" %>
     <% end %>
+
   </ul>
 </div>
 
@@ -77,11 +79,13 @@
 
   <br>
   <br>
-  <% if user_signed_in? %>
-    <div id="add_question">
-      <%= link_to "Add question to the question bank", new_question_path, :method => :get, class: "btn btn-outline-secondary btn-sm"%>
-    </div>
-  <% end %>
+  <div>
+    <% if user_signed_in? %>
+      <%= link_to "Add question to the question bank", new_question_path, :method => :get, class: "btn btn-outline-secondary btn-sm", :id=> "add_question"%>
+    <% end %>
+    <%= link_to "Show Feedback", show_feedback_path, :method => :get, class: "btn btn-outline-secondary btn-sm", :id => "showfeedback"%>
+  </div>
+
   <div class="explanation" id="explain">
     <%= @exp%>
   </div>
