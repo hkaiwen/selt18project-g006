@@ -67,6 +67,9 @@ Rails.application.routes.draw do
   root :to => redirect('/users'), as: :users_root
   match '/login_create', to: 'sessions#new', via: :post
   match '/logout', to: 'sessions#destroy', via: :delete
+  match  '/feedback', to: 'feedback#index', via: :get
+  match '/submit_feedback', to: 'feedback#create', via: :post
+  match '/show_feedback', to: 'feedback#show', via: :get
   match  '/leaderboard', to: 'leaderboard#index', via: :get
   #match '/session_clear', to: 'application#session_clear', via: :post
 end
