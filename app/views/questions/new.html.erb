@@ -7,7 +7,7 @@
   </ul>
 </div>
 <div  class="container", id="add_form">
-  <h1 id="add_title">Add a new question</h1>
+  <h1 id="add_title"><b>Add a new question</b></h1>
   <%= form_tag questions_path, method: :post do %>
     <%= label :question, :question,'Question' %>
     <br>
@@ -35,9 +35,9 @@
     <br>
     <%= label :question, :level, 'Level of question' %>
     <br>
-    <%= select_tag "question[level]", "<option value='Easy'>Easy</option><option value='Medium'>Medium</option><option value='Hard'>Hard</option>", prompt: 'Select Level'%>
+    <%= select_tag "question[level]", "<option value='Easy'>Easy</option><option value='Medium'>Medium</option><option value='Hard'>Hard</option>", prompt: 'Select Level', class: "btn btn-outline-secondary btn-md"%>
     <br>
     <br>
-    <%= submit_tag 'Add this question' %>
+    <%= submit_tag 'Add this question', class: "btn btn-outline-secondary btn-md" %>
   <%end %>
 </div>
