@@ -217,7 +217,7 @@ questions = [
   paper, but not good to have coarse manners.',:level => 'Easy'},
 
   {:questions => 'mocking means:', :answer => 'playfully vexing, especially by ridicule', :option2 => 'aroused to
-impatience or anger', :option3 => 'devoted to a cause or ideal or purpose', :option4 => 'barely credible',
+  impatience or anger', :option3 => 'devoted to a cause or ideal or purpose', :option4 => 'barely credible',
    :explanation => 'When you talk to or about someone in a mocking tone, youre making fun of them in a nasty, mean way.',
     :level => 'Easy'},
 
@@ -233,8 +233,102 @@ impatience or anger', :option3 => 'devoted to a cause or ideal or purpose', :opt
   {:questions => 'harsh means:', :answer => 'unpleasantly stern', :option2 => 'difficult to find', :option3 => 'large in
    spatial extent or range or scope or quantity', :option4 => 'deserving or inciting pity', :explanation => 'Harsh means
    severe or strict, particularly when referring to punishment. It would be a harsh punishment if you got grounded for
-    two weeks just for coming home a little late for dinner.',:level => 'Easy'}
+    two weeks just for coming home a little late for dinner.',:level => 'Easy'},
+
+  {:questions => 'salve means:', :answer => 'ointment', :option2 => 'reservoir', :option3 => 'figurine',
+  :option4 => 'heirloom', :explanation => 'A salve is something that soothes. You can use an ointment as a salve for an
+  itchy rash, or maybe your kind words can act as a salve to comfort a heartsick friend.', :level => 'Medium'},
+
+  {:questions => 'militancy means:', :answer => 'aggressiveness', :option2 => 'responsiveness', :option3 => 'inquisitiveness',
+   :option4 => 'deliberateness', :explanation => 'Militancy means using violence or aggressiveness, usually to support a cause.
+    Militancy make sense on the battlefield but is unwelcome in the school cafeteria during lunch. So no food fights.',
+   :level => 'Hard'},
+
+  {:questions => 'putrefy means to:', :answer => 'decay with an offensive smell', :option2 => 'cause to be frightened',
+   :option3 => 'divide into two branches', :option4 =>'get cleansed', :explanation => 'When eggs rot, they putrefy or
+  start to smell really, really bad. Putrefy is to begin stinking, usually when rotting or decomposing.',
+   :level => 'Hard'},
+
+  {:questions => 'unkempt means:', :answer => 'untidy', :option2 => 'adaptable', :option3 => 'voracious',
+   :option4 => 'undefined', :explanation => 'Unkempt literally means “not combed,” but use it to describe anything with
+    a sloppy appearance. Your hair probably looks unkempt when you roll out of bed in the morning. Keep it that way if
+    youre going for the rock star look', :level => 'Medium'},
+
+  {:questions => 'vicinity means:', :answer => 'locality', :option2 => 'development', :option3 => 'address',
+   :option4 => 'direction', :explanation => 'If something is in your vicinity, its in the surrounding area or nearby
+   region — its in the neighborhood, so to speak. If theres a garbage dump in your vicinity, youll certainly smell it.',
+   :level => 'Easy'},
+
+  {:questions => 'jovial means:', :answer => 'jolly', :option2 => 'joined', :option3 => 'jealous',
+   :option4 => 'judicial', :explanation => 'Use jovial to describe people who show good humor and are full of joy.
+  Santa Claus, with his constant "ho-ho-hoing" is a jovial figure.', :level => 'Easy'},
+
+  {:questions => 'whet means to:', :answer => 'sharpen by rubbing', :option2 => 'reject outright and bluntly',
+   :option3 => 'destroy completely, as if down to the roots', :option4 => 'be or do something to a greater degree',
+   :explanation => 'To whet is to sharpen. You could whet a knifes blade with a whetting stone, or you could whet your
+    appetite by having some Doritos.', :level => 'Medium'},
+
+  {:questions => 'fallible means:', :answer => 'likely to fail or make errors', :option2 => 'capable of being transmitted
+ by infection', :option3 => 'reduced to the smallest possible size or amount or degree', :option4 => 'rejecting any belief
+ in gods', :explanation => 'As humans we are all fallible, because fallible means likely to make errors or fail. Nobodys
+   perfect, after all.', :level => 'Easy'},
+
+  {:questions => 'dispirited means:', :answer => 'dejected', :option2 => 'tenuous', :option3 => 'delayed',
+   :option4 => 'circuitous', :explanation => 'Dispirited means being down in the dumps or depressed. Losing his girlfriend
+    and job on the same day could make someone dispirited — feeling gloomy and absolutely miserable.',
+   :level => 'Medium'},
+
+  {:questions => 'luster means:', :answer => 'sheen', :option2 => 'inaccuracy', :option3 => 'topography',
+   :option4 => 'fluency', :explanation => 'Something with luster has a certain kind of sheen or shininess, like the way
+    a new pair of shoes looks right before you step into a pile of mud.', :level => 'Medium'},
+
+  {:questions => 'sleek means:', :answer => 'groomed', :option2 => 'scrupulous', :option3 => 'plastic',
+   :option4 => 'collective', :explanation => 'If you hair is sleek, it is smooth and glossy. If your car is sleek, its
+  shiny and looks like it goes fast. Sleek always means smooth, glossy, and streamlined.',
+   :level => 'Easy'},
+
+ {:questions => ' bandy means to:', :answer => 'discuss', :option2 => 'disguise', :option3 => 'survey',
+   :option4 => 'assume', :explanation => 'Bandy is a verb that means to toss many ideas around without focusing on just
+  one. If youve ever brainstormed, you know what this is like — you bandy about different ideas until you find one that works.',
+   :level => 'Medium'},
+
+  {:questions => 'taut means:', :answer => 'tight', :option2 => 'piquant', :option3 => 'stoic',
+   :option4 => 'indelible', :explanation => 'Taut means tight rather than slack. The tightrope ought to be taut and not
+   dangling down by the lion cage.',
+   :level => 'Hard'},
+
+  {:questions => 'lax means:', :answer => 'loose', :option2 => 'laden', :option3 => 'lengthy',
+   :option4 => 'laborious', :explanation => 'Those parents who let their kids eat all their Halloween candy the night of
+ October 31st? Their parenting style might be described as lax. A paperclip chain used as a bike lock? Thats an example of
+ lax security.', :level => 'Medium'},
+
+  {:questions => 'bog means:', :answer => 'marsh', :option2 => 'channel', :option3 => 'bonfire', :option4 => 'cluster',
+   :explanation => 'Youd be pretty soggy by morning if you accidentally set your tent up in a bog. A bog is a swampy kind
+   of ground made up mostly of decomposing plants and mosses.', :level => 'Hard'},
+
+  {:questions => 'forswear means to:', :answer => 'recant', :option2 => 'quaff', :option3 => 'vitiate',
+   :option4 => 'visualize', :explanation => 'To forswear is to give up an idea, belief, or habit that you’ve had
+    previously. New Year’s is a popular time to forswear anything from sweets to bad relationships.', :level => 'Hard'},
+
+  {:questions => 'personification means:', :answer => 'incarnation', :option2 => 'segregation', :option3 => 'importation',
+   :option4 => 'legislation', :explanation => 'Personification means "giving humans qualities to an abstract idea," as in
+  a movie villain who is the personification of evil.', :level => 'Medium'},
+
+  {:questions => 'caesura means:', :answer => 'rest', :option2 => 'strophe', :option3 => 'couplet',
+   :option4 => 'rhyme', :explanation => 'A caesura is a break in a conversation, a line of verse, or a song. Usually,
+  a caesura means total silence, but not for long.', :level => 'Hard'},
+
+  {:questions => 'litotes means:', :answer => 'understatement for rhetorical effect', :option2 => 'unintelligible talking',
+   :option3 => 'frivolous banter', :option4 => 'using words that imitate the sound they denote', :explanation => 'You
+  probably use litotes every day. Ever say "This dessert isnt bad to mean "Its pretty good"? Or "Our teacher wasnt in
+  the best mood today" to mean "He was really grouchy"? Well, those are examples of litotes — a way of saying something
+  by saying what its not.', :level => 'Hard'},
+
+  {:questions => 'consonance means:', :answer => 'harmoniousness', :option2 => 'constancy', :option3 => 'instability',
+   :option4 => 'haste', :explanation => 'The noun consonance refers to a state of agreement or harmony of parts, and
+  it often refers to a pleasing combination of musical sounds.', :level => 'Medium'}
 ]
+
 users = [{:first_name => 'admin', :last_name => 'admin', :email => 'admin@account.com', :admin => true, :password => '123456'}]
 questions.each do |question|
   Question.create!(question)
