@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/models/user.rb": [
+      "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/models/user.rb": [
         null,
         null,
         1,
@@ -14,14 +14,14 @@
         null,
         null
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/helpers/application_helper.rb": [
+      "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/helpers/application_helper.rb": [
         1,
         1,
         0,
         null,
         null
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/controllers/leaderboard_controller.rb": [
+      "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/controllers/leaderboard_controller.rb": [
         null,
         null,
         1,
@@ -31,7 +31,7 @@
         null,
         null
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/controllers/application_controller.rb": [
+      "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/controllers/application_controller.rb": [
         1,
         1,
         null,
@@ -53,7 +53,7 @@
         null,
         null
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/controllers/questions_controller.rb": [
+      "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/controllers/questions_controller.rb": [
         null,
         null,
         1,
@@ -185,12 +185,12 @@
         null,
         null
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/models/feedback.rb": [
+      "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/models/feedback.rb": [
         1,
         1,
         null
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/models/leaderboard.rb": [
+      "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/models/leaderboard.rb": [
         null,
         null,
         1,
@@ -210,7 +210,7 @@
         null,
         null
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/models/question.rb": [
+      "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/models/question.rb": [
         null,
         null,
         1,
@@ -283,26 +283,7 @@
         null,
         null
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/controllers/feedback_controller.rb": [
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/controllers/DeviseController/registrations_controller.rb": [
+      "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/controllers/DeviseController/registrations_controller.rb": [
         null,
         null,
         0,
@@ -370,7 +351,26 @@
         null,
         0
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/controllers/welcome_controller.rb": [
+      "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/controllers/feedback_controller.rb": [
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/controllers/welcome_controller.rb": [
         0,
         0,
         null,
@@ -383,11 +383,11 @@
         0
       ]
     },
-    "timestamp": 1543946050
+    "timestamp": 1544026357
   },
   "Cucumber Features": {
     "coverage": {
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/models/question.rb": [
+      "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/models/question.rb": [
         null,
         null,
         1,
@@ -460,7 +460,7 @@
         null,
         null
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/controllers/questions_controller.rb": [
+      "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/controllers/questions_controller.rb": [
         null,
         null,
         1,
@@ -496,20 +496,20 @@
         85,
         48,
         37,
-        18,
-        14,
+        13,
+        10,
         null,
-        4,
+        3,
         null,
-        18,
+        13,
         0,
         0,
         null,
-        18,
-        18,
+        13,
+        13,
         null,
         null,
-        19,
+        24,
         null,
         85,
         50,
@@ -592,7 +592,7 @@
         null,
         null
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/controllers/application_controller.rb": [
+      "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/controllers/application_controller.rb": [
         1,
         1,
         null,
@@ -614,14 +614,14 @@
         null,
         null
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/helpers/application_helper.rb": [
+      "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/helpers/application_helper.rb": [
         1,
         1,
         100,
         null,
         null
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/controllers/welcome_controller.rb": [
+      "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/controllers/welcome_controller.rb": [
         1,
         1,
         null,
@@ -633,12 +633,12 @@
         null,
         null
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/models/feedback.rb": [
+      "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/models/feedback.rb": [
         1,
         1,
         null
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/controllers/feedback_controller.rb": [
+      "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/controllers/feedback_controller.rb": [
         1,
         1,
         null,
@@ -657,7 +657,7 @@
         null,
         null
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/models/leaderboard.rb": [
+      "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/models/leaderboard.rb": [
         null,
         null,
         1,
@@ -677,7 +677,7 @@
         null,
         null
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/controllers/leaderboard_controller.rb": [
+      "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/controllers/leaderboard_controller.rb": [
         null,
         null,
         1,
@@ -687,88 +687,88 @@
         null,
         null
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/models/user.rb": [
+      "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/controllers/DeviseController/registrations_controller.rb": [
         null,
         null,
         0,
+        0,
+        0,
+        0,
         null,
         null,
-        0,
-        0,
-        0,
-        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         0
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/controllers/DeviseController/registrations_controller.rb": [
+      "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/models/user.rb": [
+        null,
+        null,
+        0,
         null,
         null,
         0,
         0,
         0,
         0,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
         null,
         0
       ]
     },
-    "timestamp": 1543946044
+    "timestamp": 1544026471
   }
 }
