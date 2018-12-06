@@ -74,6 +74,15 @@ Feature: Admin can add/edit/delete question and user
     When I log in as an admin
     Then I can see all the user in the database
 
+  Scenario: Admin can't add duplicate user
+    When I log in as an admin
+    Then I cannot add a user that already in the database
+
+  Scenario: Admin cannot add a user if any of the field is missing
+    When I log in as an admin
+    Then I cannot add user if any of the field is missing
+
+
   Scenario: Admin can create other admin for the application
     When I log in as an admin
     Then I can create account for another admin
