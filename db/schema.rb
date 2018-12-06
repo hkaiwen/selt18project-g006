@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20181205025039) do
 
   create_table "activity_logs", force: :cascade do |t|
@@ -19,6 +20,16 @@ ActiveRecord::Schema.define(version: 20181205025039) do
     t.string   "updated_by"
     t.text     "activity"
     t.datetime "act_tstamp"
+
+ActiveRecord::Schema.define(version: 20181203175249) do
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.text     "feedback_text"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "rating"
+
   end
 
   create_table "questions", force: :cascade do |t|

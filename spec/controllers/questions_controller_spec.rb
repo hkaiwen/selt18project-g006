@@ -20,11 +20,12 @@ describe QuestionsController do
       allow(Question).to receive(:pluck).with(:id, :questions, :answer, :option2, :option3, :option4, :level).and_return(@questions)
       expect(get(:index)).to render_template('welcome/landing')
     end
-    it 'should render different question if the question is already been taken' do
+    it 'should render flash message  if no more questions in the database' do
       session[:question] = ['arduous means:', 'pragmatic means:', 'gregarious means:']
       expect(Question).to receive(:pluck).with(:id,:questions, :answer, :option2, :option3, :option4, :level).and_return(@questions)
       get :index
     end
+
     it 'should add the question to session if is not already present' do
       session[:question] = ['pragmatic means:', 'arduous means:']
       expect(Question).to receive(:pluck).with(:id, :questions, :answer, :option2, :option3, :option4, :level).and_return(@new_question)
@@ -32,7 +33,16 @@ describe QuestionsController do
       question = [@new_question[0][1], @new_question[1][1]]
       expect((session[:question] & question).empty?).to be(false)
     end
-  end
+      it 'should get the scores for the current user' do
+        expect(Question).to receive(:pluck).with(:id, :questions, :answer, :option2, :option3, :option4, :level).and_return(@new_question)
+        user = User.new(id: 3, first_name: 'Avanti',last_name: 'Deshmukh',email: 'avanti532@gmail.com', password: '1234567', score: 2)
+        user.save
+        score = 2
+        allow(User.where(id: user.id)).to receive(:pluck).with(:score).and_return(score)
+        controller.stub(:current_user).and_return(user)
+        get :index
+      end
+      end
   describe 'Add new question' do
     before :each do
       @question = 'The opposite of expensive is'
@@ -58,6 +68,14 @@ describe QuestionsController do
       post :create, {:question => {:question => @question, :answer => @answer, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation, :level => @level}}
       expect(flash[:notice]).to eq('Question successfully added to question bank')
       expect(response).to redirect_to(questions_path)
+    end
+
+    it 'should flash error message if question is not been added to the database' do
+      allow(Question).to receive(:create_question!).with(@question, @answer, @option1, @option2, @option3, @explanation, @level).and_return(@questions)
+      expect(@questions).to receive(:save).and_return(false)
+      post :create, {:question => {:question => @question, :answer => @answer, :option2 => @option1, :option3 => @option2, :option4 => @option3, :explanation => @explanation, :level => @level}}
+      expect(flash[:warning]).to eq('Question has already been taken')
+      expect(response).to redirect_to(new_question_path)
     end
 
     it 'should return error message failed to add question to database and stay on the same page when missing multiple fields' do
@@ -98,6 +116,7 @@ describe QuestionsController do
       before :each do
         @checking_array = ['pragmatic means', 'alterable']
         @fake_results = {:value => anything, :answer => anything, :description => anything}
+        User.delete_all
       end
       it 'should get the values from view' do
         expect(Question).to receive(:verify_answer).with(@checking_array).and_return(@fake_results)
@@ -106,6 +125,26 @@ describe QuestionsController do
       it 'should call the appropriate model method to verify answer' do
         expect(Question).to receive(:verify_answer).with(@checking_array).and_return(@fake_results)
         post :submit_answer, { :question => 'pragmatic means', :optradio => 'alterable'}
+      end
+      it 'should call the appropriate model method to receive the scores based on level for correct answer' do
+        fake_results = { :value => 'correct', :answer => anything, :description => anything}
+        user = User.new(id: 2, first_name: 'Avanti',last_name: 'Deshmukh',email: 'avanti@gmail.com', password: '123456', score: 2)
+        user.save
+        cal_score = 4
+        expect(Question).to receive(:verify_answer).and_return(fake_results)
+        expect(Question).to receive(:calculate_scores).and_return(cal_score)
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+        post :submit_answer, { :question => ['Store means:','shop', 'theatre', 'market', 'house', 'Medium'], :optradio => 'shop'}
+      end
+      it 'should call the appropriate model method to receive the scores based on level for incorrect answer' do
+        fake_results = { :value => 'incorrect', :answer => anything, :description => anything}
+        user = User.new(id: 3, first_name: 'Avanti',last_name: 'Deshmukh',email: 'avanti532@gmail.com', password: '1234567', score: 2)
+        user.save
+        score = 2
+        expect(Question).to receive(:verify_answer).and_return(fake_results)
+        allow(User.where(id: user.id)).to receive(:pluck).with(:score).and_return(score)
+        controller.stub(:current_user).and_return(user)
+        post :submit_answer, { :question => ['Store means:','shop', 'theatre', 'market', 'house', 'Medium'], :optradio => 'theatre'}
       end
       it 'should render index template' do
         expect(Question).to receive(:verify_answer).with(@checking_array).and_return(@fake_results)
