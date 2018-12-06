@@ -19,6 +19,7 @@ describe FeedbackController do
       expect {
         post :create, {:feedback => {:feedback => @feedback}, :rate => @rating, :user_id => 2}
       }.to change(Feedback, :count).by(1)
+      expect(flash[:notice]).to eq('Your feedback has been recorded!')
     end
   end
 end
