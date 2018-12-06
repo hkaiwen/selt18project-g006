@@ -3,7 +3,7 @@
 
 class QuestionsController < ApplicationController
 
-  after_action :log_update, only: [:create, :update, :destroy]
+  after_action :log_update, only: [:create]
 
   def log_update
     log_msg = "question was:"+ action_name+"d"
