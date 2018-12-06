@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
 
   def log_update
     log_msg = "question was:"+ action_name+"d"
-    ActivityLog.create(:item_name => @que[:question], :act_action => action_name, :updated_by => current_user.first_name, :activity => log_msg, :act_tstamp => Time.now)
+    ActivityLog.create(:item_name => @que[:question], :act_action => action_name, :updated_by => current_user, :activity => log_msg, :act_tstamp => Time.now)
   end
 
 
