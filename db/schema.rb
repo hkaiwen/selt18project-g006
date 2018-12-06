@@ -11,15 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20181205025039) do
-  create_table "activity_logs", force: :cascade do |t|
-    t.string   "item_name"
-    t.string   "act_action"
-    t.string   "updated_by"
-    t.text     "activity"
-    t.datetime "act_tstamp", default: '2018-12-05 18:21:24'
-  end
+ActiveRecord::Schema.define(version: 20181203175249) do
 
   create_table "feedbacks", force: :cascade do |t|
     t.text     "feedback_text"
