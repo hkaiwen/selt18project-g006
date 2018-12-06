@@ -301,3 +301,68 @@ end
 And /I click on back button/ do
   click_link "Back"
 end
+
+Then(/^I can create account for another admin$/) do
+  create_user
+  find('tr', text: 'Users').click_link 'Users'
+  click_link 'Add new'
+  fill_in 'First name', with: @user[:first_name]
+  fill_in 'Last name', with: @user[:last_name]
+  fill_in 'Email', with: @user[:email]
+  fill_in 'Password', with: @user[:password]
+  fill_in 'Password confirmation', with: @user[:password_confirmation]
+  check 'Admin'
+  click_button 'Save'
+  expect User.where(first_name: @user[:first_name], last_name: @user[:last_name], email: @user[:email], admin: true).exists? == true
+end
+
+Then(/^I can add another admin if choose save and add another$/) do
+  create_user
+  find('tr', text: 'Users').click_link 'Users'
+  click_link 'Add new'
+  fill_in 'First name', with: @user[:first_name]
+  fill_in 'Last name', with: @user[:last_name]
+  fill_in 'Email', with: @user[:email]
+  fill_in 'Password', with: @user[:password]
+  fill_in 'Password confirmation', with: @user[:password_confirmation]
+  check 'Admin'
+  click_button 'Save and add another'
+  expect User.where(first_name: @user[:first_name], last_name: @user[:last_name], email: @user[:email], admin: true).exists? == true
+  page.should have_content("Save and add another")
+end
+
+Then(/^I cannot add a user that already in the database$/) do
+  create_user
+  find('tr', text: 'Users').click_link 'Users'
+  click_link 'Add new'
+  fill_in 'First name', with: @user[:first_name]
+  fill_in 'Last name', with: @user[:last_name]
+  fill_in 'Email', with: @user[:email]
+  fill_in 'Password', with: @user[:password]
+  fill_in 'Password confirmation', with: @user[:password_confirmation]
+  check 'Admin'
+  click_button 'Save and add another'
+  fill_in 'First name', with: @user[:first_name]
+  fill_in 'Last name', with: @user[:last_name]
+  fill_in 'Email', with: @user[:email]
+  fill_in 'Password', with: @user[:password]
+  fill_in 'Password confirmation', with: @user[:password_confirmation]
+  check 'Admin'
+  click_button 'Save and add another'
+  page.should have_content("User failed to be created")
+end
+
+Then(/^I cannot add user if any of the field is missing$/) do
+  create_user
+  find('tr', text: 'Users').click_link 'Users'
+  click_link 'Add new'
+  click_button 'Save'
+  page.should have_content("First name can't be blank")
+  fill_in 'First name', with: @user[:first_name]
+  click_button 'Save'
+  page.should have_content("Last name can't be blank")
+  fill_in 'Last name', with: @user[:last_name]
+  page.should have_content("Email can't be blank")
+  fill_in 'Email', with: @user[:email]
+  page.should have_content("Password can't be blank")
+end
