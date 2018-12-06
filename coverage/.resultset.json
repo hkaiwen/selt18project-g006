@@ -1,7 +1,9 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/models/user.rb": [
+
+      "/Users/karan/Documents/RubymineProjects/selt18project-g006/app/models/user.rb": [
+
         null,
         null,
         1,
@@ -14,35 +16,35 @@
         null,
         null
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/helpers/application_helper.rb": [
+
+      "/Users/karan/Documents/RubymineProjects/selt18project-g006/app/helpers/application_helper.rb": [
+
         1,
         1,
         0,
         null,
         null
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/controllers/leaderboard_controller.rb": [
+
+      "/Users/karan/Documents/RubymineProjects/selt18project-g006/app/controllers/questions_controller.rb": [
+        null,
+
         null,
         null,
         1,
         null,
         1,
-        2,
-        null,
-        null
-      ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/controllers/application_controller.rb": [
-        1,
-        1,
-        null,
+
         null,
         1,
+        9,
+        9,
+        null,
         null,
         null,
         1,
-        0,
-        0,
-        null,
+        4,
+
         0,
         null,
         null,
@@ -117,6 +119,7 @@
         null,
         null,
         1,
+        null,
         null,
         null,
         null,
@@ -185,7 +188,9 @@
         null,
         null
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/models/feedback.rb": [
+
+      "/Users/karan/Documents/RubymineProjects/selt18project-g006/app/controllers/application_controller.rb": [
+
         1,
         1,
         null
@@ -210,7 +215,9 @@
         null,
         null
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/models/question.rb": [
+
+      "/Users/karan/Documents/RubymineProjects/selt18project-g006/app/models/question.rb": [
+
         null,
         null,
         1,
@@ -223,6 +230,7 @@
         1,
         1,
         null,
+        null,
         1,
         2,
         2,
@@ -245,6 +253,7 @@
         1,
         null,
         2,
+        null,
         null,
         null,
         1,
@@ -283,17 +292,31 @@
         null,
         null
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/controllers/feedback_controller.rb": [
+
+      "/Users/karan/Documents/RubymineProjects/selt18project-g006/app/models/activity_log.rb": [
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/karan/Documents/RubymineProjects/selt18project-g006/app/controllers/activity_logs_controller.rb": [
         0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+
+        null,
+        0
+      ],
+      "/Users/karan/Documents/RubymineProjects/selt18project-g006/app/controllers/welcome_controller.rb": [
         0,
         0,
         null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+
         0,
         0,
         0,
@@ -302,7 +325,9 @@
         0,
         0
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/controllers/DeviseController/registrations_controller.rb": [
+
+      "/Users/karan/Documents/RubymineProjects/selt18project-g006/app/controllers/DeviseController/passwords_controller.rb": [
+
         null,
         null,
         0,
@@ -370,45 +395,12 @@
         null,
         0
       ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/controllers/welcome_controller.rb": [
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ]
-    },
-    "timestamp": 1543946050
-  },
-  "Cucumber Features": {
-    "coverage": {
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/models/question.rb": [
+
+      "/Users/karan/Documents/RubymineProjects/selt18project-g006/app/controllers/DeviseController/sessions_controller.rb": [
         null,
         null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
+        0,
+
         null,
         null,
         1,
@@ -481,6 +473,10 @@
         10,
         null,
         null,
+        0
+      ],
+      "/Users/karan/Documents/RubymineProjects/selt18project-g006/app/controllers/DeviseController/registrations_controller.rb": [
+
         85,
         35,
         35,
@@ -498,6 +494,7 @@
         37,
         18,
         14,
+
         null,
         4,
         null,
@@ -505,8 +502,14 @@
         0,
         0,
         null,
+
+        0,
+        0,
+        0,
+        0,
         18,
         18,
+
         null,
         null,
         19,
@@ -590,14 +593,10 @@
         0,
         0,
         null,
-        null
-      ],
-      "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/controllers/application_controller.rb": [
-        1,
-        1,
+
         null,
         null,
-        1,
+
         null,
         null,
         1,
@@ -685,6 +684,12 @@
         1,
         4,
         null,
+        null,
+        0
+      ]
+    },
+    "timestamp": 1544063013
+
         null
       ],
       "/home/phamlinh/Documents/IowaFall2018/selt18project-g006/app/models/user.rb": [
@@ -770,5 +775,6 @@
       ]
     },
     "timestamp": 1543946044
+
   }
 }

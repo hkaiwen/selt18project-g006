@@ -11,11 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181204105742) do
 
+ActiveRecord::Schema.define(version: 20181205025039) do
   create_table "activity_logs", force: :cascade do |t|
-    t.string   "item_type"
-    t.integer  "item_id"
+    t.string   "item_name"
     t.string   "act_action"
     t.string   "updated_by"
     t.text     "activity"
