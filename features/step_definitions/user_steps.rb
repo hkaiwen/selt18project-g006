@@ -250,7 +250,7 @@ Then(/^I should be redirected to a feedback page$/) do
 end
 
 And(/^I click on Submit feedback$/) do
-  click_on 'Submit Feedback'
+  click_on 'Add Feedback'
 end
 
 And(/^I fill in my feedback$/) do
