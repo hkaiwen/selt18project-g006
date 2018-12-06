@@ -35,7 +35,7 @@ RailsAdmin.config do |config|
 
   config.actions do
     dashboard                     # mandatory
-    index
+    index                         # mandatory
     new do
       except ['Feedback']
     end
@@ -47,10 +47,20 @@ RailsAdmin.config do |config|
     delete do
       except ['User', 'Feedback']
     end
-    #foo
     ## With an audit adapter, you can add:
     # history_index
     # history_show
   end
+
+  config.model 'User' do
+    create do
+      field :first_name
+      field :last_name
+      field :email
+      field :password
+      field :score
+      field :admin
+    end
   end
+end
 
