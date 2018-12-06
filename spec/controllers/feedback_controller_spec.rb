@@ -19,5 +19,6 @@ describe FeedbackController do
       get :show
       expect(assigns(:feedback_data)).to eq(@feedback_result)
     end
+
   end
 end

@@ -4,6 +4,9 @@
 #question {
   background-color: #2980b9;
 }
+.form-inline {
+  margin-top: 10px;
+}
 
  #difficulty_text{
   color: white;

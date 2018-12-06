@@ -1,24 +1,21 @@
 .alert {
   text-align: center;
 }
-.navbar-custom {
+.navbar-light {
   background-color: #2980b9;
-  height: 60px;
-  margin-bottom: 20px;
+  padding-top: 0;
+  padding-bottom: 0;
 }
-.navbar-custom .nav-link {
+.navbar-light .navbar-nav .nav-link {
   color: white;
   font-size: 20px;
 }
-.navbar-custom .navbar-brand {
+.navbar-light .navbar-brand {
   color: white;
   font-size: 32px;
 }
-.navbar-custom .navbar-text {
+.navbar-light .navbar-text {
   color: white;
   font-size: 20px;
 }
 
-.navbar-custom .nav-link:hover {
-  color: black;
-}
