@@ -1,15 +1,6 @@
 # frozen_string_literal: true
 
-
 class QuestionsController < ApplicationController
-
-  after_action :log_update, only: [:create]
-
-  def log_update
-    log_msg = "question was:"+ action_name+"d"
-    ActivityLog.create(:item_type => controller_name.classify, :item_id => "id", :act_action => action_name, :updated_by => current_user.first_name, :activity => log_msg, :act_tstamp => Time.now)
-  end
-
 
   def index
     if params[:rdlevel] != nil
@@ -72,7 +63,6 @@ class QuestionsController < ApplicationController
   def new
     # render new question page
   end
-
 
   def create
     empty_param_hash = {}
