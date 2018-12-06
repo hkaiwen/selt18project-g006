@@ -20,8 +20,19 @@ Feature: User can view feedback on the show feedback page
       |  3  | I hope I can see my own rank     | 3        | Time.now   | Time.now   |   4    |
 
     And I am on the question page
-  Scenario: User goes to show feedback page by clicking show feedback button
-    When I log in with valid user credentials
+    And I log in with valid user credentials
     And I go to submit feedback page
-    And I click on show feedback button
+
+  Scenario: User goes to show feedback page by clicking show feedback button
+    When I click on show feedback button
     Then I should see 3 feedbacks on show feedback page
+
+  Scenario: User goes back by clicking on back button
+    When I click on show feedback button
+    And I click on back button
+    Then I should be redirected to a feedback page
+
+  Scenario: Log out when user on feedback page
+    When I click on show feedback button
+    And I click on log out
+    Then I should see a sign out message

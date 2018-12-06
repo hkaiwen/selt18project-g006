@@ -297,3 +297,7 @@ Then /I should see 3 feedbacks on show feedback page/ do
   expect(page).to have_content("It lacks of instructions", "I hope I can see my own rank")
   page.all('tr').count.should == 4
 end
+
+And /I click on back button/ do
+  click_link "Back"
+end
