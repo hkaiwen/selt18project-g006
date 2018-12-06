@@ -1,23 +1,31 @@
 <body onload="f()">
 
-<div class="topnav", id="nav_bar">
-  <ul>
-    <li id="title">Word Power</li>
-    <li><%= link_to 'Leader board', leaderboard_path, :method => :get, :id => 'leaderboard'%></li>
-    <% if user_signed_in? %>
-      <li id="message"><%= "Logged In as  #{current_user.first_name}" %></li>
-      <li> <%= button_to "Log out", destroy_user_session_path, :method => :delete, :id => 'user_log_out_button', class: "btn btn-lg btn-secondary"%></li>
-      <%= button_to "Submit Feedback",  feedback_path, :method => :get, :id => 'feedback_button', class: "btn btn-secondary" %>
-    <% else %>
-      <li> <%= button_to "Log in", new_user_session_path, :method => :get, :id => 'user_log_in_button', class: "btn btn-lg btn-secondary"%></li>
-    <% end %>
-    <% if admin? %>
-      <%= button_to "Admin Site", rails_admin_path, :method => :get, :id => 'admin_button', class: "btn btn-secondary" %>
-    <% end %>
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <a class="navbar-brand" href="#">Wordpower</a>
 
-  </ul>
-</div>
-
+  <button class="navbar-toggler btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <% if user_signed_in? %>
+        <li class="navbar-text"><%= "Logged In as  #{current_user.first_name}" %></li>
+      <% end %>
+      <%= link_to 'Leader board', leaderboard_path, :method => :get, class: "nav-link"%>
+      <% if admin? %>
+        <%= link_to "Admin Site", rails_admin_path, :method => :get, class: "nav-link" %>
+      <% end %>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <% if user_signed_in? %>
+        <%= link_to "Submit Feedback",  feedback_path, :method => :get, class: "nav-link" %>
+        <%= link_to "Log out", destroy_user_session_path, :method => :delete, class: "nav-link"%>
+      <% else %>
+        <%= link_to "Log in", new_user_session_path, :method => :get, class: "nav-link"%>
+      <% end %>
+    </ul>
+  </div>
+</nav>
 <div class="container">
 
   <div class="form-inline" id="question_options">

@@ -1,3 +1,24 @@
 .alert {
   text-align: center;
 }
+.navbar-custom {
+  background-color: #2980b9;
+  height: 60px;
+  margin-bottom: 20px;
+}
+.navbar-custom .nav-link {
+  color: white;
+  font-size: 20px;
+}
+.navbar-custom .navbar-brand {
+  color: white;
+  font-size: 32px;
+}
+.navbar-custom .navbar-text {
+  color: white;
+  font-size: 20px;
+}
+
+.navbar-custom .nav-link:hover {
+  color: black;
+}
