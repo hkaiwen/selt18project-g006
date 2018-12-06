@@ -16,15 +16,8 @@ class FeedbackController < ApplicationController
   end
 
   def show
-    puts "User: #{User.count}"
-    #puts "Feedback: #{Feedback.user_id}"
     @feedback_data = Feedback.joins(:user).pluck(:feedback_text, :first_name, :last_name, :created_at, :rating)
                        .map{|e| [e[0], e[1] + " " + e[2], e[3].strftime("%F"), e[4]]}
-    puts "Feedback value: #{@feedback_data}"
     render :partial => 'show' and return if request.xhr?
-    #respond_to do |format|
-     # puts @feedback_data
-      #format.js
-    #end
   end
 end

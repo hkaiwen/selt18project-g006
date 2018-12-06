@@ -1,1 +1,23 @@
-No you don't
+<table class="table table-light">
+  <thead>
+  <tr>
+    <th scope="col">Date</th>
+    <th scope="col">Name</th>
+    <th scope="col">Comment</th>
+    <th scope="col">Rate</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @feedback_data.each do |e| %>
+    <tr>
+      <td><%= e[2] %></td>
+      <td><%= e[1]%></td>
+      <td><%= e[0] %></td>
+      <td><%= e[3] %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= link_to 'Close',feedback_path, :id => "closeLink" %>
+
+
