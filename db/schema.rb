@@ -11,6 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
+ActiveRecord::Schema.define(version: 20181205025039) do
+
+  create_table "activity_logs", force: :cascade do |t|
+    t.string   "item_name"
+    t.string   "act_action"
+    t.string   "updated_by"
+    t.text     "activity"
+    t.datetime "act_tstamp"
+
 ActiveRecord::Schema.define(version: 20181203175249) do
 
   create_table "feedbacks", force: :cascade do |t|
@@ -19,6 +29,7 @@ ActiveRecord::Schema.define(version: 20181203175249) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "rating"
+
   end
 
   create_table "questions", force: :cascade do |t|
@@ -43,8 +54,8 @@ ActiveRecord::Schema.define(version: 20181203175249) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "score",                  default: 0
     t.boolean  "admin",                  default: false
+    t.integer  "score",                  default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
