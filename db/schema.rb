@@ -13,7 +13,7 @@
 
 
 ActiveRecord::Schema.define(version: 20181203175249) do
-  
+
   create_table "feedbacks", force: :cascade do |t|
     t.text     "feedback_text"
     t.integer  "user_id"

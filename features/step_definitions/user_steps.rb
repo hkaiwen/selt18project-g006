@@ -277,3 +277,32 @@ And(/^I give a rating without a comment$/) do
   find('#star3').click
   click_button 'Submit'
 end
+
+Then(/^I can create account for another admin$/) do
+  create_user
+  find('tr', text: 'Users').click_link 'Users'
+  click_link 'Add new'
+  fill_in 'First name', with: @user[:first_name]
+  fill_in 'Last name', with: @user[:last_name]
+  fill_in 'Email', with: @user[:email]
+  fill_in 'Password', with: @user[:password]
+  fill_in 'Password confirmation', with: @user[:password_confirmation]
+  check 'Admin'
+  click_button 'Save'
+  expect User.where(first_name: @user[:first_name], last_name: @user[:last_name], email: @user[:email], admin: true).exists? == true
+end
+
+Then(/^I can add another admin if choose save and add another$/) do
+  create_user
+  find('tr', text: 'Users').click_link 'Users'
+  click_link 'Add new'
+  fill_in 'First name', with: @user[:first_name]
+  fill_in 'Last name', with: @user[:last_name]
+  fill_in 'Email', with: @user[:email]
+  fill_in 'Password', with: @user[:password]
+  fill_in 'Password confirmation', with: @user[:password_confirmation]
+  check 'Admin'
+  click_button 'Save and add another'
+  expect User.where(first_name: @user[:first_name], last_name: @user[:last_name], email: @user[:email], admin: true).exists? == true
+  page.should have_content("Save and add another")
+end

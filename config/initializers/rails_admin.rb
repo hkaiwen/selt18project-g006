@@ -37,9 +37,8 @@ RailsAdmin.config do |config|
     dashboard                     # mandatory
     index
     new do
-      except ['User', 'Feedback']
+      except ['Feedback']
     end
-    export
     bulk_delete
     show
     edit do

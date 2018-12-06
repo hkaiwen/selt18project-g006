@@ -74,6 +74,14 @@ Feature: Admin can add/edit/delete question and user
     When I log in as an admin
     Then I can see all the user in the database
 
+  Scenario: Admin can create other admin for the application
+    When I log in as an admin
+    Then I can create account for another admin
+
+  Scenario: Admin can save and create another on click save and add another
+    When I log in as an admin
+    Then  I can add another admin if choose save and add another
+
   Scenario: Admin can filter user
     When I log in as an admin
     And I fill in filter for user

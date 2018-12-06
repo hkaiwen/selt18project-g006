@@ -1,6 +1,37 @@
 {
   "RSpec": {
     "coverage": {
+      "/mnt/c/Home/SELT_REPOS/selt18project-g006/lib/rails_admin/custom_action.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        0,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/models/user.rb": [
         null,
         null,
@@ -56,16 +87,7 @@
       "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/controllers/questions_controller.rb": [
         null,
         null,
-        null,
         1,
-        null,
-        1,
-        null,
-        1,
-        10,
-        10,
-        null,
-        null,
         null,
         1,
         5,
@@ -126,7 +148,6 @@
         null,
         null,
         1,
-        null,
         null,
         null,
         null,
@@ -234,7 +255,6 @@
         1,
         1,
         null,
-        null,
         1,
         2,
         2,
@@ -257,7 +277,6 @@
         1,
         null,
         2,
-        null,
         null,
         null,
         1,
@@ -295,24 +314,6 @@
         null,
         null,
         null
-      ],
-      "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/models/activity_log.rb": [
-        1,
-        1,
-        null,
-        null
-      ],
-      "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/controllers/activity_logs_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0
       ],
       "/mnt/c/Home/SELT_REPOS/selt18project-g006/app/controllers/DeviseController/registrations_controller.rb": [
         null,
@@ -419,6 +420,6 @@
         0
       ]
     },
-    "timestamp": 1544037910
+    "timestamp": 1544070319
   }
 }
