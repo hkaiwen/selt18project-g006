@@ -24,10 +24,10 @@ def sign_up
 end
 
 def log_in
-  click_button 'Log in'
+  click_on 'Log in'
   fill_in 'log_in_text1', with: @user[:email]
   fill_in 'log_in_text2', with: @user[:password]
-  click_button 'Log in'
+  click_on 'Log in'
 end
 
 When /^I sign up with valid user details$/ do
@@ -102,7 +102,7 @@ end
 
 When(/^I sign in on the login page using valid details$/) do
   create_user
-  click_button 'Log in'
+  click_on 'Log in'
   sign_up_login
 end
 
@@ -116,7 +116,7 @@ end
 
 
 When(/^I click on log out$/) do
-  click_button 'Log out'
+  click_on 'Log out'
 end
 
 
@@ -152,10 +152,10 @@ When(/^I log in as an admin$/) do
   @user ||= {first_name: 'admin', last_name: 'admin', email: 'admin@account.com',
              password: '123456', password_confirmation: '123456', admin: true}
   @users = User.create(@user)
-  click_button 'Log in'
+  click_on 'Log in'
   fill_in 'log_in_text1', with: @user[:email]
   fill_in 'log_in_text2', with: @user[:password]
-  click_button 'Log in'
+  click_on 'Log in'
 end
 
 
@@ -233,7 +233,7 @@ end
 When(/^I click on (.*?) link$/) do |field|
   if field == 'Admin site'
     find('nav ul li', text: 'Home').click_link 'Home'
-    click_button 'Admin Site'
+    click_on 'Admin Site'
   else
     find('nav ul li', text: field).click_link field
   end
@@ -250,7 +250,7 @@ Then(/^I should be redirected to a feedback page$/) do
 end
 
 And(/^I click on Submit feedback$/) do
-  click_button 'Submit Feedback'
+  click_on 'Add Feedback'
 end
 
 And(/^I fill in my feedback$/) do

@@ -1,24 +1,24 @@
 .alert {
   text-align: center;
 }
-.navbar-custom {
+.navbar-c {
   background-color: #2980b9;
   height: 60px;
   margin-bottom: 20px;
 }
-.navbar-custom .nav-link {
+.navbar-c .nav-link {
   color: white;
   font-size: 20px;
 }
-.navbar-custom .navbar-brand {
+.navbar-c .navbar-brand {
   color: white;
   font-size: 32px;
 }
-.navbar-custom .navbar-text {
+.navbar-c .navbar-text {
   color: white;
   font-size: 20px;
 }
 
-.navbar-custom .nav-link:hover {
+.navbar-c .nav-link:hover {
   color: black;
 }
