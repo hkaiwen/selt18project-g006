@@ -35,16 +35,15 @@ RailsAdmin.config do |config|
     dashboard                     # mandatory
     index                         # mandatory
     new do
-      except ['User']
+      except ['Feedback']
     end
-    export
     bulk_delete
     show
     edit do
-      except ['User']
+      except ['User', 'Feedback']
     end
     delete do
-      except ['User']
+      except ['User', 'Feedback']
     end
 
     ## With an audit adapter, you can add:

@@ -70,7 +70,6 @@ ul {
   color: #666;
   top: 14px;
 }
-
 #question_options {
   position: relative;
 }
@@ -80,7 +79,7 @@ ul {
   border-radius: 50px;
   background: #ffb513;
   position: absolute;
-  right: 0px;
+  right: 0;
   width: 120px;
   height: 50px;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
@@ -102,6 +101,9 @@ li:nth-child(2n) {
   margin-top: 10px;
 }
 #button_bar #next {
+  float: right;
+}
+#showfeedback {
   float: right;
 }
 .answer {
@@ -135,7 +137,7 @@ li:nth-child(2n) {
   color: white;
   position: absolute;
   background: none;
-  right:10%;
+  right:13%;
   padding-top: 10px;
   font-size: 20px;
 }
@@ -157,7 +159,7 @@ li:nth-child(2n) {
   background: none;
   position: absolute;
   top:0;
-  right: 30%;
+  right: 35%;
   font-size: 20px;
   color: white;
 }
@@ -184,4 +186,61 @@ li:nth-child(2n) {
   right: 80px;
   font-size: 20px;
   color: white;
+}
+
+#feedback_button {
+  background: #2980b9;
+  padding-top: 10px;
+  border: none;
+  background: none;
+  position: absolute;
+  top:0;
+  right: 400px;
+  font-size: 20px;
+  color: white;
+}
+
+#feedback_text {
+  width: 100%;
+  height: 30%;
+}
+
+#question_question, #question_answer, #question_option2, #question_option3, #question_option4, #question_explanation {
+  width: 100%;
+}
+
+.rate {
+  float: left;
+  height: 46px;
+  padding: 0 10px;
+}
+.rate:not(:checked) > input {
+  position:absolute;
+  top:-9999px;
+}
+.rate:not(:checked) > label {
+  float:right;
+  width:1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:30px;
+  color:#ccc;
+}
+.rate:not(:checked) > label:before {
+  content: '★ ';
+}
+.rate > input:checked ~ label {
+  color: #ffc700;
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #deb217;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #c59b08;
 }

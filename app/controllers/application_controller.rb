@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   #session[:count] = nil
 
   def after_sign_in_path_for(resource)
-    if current_user.first_name.to_s == 'admin'
+    if current_user['admin']
       "/admin"
     else
       "/questions"

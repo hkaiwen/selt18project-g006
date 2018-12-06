@@ -1,6 +1,6 @@
 def create_user
   @user ||= {first_name: 'Lily', last_name: 'Brown', email: 'lilybrown@gmail.com',
-           password: 'lily1234', password_confirmation: 'lily1234'}
+           password: 'lily1234', password_confirmation: 'lily1234', score: 0}
 end
 
 def sign_up_login
@@ -69,6 +69,7 @@ end
 
 When(/^I log in with valid user credentials$/) do
   create_user
+  @user = @user.merge(score: 1)
   @users = User.create(@user)
   log_in
 end
@@ -202,6 +203,12 @@ Then(/^I can see all the (.*?) in the database$/) do |field|
     User.all.each do |user|
       page.should have_content user.first_name
     end
+  elsif  field == 'feedback'
+    User.find_by_id(1).feedbacks.create(rating: 4, feedback_text: 'This is good')
+    find('tr', text: 'Feedbacks').click_link 'Feedbacks'
+    Feedback.all.each do |feedback|
+      page.should have_content feedback.feedback_text
+    end
   end
 end
 
@@ -236,4 +243,66 @@ And(/^the following users have been added to User Database:$/) do |user_table|
   user_table.hashes.each do |user|
     User.create(user)
   end
+end
+
+Then(/^I should be redirected to a feedback page$/) do
+  expect(page).to have_current_path('/feedback')
+end
+
+And(/^I click on Submit feedback$/) do
+  click_button 'Submit Feedback'
+end
+
+And(/^I fill in my feedback$/) do
+  find('#star3').click
+  fill_in 'feedback_text', with: 'This is a test comment'
+  click_button 'Submit'
+end
+
+Then(/^my feedback should be saved in the database$/) do
+  expect Feedback.count == 1
+end
+
+Then(/^the page should give error message if I don't give the rating$/) do
+  click_button 'Submit'
+  page.should have_content 'You need to give us the rating'
+end
+
+
+Then(/^I click on back to question button on feedback form$/) do
+  click_link 'Back to questions'
+end
+
+And(/^I give a rating without a comment$/) do
+  find('#star3').click
+  click_button 'Submit'
+end
+
+Then(/^I can create account for another admin$/) do
+  create_user
+  find('tr', text: 'Users').click_link 'Users'
+  click_link 'Add new'
+  fill_in 'First name', with: @user[:first_name]
+  fill_in 'Last name', with: @user[:last_name]
+  fill_in 'Email', with: @user[:email]
+  fill_in 'Password', with: @user[:password]
+  fill_in 'Password confirmation', with: @user[:password_confirmation]
+  check 'Admin'
+  click_button 'Save'
+  expect User.where(first_name: @user[:first_name], last_name: @user[:last_name], email: @user[:email], admin: true).exists? == true
+end
+
+Then(/^I can add another admin if choose save and add another$/) do
+  create_user
+  find('tr', text: 'Users').click_link 'Users'
+  click_link 'Add new'
+  fill_in 'First name', with: @user[:first_name]
+  fill_in 'Last name', with: @user[:last_name]
+  fill_in 'Email', with: @user[:email]
+  fill_in 'Password', with: @user[:password]
+  fill_in 'Password confirmation', with: @user[:password_confirmation]
+  check 'Admin'
+  click_button 'Save and add another'
+  expect User.where(first_name: @user[:first_name], last_name: @user[:last_name], email: @user[:email], admin: true).exists? == true
+  page.should have_content("Save and add another")
 end
