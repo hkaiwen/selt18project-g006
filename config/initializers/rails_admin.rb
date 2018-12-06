@@ -1,4 +1,6 @@
+require Rails.root.join('lib', 'rails_admin', 'custom_action.rb')
 RailsAdmin.config do |config|
+
   config.current_user_method(&:current_user)
 
   ### Popular gems integration
@@ -33,7 +35,7 @@ RailsAdmin.config do |config|
 
   config.actions do
     dashboard                     # mandatory
-    index                         # mandatory
+    index
     new do
       except ['User', 'Feedback']
     end
@@ -46,9 +48,10 @@ RailsAdmin.config do |config|
     delete do
       except ['User', 'Feedback']
     end
-
+    #foo
     ## With an audit adapter, you can add:
     # history_index
     # history_show
   end
-end
+  end
+

@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20181204105742) do
     t.string   "act_action"
     t.string   "updated_by"
     t.text     "activity"
-    t.datetime "act_tstamp", default: '2018-12-05 00:43:10'
+    t.datetime "act_tstamp", default: '2018-12-05 19:31:13'
   end
 
   create_table "feedbacks", force: :cascade do |t|
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 20181204105742) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.boolean  "admin",                  default: false
     t.integer  "score",                  default: 0
+    t.boolean  "admin",                  default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
