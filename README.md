@@ -1,6 +1,7 @@
 # SELT006 Final Project - WordPower
 
-![Heroku](https://heroku-badge.herokuapp.com/?app=selt18project-g006-sprint3) [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.png?v=103)](https://opensource.org/licenses/mit-license.php)
+[![Heroku App Status](http://heroku-shields.herokuapp.com/selt18project-g006-sprint3)](https://selt18project-g006-sprint3.herokuapp.com)
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.png?v=103)](https://opensource.org/licenses/mit-license.php)
 
 
 Word power is a simple vocabulary game that draws random questions from the database and 
