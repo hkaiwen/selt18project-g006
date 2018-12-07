@@ -1,6 +1,6 @@
 <div class="topnav", id="nav_bar">
   <ul>
-    <li id="title">Word Power</li>
+    <li id="title">WordPower</li>
     <% if user_signed_in? %>
       <li> <%= button_to "Log out", destroy_user_session_path, :method => :delete, :id => 'user_log_out_button', class: "btn btn-lg btn-secondary"%></li>
     <% else %>
