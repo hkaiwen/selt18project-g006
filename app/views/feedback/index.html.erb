@@ -20,6 +20,7 @@
     </ul>
   </div>
 </nav>
+
 <div  class="container", id="add_form">
   <h1 id="add_title"><b>Give us your feedback</b></h1> <br><br>
   <%= form_tag submit_feedback_path, method: :post do %>
@@ -44,6 +45,12 @@
     <br>
     <br>
     <%= submit_tag 'Submit', class: "btn btn-outline-secondary btn-md" %>
-    <%= link_to "Show Feedback", show_feedback_path, :method => :get, class: "btn btn-outline-secondary btn-sm", :id => "showfeedback"%>
+    <%= link_to "Show Feedback", show_feedback_path, :method => :get, class: "btn btn-outline-secondary btn-sm", :id => "showfeedback", remote: true%>
   <%end %>
 </div>
+<div class="container">
+  <div id="showFeedback">
+
+  </div>
+</div>
+

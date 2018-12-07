@@ -9,16 +9,42 @@ describe FeedbackController do
       @feedback.save
       @user = User.new(id: 1, first_name: 'test',last_name: 'user',email: 'temp@gmail.com', password: '123456', score: 2)
       @user.save
-    end
-    it 'should render show template ' do
-      expect(get(:show)).to render_template('show')
+      @admin = User.new(id: 1, first_name: 'test',last_name: 'user',email: 'temp@gmail.com', password: '123456', score: 2, admin: true)
+      @admin.save
     end
 
-    it 'should make the values available to the view' do
+    it 'should make filter out admin feedback and assign to feedback_data' do
+      allow_any_instance_of(FeedbackController).to receive(:current_user).and_return(@user)
       allow(Feedback.joins(User)).to receive(:pluck).and_return(@feedback_result)
       get :show
       expect(assigns(:feedback_data)).to eq(@feedback_result)
     end
+    it 'should return all feedback and assign to feedback_data' do
+      allow_any_instance_of(FeedbackController).to receive(:current_user).and_return(@admin)
+      allow(Feedback.joins(User)).to receive(:pluck).and_return(@feedback_result)
+      get :show
+      expect(assigns(:feedback_data)).to eq(@feedback_result)
+    end
+  end
 
+  describe 'Create feedback' do
+    let(:feedback) { build :feedback, post: post }
+    before :each do
+      @feedback = 'This is test feedback'
+      @rating = 5
+    end
+    it 'should give an error and stay at feedback page if there is no rating submitted' do
+      post :create, {:feedback => {:feedback => @feedback}}
+      expect(response).to redirect_to(feedback_path)
+      expect(flash[:notice]).to eq('You need to give us the rating')
+    end
+    it 'should call Feedback create when user clicks submit feedback' do
+      user = User.create!(id: 2, first_name: 'Avanti',last_name: 'Deshmukh',email: 'avanti@gmail.com', password: '123456', score: 2)
+      allow_any_instance_of(FeedbackController).to receive(:current_user).and_return(user)
+      expect {
+        post :create, {:feedback => {:feedback => @feedback}, :rate => @rating, :user_id => 2}
+      }.to change(Feedback, :count).by(1)
+      expect(flash[:notice]).to eq('Your feedback has been recorded!')
+    end
   end
 end

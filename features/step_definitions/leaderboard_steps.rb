@@ -3,7 +3,6 @@
       User.create(user)
     end
   end
-
   When /I click on leaderboard/ do
     click_link("Leader board")
   end
@@ -22,3 +21,4 @@
   When /I am logged in and on Leaderboard page/ do
 
   end
+

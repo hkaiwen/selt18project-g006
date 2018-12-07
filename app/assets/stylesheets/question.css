@@ -106,7 +106,7 @@ li:nth-child(2n) {
 #button_bar #next {
   float: right;
 }
-#showfeedback {
+a#showfeedback {
   float: right;
 }
 .answer {
@@ -140,7 +140,7 @@ li:nth-child(2n) {
   color: white;
   position: absolute;
   background: none;
-  right:13%;
+  right:17%;
   padding-top: 10px;
   font-size: 20px;
 }
@@ -191,6 +191,18 @@ li:nth-child(2n) {
   color: white;
 }
 
+#leaderboard {
+  background: #2980b9;
+  padding-top: 10px;
+  border: none;
+  background: none;
+  position: absolute;
+  top:0;
+  right: 800px;
+  font-size: 20px;
+  color: white;
+}
+
 #feedback_button {
   background: #2980b9;
   padding-top: 10px;
@@ -198,7 +210,7 @@ li:nth-child(2n) {
   background: none;
   position: absolute;
   top:0;
-  right: 400px;
+  right: 600px;
   font-size: 20px;
   color: white;
 }
