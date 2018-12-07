@@ -1,3 +1,24 @@
 .alert {
   text-align: center;
 }
+.navbar-light {
+  background-color: #2980b9;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+  font-size: 20px;
+}
+.navbar-light .navbar-brand {
+  color: white;
+  font-size: 32px;
+}
+.navbar-light .navbar-brand:hover {
+  color: white;
+}
+.navbar-light .navbar-text {
+  color: white;
+  font-size: 20px;
+}
+

@@ -35,9 +35,8 @@ RailsAdmin.config do |config|
     dashboard                     # mandatory
     index                         # mandatory
     new do
-      except ['User', 'Feedback']
+      except ['Feedback']
     end
-    export
     bulk_delete
     show
     edit do
@@ -50,5 +49,11 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+  end
+
+  config.model 'User' do
+    edit do
+      exclude_fields :feedbacks
+    end
   end
 end

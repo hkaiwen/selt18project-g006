@@ -352,3 +352,4 @@ end
 Then(/^I should not see the submit button$/) do
   expect(page).not_to have_content('Submit')
 end
+
