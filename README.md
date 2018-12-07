@@ -1,8 +1,7 @@
 # SELT006 Final Project - WordPower
 
 [![Heroku App Status](http://heroku-shields.herokuapp.com/selt18project-g006-sprint3)](https://selt18project-g006-sprint3.herokuapp.com)
-[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.png?v=103)](https://opensource.org/licenses/mit-license.php)
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Word power is a simple vocabulary game that draws random questions from the database and 
 assign score to users if they answer the question correctly. The game allows users to create account 
