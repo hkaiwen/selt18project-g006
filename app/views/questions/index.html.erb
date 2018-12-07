@@ -1,11 +1,11 @@
 <body onload="f()">
 <nav class="navbar navbar-expand-lg navbar-light">
-  <a class="navbar-brand" href="/">Wordpower</a>
+  <li class="navbar-brand">WordPower</li>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
         <li class="navbar-text"><%= "Logged In as  #{current_user.first_name}" %></li>
       <% end %>
@@ -13,8 +13,6 @@
       <% if admin? %>
         <%= link_to "Admin Site", rails_admin_path, :method => :get, class: "nav-link" %>
       <% end %>
-    </ul>
-    <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
         <%= link_to "Add Feedback",  feedback_path, :method => :get, class: "nav-link" %>
         <%= link_to "Log out", destroy_user_session_path, :method => :delete, class: "nav-link"%>
@@ -25,7 +23,6 @@
   </div>
 </nav>
 <div class="container">
-
   <div class="form-inline" id="question_options">
     <div class ='form-group'>
       <h2 id="difficulty_text"><%= 'Difficulty: ' + @ques_opt[6] %></h2>
@@ -64,7 +61,6 @@
     <li id="option"><input type="radio" value="<%= @ques_opt[4] %>", name="optradio"><%= @ques_opt[4] %></li>
     <li id="option"><input type="radio" value="<%= @ques_opt[5] %>", name="optradio"><%= @ques_opt[5] %></li>
   </ul>
-
   <script>
     function f() {
       var x = document.getElementById("sub");
@@ -73,11 +69,8 @@
       }
     }
   </script>
-
   <div id="button_bar">
-
     <%= submit_tag "Submit", class: "btn btn-outline-secondary btn-sm", id:"sub" %>
-
     <%= link_to "Next", questions_path, :method => :get, class: "btn btn-outline-secondary btn-sm", :id => "next"%>
   </div>
   <br>
@@ -86,9 +79,7 @@
     <% if user_signed_in? %>
       <%= link_to "Add question to the question bank", new_question_path, :method => :get, class: "btn btn-outline-secondary btn-sm", :id=> "add_question"%>
     <% end %>
-
   </div>
-
   <div class="explanation" id="explain">
     <%= @exp%>
   </div>
