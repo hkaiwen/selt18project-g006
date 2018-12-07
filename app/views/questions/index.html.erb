@@ -1,3 +1,4 @@
+
 <body onload="f()">
 
 <div class="topnav", id="nav_bar">
@@ -7,7 +8,7 @@
     <% if user_signed_in? %>
       <li id="message"><%= "Logged In as  #{current_user.first_name}" %></li>
       <li> <%= button_to "Log out", destroy_user_session_path, :method => :delete, :id => 'user_log_out_button', class: "btn btn-lg btn-secondary"%></li>
-      <%= button_to "Submit Feedback",  feedback_path, :method => :get, :id => 'feedback_button', class: "btn btn-secondary" %>
+      <%= button_to "Add Feedback",  feedback_path, :method => :get, :id => 'feedback_button', class: "btn btn-secondary" %>
     <% else %>
       <li> <%= button_to "Log in", new_user_session_path, :method => :get, :id => 'user_log_in_button', class: "btn btn-lg btn-secondary"%></li>
     <% end %>
@@ -17,7 +18,6 @@
 
   </ul>
 </div>
-
 <div class="container">
 
   <div class="form-inline" id="question_options">
@@ -48,6 +48,7 @@
   <div id="question">
     <h1><%= @ques_opt[1] %></h1>
   </div>
+
   <%= form_tag verifyanswer_path, :method => :post%>
   <% @ques_opt.each do |e| %>
     <%= hidden_field_tag "question[]", e %>
@@ -58,6 +59,7 @@
     <li id="option"><input type="radio" value="<%= @ques_opt[4] %>", name="optradio"><%= @ques_opt[4] %></li>
     <li id="option"><input type="radio" value="<%= @ques_opt[5] %>", name="optradio"><%= @ques_opt[5] %></li>
   </ul>
+
 
   <script>
     function f() {
@@ -74,6 +76,7 @@
 
     <%= link_to "Next", questions_path, :method => :get, class: "btn btn-outline-secondary btn-sm", :id => "next"%>
   </div>
+
   <br>
   <br>
   <div>
