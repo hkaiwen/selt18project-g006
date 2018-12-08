@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>class QuestionsController - Rails Application Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-clear_session">#clear_session</a>
+    
+    <li ><a href="#method-i-create">#create</a>
+    
+    <li ><a href="#method-i-index">#index</a>
+    
+    <li ><a href="#method-i-new">#new</a>
+    
+    <li ><a href="#method-i-submit_answer">#submit_answer</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-QuestionsController">
+  <h1 id="class-QuestionsController" class="class">
+    class QuestionsController
+  </h1>
+
+  <section class="description">
+    
+<p>frozen_string_literal: true</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-clear_session" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear_session</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="clear_session-source">
+            <pre><span class="ruby-comment"># File app/controllers/questions_controller.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear_session</span>
+  <span class="ruby-identifier">session</span>[<span class="ruby-value">:count</span>] = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">session</span>[<span class="ruby-value">:question</span>] = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">session</span>[<span class="ruby-value">:selected</span>] = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-string">&#39;/&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File app/controllers/questions_controller.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
+  <span class="ruby-identifier">empty_param_hash</span> = {}
+  <span class="ruby-ivar">@message</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-ivar">@que</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:question</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@que</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">any?</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:blank?</span>)
+    <span class="ruby-ivar">@que</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@que</span>[<span class="ruby-identifier">key</span>].<span class="ruby-identifier">blank?</span>
+        <span class="ruby-identifier">empty_param_hash</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">empty_param_hash</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+      <span class="ruby-ivar">@message</span> = <span class="ruby-string">&#39;Sorry, All fields are required&#39;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@message</span> = <span class="ruby-identifier">empty_param_hash</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">join</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;level&#39;</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;Please select a level&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{empty_param_hash.keys.join} can&#39;t be blank&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">new_question_path</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@question</span> = <span class="ruby-constant">Question</span>.<span class="ruby-identifier">create_question!</span>(<span class="ruby-ivar">@que</span>[<span class="ruby-value">:question</span>], <span class="ruby-ivar">@que</span>[<span class="ruby-value">:answer</span>], <span class="ruby-ivar">@que</span>[<span class="ruby-value">:option2</span>], <span class="ruby-ivar">@que</span>[<span class="ruby-value">:option3</span>], <span class="ruby-ivar">@que</span>[<span class="ruby-value">:option4</span>], <span class="ruby-ivar">@que</span>[<span class="ruby-value">:explanation</span>], <span class="ruby-ivar">@que</span>[<span class="ruby-value">:level</span>])
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@question</span>.<span class="ruby-identifier">save</span>
+      <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">&#39;Question successfully added to question bank&#39;</span>
+      <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">questions_path</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@message</span> = <span class="ruby-string">&#39;Question has already been taken&#39;</span>
+      <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">new_question_path</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">flash</span>[<span class="ruby-value">:warning</span>] = <span class="ruby-ivar">@message</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">index</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File app/controllers/questions_controller.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:rdlevel</span>] <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">session</span>[<span class="ruby-value">:selected</span>] = <span class="ruby-identifier">params</span>[<span class="ruby-value">:rdlevel</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:count</span>].<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">session</span>[<span class="ruby-value">:count</span>] = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@ques_opt</span> = []
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:same</span>]<span class="ruby-operator">==</span> <span class="ruby-string">&#39;yes&#39;</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:commit</span>]<span class="ruby-operator">==</span> <span class="ruby-string">&#39;Submit&#39;</span>
+    <span class="ruby-ivar">@ques_opt</span>=<span class="ruby-identifier">params</span>[<span class="ruby-value">:question</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">params</span>[<span class="ruby-value">:explanation</span>].<span class="ruby-identifier">nil?</span>
+      <span class="ruby-ivar">@exp</span> =<span class="ruby-string">&#39;Explanation: &#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:explanation</span>]
+      <span class="ruby-ivar">@answer</span> = <span class="ruby-string">&#39;Answer: &#39;</span><span class="ruby-operator">+</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:answer</span>]
+      <span class="ruby-ivar">@cal_score</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:score</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">user_signed_in?</span>
+      <span class="ruby-identifier">session</span>[<span class="ruby-value">:count</span>] <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:count</span>] <span class="ruby-operator">&gt;</span> <span class="ruby-value">10</span>
+        <span class="ruby-identifier">flash</span>.<span class="ruby-identifier">now</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">&#39;Please sign up&#39;</span>
+         <span class="ruby-identifier">render</span> <span class="ruby-string">&quot;/welcome/landing&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:selected</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+       <span class="ruby-ivar">@questions</span> = <span class="ruby-constant">Question</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:id</span>,<span class="ruby-value">:questions</span>,<span class="ruby-value">:answer</span>,<span class="ruby-value">:option2</span>,<span class="ruby-value">:option3</span>,<span class="ruby-value">:option4</span>,<span class="ruby-value">:level</span>).<span class="ruby-identifier">sample</span>
+    <span class="ruby-keyword">else</span>
+       <span class="ruby-ivar">@questions</span> = <span class="ruby-constant">Question</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:level</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:selected</span>]).<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:id</span>,<span class="ruby-value">:questions</span>,<span class="ruby-value">:answer</span>,<span class="ruby-value">:option2</span>,<span class="ruby-value">:option3</span>,<span class="ruby-value">:option4</span>,<span class="ruby-value">:level</span>).<span class="ruby-identifier">sample</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:question</span>].<span class="ruby-identifier">blank?</span>
+      (<span class="ruby-identifier">session</span>[<span class="ruby-value">:question</span>] <span class="ruby-operator">||=</span> []) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@questions</span>[<span class="ruby-value">1</span>]
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:question</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-ivar">@questions</span>[<span class="ruby-value">1</span>])
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:selected</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+         <span class="ruby-ivar">@new_question</span> = <span class="ruby-constant">Question</span>.<span class="ruby-identifier">where</span>.<span class="ruby-identifier">not</span>(<span class="ruby-value">:questions</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:question</span>]).<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:id</span>,<span class="ruby-value">:questions</span>,<span class="ruby-value">:answer</span>,<span class="ruby-value">:option2</span>,<span class="ruby-value">:option3</span>,<span class="ruby-value">:option4</span>,<span class="ruby-value">:level</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-ivar">@new_question</span> = <span class="ruby-constant">Question</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;questions NOT IN (?) AND level IN (?)&#39;</span>, <span class="ruby-identifier">session</span>[<span class="ruby-value">:question</span>], <span class="ruby-identifier">session</span>[<span class="ruby-value">:selected</span>]).<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:id</span>,<span class="ruby-value">:questions</span>,<span class="ruby-value">:answer</span>,<span class="ruby-value">:option2</span>,<span class="ruby-value">:option3</span>,<span class="ruby-value">:option4</span>,<span class="ruby-value">:level</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@new_question</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">&#39;No more questions in database&#39;</span>
+        <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;welcome/landing&#39;</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">session</span>[<span class="ruby-value">:question</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@new_question</span>[<span class="ruby-value">0</span>][<span class="ruby-value">1</span>]
+        <span class="ruby-ivar">@questions</span> = <span class="ruby-ivar">@new_question</span>[<span class="ruby-value">0</span>]
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">session</span>[<span class="ruby-value">:question</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@questions</span>[<span class="ruby-value">1</span>]
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_user</span>
+      <span class="ruby-ivar">@score</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:score</span>)
+      <span class="ruby-ivar">@cal_score</span> = <span class="ruby-ivar">@score</span>[<span class="ruby-value">0</span>]
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@options</span> = <span class="ruby-ivar">@questions</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-value">2</span><span class="ruby-operator">..</span><span class="ruby-value">5</span>).<span class="ruby-identifier">shuffle</span>
+    <span class="ruby-ivar">@ques_opt</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@questions</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@questions</span>[<span class="ruby-value">1</span>]
+    <span class="ruby-ivar">@ques_opt</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@options</span>
+    <span class="ruby-ivar">@ques_opt</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@questions</span>[<span class="ruby-value">6</span>]
+    <span class="ruby-ivar">@ques_opt</span>.<span class="ruby-identifier">flatten!</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File app/controllers/questions_controller.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
+  <span class="ruby-comment"># render new question page</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-submit_answer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">submit_answer</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="submit_answer-source">
+            <pre><span class="ruby-comment"># File app/controllers/questions_controller.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">submit_answer</span>
+  <span class="ruby-ivar">@checking_array</span> = []
+  <span class="ruby-ivar">@question</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:question</span>]
+  <span class="ruby-ivar">@answer</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:optradio</span>]
+  <span class="ruby-ivar">@checking_array</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@question</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@answer</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@checking_array</span>.<span class="ruby-identifier">any?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">nil?</span>}
+    <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">&#39;Please select an answer&#39;</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">questions_path</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-identifier">same</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;yes&#39;</span>})
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@reply_array</span> = <span class="ruby-constant">Question</span>.<span class="ruby-identifier">verify_answer</span>(<span class="ruby-ivar">@checking_array</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@reply_array</span>[<span class="ruby-value">:value</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;correct&#39;</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_user</span>
+        <span class="ruby-ivar">@cal_score</span> = <span class="ruby-constant">Question</span>.<span class="ruby-identifier">calculate_scores</span>(<span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>, <span class="ruby-ivar">@question</span>[<span class="ruby-value">6</span>])
+        <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">update_column</span>(<span class="ruby-value">:score</span>, <span class="ruby-ivar">@cal_score</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">flash</span>[<span class="ruby-value">:correct</span>] = <span class="ruby-string">&#39;Great! Your answer is correct&#39;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_user</span>
+        <span class="ruby-ivar">@score</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:score</span>)
+        <span class="ruby-ivar">@cal_score</span> = <span class="ruby-ivar">@score</span>[<span class="ruby-value">0</span>]
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">flash</span>[<span class="ruby-value">:warning</span>] = <span class="ruby-string">&#39;Sorry, This is the incorrect answer&#39;</span>
+    <span class="ruby-keyword">end</span>
+     <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">questions_path</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-identifier">same</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;yes&#39;</span>, <span class="ruby-identifier">explanation</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@reply_array</span>[<span class="ruby-value">:description</span>], <span class="ruby-identifier">answer</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@reply_array</span>[<span class="ruby-value">:answer</span>], <span class="ruby-identifier">score</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@cal_score</span>})
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.3.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

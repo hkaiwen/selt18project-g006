@@ -1,0 +1,13 @@
+Fri, 07 Dec 2018 18:09:24 -0600
+README.rdoc	Fri, 07 Dec 2018 18:07:07 -0600
+app/controllers/DeviseController/registrations_controller.rb	Mon, 03 Dec 2018 11:35:20 -0600
+app/controllers/application_controller.rb	Thu, 06 Dec 2018 15:36:52 -0600
+app/controllers/feedback_controller.rb	Fri, 07 Dec 2018 12:13:48 -0600
+app/controllers/leaderboard_controller.rb	Wed, 05 Dec 2018 11:24:43 -0600
+app/controllers/questions_controller.rb	Thu, 06 Dec 2018 15:36:48 -0600
+app/controllers/welcome_controller.rb	Mon, 03 Dec 2018 11:35:20 -0600
+app/helpers/application_helper.rb	Mon, 03 Dec 2018 11:35:20 -0600
+app/models/feedback.rb	Fri, 07 Dec 2018 18:08:21 -0600
+app/models/leaderboard.rb	Fri, 07 Dec 2018 18:09:22 -0600
+app/models/question.rb	Fri, 07 Dec 2018 18:09:22 -0600
+app/models/user.rb	Fri, 07 Dec 2018 18:09:22 -0600

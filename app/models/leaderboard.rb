@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+##
+# This class declares leaderboard model.
 class Leaderboard
 
   def self.get_users

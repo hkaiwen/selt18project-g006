@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+##
+# This class declares question object model.
 class Question < ActiveRecord::Base
   validates :questions, :presence => true
   validates :answer, :presence => true
